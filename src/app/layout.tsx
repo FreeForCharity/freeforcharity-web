@@ -1,16 +1,9 @@
-import type { Metadata } from "next";
-// Temporarily commented out for build in restricted environments
-// import { Faustina, Fauna_One, Lato, Inter } from "next/font/google";
-import "./globals.css";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import { PopupProvider } from "./components/PopupProvider";
-import PopupsRootClient from "./components/PopupsRootClient";
+import { Open_Sans, Faustina } from "next/font/google";
 
-// const faustina = Faustina({ subsets: ["latin"], weight: ["400","500"], variable: "--font-faustina" });
-// const faunaOne = Fauna_One({ subsets: ["latin"], weight: "400", variable: "--font-fauna-one" });
-// const lato = Lato({ subsets: ["latin"], weight: ["400","700"], variable: "--font-lato" });
-// const inter = Inter({ subsets: ["latin"], weight: ["300","400","500"], variable: "--font-inter" });
+import type { Metadata } from "next";
+import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.freeforcharity.org"),
@@ -51,7 +44,12 @@ export const metadata: Metadata = {
     description:
       "Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.",
     images: [
-      { url: "/web-app-manifest-512x512.png", width: 512, height: 512, alt: "Free For Charity" },
+      {
+        url: "/web-app-manifest-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Free For Charity",
+      },
     ],
   },
   twitter: {
@@ -64,20 +62,36 @@ export const metadata: Metadata = {
   },
 };
 
+// Configure Open Sans for navbar
+const openSans = Open_Sans({
+  weight: ["300", "400", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-open-sans",
+});
+
+// Configure Faustina for body
+const faustina = Faustina({
+  weight: ["300", "400", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-faustina",
+});
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
-        <PopupProvider>
-          <NavBar />
-          {children}
-          <Footer />
-          <PopupsRootClient />
-        </PopupProvider>
+    <html lang="en" className={`${openSans.variable} ${faustina.variable}`}>
+      <body
+        className={`${faustina.className} antialiased`}
+        suppressHydrationWarning={true}
+      >
+        {/* <PopupProvider> */}
+        <Header />
+        {children}
+        <Footer />
+        {/* <PopupsRootClient /> */}
+        {/* </PopupProvider> */}
       </body>
     </html>
   );

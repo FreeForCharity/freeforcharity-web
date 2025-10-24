@@ -1,12 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 @import "tailwindcss";
 
 :root {
   /* Brand tokens */
-  --ffc-primary: #2A6682;
-  --ffc-accent: #F58629;
-  --ffc-yellow: #F5C045;
+  --ffc-primary: #2a6682;
+  --ffc-accent: #f58629;
+  --ffc-yellow: #f5c045;
   --ffc-black: #000000;
-  --ffc-white: #FFFFFF;
+  --ffc-white: #ffffff;
 
   /* Layout */
   --ffc-container: 1248px;
@@ -32,8 +34,16 @@
 }
 
 body {
+  /* font-family: "Open Sans", sans-serif !important; */
+  font-family: "Faustina", serif !important;
   background: var(--color-paper);
   color: var(--color-ink);
+}
+#header{
+  font-family: "Open Sans", sans-serif !important;
+} 
+#aria-font{
+  font-family: "Open Sans", sans-serif !important;
 }
 
 /* Utilities aligned to Figma */
@@ -45,4 +55,13 @@ body {
 
 .ffc-card {
   @apply bg-paper border-4 rounded-xl shadow;
+}
+
+/* Hide scrollbar globally */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
