@@ -24,10 +24,15 @@ export default function Footer() {
             <div className="space-y-4">
               <img src="../../../../Svgs/footerImage.svg" alt="" />
               {/* GuideStar Link */}
-
               <a
                 href="/your-profile-url"
-                className="group relative my-4 flex w-full max-w-[230px] items-center justify-between border-2 border-[#2ea3f2] bg-black px-5 py-2.5 text-[#2ea3f2] transition-all duration-300 hover:border-none"
+                className="
+    group relative my-4 flex w-full max-w-[230px] items-center justify-between
+    border-2 border-[#2ea3f2] bg-black px-5 py-2.5 text-[#2ea3f2]
+    transition-all duration-300
+    hover:border-transparent
+  "
+                id="aria-font"
               >
                 <span className="text-[17px] font-medium leading-tight sm:text-[18px] md:text-[20px] transition-transform duration-300 group-hover:-translate-x-1">
                   Direct GuideStar Profile Link
@@ -167,7 +172,6 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-
           {/* Column 3: Contact Us */}
           <div className="space-y-6 px-4 sm:px-0">
             <h3 className="text-[28px] text-white">Contact Us</h3>
@@ -288,7 +292,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div
-          className="mt-12 pt-6 border-t border-gray-800 text-center text-[18px]  font-[500] w-full"
+          className="mt-12 py-6 px-4  border-t border-gray-800 text-center text-[18px]  font-[500] w-full"
           id="aria-font"
         >
           <p>
