@@ -58,7 +58,7 @@ export default function TestimonialSlider() {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 pb-25 bg-[#FCFCFC]">
       <div className="container mx-auto px-4 max-w-[1150px] text-center">
         <h2
           className="font-[700] text-[#F27022] text-[40px] leading-[44px] mb-7"

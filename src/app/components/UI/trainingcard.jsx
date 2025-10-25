@@ -1,6 +1,6 @@
 export default function TrainingCard({ src, heading, text }) {
   return (
-    <div className="max-w-[85%] md:max-w-full mx-auto bg-white shadow-[0_2px_18px_0_rgba(0,0,0,0.3)] transition-shadow duration-300 p-8 text-center">
+    <div className="max-w-full mx-auto bg-white shadow-[0_2px_18px_0_rgba(0,0,0,0.3)] transition-shadow duration-300 p-8 text-center">
       {/* Icon */}
       <div className="mb-6 flex justify-center">
         <div className="w-20 h-20 flex items-center justify-center">
