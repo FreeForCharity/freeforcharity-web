@@ -1,4 +1,14 @@
-export default function TrainingCard({ src, heading, text }) {
+// components/ui/TrainingCard.tsx
+"use client";
+import React from "react";
+
+interface TrainingCardProps {
+  src: string;
+  heading: string;
+  text: string;
+}
+
+const TrainingCard: React.FC<TrainingCardProps> = ({ src, heading, text }) => {
   return (
     <div className="max-w-full mx-auto bg-white shadow-[0_2px_18px_0_rgba(0,0,0,0.3)] transition-shadow duration-300 p-8 text-center">
       {/* Icon */}
@@ -22,4 +32,6 @@ export default function TrainingCard({ src, heading, text }) {
       </p>
     </div>
   );
-}
+};
+
+export default TrainingCard;

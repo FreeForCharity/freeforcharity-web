@@ -1,6 +1,6 @@
 import React from "react";
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <div className="hero min-h-screen flex items-center px-4 sm:px-6 md:px-10">
       <div className="w-full max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between pt-[50px]">

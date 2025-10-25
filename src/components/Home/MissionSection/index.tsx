@@ -1,7 +1,7 @@
-// app/mission/page.tsx
+import React from "react";
 import BlueBtn from "../../UI/Bluebtn";
 
-export default function Mission() {
+const Mission: React.FC = () => {
   return (
     <section className="py-16 px-4 sm:px-6 md:px-8 font-sans text-center">
       <div className="mx-auto w-full max-w-[1000px]">
@@ -33,4 +33,6 @@ export default function Mission() {
       </div>
     </section>
   );
-}
+};
+
+export default Mission;

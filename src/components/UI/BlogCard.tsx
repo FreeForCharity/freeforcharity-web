@@ -2,8 +2,20 @@
 
 import React, { useState } from "react";
 
-export default function InfoCard({ imageUrl, heading, date, description }) {
-  const [isHovered, setIsHovered] = useState(false);
+interface InfoCardProps {
+  imageUrl?: string;
+  heading: string;
+  date?: string;
+  description: string;
+}
+
+const InfoCard: React.FC<InfoCardProps> = ({
+  imageUrl,
+  heading,
+  date,
+  description,
+}) => {
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   return (
     <div
@@ -37,13 +49,23 @@ export default function InfoCard({ imageUrl, heading, date, description }) {
         <h3 className="text-[25px] font-[500] text-black leading-[25px]">
           <a href="/blog">{heading}</a>
         </h3>
-        <p id="aria-font" className="text-[14px] font-[600] text-[#f27022] my-2">
-          {date}
-        </p>
-        <p id="lato-font" className="text-[#666666] font-[500] text-[18px] leading-relaxed">
+        {date && (
+          <p
+            id="aria-font"
+            className="text-[14px] font-[600] text-[#f27022] my-2"
+          >
+            {date}
+          </p>
+        )}
+        <p
+          id="lato-font"
+          className="text-[#666666] font-[500] text-[18px] leading-relaxed"
+        >
           {description}
         </p>
       </div>
     </div>
   );
-}
+};
+
+export default InfoCard;

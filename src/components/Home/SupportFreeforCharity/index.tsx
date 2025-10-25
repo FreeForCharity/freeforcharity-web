@@ -1,8 +1,9 @@
+import React from "react";
 import TrainingCard from "../../UI/trainingcard";
 import BlueBtn from "../../UI/Bluebtn";
 import { IoIosArrowForward } from "react-icons/io";
 
-export default function SupportFreeForCharity() {
+const SupportFreeForCharity: React.FC = () => {
   return (
     <>
       {/* ---------- TOP BANNER ---------- */}
@@ -26,11 +27,11 @@ export default function SupportFreeForCharity() {
           <a
             href="https://www.paypal.com/donate/?hosted_button_id=YOUR_ID"
             className="
-    group relative my-4 flex w-full max-w-[250px] items-center justify-between
-    border-2 border-[#2ea3f2] px-4 py-2.5 text-[#2ea3f2]
-    transition-all duration-300
-    hover:border-transparent hover:bg-gray-200 mx-auto md:mx-0
-  "
+              group relative my-4 flex w-full max-w-[250px] items-center justify-between
+              border-2 border-[#2ea3f2] px-4 py-2.5 text-[#2ea3f2]
+              transition-all duration-300
+              hover:border-transparent hover:bg-gray-200 mx-auto md:mx-0
+            "
             id="aria-font"
           >
             <span className="text-[17px] font-medium leading-tight sm:text-[18px] md:text-[20px] transition-transform duration-300 group-hover:-translate-x-1">
@@ -82,6 +83,8 @@ export default function SupportFreeForCharity() {
             />
             <BlueBtn />
           </div>
+
+          {/* Card 3 */}
           <div>
             <h1
               className="text-center mb-10 font-[600] text-[18px] leading-[27px] text-black px-1"
@@ -101,4 +104,6 @@ export default function SupportFreeForCharity() {
       </section>
     </>
   );
-}
+};
+
+export default SupportFreeForCharity;

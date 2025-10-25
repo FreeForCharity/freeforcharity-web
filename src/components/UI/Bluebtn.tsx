@@ -1,7 +1,13 @@
-// components/ui/BlueBtn.jsx
+// components/ui/BlueBtn.tsx
+"use client";
+import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
-export default function BlueBtn({ children = "Learn More", ...props }) {
+interface BlueBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: React.ReactNode;
+}
+
+const BlueBtn: React.FC<BlueBtnProps> = ({ children = "Learn More", ...props }) => {
   return (
     <button
       className="
@@ -32,4 +38,6 @@ export default function BlueBtn({ children = "Learn More", ...props }) {
       />
     </button>
   );
-}
+};
+
+export default BlueBtn;

@@ -5,16 +5,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { MdOutlineArrowBackIos } from "react-icons/md";
-import { MdOutlineArrowForwardIos } from "react-icons/md";
-
+import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
 import Image from "next/image";
-
-// import QuoteLeft from "../../../../../public/Svgs/quote-left.svg";
 import QuoteLeft from "../../../../public/Svgs/quote-left.svg";
 import QuoteRight from "../../../../public/Svgs/quote-right.svg";
 
-const testimonials = [
+interface Testimonial {
+  heading: string;
+  text: string;
+  name?: string;
+  location?: string;
+}
+
+const testimonials: Testimonial[] = [
   {
     heading: "American Legion Ahwatukee Post 64",
     text: "Knowing that I can reach out to the owner of another veteran to aid with our website’s charities’ needs completely across the country has been amazing for this disabled veteran.",
@@ -36,11 +39,11 @@ const testimonials = [
   },
 ];
 
-export default function TestimonialSlider() {
-  const [swiperInstance, setSwiperInstance] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+const TestimonialSlider: React.FC = () => {
+  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     if (swiperInstance && prevRef.current && nextRef.current) {
@@ -51,18 +54,16 @@ export default function TestimonialSlider() {
     }
   }, [swiperInstance]);
 
-  const handleSlideChange = (swiper) => setActiveIndex(swiper.activeIndex);
+  const handleSlideChange = (swiper: any) => setActiveIndex(swiper.activeIndex);
 
-  const handleDotClick = (index) => {
+  const handleDotClick = (index: number) => {
     if (swiperInstance) swiperInstance.slideTo(index);
   };
 
   return (
     <section className="py-16 pb-25 bg-[#FCFCFC]">
       <div className="container mx-auto px-4 max-w-[1150px] text-center">
-        <h2
-          className="font-[700] text-[#F27022] text-[40px] leading-[44px] mb-7"
-        >
+        <h2 className="font-[700] text-[#F27022] text-[40px] leading-[44px] mb-7">
           Testimonials
         </h2>
 
@@ -84,7 +85,7 @@ export default function TestimonialSlider() {
                   </div>
 
                   <h3
-                    className="text-[22px] font-bold mb-[10px]  text-[#333] leading-6 italic"
+                    className="text-[22px] font-bold mb-[10px] text-[#333] leading-6 italic"
                     id="aria-font"
                   >
                     {t.heading}
@@ -95,8 +96,22 @@ export default function TestimonialSlider() {
                   >
                     {t.text}
                   </p>
-                  <p className="text-[14px] font-[500] my-2 text-[#666666]" id="aria-font">{t.name}</p>
-                  <p className="text-[14px] font-[500] text-[#2EA3F2]" id="aria-font">{t.location}</p>
+                  {t.name && (
+                    <p
+                      className="text-[14px] font-[500] my-2 text-[#666666]"
+                      id="aria-font"
+                    >
+                      {t.name}
+                    </p>
+                  )}
+                  {t.location && (
+                    <p
+                      className="text-[14px] font-[500] text-[#2EA3F2]"
+                      id="aria-font"
+                    >
+                      {t.location}
+                    </p>
+                  )}
 
                   {/* Right Quote */}
                   <div className="absolute right-[10px] md:right-[50px] bottom-0 opacity-20 w-6 md:w-9 h-6 md:h-9">
@@ -116,7 +131,7 @@ export default function TestimonialSlider() {
                        disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
             aria-label="Previous testimonial"
           >
-            <MdOutlineArrowBackIos  className="w-6 h-6" />
+            <MdOutlineArrowBackIos className="w-6 h-6" />
           </button>
 
           {/* Right Arrow */}
@@ -128,7 +143,7 @@ export default function TestimonialSlider() {
                        disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
             aria-label="Next testimonial"
           >
-            <MdOutlineArrowForwardIos  className="w-6 h-6" />
+            <MdOutlineArrowForwardIos className="w-6 h-6" />
           </button>
         </div>
 
@@ -150,4 +165,6 @@ export default function TestimonialSlider() {
       </div>
     </section>
   );
-}
+};
+
+export default TestimonialSlider;
