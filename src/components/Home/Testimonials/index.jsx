@@ -5,14 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdOutlineArrowBackIos } from "react-icons/md";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 
 import Image from "next/image";
 
-import QuoteLeft from "../../../../../public/Svgs/quote-left.svg";
-import QuoteRight from "../../../../../public/Svgs/quote-right.svg";
+// import QuoteLeft from "../../../../../public/Svgs/quote-left.svg";
+import QuoteLeft from "../../../../public/Svgs/quote-left.svg";
+import QuoteRight from "../../../../public/Svgs/quote-right.svg";
 
 const testimonials = [
   {
