@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
         <div className="space-y-6 px-4 sm:px-0">
           <h3 className="text-[28px] text-white">Quick Links</h3>
 
-          <ul className="space-y-2 text-sm" id="aria-font">
+          <ul className="space-y-2 text-sm" id="lato-font">
             {[
               { name: "Home", href: "/" },
               { name: "About Us", href: "/about-us" },
@@ -87,11 +87,20 @@ const Footer: React.FC = () => {
 
           <div className="space-y-3">
             <h4 className="text-[28px] text-white">Free For Charity Policy</h4>
-            <ul className="space-y-1 text-sm" id="aria-font">
+            <ul className="space-y-1 text-sm" id="lato-font">
               {[
-                { name: "Free For Charity Donation Policy", href: "/free-for-charity-donation-policy" },
-                { name: "Free For Chairty Privacy Policy", href: "/privacy-policy" },
-                { name: "Free For Charity Terms of Service", href: "/terms-of-service" },
+                {
+                  name: "Free For Charity Donation Policy",
+                  href: "/free-for-charity-donation-policy",
+                },
+                {
+                  name: "Free For Chairty Privacy Policy",
+                  href: "/privacy-policy",
+                },
+                {
+                  name: "Free For Charity Terms of Service",
+                  href: "/terms-of-service",
+                },
                 {
                   name: "Free For Charirty Vulnerability Disclosure Policy",
                   href: "/vulnerability-disclosure-policy",
