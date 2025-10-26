@@ -14,7 +14,7 @@ const Page: React.FC = () => {
       <HeroSection
         heading="Help For Charities"
         paragraph="If you are representing a charity or you currently work for a charity and want to improve your own skills start here to get help for your organization. You get instant access to many of our free tools and products right away!"
-        heroImg="/images/volunteer.webp"
+        heroImg="/images/volunteer.png"
       />
       <HelpForCharities />
       <AccordionSection />
