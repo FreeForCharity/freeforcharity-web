@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Hero: React.FC = () => {
   return (
@@ -20,9 +21,11 @@ const Hero: React.FC = () => {
 
         {/* Right Image Section */}
         <div className="w-full md:w-[60%] flex items-center justify-center md:justify-end pt-[50px] md:pt-[50px]">
-          <img
+          <Image
             src="/images/hero-image.webp"
             alt="Hero"
+            width={800}
+            height={540}
             className="w-full max-w-[90%] h-auto max-h-[540px]"
           />
         </div>
