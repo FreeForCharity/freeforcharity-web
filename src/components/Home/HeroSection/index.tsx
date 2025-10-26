@@ -22,7 +22,8 @@ const Hero: React.FC = () => {
         {/* Right Image Section */}
         <div className="w-full md:w-[60%] flex items-center justify-center md:justify-end pt-[50px] md:pt-[50px]">
           <Image
-            src="/images/hero-image.webp"
+            // src="/images/hero-image.webp"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9APxkj0xClmrU3PpMZglHQkx446nQPG6lA&s"
             alt="Hero"
             width={800}
             height={540}
