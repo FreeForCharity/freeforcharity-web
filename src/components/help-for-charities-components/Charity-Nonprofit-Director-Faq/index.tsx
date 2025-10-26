@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import AccordionItem from "@/components/UI/Accordian";
 
 const CharityFAQ: React.FC = () => {
@@ -63,9 +64,9 @@ const CharityFAQ: React.FC = () => {
             </strong>{" "}
             Another great charity showing all the big name things you can get
             for free or at heavy discounts is{" "}
-            <a href="/" className="text-[#2ea3f2]">
+            <Link href="/" className="text-[#2ea3f2]">
               TechSoup.org
-            </a>
+            </Link>
             .{" "}
             <strong>
               Even with these other sites many charities and non profits still

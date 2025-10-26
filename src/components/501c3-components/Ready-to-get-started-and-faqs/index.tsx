@@ -1,6 +1,7 @@
 import React from "react";
 import ReadyToGetStarted from "@/components/help-for-charities-components/Ready-to-Get-Started-Now";
 import AccordionItem from "@/components/UI/Accordian";
+import Link from "next/link";
 const index = () => {
   return (
     <div className="w-full max-w-[100%]">
@@ -33,9 +34,9 @@ const index = () => {
           </p>
           <h1 className="font-[700]">
             As always if you run into problems contact us at anytime{" "}
-            <a href="clarkemoyer@freeforcharity.org" className="text-[#2ea3f2]">
+            <Link href="clarkemoyer@freeforcharity.org" className="text-[#2ea3f2]">
               clarkemoyer@freeforcharity.org
-            </a>{" "}
+            </Link>{" "}
             520-222-8104
           </h1>
         </AccordionItem>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 interface InfoCardProps {
   imageUrl?: string;
@@ -47,7 +48,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
       {/* Description Section */}
       <div className="p-4">
         <h3 className="text-[25px] font-[500] text-black leading-[25px]">
-          <a href="/blog">{heading}</a>
+          <Link href="/blog">{heading}</Link>
         </h3>
         {date && (
           <p

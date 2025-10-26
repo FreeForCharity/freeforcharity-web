@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const index = () => {
   return (
@@ -10,7 +11,7 @@ const index = () => {
             about nonprofits? Looking to chat? Give a real person a call:
           </h1>
           <p className="text-[22px] font-[500] text-black" id="lato-font">
-                Clarke Moyer <a className="text-[#f58c23]" href="call:(520) 222-8104">(520) 222-8104</a>
+                Clarke Moyer <Link className="text-[#f58c23]" href="call:(520) 222-8104">(520) 222-8104</Link>
           </p>
         </div>
       </div>
