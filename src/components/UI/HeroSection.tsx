@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 interface HeroSectionProps {
   heading: string;
@@ -8,7 +9,11 @@ interface HeroSectionProps {
   heroImg: string;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ heading, paragraph, heroImg }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({
+  heading,
+  paragraph,
+  heroImg,
+}) => {
   return (
     <section
       className="flex items-center overflow-hidden"
@@ -35,13 +40,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heading, paragraph, heroImg }
           </div>
 
           {/* Right: Image */}
-          <div className="mx-auto lg:mx-0 md:w-[60%]">
-            <img
+          <div className="mx-auto lg:mx-0 md:w-[60%] relative w-full h-auto">
+            <Image
               src={heroImg}
               alt="Hero Image"
-              className="drop-shadow-md h-auto"
-              loading="lazy"
-              draggable={false}
+              width={800}
+              height={600}
+              className="drop-shadow-md h-auto w-full"
+              unoptimized
+              priority
             />
           </div>
         </div>
