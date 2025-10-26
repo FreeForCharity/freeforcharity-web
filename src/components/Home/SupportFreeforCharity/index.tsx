@@ -1,7 +1,6 @@
 import React from "react";
 import TrainingCard from "../../UI/trainingcard";
 import BlueBtn from "../../UI/Bluebtn";
-import { IoIosArrowForward } from "react-icons/io";
 import Transparentbtn from "@/components/UI/Transparentbtn";
 
 const SupportFreeForCharity: React.FC = () => {
