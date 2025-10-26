@@ -14,7 +14,7 @@ const Transparentbtn: React.FC<TransparentbtnProps> = ({ text }) => {
               group relative my-4 flex w-full items-center justify-between
               border-2 border-[#2ea3f2] px-4 py-2.5 text-[#2ea3f2]
               transition-all duration-300 rounded
-              hover:border-transparent hover:bg-gray-200 mx-auto md:mx-0
+              hover:border-transparent hover:bg-gray-200 mx-auto md:mx-0 max-w-fit
             "
         id="aria-font"
       >

@@ -1,7 +1,5 @@
 import React from "react";
 import HeroSection from "@/components/UI/HeroSection";
-import HelpForCharities from "@/components/UI/help-for-charity";
-import AccordionItem from "@/components/UI/Accordian";
 import ReadyToGetStarted from "@/components/help-for-charities-components/Ready-to-Get-Started-Now";
 import CharityNonprofitDirectorFaq from "@/components/help-for-charities-components/Charity-Nonprofit-Director-Faq";
 import CallSection from "@/components/help-for-charities-components/call-section";
