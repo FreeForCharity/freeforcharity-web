@@ -5,7 +5,7 @@ const index = () => {
   return (
     <div className="bg-[#fcfcfc]">
       <div className="w-[90%] max-w-[90%] mx-auto py-[2%] items-center text-center">
-        <h1 className="text-[#f27022] text-[28px] font-[700] mb-[15px]">
+        <h1 className="text-[#f27022] text-[28px] font-[700] mb-[15px] mt-[40px]">
           Empower Your Charity with Cutting-Edge Technology
         </h1>
         <p
