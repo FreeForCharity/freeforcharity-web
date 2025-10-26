@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperInstance } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
@@ -35,35 +36,40 @@ const testimonials: Testimonial[] = [
   },
   {
     heading: "Keith Ray",
-    text: "An awesome charity that helps and supports other charities with technology support Previous Slide",
+    text: "An awesome charity that helps and supports other charities with technology support",
   },
 ];
 
 const TestimonialSlider: React.FC = () => {
-  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperInstance | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const prevRef = useRef<HTMLButtonElement | null>(null);
-  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (swiperInstance && prevRef.current && nextRef.current) {
-      swiperInstance.params.navigation.prevEl = prevRef.current;
-      swiperInstance.params.navigation.nextEl = nextRef.current;
+      swiperInstance.params.navigation = swiperInstance.params.navigation || {};
+      (swiperInstance.params.navigation as any).prevEl = prevRef.current;
+      (swiperInstance.params.navigation as any).nextEl = nextRef.current;
       swiperInstance.navigation.init();
       swiperInstance.navigation.update();
     }
   }, [swiperInstance]);
 
-  const handleSlideChange = (swiper: any) => setActiveIndex(swiper.activeIndex);
+  const handleSlideChange = (swiper: SwiperInstance) => {
+    setActiveIndex(swiper.activeIndex);
+  };
 
   const handleDotClick = (index: number) => {
-    if (swiperInstance) swiperInstance.slideTo(index);
+    if (swiperInstance) {
+      swiperInstance.slideTo(index);
+    }
   };
 
   return (
     <section className="py-16 pb-25 bg-[#FCFCFC]">
       <div className="container mx-auto px-4 max-w-[1150px] text-center">
-        <h2 className="font-[700] text-[#F27022] text-[40px] leading-[44px] mb-7">
+        <h2 className="font-bold text-[#F27022] text-[40px] leading-[44px] mb-7">
           Testimonials
         </h2>
 
@@ -81,7 +87,7 @@ const TestimonialSlider: React.FC = () => {
                 <div className="px-12 md:px-20 relative">
                   {/* Left Quote */}
                   <div className="absolute left-[10px] md:left-[50px] top-0 opacity-20 w-6 md:w-9 h-6 md:h-9">
-                    <Image src={QuoteLeft} alt="Left Quote" />
+                    <Image src={QuoteLeft} alt="Opening quote" width={36} height={36} />
                   </div>
 
                   <h3
@@ -91,14 +97,14 @@ const TestimonialSlider: React.FC = () => {
                     {t.heading}
                   </h3>
                   <p
-                    className="text-[17px] font-[500] text-black italic px-0 sm:px-4 md:px-8"
+                    className="text-[17px] font-medium text-black italic px-0 sm:px-4 md:px-8"
                     id="aria-font"
                   >
                     {t.text}
                   </p>
                   {t.name && (
                     <p
-                      className="text-[14px] font-[500] my-2 text-[#666666]"
+                      className="text-[14px] font-medium my-2 text-[#666666]"
                       id="aria-font"
                     >
                       {t.name}
@@ -106,7 +112,7 @@ const TestimonialSlider: React.FC = () => {
                   )}
                   {t.location && (
                     <p
-                      className="text-[14px] font-[500] text-[#2EA3F2]"
+                      className="text-[14px] font-medium text-[#2EA3F2]"
                       id="aria-font"
                     >
                       {t.location}
@@ -115,7 +121,7 @@ const TestimonialSlider: React.FC = () => {
 
                   {/* Right Quote */}
                   <div className="absolute right-[10px] md:right-[50px] bottom-0 opacity-20 w-6 md:w-9 h-6 md:h-9">
-                    <Image src={QuoteRight} alt="Right Quote" />
+                    <Image src={QuoteRight} alt="Closing quote" width={36} height={36} />
                   </div>
                 </div>
               </SwiperSlide>
@@ -158,7 +164,7 @@ const TestimonialSlider: React.FC = () => {
                   ? "bg-orange-600 w-8"
                   : "bg-gray-300 w-2 hover:bg-gray-400"
               }`}
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={`Go to testimonial ${i + 1}`}
             />
           ))}
         </div>

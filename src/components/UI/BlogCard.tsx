@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface InfoCardProps {
   imageUrl?: string;
@@ -31,10 +32,11 @@ const InfoCard: React.FC<InfoCardProps> = ({
       {/* Image Section */}
       {imageUrl && (
         <div className="relative w-full aspect-[4/3] overflow-hidden">
-          <img
+          <Image
             src={imageUrl}
             alt={heading}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           {/* Overlay on Hover */}
           <div

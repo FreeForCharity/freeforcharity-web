@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Enable static HTML export to the `out` directory
   output: "export",
+  images: {
+    unoptimized: true, // disables server-side image optimization
+  },
   
   // Set basePath for GitHub Pages deployment
   // When deployed to GitHub Pages at freeforcharity.github.io/FreeForCharity-web/,
