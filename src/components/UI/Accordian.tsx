@@ -31,7 +31,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
       {/* Header */}
       <button
         onClick={toggle}
-        className={`w-full px-4 py-3 flex items-start justify-between text-left transition-colors duration-300 cursor-pointer ${
+        className={`w-full px-4 py-3 flex items-center justify-between text-left transition-colors duration-300 cursor-pointer ${
           isOpen ? "bg-white/90" : "bg-none"
         }`}
         aria-expanded={isOpen}

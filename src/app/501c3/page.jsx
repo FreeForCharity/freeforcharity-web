@@ -1,9 +1,21 @@
-import React from "react";
+import HeroSection from "@/components/UI/HeroSection";
+import HelpForCharitiesandNonprofit from "@/components/501c3-components/Help-For-Charities-and-Nonprofit";
+import ReadyToGetStartedAndFaq from "@/components/501c3-components/Ready-to-get-started-and-faqs";
+import CallSection from "@/components/help-for-charities-components/call-section";
 
-const index = () => {
-  return <div className="flex items-center justify-center min-h-screen text-[34px] w-full text-center">
-    <h1 className="text-center">501c3 page</h1>
-  </div>;
+const page = () => {
+  return (
+    <div>
+      <HeroSection
+        heading="501(c)3 Onboarding Guide"
+        paragraph="If you are representing a charity or you currently work for a charity and want to improve your own skills start here to get help for your organization. You get instant access to many of our free tools and products right away!"
+        heroImg="/images/volunteer.webp"
+      />
+      <HelpForCharitiesandNonprofit />
+      <ReadyToGetStartedAndFaq />
+      <CallSection />
+    </div>
+  );
 };
 
-export default index;
+export default page;
