@@ -1,9 +1,14 @@
 import React from "react";
+import Hero from "@/components/free-for-charity-ffc-web-developer-training-guide-components/Hero";
 
 const index = () => {
-  return <div className="flex items-center justify-center min-h-screen text-[34px] w-full text-center">
-    <h1 className="text-center">free-for-charity-ffc-web-developer-training-guide</h1>
-  </div>;
+  return (
+    <div>
+      <div className="" id="segoe-font">
+        <Hero />
+      </div>
+    </div>
+  );
 };
 
 export default index;
