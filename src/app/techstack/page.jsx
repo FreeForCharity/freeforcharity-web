@@ -1,9 +1,8 @@
 import React from "react";
+import Hero from "@/components/techstack-components/Hero";
 
 const index = () => {
-  return <div className="flex items-center justify-center min-h-screen text-[34px] w-full text-center">
-    <h1 className="text-center">techstack page</h1>
-  </div>;
+  return <Hero />;
 };
 
 export default index;
