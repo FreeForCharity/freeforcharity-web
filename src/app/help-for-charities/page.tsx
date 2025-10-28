@@ -17,7 +17,7 @@ const Page: React.FC = () => {
         heroImg="/Images/volunteer.png"
       />
 
-      <div className="w-full h-[80px]"></div>
+      <div className="w-full h-[80px]" />
 
       <div className="flex w-full max-w-[90%] mx-auto">
         <HelpForCharities
