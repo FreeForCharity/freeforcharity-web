@@ -43,10 +43,7 @@ const ContactUsSection: React.FC = () => {
             <p className="font-[600] text-[24px] text-black mb-2">
               Main Address
             </p>
-            <p
-              className="font-[600] text-[18px] text-[#666666]"
-              id="lato-font"
-            >
+            <p className="font-[600] text-[18px] text-[#666666]" id="lato-font">
               {contact.mainAddress}
             </p>
           </div>

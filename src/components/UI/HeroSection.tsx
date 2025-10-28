@@ -7,12 +7,17 @@ interface HeroSectionProps {
   heading: string;
   paragraph: string;
   heroImg: string;
+  fontSize: number;
+  lineHeight: number;
+
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   heading,
   paragraph,
   heroImg,
+  fontSize,
+  lineHeight,
 }) => {
   return (
     <section
@@ -32,8 +37,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {heading}
             </h1>
             <p
-              className="text-[21px] leading-[30px] font-[500] w-full md:w-[90%]"
+              className={`leading-[30px] font-[500] w-full md:w-[90%]`}
               id="lato-font"
+              style={{ fontSize: fontSize ? `${fontSize}px` : "21px", lineHeight: lineHeight ? `${lineHeight}px` : "30px" }}
             >
               {paragraph}
             </p>

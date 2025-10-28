@@ -1,9 +1,14 @@
 import React from "react";
 
 const index = () => {
-  return <div className="flex items-center justify-center min-h-screen text-[34px] w-full text-center">
-    <h1 className="text-center">about-us</h1>
-  </div>;
+  return (
+    <div>
+      <div>about us page Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum aliquid eveniet atque laboriosam in cumque magni dolorem, distinctio odio incidunt quisquam dolore voluptatum ratione dignissimos maxime minus corrupti? Veritatis et, architecto ad iure animi hic eveniet consectetur assumenda beatae! Ipsam sed, eius nisi beatae corporis quibusdam eum ad culpa tempora doloremque facilis tempore omnis placeat sapiente aperiam voluptates perferendis earum odit aliquam hic consequatur molestiae! Dolor, dolores. Aperiam dicta, praesentium culpa cupiditate animi pariatur ea magnam minima quidem facilis enim impedit quibusdam porro repellendus ab qui labore vero inventore, modi tempore repudiandae nisi. Accusantium maiores nulla rerum odit eligendi!</div>
+      <div>about us page Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum aliquid eveniet atque laboriosam in cumque magni dolorem, distinctio odio incidunt quisquam dolore voluptatum ratione dignissimos maxime minus corrupti? Veritatis et, architecto ad iure animi hic eveniet consectetur assumenda beatae! Ipsam sed, eius nisi beatae corporis quibusdam eum ad culpa tempora doloremque facilis tempore omnis placeat sapiente aperiam voluptates perferendis earum odit aliquam hic consequatur molestiae! Dolor, dolores. Aperiam dicta, praesentium culpa cupiditate animi pariatur ea magnam minima quidem facilis enim impedit quibusdam porro repellendus ab qui labore vero inventore, modi tempore repudiandae nisi. Accusantium maiores nulla rerum odit eligendi!</div>
+      <div>about us page Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum aliquid eveniet atque laboriosam in cumque magni dolorem, distinctio odio incidunt quisquam dolore voluptatum ratione dignissimos maxime minus corrupti? Veritatis et, architecto ad iure animi hic eveniet consectetur assumenda beatae! Ipsam sed, eius nisi beatae corporis quibusdam eum ad culpa tempora doloremque facilis tempore omnis placeat sapiente aperiam voluptates perferendis earum odit aliquam hic consequatur molestiae! Dolor, dolores. Aperiam dicta, praesentium culpa cupiditate animi pariatur ea magnam minima quidem facilis enim impedit quibusdam porro repellendus ab qui labore vero inventore, modi tempore repudiandae nisi. Accusantium maiores nulla rerum odit eligendi!</div>
+      <div>about us page Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id cum aliquid eveniet atque laboriosam in cumque magni dolorem, distinctio odio incidunt quisquam dolore voluptatum ratione dignissimos maxime minus corrupti? Veritatis et, architecto ad iure animi hic eveniet consectetur assumenda beatae! Ipsam sed, eius nisi beatae corporis quibusdam eum ad culpa tempora doloremque facilis tempore omnis placeat sapiente aperiam voluptates perferendis earum odit aliquam hic consequatur molestiae! Dolor, dolores. Aperiam dicta, praesentium culpa cupiditate animi pariatur ea magnam minima quidem facilis enim impedit quibusdam porro repellendus ab qui labore vero inventore, modi tempore repudiandae nisi. Accusantium maiores nulla rerum odit eligendi!</div>
+    </div>
+  );
 };
 
 export default index;

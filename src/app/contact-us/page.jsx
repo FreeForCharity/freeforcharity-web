@@ -1,9 +1,23 @@
 import React from "react";
+import HeroSection from "@/components/UI/HeroSection";
+import ContactSection from "@/components/Contact-Us-components/Contact-Us";
 
 const index = () => {
-  return <div className="flex items-center justify-center min-h-screen text-[34px] w-full text-center">
-    <h1 className="text-center">contact-us</h1>
-  </div>;
+  return (
+    <div>
+      <div>
+        <HeroSection
+          heading="Get In Touch with Free for Charity"
+          paragraph="Connecting Students, Professionals, & Businesses with Charities in Need"
+          heroImg="/Images/about-us.webp"
+          fontSize={36}
+          lineHeight={50}
+        />
+
+        <ContactSection />
+      </div>
+    </div>
+  );
 };
 
 export default index;
