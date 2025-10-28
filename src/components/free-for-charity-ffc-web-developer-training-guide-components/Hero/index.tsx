@@ -1086,8 +1086,8 @@ const Index = () => {
               </a>
             </li>
             <li className="pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              Create a new Language resource and ensure the "Custom question
-              answering" feature is enabled.
+              Create a new Language resource and ensure the Custom question
+              answering feature is enabled.
             </li>
             <li className="pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
               Create a new project, linking it to existing content sources like
