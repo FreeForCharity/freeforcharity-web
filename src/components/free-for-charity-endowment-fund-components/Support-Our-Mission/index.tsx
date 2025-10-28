@@ -13,7 +13,8 @@ const SupportMissionSection: React.FC<SupportMissionSectionProps> = ({
 }) => {
   return (
     <section
-      className="pt-[90px] pb-[90px] bg-[#003566] min-h-screen flex items-center justify-center p-6"
+      className="pt-[90px] pb-[90px] bg-[#003566] md:min-h-screen flex items-center justify-center p-6
+      sm:pt-[60px] sm:pb-[60px] sm:p-4"
       style={{
         backgroundImage: `
           linear-gradient(90deg, #003566 40%, rgba(0, 0, 0, 0.5) 100%),
@@ -24,22 +25,25 @@ const SupportMissionSection: React.FC<SupportMissionSectionProps> = ({
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Centered White Card */}
-      <div className="bg-white rounded-[6px] shadow-[0px_24px_72px_-12px_rgba(0,0,0,0.12)] p-[40px] max-w-[540px] text-center">
+      <div className="bg-white rounded-[6px] shadow-[0px_24px_72px_-12px_rgba(0,0,0,0.12)] p-[40px] max-w-[540px] text-center
+      sm:p-[24px] sm:w-[90%] sm:max-w-[100%]">
         <h1
-          className="text-[50px] font-[500] text-gray-900 mb-[10px] pb-[10px] leading-[60px]"
+          className="text-[50px] font-[500] text-gray-900 mb-[10px] pb-[10px] leading-[60px]
+          sm:text-[32px] sm:leading-[40px]"
           id="cinzel"
         >
           {title}
         </h1>
         <p
-          className="text-[16px] font-[500] text-[#000000a3] mb-6 leading-[28px]"
+          className="text-[16px] font-[500] text-[#000000a3] mb-6 leading-[28px]
+          sm:text-[14px] sm:leading-[24px]"
           id="fauna-font"
         >
           {description1}
         </p>
         <p
-          className="text-[16px] font-[500] text-[#000000a3] mb-6 leading-[28px]"
+          className="text-[16px] font-[500] text-[#000000a3] mb-6 leading-[28px]
+          sm:text-[14px] sm:leading-[24px]"
           id="fauna-font"
         >
           {description2}

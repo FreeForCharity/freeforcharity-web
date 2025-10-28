@@ -6,16 +6,17 @@ const Index = () => {
     <div>
       <section className="py-[54px] w-[90%] md:w-[80%] mx-auto">
         <h1
-          className="pt-[27px] mb-[10px] text-[50px] text-[#111111] text-center font-[500] leading-[60px] pb-[37px]"
+          className="pt-[27px] mb-[10px] text-[32px] sm:text-[40px] md:text-[50px] text-[#111111] text-center font-[500] leading-[42px] sm:leading-[50px] md:leading-[60px] pb-[37px]"
           id="cinzel"
         >
           Our Mission: Empowering Charities
         </h1>
-        <div className="flex items-stretch mt-[40px]">
-          {/* Left Column */}
-          <div className="mr-[60px] w-[47.25%] flex">
+
+        <div className="flex flex-col-reverse md:flex-row items-center md:items-stretch mt-[40px] gap-[30px] md:gap-0">
+          {/* Left Column (Text) */}
+          <div className="w-full md:w-[47.25%] md:mr-[60px]">
             <p
-              className="text-[16px] text-[#000000a3] font-[500] leading-[28px]"
+              className="text-[15px] sm:text-[16px] text-[#000000a3] font-[500] leading-[26px] sm:leading-[28px] text-center md:text-left"
               id="fauna-font"
             >
               The Free For Charity Domain Program is dedicated to providing
@@ -29,12 +30,12 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Right Column – ONLY the image wrapper is fixed */}
-          <div className="w-[47.25%] h-full">
-            <div className="relative w-full h-[500px]">
+          {/* Right Column (Image) */}
+          <div className="w-full md:w-[47.25%] h-[300px] sm:h-[400px] md:h-[500px]">
+            <div className="relative w-full h-full">
               <Image
                 src="/Images/our-mission.webp"
-                alt="my image"
+                alt="Our Mission"
                 fill
                 className="object-cover rounded-[6px]"
                 priority

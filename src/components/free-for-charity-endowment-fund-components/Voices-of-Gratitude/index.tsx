@@ -10,8 +10,10 @@ const index = () => {
         Voices of Gratitude
       </h1>
 
-      <div className="py-[27px] flex">
-        <div className="w-[29.6667%] mr-[60px]">
+      {/* ---- Responsive wrapper ---- */}
+      <div className="py-[27px] flex flex-wrap -mx-4 md:-mx-0">
+        {/* Card 1 */}
+        <div className="flex-1 min-w-[280px] md:w-[29%] px-4 md:px-0 md:mr-[60px] mb-8 md:mb-0">
           <div className="mb-[30px] text-[24px] text-[#003566] text-left flex gap-1">
             <b>★</b>
             <b>★</b>
@@ -21,7 +23,7 @@ const index = () => {
           </div>
           <div>
             <p
-              className="text-[#0e0c19] text-[18px] mb-[10px] leading-[32px] font-[700] "
+              className="text-[#0e0c19] text-[18px] mb-[10px] leading-[32px] font-[700]"
               id="fauna-font"
             >
               “Thanks to Free For Charity, our organization now has a
@@ -29,7 +31,7 @@ const index = () => {
               our visibility and donor engagement.”
             </p>
             <p
-              className="text-[#000000a3] text-[16px] mb-[10px] leading-[32px] font-[500] "
+              className="text-[#000000a3] text-[16px] mb-[10px] leading-[32px] font-[500]"
               id="fauna-font"
             >
               [Draft]
@@ -37,7 +39,8 @@ const index = () => {
           </div>
         </div>
 
-        <div className="w-[29.6667%] mr-[60px]">
+        {/* Card 2 */}
+        <div className="flex-1 min-w-[280px] md:w-[29%] px-4 md:px-0 md:mr-[60px] mb-8 md:mb-0">
           <div className="mb-[30px] text-[24px] text-[#003566] text-left flex gap-1">
             <b>★</b>
             <b>★</b>
@@ -47,7 +50,7 @@ const index = () => {
           </div>
           <div>
             <p
-              className="text-[#0e0c19] text-[18px] mb-[10px] leading-[32px] font-[700] "
+              className="text-[#0e0c19] text-[18px] mb-[10px] leading-[32px] font-[700]"
               id="fauna-font"
             >
               “The free domain and email setup provided by Free For Charity have
@@ -55,7 +58,7 @@ const index = () => {
               expand our reach.”
             </p>
             <p
-              className="text-[#000000a3] text-[16px] mb-[10px] leading-[32px] font-[500] "
+              className="text-[#000000a3] text-[16px] mb-[10px] leading-[32px] font-[500]"
               id="fauna-font"
             >
               [Draft]
@@ -63,7 +66,8 @@ const index = () => {
           </div>
         </div>
 
-        <div className="w-[29.6667%]">
+        {/* Card 3 */}
+        <div className="flex-1 min-w-[280px] md:w-[29%] px-4 md:px-0">
           <div className="mb-[30px] text-[24px] text-[#003566] text-left flex gap-1">
             <b>★</b>
             <b>★</b>
@@ -73,7 +77,7 @@ const index = () => {
           </div>
           <div>
             <p
-              className="text-[#0e0c19] text-[18px] mb-[10px] leading-[32px] font-[700] "
+              className="text-[#0e0c19] text-[18px] mb-[10px] leading-[32px] font-[700]"
               id="fauna-font"
             >
               “We are grateful for the support from Free For Charity. Their
@@ -81,7 +85,7 @@ const index = () => {
               less on administrative tasks.”
             </p>
             <p
-              className="text-[#000000a3] text-[16px] mb-[10px] leading-[32px] font-[500] "
+              className="text-[#000000a3] text-[16px] mb-[10px] leading-[32px] font-[500]"
               id="fauna-font"
             >
               [Draft]
