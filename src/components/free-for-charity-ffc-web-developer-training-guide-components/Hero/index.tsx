@@ -149,7 +149,7 @@ const Index = () => {
               <ul className="list-disc pl-[20px] pb-[20px] mt-[0.75rem]">
                 <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
                   <span className="italic text-[#1c2a38]">Issue:</span> Charity
-                  hasn't completed the onboarding form.
+                  hasnt completed the onboarding form.
                 </li>
                 <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
                   <span className="italic text-[#1c2a38]">Solution:</span>{" "}
@@ -1022,15 +1022,15 @@ const Index = () => {
               </a>
             </li>
             <li className="pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              Follow the setup wizard to create a property for the charity's
+              Follow the setup wizard to create a property for the charitys
               website.
             </li>
             <li className="pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
               Install the Tawk.to WordPress plugin or add the provided
-              JavaScript snippet to the website's footer.
+              JavaScript snippet to the websites footer.
             </li>
             <li className="pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              Customize the chat widget's appearance and settings in the Tawk.to
+              Customize the chat widgets appearance and settings in the Tawk.to
               dashboard.
             </li>
           </ul>
