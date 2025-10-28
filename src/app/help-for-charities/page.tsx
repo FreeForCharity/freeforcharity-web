@@ -15,8 +15,12 @@ const Page: React.FC = () => {
         heading="Help For Charities"
         paragraph="If you are representing a charity or you currently work for a charity and want to improve your own skills start here to get help for your organization. You get instant access to many of our free tools and products right away!"
         heroImg="/Images/volunteer.png"
+        fontSize={21}
+        lineHeight={30}
       />
+
       <div className="w-full h-[80px]"></div>
+
       <div className="flex w-full max-w-[90%] mx-auto">
         <HelpForCharities
           title="Help For Charities and Nonprofit Groups from an Unbiased Fellow Charity"
