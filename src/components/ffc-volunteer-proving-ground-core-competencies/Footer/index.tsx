@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <footer className="flex flex-col items-center border-t border-gray-300 py-10 px-6 font-sans text-gray-700 max-w-[950px] mx-auto mt-4">
       {/* Title */}
       <h2 className="text-center text-[25px] md:text-[1.875rem] font-[600] text-[#111827] mb-[1rem]">
-        You've Mastered the Basics - What's Next?
+        You have Mastered the Basics - What is Next?
       </h2>
 
       {/* Congrats Paragraph */}
