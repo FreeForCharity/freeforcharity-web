@@ -3,7 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap");
-@import url('https://fonts.cdnfonts.com/css/segoe-ui-4?styles=18006,18005,18004,18003');
+@import url("https://fonts.cdnfonts.com/css/segoe-ui-4?styles=18006,18005,18004,18003");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fauna+One&display=swap");
 
 @import "tailwindcss";
 
@@ -20,7 +22,8 @@
   --ffc-radius-xl: 20px;
 }
 
-html, body{
+html,
+body {
   scroll-behavior: smooth !important;
 }
 
@@ -64,7 +67,13 @@ body {
   font-family: "ABeeZee", sans-serif !important;
 }
 #segoe-font {
-  font-family: 'Segoe UI', sans-serif !important;
+  font-family: "Segoe UI", sans-serif !important;
+}
+#cinzel {
+  font-family: "Cinzel", sans-serif !important;
+}
+#fauna-font {
+  font-family: "Fauna One", sans-serif !important;
 }
 
 /* Utilities aligned to Figma */
