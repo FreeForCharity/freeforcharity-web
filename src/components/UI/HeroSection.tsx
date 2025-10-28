@@ -16,7 +16,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section
-      className="flex items-center overflow-hidden"
+      className="w-full flex items-center overflow-hidden"
       style={{
         backgroundImage: "linear-gradient(320deg, #f58c23 48%, #ffffff 48%)",
         backgroundSize: "cover",
@@ -24,15 +24,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="w-full max-w-7xl pt-[120px] md:pt-[170px] px-4 md:px-8 pb-[95px] mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="w-full mx-auto pt-[120px] md:pt-[170px] pb-[95px]">
+        <div className="w-full max-w-[90%] mx-auto flex flex-wrap justify-between">
           {/* Left: Text Content */}
-          <div className="space-y-6">
+          <div className="w-full lg:w-[45%] space-y-6">
             <h1 className="text-[#f27022] text-5xl lg:text-6xl font-[600] leading-tight mb-3">
               {heading}
             </h1>
             <p
-              className="text-[21px] leading-[30px] font-[500] w-full md:max-w-[80%]"
+              className="text-[21px] leading-[30px] font-[500] w-full md:w-[90%]"
               id="lato-font"
             >
               {paragraph}
@@ -40,13 +40,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Right: Image */}
-          <div className="mx-auto lg:mx-0 md:w-[60%] relative w-full h-auto">
+          <div className="w-full lg:w-[55%] relative pl-[80px] pr-[80px]">
             <Image
               src={heroImg}
               alt="Hero Image"
-              width={800}
-              height={600}
-              className="drop-shadow-md h-auto w-full"
+              width={100}
+              height={500}
+              className="w-[100%]"
               unoptimized
               priority
             />
