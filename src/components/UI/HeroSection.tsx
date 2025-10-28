@@ -7,9 +7,8 @@ interface HeroSectionProps {
   heading: string;
   paragraph: string;
   heroImg: string;
-  fontSize: number;
-  lineHeight: number;
-
+  fontSize?: number;
+  lineHeight?: number;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -37,22 +36,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {heading}
             </h1>
             <p
-              className={`leading-[30px] font-[500] w-full md:w-[90%]`}
+              className="font-[500] w-full md:w-[90%]"
               id="lato-font"
-              style={{ fontSize: fontSize ? `${fontSize}px` : "21px", lineHeight: lineHeight ? `${lineHeight}px` : "30px" }}
+              style={{
+                fontSize: fontSize ? `${fontSize}px` : "21px",
+                lineHeight: lineHeight ? `${lineHeight}px` : "30px",
+              }}
             >
               {paragraph}
             </p>
           </div>
 
           {/* Right: Image */}
-          <div className="w-full lg:w-[55%] relative pl-[80px] pr-[80px]">
+          <div className="w-full lg:w-[55%] relative px-[80px]">
             <Image
               src={heroImg}
               alt="Hero Image"
               width={100}
               height={500}
-              className="w-[100%]"
+              className="w-full"
               unoptimized
               priority
             />
