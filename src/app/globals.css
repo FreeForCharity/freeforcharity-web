@@ -6,6 +6,8 @@
 @import url("https://fonts.cdnfonts.com/css/segoe-ui-4?styles=18006,18005,18004,18003");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fauna+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cantata+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 @import "tailwindcss";
 
@@ -75,7 +77,12 @@ body {
 #fauna-font {
   font-family: "Fauna One", sans-serif !important;
 }
-
+#cantata-font {
+  font-family: "Cantata One", sans-serif !important;
+}
+#raleway-font {
+  font-family: "Raleway", sans-serif !important;
+}
 
 @keyframes fadeTop {
   0% {
@@ -89,9 +96,8 @@ body {
 }
 
 .animate-fadeTop {
-  animation: fadeTop 1s cubic-bezier(.77, 0, .175, 1) 1;
+  animation: fadeTop 1s cubic-bezier(0.77, 0, 0.175, 1) 1;
 }
-
 
 /* Utilities aligned to Figma */
 .ffc-container {
