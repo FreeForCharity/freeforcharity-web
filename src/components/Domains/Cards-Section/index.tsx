@@ -61,7 +61,7 @@ export default function CloudflareSetup() {
 
           <li>
             NOTE: You must include payment method as this is a commercial system
-            and even with a $0 invoice it will not 'run' each year if it does
+            and even with a $0 invoice it will not run each year if it does
             not see payment. We recommend Paypal and ACH as these are the most
             stable.
           </li>
@@ -91,7 +91,7 @@ export default function CloudflareSetup() {
             <ol className="list-lower-roman list-inside">
               <li>
                 i. Check your junk mail and spam boxes for all notices and mark
-                as 'not spam'
+                as not spam
               </li>
             </ol>
           </li>
