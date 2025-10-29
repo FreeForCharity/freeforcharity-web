@@ -1,25 +1,48 @@
-// components/IconTextCard.tsx
-import React from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 
 interface IconTextCardProps {
-  /** React element – any SVG / icon component */
   icon: React.ReactNode;
-
-  /** Optional aria-label / alt text for the icon */
   iconLabel?: string;
-
-  /** Card text */
   text: string;
+  href?: string;
 }
 
 const IconTextCard: React.FC<IconTextCardProps> = ({
   icon,
   iconLabel = "icon",
   text,
+  href,
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); // trigger only once
+          }
+        });
+      },
+      { threshold: 0.3 } // 30% visible triggers animation
+    );
+
+    if (cardRef.current) observer.observe(cardRef.current);
+
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+    };
+  }, []);
+
   return (
-    <div
+    <a
+      href={href || "#"}
+      rel="noopener noreferrer"
       className="
+        block
         bg-white 
         rounded-[10px] 
         overflow-hidden 
@@ -29,11 +52,16 @@ const IconTextCard: React.FC<IconTextCardProps> = ({
         shadow-[0_2px_18px_rgba(0,0,0,0.3)]
         flex flex-col items-center space-y-6 
         w-full max-w-sm mx-auto
+        transition-transform duration-200 hover:scale-[1.03]
       "
     >
-      {/* Icon – rendered directly from props */}
+      {/* Icon with fadeTop animation triggered on scroll */}
       <div
-        className="text-[#277CA0] flex items-center justify-center mb-[30px]"
+        ref={cardRef}
+        className={`
+          text-[#277CA0] flex items-center justify-center mb-[30px]
+          ${isVisible ? "animate-fadeTop opacity-100" : "opacity-0"}
+        `}
         aria-label={iconLabel}
       >
         {icon}
@@ -46,7 +74,7 @@ const IconTextCard: React.FC<IconTextCardProps> = ({
       >
         {text}
       </h3>
-    </div>
+    </a>
   );
 };
 

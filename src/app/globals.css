@@ -76,6 +76,23 @@ body {
   font-family: "Fauna One", sans-serif !important;
 }
 
+
+@keyframes fadeTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeTop {
+  animation: fadeTop 1s cubic-bezier(.77, 0, .175, 1) 1;
+}
+
+
 /* Utilities aligned to Figma */
 .ffc-container {
   max-width: var(--container);
