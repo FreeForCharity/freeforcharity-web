@@ -80,7 +80,7 @@ export default function TestimonialSlider() {
           ></div>
 
           {/* Testimonial Content */}
-          <div className="relative z-20 text-white pt-[25px] pb-[53px] px-[91px]">
+          <div className="relative z-20 text-white pt-[35px] pb-[53px] px-[91px]">
             <div className="relative h-[auto] min-h-[220px] flex items-center justify-center">
               {testimonials.map((testimonial, idx) => (
                 <div
@@ -117,7 +117,7 @@ export default function TestimonialSlider() {
             </div>
 
             {/* Dots Pagination */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-30">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-30">
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
