@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section className="relative pb-[49px] bg-[#4f6eff]">
       {/* Main Container */}
-      <div className="relative w-[90%] md:w-[80%] max-w-[1080px] mx-auto flex flex-wrap items-center gap-[60px] pt-[27px]">
+      <div className="relative w-[90%] md:w-[80%] max-w-[1080px] mx-auto flex flex-wrap items-center gap-[60px] py-[27px]">
         {/* Left Section - Text */}
         <div className="w-full md:w-[47%] mb-8 md:mb-0 text-center">
           <h1
