@@ -7,9 +7,9 @@ const HeroSection = () => {
   return (
     <section className="relative pb-[49px] bg-[#4f6eff]">
       {/* Main Container */}
-      <div className="relative w-[90%] md:w-[80%] max-w-[1080px] mx-auto flex flex-wrap items-center gap-[60px] py-[27px]">
+      <div className="relative w-[90%] md:w-[80%] max-w-[1080px] mx-auto flex flex-col md:flex-row items-center gap-[60px] py-[27px]">
         {/* Left Section - Text */}
-        <div className="w-full md:w-[47%] mb-8 md:mb-0 text-center">
+        <div className="w-full md:w-[47%] mx-auto mb-8 md:mb-0 text-center">
           <h1
             className="mt-[48px] mb-[12px] text-white text-[31px] font-[700] leading-[37px] pb-[10px]"
             id="cantata-font"
@@ -27,8 +27,8 @@ const HeroSection = () => {
         </div>
 
         {/* Right Section - Hero Image */}
-        <div className="w-full md:w-[47%]">
-          <div className="w-[80%] mx-auto relative h-[100px] md:h-[272px] rounded-[15px] overflow-hidden shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)]">
+        <div className="w-full md:w-[47%] mx-auto">
+          <div className="w-full md:w-[80%] mx-auto relative h-[400px] md:h-[272px] rounded-[15px] overflow-hidden shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)]">
             <Image
               src="/Images/heart-in-hands.webp"
               alt="hero image"

@@ -12,7 +12,7 @@ const index = () => {
           Become a part of our Mission
         </h1>
       </div>
-      <div className="w-[90%] lg:w-[80%] mx-auto pt-[27px] flex gap-[32px]">
+      <div className="w-[90%] lg:w-[80%] mx-auto pt-[27px] flex flex-col md:flex-row gap-[32px]">
         <BecomePartOfOurMissionCard
           bgImage="/Images/help-us.webp"
           heading="HELP US"

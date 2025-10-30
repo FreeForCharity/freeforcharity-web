@@ -31,7 +31,9 @@ export default function TestimonialSlider() {
   }, [isHovered]);
 
   const handlePrev = () => {
-    startTransition((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    startTransition(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   const handleNext = () => {
@@ -50,14 +52,14 @@ export default function TestimonialSlider() {
     <div className="py-16 bg-white">
       <div className="w-[85%] max-w-[1300px] mx-auto text-center">
         <h1
-          className="mt-[2px] mb-[12px] pb-[10px] text-[31px] font-[700] leading-[31px] text-[#0d7ff8] text-center"
+          className="mt-[2px] mb-[42px] pb-[10px] text-[31px] font-[700] leading-[31px] text-[#0d7ff8] text-center"
           id="cantata-font"
         >
           Client Testimonials
         </h1>
 
         <div
-          className="relative mx-auto rounded-2xl overflow-hidden shadow-xl px-[78px]"
+          className="relative mx-auto rounded-[10px] overflow-hidden shadow-xl px-[78px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -80,8 +82,8 @@ export default function TestimonialSlider() {
           ></div>
 
           {/* Testimonial Content */}
-          <div className="relative z-20 text-white pt-[35px] pb-[53px] px-[91px]">
-            <div className="relative h-[auto] min-h-[220px] flex items-center justify-center">
+          <div className="relative z-20 text-white pt-[35px] pb-[53px] lg:px-[91px]">
+            <div className="relative h-[auto] min-h-[520px] sm:min-h-[350] md:min-h-[300px] lg:min-h-[240px] flex items-center justify-center">
               {testimonials.map((testimonial, idx) => (
                 <div
                   key={testimonial.id}
@@ -92,7 +94,7 @@ export default function TestimonialSlider() {
                   }`}
                 >
                   <p
-                    className="text-[17px] leading-[27px] font-[400] w-full"
+                    className="text-[16px] leading-[25px] sm:text-[17px] sm:leading-[27px] font-[400] w-full"
                     id="raleway-font"
                   >
                     {testimonial.text}

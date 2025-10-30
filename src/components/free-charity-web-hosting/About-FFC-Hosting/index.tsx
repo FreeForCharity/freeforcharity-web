@@ -4,8 +4,8 @@ import Image from "next/image";
 const index = () => {
   return (
     <div className="pt-[10px] pb-[40px] ">
-      <div className="pb-[3px] pt-[27px] w-[90%] lg:w-[80%] mx-auto flex">
-        <div className="w-[38.2%] mr-[32px]">
+      <div className="pb-[3px] pt-[27px] w-[90%] lg:w-[80%] mx-auto flex flex-col md:flex-row gap-[40px] md:gap-[0px]">
+        <div className="w-full md:w-[38.2%] mr-[32px]">
           <div className="rounded-[15px] overflow-hidden shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)] w-full">
             <img
               src="/Images/About-FFC-Hosting.webp"
@@ -14,7 +14,7 @@ const index = () => {
             />
           </div>
         </div>
-        <div className="w-[58.8%]">
+        <div className="w-full md:w-[58.8%]">
           <h1
             className="mb-[12px] mt-[2px] pb-[10px] font-[700] text-[31px] leading-[31px] text-black text-center"
             id="cantata-font"
