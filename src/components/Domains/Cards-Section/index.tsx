@@ -100,7 +100,7 @@ export default function CloudflareSetup() {
         {/* Screenshot Image – You can change the src */}
         <div className="mt-10 mb-[34px] -mx-10 md:-mx-15">
           <Image
-            src="/images/Card-section-1.webp" // Change this path
+            src="/Images/Card-section-1.webp" // Change this path
             alt="User Management - Invite New User"
             width={1200}
             height={800}
@@ -121,7 +121,7 @@ export default function CloudflareSetup() {
         </div>
         <div className="mt-10 mb-[34px] -mx-10 md:-mx-15">
           <Image
-            src="/images/Card-section-3.webp" // Change this path
+            src="/Images/Card-section-3.webp" // Change this path
             alt="User Management - Invite New User"
             width={1200}
             height={800}
@@ -130,7 +130,7 @@ export default function CloudflareSetup() {
         </div>
         <div className="mt-10 mb-[34px] -mx-10 md:-mx-15">
           <Image
-            src="/images/Card-section-4.webp" // Change this path
+            src="/Images/Card-section-4.webp" // Change this path
             alt="User Management - Invite New User"
             width={1200}
             height={800}
@@ -139,7 +139,7 @@ export default function CloudflareSetup() {
         </div>
         <div className="mt-10 mb-[34px] -mx-10 md:-mx-15">
           <Image
-            src="/images/Card-section-5.webp" // Change this path
+            src="/Images/Card-section-5.webp" // Change this path
             alt="User Management - Invite New User"
             width={1200}
             height={800}
