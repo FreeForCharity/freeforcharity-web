@@ -112,7 +112,7 @@ export default function CloudflareSetup() {
       <StepsCard title="Change your DNS to point to Cloudflare">
         <div className="mt-10 mb-[34px] -mx-10 md:-mx-15">
           <Image
-            src="/images/Card-section-2.webp" // Change this path
+            src="/Images/Card-section-2.webp" // Change this path
             alt="User Management - Invite New User"
             width={1200}
             height={800}
