@@ -8,11 +8,11 @@ const Index = () => {
       <div className="absolute inset-0 z-[1] bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTI4MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iI2VhZWFlYSI+PHBhdGggZD0iTTAgMTQwaDEyODBDNTczLjA4IDE0MCAwIDAgMCAweiIgZmlsbC1vcGFjaXR5PSIuMyIvPjxwYXRoIGQ9Ik0wIDE0MGgxMjgwQzU3My4wOCAxNDAgMCAzMCAwIDMweiIgZmlsbC1vcGFjaXR5PSIuNSIvPjxwYXRoIGQ9Ik0wIDE0MGgxMjgwQzU3My4wOCAxNDAgMCA2MCAwIDYweiIvPjwvZz48L3N2Zz4=')] bg-[length:100%_100%] scale-[-1] origin-center"></div>
 
       {/* Main Content */}
-      <div className="relative z-[5] w-[90%] max-w-[1300px] mx-auto flex flex-wrap items-start justify-between">
+      <div className="relative z-[5] w-[90%] max-w-[1300px] mx-auto flex flex-col md:flex-row items-start justify-between">
         {/* Left Section */}
-        <div className="w-full md:w-[38.2%] mb-8 md:mb-0 mr-[39px]">
+        <div className="w-full md:w-[38.2%] mb-8 md:mb-0 md:mr-[39px]">
           <h1
-            className="mt-[60px] mb-[20px] font-[700] text-[50px] leading-[50px] md:leading-[65px] text-[#1a2e35]"
+            className="md:mt-[60px] mb-[20px] font-[700] text-[50px] leading-[50px] md:leading-[65px] text-[#1a2e35]"
             id="cantata-font"
           >
             Free For Charity <br />
