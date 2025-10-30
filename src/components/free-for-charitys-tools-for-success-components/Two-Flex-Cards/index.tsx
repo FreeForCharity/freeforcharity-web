@@ -27,10 +27,10 @@ const Index = () => {
     <div className="pt-[8px] pb-[54px]">
       <div
         ref={sectionRef}
-        className="w-[80%] mx-auto max-w-[1080px] flex items-stretch transition-transform duration-[1000ms] [transform-style:preserve-3d]"
+        className="w-[90%] md:w-[80%] mx-auto max-w-[1080px] flex flex-col lg:flex-row items-stretch transition-transform duration-[1000ms] [transform-style:preserve-3d] gap-[40px] lg:gap-[0px]"
       >
         {/* Left Section */}
-        <div className="w-[47.25%] mr-[60px] rounded-[15px] shadow-[0px_2px_70px_-15px_rgba(0,0,0,0.3)] py-[40px] px-[20px] flex flex-col items-start">
+        <div className="w-[100%] lg:w-[47.25%] mr-[60px] rounded-[15px] shadow-[0px_2px_70px_-15px_rgba(0,0,0,0.3)] py-[40px] px-[20px] flex flex-col items-start">
           {/* Image */}
           <div className="relative w-full h-[260px] mb-[30px]">
             <Image
@@ -72,15 +72,13 @@ const Index = () => {
               <span className="transition-all duration-300 group-hover:translate-x-1">
                 Get Started
               </span>
-              <IoIosArrowForward
-                className="opacity-0 translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out w-[20px] h-[20px]"
-              />
+              <IoIosArrowForward className="opacity-0 translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out w-[20px] h-[20px]" />
             </a>
           </div>
         </div>
 
         {/* Right Section */}
-        <div className="w-[47.25%] rounded-[15px] shadow-[0px_2px_70px_-15px_rgba(0,0,0,0.3)] py-[40px] px-[20px] flex flex-col items-start">
+        <div className="w-[100%] lg:w-[47.25%] rounded-[15px] shadow-[0px_2px_70px_-15px_rgba(0,0,0,0.3)] py-[40px] px-[20px] flex flex-col items-start">
           <div className="relative w-full h-[260px] mb-[30px]">
             <Image
               src="/Images/Free-For-Charity-card.webp"
@@ -122,9 +120,7 @@ const Index = () => {
               <span className="transition-all duration-300 group-hover:translate-x-1">
                 Get Started
               </span>
-              <IoIosArrowForward
-                className="opacity-0 translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out w-[20px] h-[20px]"
-              />
+              <IoIosArrowForward className="opacity-0 translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out w-[20px] h-[20px]" />
             </a>
           </div>
         </div>

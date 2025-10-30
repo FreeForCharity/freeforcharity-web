@@ -18,7 +18,8 @@ export default function ToolsPage() {
     },
     {
       logo: "/Images/officeLogo.webp",
-      title: "Microsoft Office 365 enterprise for non-profits (free with paid packages)",
+      title:
+        "Microsoft Office 365 enterprise for non-profits (free with paid packages)",
       description:
         "NOTE: FFC Recomended — Incredible discounts for non profits at rates better than even students get for advanced enterprise features. This should be the first product you seek to get.",
       note: "FFC Recommended",
@@ -40,7 +41,8 @@ export default function ToolsPage() {
     },
     {
       logo: "/Images/mailchimpLogo.webp",
-      title: "MailChimp(offers multiple packages paid ones are 15% off for non-profits)",
+      title:
+        "MailChimp(offers multiple packages paid ones are 15% off for non-profits)",
       description:
         "mailchimp is an always-on marketing platform for small businesses.",
     },
@@ -48,7 +50,7 @@ export default function ToolsPage() {
 
   return (
     <div className="py-[54px]  bg-[#535353]">
-      <div className="py-[27px] w-[80%] mx-auto max-w-[1080px] ">
+      <div className="py-[27px] w-[90%] lg:w-[80%] mx-auto max-w-[1080px] ">
         {/* Top Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px] mb-8">
           {topRow.map((tool, index) => (

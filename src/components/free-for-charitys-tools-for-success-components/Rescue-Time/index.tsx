@@ -1,13 +1,32 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
+import { motion, Variants } from "framer-motion";
+
+const sectionVariants: Variants = {
+  offscreen: { opacity: 0, scale: 0.8 },
+  onscreen: {
+    opacity: 1,
+    scale: 1,
+    transition: { type: "spring", bounce: 0.3, duration: 0.6 },
+  },
+};
 
 const Index = () => {
   return (
     <div className="py-[91px] bg-[#0c5575]">
-      <div className="w-[80%] mx-auto max-w-[1080px] flex items-start">
+      <div className="w-[90%] md:w-[80%] mx-auto max-w-[1080px] flex flex-col lg:flex-row items-start gap-[40px] lg:gap-[0px]">
+        
         {/* Left Section */}
-        <div className="w-[46%] mr-[86px] flex flex-col items-start">
+        <motion.div
+          className="w-full lg:w-[46%] mr-[86px] flex flex-col items-start"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
           {/* Image */}
           <div className="relative w-full h-[260px] mb-[30px]">
             <Image
@@ -28,10 +47,7 @@ const Index = () => {
               Credit Karma (free add supported)
             </h3>
 
-            <div
-              className="text-white text-[18px] leading-[24px] font-[500]"
-              id="lato-font"
-            >
+            <div className="text-white text-[18px] leading-[24px] font-[500]" id="lato-font">
               Credit Karma actually gives you a FREE credit score and report
               from transunion. When I say free I mean it. At no time does it
               even ask you for a credit card so it is impossible to charge you.
@@ -70,10 +86,16 @@ const Index = () => {
               />
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Section */}
-        <div className="w-[46%] flex flex-col items-start">
+        <motion.div
+          className="w-full lg:w-[46%] flex flex-col items-start"
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
           {/* Image */}
           <div className="relative w-full h-[260px] mb-[30px]">
             <Image
@@ -94,10 +116,7 @@ const Index = () => {
               Rescue Time (free with a paid premium version)
             </h3>
 
-            <div
-              className="text-white text-[18px] leading-[24px] font-[500]"
-              id="lato-font"
-            >
+            <div className="text-white text-[18px] leading-[24px] font-[500]" id="lato-font">
               Rescue Time is another FREE tool that really tells you about
               yourself and how you spend your time. It is amazing once you get
               it set up. The only downside is that you may not be able to
@@ -134,7 +153,7 @@ const Index = () => {
               />
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
