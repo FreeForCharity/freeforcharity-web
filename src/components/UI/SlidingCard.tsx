@@ -76,6 +76,7 @@ export default function LastPassPromo({
                 alt={subtitle}
                 width={400}
                 height={120}
+                unoptimized
                 className={`
                   w-full h-auto object-contain drop-shadow-lg
                   transition-all duration-1000 ease-out
