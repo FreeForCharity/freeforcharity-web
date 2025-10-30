@@ -16,17 +16,17 @@ const cardVariants: Variants = {
 const index = () => {
   const firstGrid = [
     {
-      imageSrc: "/Images/custom-logo.png",
+      imageSrc: "/Images/upwork.webp",
       title: "ittybiz.com Great site for ultra small business info",
       link: "https://example.com",
     },
     {
-      imageSrc: "/Images/custom-logo.png",
+      imageSrc: "/Images/upwork.webp",
       title: "earn1k.com Program for earning your for $1000 on the side by Ramit",
       link: "https://example.com",
     },
     {
-      imageSrc: "/Images/custom-logo.png",
+      imageSrc: "/Images/upwork.webp",
       title: "appsumo.com Another program for earning your first money online",
       link: "https://example.com",
     },
@@ -34,12 +34,12 @@ const index = () => {
 
   const secondGrid = [
     {
-      imageSrc: "/Images/custom-logo.png",
+      imageSrc: "/Images/upwork.webp",
       title: "100startup.com First book on starting a business",
       link: "https://example.com",
     },
     {
-      imageSrc: "/Images/custom-logo.png",
+      imageSrc: "/Images/upwork.webp",
       title: "theleanstartup.com The next step up book on starting a business",
       link: "https://example.com",
     },

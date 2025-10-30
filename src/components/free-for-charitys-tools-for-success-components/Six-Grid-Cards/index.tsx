@@ -28,7 +28,7 @@ export default function ToolsPage() {
 
   const bottomRow = [
     {
-      logo: "/Images/salesforceLogo.webp",
+      logo: "/Images/upwork.webp",
       title: "Salesforce (free to nonprofits up to 10 seats per year)",
       description:
         "Worlds best CRM available. NOTE: Microsoft offer now includes CRM for an all in one solution.",
