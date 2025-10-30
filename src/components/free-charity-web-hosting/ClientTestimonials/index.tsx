@@ -95,7 +95,7 @@ export default function TestimonialSlider() {
                     className="text-[17px] leading-[27px] font-[400] w-full"
                     id="raleway-font"
                   >
-                    "{testimonial.text}"
+                    {testimonial.text}
                   </p>
 
                   <div className="mt-5">
