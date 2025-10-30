@@ -1,9 +1,16 @@
 import React from "react";
+import Hero from "@/components/free-charity-web-hosting/Hero";
+import Hosting from "@/components/free-charity-web-hosting/hosting";
+import AboutFFCHosting from "@/components/free-charity-web-hosting/About-FFC-Hosting";
 
 const index = () => {
-  return <div className="flex items-center justify-center min-h-screen text-[34px] w-full text-center">
-    <h1 className="text-center">free-charity-web-hosting</h1>
-  </div>;
+  return (
+    <div>
+      <Hero />
+      <Hosting />
+      <AboutFFCHosting />
+    </div>
+  );
 };
 
 export default index;
