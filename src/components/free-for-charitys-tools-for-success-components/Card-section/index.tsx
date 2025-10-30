@@ -20,7 +20,7 @@ export default function Page() {
           }
           buttonText="Available Here"
           buttonLink="https://lastpass.com"
-          imageSrc="/images/LastPass-Logo-Color.webp"
+          imageSrc="/Images/LastPass-Logo-Color.webp"
         />
         <SlidingCard
           direction="left"
@@ -32,7 +32,7 @@ export default function Page() {
           }
           buttonText="Available Here"
           buttonLink="https://lastpass.com"
-          imageSrc="/images/mint-logo.webp" // 👈 image passed as prop
+          imageSrc="/Images/mint-logo.webp" // 👈 image passed as prop
         />
       </div>
     </div>

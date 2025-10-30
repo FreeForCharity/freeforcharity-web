@@ -33,7 +33,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/guidestar.webp" // 👈 image passed as prop
+            imageSrc="/Images/guidestar.webp" // 👈 image passed as prop
           />
           <SlidingCard
             direction="left"
@@ -50,7 +50,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/TechSouplogo.webp" // 👈 image passed as prop
+            imageSrc="/Images/TechSouplogo.webp" // 👈 image passed as prop
           />
 
           <div className="py-[6px] w-[80%] mx-auto">

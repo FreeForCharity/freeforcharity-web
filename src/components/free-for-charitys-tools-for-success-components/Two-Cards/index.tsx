@@ -24,7 +24,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/Linkedin-logo.webp" // 👈 image passed as prop
+            imageSrc="/Images/Linkedin-logo.webp" // 👈 image passed as prop
           />
           <SlidingCard
             direction="right"
@@ -36,7 +36,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/dragon-logo.webp" // 👈 image passed as prop
+            imageSrc="/Images/dragon-logo.webp" // 👈 image passed as prop
           />
         </div>
       </div>

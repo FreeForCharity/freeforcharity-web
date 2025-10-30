@@ -30,7 +30,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/Wave-logo.webp" // 👈 image passed as prop
+            imageSrc="/Images/Wave-logo.webp" // 👈 image passed as prop
           />
           <SlidingCard
             direction="right"
@@ -51,7 +51,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/shoeboxed.webp" // 👈 image passed as prop
+            imageSrc="/Images/shoeboxed.webp" // 👈 image passed as prop
           />
 
           <SlidingCard
@@ -70,7 +70,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/google.webp" // 👈 image passed as prop
+            imageSrc="/Images/google.webp" // 👈 image passed as prop
           />
 
           <SlidingCard
@@ -86,7 +86,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/fiverr.webp" // 👈 image passed as prop
+            imageSrc="/Images/fiverr.webp" // 👈 image passed as prop
           />
 
           <SlidingCard
@@ -102,7 +102,7 @@ const index = () => {
             }
             buttonText="Available Here"
             buttonLink="https://lastpass.com"
-            imageSrc="/images/upwork.webp" // 👈 image passed as prop
+            imageSrc="/Images/upwork.webp" // 👈 image passed as prop
           />
         </div>
       </div>
