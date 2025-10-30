@@ -59,7 +59,7 @@ export default function TestimonialSlider() {
         </h1>
 
         <div
-          className="relative mx-auto rounded-[10px] overflow-hidden shadow-xl px-[78px]"
+          className="relative mx-auto rounded-[10px] overflow-hidden shadow-xl px-[20px] lg:px-[78px]"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
