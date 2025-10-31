@@ -1,9 +1,7 @@
 import React from "react";
 
-const index = () => {
-  return <div className="flex items-center justify-center min-h-screen text-[34px] w-full text-center">
-    <h1 className="text-center">ffcadmin-free-for-charity-cpanel-backup-sop</h1>
-  </div>;
+const page = () => {
+  return <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eaque perspiciatis rem earum dolore quae modi provident expedita atque culpa architecto quisquam totam, enim commodi, illum incidunt est, velit error delectus necessitatibus id ducimus eos distinctio. Nobis doloribus ex tempore recusandae ipsa. Dolor nihil, nesciunt deserunt perspiciatis possimus consequatur magni aperiam modi iste tenetur quae officia illum fuga laboriosam, commodi tempore facere quam excepturi non sunt. Nam sunt voluptatum tempora ea non porro ipsa, maxime suscipit sint fugiat, amet mollitia perspiciatis magnam similique, blanditiis repellat assumenda laboriosam aut et ad quidem eaque repellendus voluptas. Sit adipisci molestiae architecto fugit aperiam omnis qui cumque ex, quidem minima numquam veritatis impedit explicabo dicta facilis. Rem voluptate consequatur illo aut temporibus esse corrupti, natus tempore. Nam unde ex quaerat assumenda. Maxime impedit hic voluptatibus vero corrupti quo quia suscipit a quae, exercitationem deserunt, consequatur beatae tenetur, architecto rem id esse laborum. Consequuntur dolorem exercitationem dignissimos at fuga soluta pariatur eius voluptatibus tempora earum aperiam laudantium reprehenderit, ratione molestiae repellendus itaque natus mollitia amet consectetur veritatis inventore provident corrupti! Esse porro doloremque unde cumque sapiente aspernatur aperiam reprehenderit, ut praesentium nostrum cum vitae dolor voluptas iusto? Repellendus provident aliquid ut, facere vel repudiandae tempora?</div>;
 };
 
-export default index;
+export default page;
