@@ -42,7 +42,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
         <span
           className={`flex-1 pr-3 font-[700] leading-[26px] transition-all duration-300 ease-in-out ${
             small
-              ? `text-[22px] text-center ${
+              ? `text-[18px] text-center ${
                   isOpen ? "text-[#0d7ff8]" : "text-black"
                 }`
               : isOpen
