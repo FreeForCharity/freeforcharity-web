@@ -71,7 +71,7 @@ const index = () => {
                     </li>
                     <li>Direct Link: Shopping Cart.</li>
                     <li>
-                      The charity's Point of Contact and declared status are
+                      The charitys Point of Contact and declared status are
                       saved to their new account.
                     </li>
                   </ul>
@@ -98,7 +98,7 @@ const index = () => {
                       501c3).
                     </li>
                     <li>
-                      Review the charity's mission statement for alignment.
+                      Review the charitys mission statement for alignment.
                     </li>
                     <li>
                       Check external validation URLs for trust indicators.
@@ -156,7 +156,7 @@ const index = () => {
 
                 <div className="w-full">
                   <h3 className="text-[20px] leading-[20px] font-[600] mb-[8px] pb-[10px]text-[#1f2937]">
-                    Receiving 'Basic Services' Package
+                    Receiving Basic Services Package
                   </h3>
                   <p className="mt-[18px] text-[#374151] text-[14px] leading-[24px] font-[500]">
                     Once approved, charities begin receiving the core package of
@@ -171,7 +171,7 @@ const index = () => {
                     </li>
                     <li>
                       <strong>Microsoft 365 Tenant:</strong> We establish the
-                      organization's Microsoft 365 for Nonprofits presence and
+                      organizations Microsoft 365 for Nonprofits presence and
                       validate domain records.
                     </li>
                   </ul>
@@ -180,7 +180,7 @@ const index = () => {
                       <strong className="text-[#ca8a04]">NOTE:</strong> FFC is
                       Pre-501c3 organizations must purchase these services until
                       Microsoft validation is complete. Organizations must add
-                      FFC as a 'guest' to their tenant for collaboration.
+                      FFC as a guest to their tenant for collaboration.
                     </p>
                   </div>
                 </div>
@@ -196,7 +196,7 @@ const index = () => {
                     Charity System & Website Setup
                   </h3>
                   <p className="mt-[18px] text-[#374151] text-[14px] leading-[24px] font-[500]">
-                    The process splits based on the charity's official status.
+                    The process splits based on the charitys official status.
                   </p>
 
                   <ul className=" text-[14px] leading-[24px] font-[500] mt-[8px] text-[#374151] list-disc list-inside space-y-[10px] pb-[23px] pl-[1em]">
@@ -245,8 +245,8 @@ const index = () => {
                     <code>
                       // ** Fixes admin portal CloudFlare re-direct issue ** //{" "}
                       <br />
-                      if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https')
-                      !== false) <br /> $_SERVER['HTTPS'] = 'on';
+                      if (strpos($_SERVER[HTTP_X_FORWARDED_PROTO], https) !==
+                      false) <br /> $_SERVER[HTTPS] = on;
                     </code>
                   </pre>
 
@@ -295,12 +295,12 @@ const index = () => {
                       reports.
                     </li>
                     <li>
-                      Provide WPMUDEV Dashboard access to the charity's
-                      technical POC.
+                      Provide WPMUDEV Dashboard access to the charitys technical
+                      POC.
                     </li>
                     <li>
                       Install and authenticate the Divi Theme using the assigned
-                      designer's API key.
+                      designers API key.
                     </li>
                     <li>Deploy the default Divi Child Layout.</li>
                   </ul>
@@ -334,7 +334,7 @@ const index = () => {
                   <div className="bg-[#fffbeb] border-l-4 border-[#facc15] p-4 my-4 rounded text-[14px] leading-[24px] font-[500] w-[100%] text-[#374151]">
                     <p>
                       <strong className="text-[#ca8a04]">NOTE:</strong> This
-                      default page acts as a "coming soon" page while the full
+                      default page acts as a coming soon page while the full
                       design is completed on a staging site.
                     </p>
                   </div>
