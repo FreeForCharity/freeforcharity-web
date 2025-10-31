@@ -6,8 +6,8 @@ import Transparentbtn from "@/components/UI/Transparentbtn";
 const index = () => {
   return (
     <div className="w-full">
-      <div className="mx-auto py-[40px] ">
-        <div className="pt-[26px] max-w-[90%] sm:max-w-[90%] mx-auto">
+      <div className="w-[90%] mx-auto py-[40px] ">
+        <div className="pt-[26px] w-full max-w-[90%] sm:max-w-[90%] mx-auto">
           <h1
             className="text-[30px] font-[500] text-[#333] pb-[1em]"
             id="aria-font"
@@ -237,8 +237,7 @@ const index = () => {
           />
         </div>
 
-        <div
-          className="pt-[26px] max-w-[90%] sm:max-w-[80%] mx-auto text-[14px]"
+        <div  className="pt-[26px] w-[90%] mx-auto text-[14px]"
           id="aria-font"
         >
           <p className="font-[700] text-[#666] pb-[1em]">

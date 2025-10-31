@@ -25,25 +25,27 @@ const SupportMissionSection: React.FC<SupportMissionSectionProps> = ({
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="bg-white rounded-[6px] shadow-[0px_24px_72px_-12px_rgba(0,0,0,0.12)] p-[40px] max-w-[540px] text-center
-      sm:p-[24px] sm:w-[90%] sm:max-w-[100%]">
+      <div
+        className="bg-white rounded-[6px] shadow-[0px_24px_72px_-12px_rgba(0,0,0,0.12)] p-[40px] max-w-[540px] text-center
+      sm:p-[24px] sm:max-w-[540px] w-[100%]"
+      >
         <h1
-          className="text-[50px] font-[500] text-gray-900 mb-[10px] pb-[10px] leading-[60px]
-          sm:text-[32px] sm:leading-[40px]"
+          className="text-[32px] font-[500] text-gray-900 mb-[10px] pb-[10px] sm:leading-[60px]
+          sm:text-[50px] leading-[40px]"
           id="cinzel"
         >
           {title}
         </h1>
         <p
-          className="text-[16px] font-[500] text-[#000000a3] mb-6 leading-[28px]
-          sm:text-[14px] sm:leading-[24px]"
+          className="sm:text-[16px] font-[500] text-[#000000a3] mb-6 sm:leading-[28px]
+          text-[14px] leading-[24px]"
           id="fauna-font"
         >
           {description1}
         </p>
         <p
-          className="text-[16px] font-[500] text-[#000000a3] mb-6 leading-[28px]
-          sm:text-[14px] sm:leading-[24px]"
+          className="sm:text-[16px] font-[500] text-[#000000a3] mb-6 sm:leading-[28px]
+          text-[14px] leading-[24px]"
           id="fauna-font"
         >
           {description2}
