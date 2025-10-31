@@ -46,9 +46,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
                   isOpen ? "text-[#0d7ff8]" : "text-black"
                 }`
               : isOpen
-              ? "text-[24px] text-[#0D7FF8]"
-              : "text-[22px] text-black"
+              ? "text-[22px] text-[#0D7FF8]"
+              : "text-[18px] text-black"
           }`}
+          id="cantata-font"
         >
           {title}
         </span>
