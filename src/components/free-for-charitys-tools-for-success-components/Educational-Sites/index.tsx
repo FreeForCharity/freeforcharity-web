@@ -18,12 +18,12 @@ const EducationalSitesSection = () => {
   const cards = [
     {
       title: "iwillteachyoutoberich.com Best for automation and earning more",
-      link: "https://iwillteachyoutoberich.com",
+      link: "https://www.iwillteachyoutoberich.com/blog/",
       image: "/Images/googleLogo.webp",
     },
     {
       title: "fourhourworkweek.com Another prime automation book and website",
-      link: "https://fourhourworkweek.com",
+      link: "https://tim.blog/overview/",
       image: "/Images/googleLogo.webp",
     },
   ];

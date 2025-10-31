@@ -19,7 +19,7 @@ export default function Page() {
             </>
           }
           buttonText="Available Here"
-          buttonLink="https://lastpass.com"
+          buttonLink="https://lastpass.com/friendwelcome.php?og=1&ref=47075402"
           imageSrc="/Images/LastPass-Logo-Color.webp"
         />
         <SlidingCard
@@ -31,7 +31,7 @@ export default function Page() {
             </>
           }
           buttonText="Available Here"
-          buttonLink="https://lastpass.com"
+          buttonLink="mint.com"
           imageSrc="/Images/mint-logo.webp" // 👈 image passed as prop
         />
       </div>

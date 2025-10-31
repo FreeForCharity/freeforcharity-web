@@ -59,7 +59,7 @@ const Index = () => {
 
             {/* Button */}
             <a
-              href="https://example.com"
+              href="https://www.creditkarma.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -126,7 +126,7 @@ const Index = () => {
 
             {/* Button */}
             <a
-              href="https://example.com"
+              href="https://www.rescuetime.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="

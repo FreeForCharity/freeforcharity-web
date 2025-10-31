@@ -13,8 +13,14 @@ const index: React.FC = () => {
         </h1>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-o sm:gap-6">
-          <Transparentbtn text="501(c)3 Charities Click Here To Get Started!" />
-          <Transparentbtn text="Pre-501(c)3 Charities Click Here to Get Started!" />
+          <Transparentbtn
+            text="501(c)3 Charities Click Here To Get Started!"
+            href="https://freeforcharity.org/hub/cart.php?a=confproduct&i=0"
+          />
+          <Transparentbtn
+            text="Pre-501(c)3 Charities Click Here to Get Started!"
+            href="https://freeforcharity.org/hub/cart.php?a=confproduct&i=1"
+          />
         </div>
       </div>
     </div>

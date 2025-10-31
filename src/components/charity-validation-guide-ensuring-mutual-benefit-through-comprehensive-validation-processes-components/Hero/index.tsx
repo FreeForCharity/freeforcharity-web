@@ -286,9 +286,11 @@ export default function CharityValidationGuide() {
 
             <li className="text-[14px] font-[500] text-[#666] leading-[24px]">
               <strong className="text-[#666] text-[14px] font-[700]">
-                Target Demographic Assessment (THE 17 GOALS | Sustainable
-                Development (un.org))
+                Target Demographic Assessment
               </strong>
+              <a href="https://sdgs.un.org/goals" className="text-[#56A3F4]">
+                (THE 17 GOALS | Sustainable Development (un.org))
+              </a>
               <ol className="list-decimal list-inside ml-8 mt-2 space-y-1">
                 <li>
                   <strong className="text-[#666] text-[14px] font-[700]">
@@ -300,8 +302,14 @@ export default function CharityValidationGuide() {
                   the complexities and nuances in the non-profit sector. We
                   check this based on self-reported data in the Intake Forms and
                   the GuideStar profile pages National Taxonomy of Exempt
-                  Entities (NTEE) Code IRS 1040 Legal status (IRS Activity Codes
-                  | National Center for Charitable Statistics (urban.org))
+                  Entities (NTEE) Code IRS 1040 Legal status{" "}
+                  <a
+                    href="https://nccs.urban.org/publication/irs-activity-codes"
+                    className="text-[#56A3F4]"
+                  >
+                    (IRS Activity Codes | National Center for Charitable
+                    Statistics (urban.org))
+                  </a>
                 </li>
                 <li>
                   <strong className="text-[#666] text-[14px] font-[700]">

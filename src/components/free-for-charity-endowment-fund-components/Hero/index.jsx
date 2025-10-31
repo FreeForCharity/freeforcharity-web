@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Index = () => {
   return (
@@ -18,13 +19,13 @@ const Index = () => {
 
           {/* Right Column: Button */}
           <div className="flex justify-center md:justify-start items-center mt-[25px] md:mt-0">
-            <a
-              href="#"
+            <Link
+              href="/free-for-charity-endowment-fund"
               className="whitespace-nowrap px-[20px] sm:px-[24px] py-[10px] sm:py-[12px] hover:bg-gray-100 transition shadow-lg text-[#003566] !border-0 rounded-full text-[14px] font-[700] leading-[24px] bg-white"
               id="fauna-font"
             >
               Support the Endowment
-            </a>
+            </Link>
           </div>
         </div>
 

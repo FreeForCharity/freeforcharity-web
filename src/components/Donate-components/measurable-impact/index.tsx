@@ -40,7 +40,7 @@ const Index = () => {
             >
               In addition to financial support, Free for Charity also needs
               community support through{" "}
-              <a href="#" className="text-[#2ea3f2]">
+              <a href="/volunteer" className="text-[#2ea3f2]">
                 skilled volunteers
               </a>{" "}
               and gifts in kind (such as services or products sold by your
@@ -71,7 +71,7 @@ const Index = () => {
               today.
             </p>
 
-            <Transparentbtn text="Donate Today" />
+            <Transparentbtn text="Donate Today" href="https://www.paypal.com/donate/?hosted_button_id=9ZKQ23YC3G2J2" />
           </div>
         </div>
       </div>

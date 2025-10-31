@@ -119,7 +119,7 @@ const index = () => {
           >
           Follow the following simple steps to set up your Microsoft 365 Business Premium Account
           </p>
-          <a href="#" className="text-[25px] leading-[32px] font-[600] text-[#0580f8]" id="raleway-font">Click here</a>
+          <a href="domains/#setupstep2" className="text-[25px] leading-[32px] font-[600] text-[#0580f8]" id="raleway-font">Click here</a>
         </div>
 
       </div>

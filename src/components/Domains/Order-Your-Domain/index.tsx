@@ -10,7 +10,7 @@ const HowToOrderDomain = () => {
       linkText: "Find more",
       innerbg: "bg-[#E09900]",
       outerbg: "bg-[#fff]",
-      linkUrl: "#",
+      linkUrl: "/domains/#orderstep1",
     },
     {
       number: 2,
@@ -19,7 +19,7 @@ const HowToOrderDomain = () => {
       linkText: "Click here",
       innerbg: "bg-[#4995D2]",
       outerbg: "bg-[#4995D2]",
-      linkUrl: "#",
+      linkUrl: "https://freeforcharity.org/hub/store/ffc-consulting/free-org-domain-name-with-microsoft-email-address-setup",
     },
     {
       number: 3,
@@ -28,7 +28,7 @@ const HowToOrderDomain = () => {
       linkText: "Follow Steps",
       innerbg: "bg-[#4995D2]",
       outerbg: "bg-[#4995D2]",
-      linkUrl: "#",
+      linkUrl: "/domains/#orderstep3",
     },
     {
       number: 4,
@@ -37,7 +37,7 @@ const HowToOrderDomain = () => {
       linkText: "Click here",
       innerbg: "bg-[#E09900]",
       outerbg: "bg-[#fff]",
-      linkUrl: "#",
+      linkUrl: "/domains/#orderstep",
     },
   ];
 

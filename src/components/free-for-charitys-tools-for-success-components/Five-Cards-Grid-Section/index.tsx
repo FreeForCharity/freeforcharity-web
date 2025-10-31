@@ -18,17 +18,17 @@ const index = () => {
     {
       imageSrc: "/Images/upwork.webp",
       title: "ittybiz.com Great site for ultra small business info",
-      link: "https://example.com",
+      link: "http://ittybiz.com/about/",
     },
     {
       imageSrc: "/Images/upwork.webp",
       title: "earn1k.com Program for earning your for $1000 on the side by Ramit",
-      link: "https://example.com",
+      link: "http://earn1k.com/",
     },
     {
       imageSrc: "/Images/upwork.webp",
       title: "appsumo.com Another program for earning your first money online",
-      link: "https://example.com",
+      link: "https://appsumo.com/courses-learning/",
     },
   ];
 
@@ -36,12 +36,12 @@ const index = () => {
     {
       imageSrc: "/Images/upwork.webp",
       title: "100startup.com First book on starting a business",
-      link: "https://example.com",
+      link: "https://100startup.com/",
     },
     {
       imageSrc: "/Images/upwork.webp",
       title: "theleanstartup.com The next step up book on starting a business",
-      link: "https://example.com",
+      link: "http://theleanstartup.com/",
     },
   ];
 

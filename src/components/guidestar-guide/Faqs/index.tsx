@@ -19,7 +19,7 @@ const index = () => {
               <li>
                 <strong className="text-[#666]">Create an account:</strong> Go
                 to the{" "}
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/" className="text-[#2ea3f2]">
                   Candid website
                 </a>{" "}
                 and create a free account if you don’t have one.
@@ -36,11 +36,11 @@ const index = () => {
                 Follow the prompts to verify your connection to the nonprofit.
                 Only a designated staff member can claim the profile, but you
                 can invite others later to manage it​ (
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/UpdateNonprofitProfile/get-platinum" className="text-[#2ea3f2]">
                   GuideStar
                 </a>
                 )​(
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://help.candid.org/s/article/How-to-Earn-a-Platinum-Seal-of-Transparency" className="text-[#2ea3f2]">
                   Candid
                 </a>
                 ).
@@ -71,7 +71,7 @@ const index = () => {
                 <strong className="text-[#666]">Leadership information:</strong>{" "}
                 Provide the names and titles of key staff members and board
                 members​ ({" "}
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://blog.candid.org/post/what-is-a-seal-of-transparency-your-questions-about-candid-seals-answered/" className="text-[#2ea3f2]">
                   Candid insights
                 </a>{" "}
                 ).
@@ -80,11 +80,11 @@ const index = () => {
                 <strong className="text-[#666]"> Publication:</strong> Once all
                 required fields are completed, publish your updates to earn the
                 Bronze Seal​ ​ (
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/UpdateNonprofitProfile/get-platinum" className="text-[#2ea3f2]">
                   GuideStar
                 </a>
                 )​(
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://help.candid.org/s/article/How-to-Earn-a-Platinum-Seal-of-Transparency" className="text-[#2ea3f2]">
                   Candid
                 </a>
                 ).
@@ -109,7 +109,7 @@ const index = () => {
                 </strong>{" "}
                 Share key objectives and the target population that benefits
                 from your services​ ({" "}
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/UpdateNonprofitProfile/profile-best-practices/" className="text-[#2ea3f2]">
                   GuideStart
                 </a>{" "}
                 ).
@@ -117,11 +117,11 @@ const index = () => {
               <li>
                 <strong className="text-[#666]"> Publication:</strong> After
                 entering these details, publish to earn the Silver Seal​​ ​ (
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/UpdateNonprofitProfile/get-platinum" className="text-[#2ea3f2]">
                   GuideStar
                 </a>
                 )​(
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="blog.candid.org/post/what-is-a-seal-of-transparency-your-questions-about-candid-seals-answered/" className="text-[#2ea3f2]">
                   Candid insights
                 </a>
                 ).
@@ -154,11 +154,11 @@ const index = () => {
                 <strong className="text-[#666]"> Publication:</strong> After
                 Once financials and DEI data are in place, publish your profile
                 to obtain the Gold Seal​​ ​ (
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/UpdateNonprofitProfile/profile-best-practices/" className="text-[#2ea3f2]">
                   GuideStar
                 </a>
                 )​(
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/UpdateNonprofitProfile/get-platinum" className="text-[#2ea3f2]">
                   GuideStar
                 </a>
                 ).
@@ -191,7 +191,7 @@ const index = () => {
                 Upload a strategic plan or similar document, or use past grant
                 applications or board reports to outline your nonprofit’s goals
                 and strategies​ ({" "}
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/UpdateNonprofitProfile/get-platinum" className="text-[#2ea3f2]">
                   GuideStart
                 </a>{" "}
                 ).
@@ -200,11 +200,11 @@ const index = () => {
                 <strong className="text-[#666]"> Publication:</strong> After
                 After inputting impact metrics and goals, publish your updates
                 to earn the highest level, the Platinum Seal (
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://www.guidestar.org/UpdateNonprofitProfile/get-platinum" className="text-[#2ea3f2]">
                   GuideStar
                 </a>
                 )​(
-                <a href="#" className="text-[#2ea3f2]">
+                <a href="https://candid.org/blogs/what-is-a-seal-of-transparency-your-questions-about-candid-seals-answered/" className="text-[#2ea3f2]">
                   Candid insights
                 </a>
                 ).
@@ -251,13 +251,13 @@ const index = () => {
           <p className="font-[500] text-[#666] pb-[1em]">
             FFC ‘Full Profile’ GuideStar Link:
           </p>
-          <a href="#" className="font-[500] text-[#2ea3f2]">
+          <a href="https://www.guidestar.org/profile/shared/bbbe173a-87b9-4af9-a8a2-cae255a95742" className="font-[500] text-[#2ea3f2]">
             https://www.guidestar.org/profile/shared/bbbe173a-87b9-4af9-a8a2-cae255a95742
           </a>
           <p className="font-[500] text-[#666] pb-[1em] pt-[1em]">
             FFC ‘Public Profile’ GuideStar Link:
           </p>
-          <a href="#" className="text-[#2ea3f2]">
+          <a href="https://www.guidestar.org/profile/46-2471893" className="text-[#2ea3f2]">
             https://www.guidestar.org/profile/46-2471893
           </a>
           <p className="font-[500] text-[#666] pb-[1em] pt-[1em]">
@@ -282,7 +282,7 @@ const index = () => {
         </div>
 
         <div className="pt-[26px] max-w-[90%] sm:max-w-[90%] mx-auto text-[14px] flex items-center justify-center">
-          <Transparentbtn text="Continue Onboarding with Free For Charity" />
+          <Transparentbtn text="Continue Onboarding with Free For Charity" href="/501c3" />
         </div>
       </div>
     </div>

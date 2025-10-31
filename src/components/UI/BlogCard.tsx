@@ -9,6 +9,7 @@ interface InfoCardProps {
   heading: string;
   date?: string;
   description: string;
+  href?: string; // new prop for dynamic link
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({
@@ -16,6 +17,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
   heading,
   date,
   description,
+  href,
 }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
@@ -50,7 +52,13 @@ const InfoCard: React.FC<InfoCardProps> = ({
       {/* Description Section */}
       <div className="p-4">
         <h3 className="text-[25px] font-[500] text-black leading-[25px]">
-          <Link href="/blog">{heading}</Link>
+          {href ? (
+            <Link href={href} target="_blank" rel="noopener noreferrer">
+              {heading}
+            </Link>
+          ) : (
+            heading
+          )}
         </h3>
         {date && (
           <p

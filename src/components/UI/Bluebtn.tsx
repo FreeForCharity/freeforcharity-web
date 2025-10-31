@@ -5,9 +5,16 @@ import { IoIosArrowForward } from "react-icons/io";
 
 interface BlueBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
+  href?: string; // new prop for the link
 }
 
-const BlueBtn: React.FC<BlueBtnProps> = ({ children = "Learn More", ...props }) => {
+const BlueBtn: React.FC<BlueBtnProps> = ({ children = "Learn More", href, ...props }) => {
+  const handleClick = () => {
+    if (href) {
+      window.open(href, "_blank"); // opens link in new tab
+    }
+  };
+
   return (
     <button
       className="
@@ -21,6 +28,7 @@ const BlueBtn: React.FC<BlueBtnProps> = ({ children = "Learn More", ...props }) 
         flex items-center justify-center
       "
       id="montserrat-font"
+      onClick={handleClick} // handle link click
       {...props}
     >
       {/* Button Text */}

@@ -6,7 +6,10 @@ import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from "react-icons/md";
+import {
+  MdOutlineArrowBackIos,
+  MdOutlineArrowForwardIos,
+} from "react-icons/md";
 import Image from "next/image";
 import QuoteLeft from "../../../../public/Svgs/quote-left.svg";
 import QuoteRight from "../../../../public/Svgs/quote-right.svg";
@@ -41,7 +44,9 @@ const testimonials: Testimonial[] = [
 ];
 
 const TestimonialSlider: React.FC = () => {
-  const [swiperInstance, setSwiperInstance] = useState<SwiperInstance | null>(null);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperInstance | null>(
+    null
+  );
   const [activeIndex, setActiveIndex] = useState(0);
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
@@ -90,31 +95,55 @@ const TestimonialSlider: React.FC = () => {
                 <div className="px-12 md:px-20 relative">
                   {/* Left Quote */}
                   <div className="absolute left-[10px] md:left-[50px] top-0 opacity-20 w-6 md:w-9 h-6 md:h-9">
-                    <Image src={QuoteLeft} alt="Opening quote" width={36} height={36} />
+                    <Image
+                      src={QuoteLeft}
+                      alt="Opening quote"
+                      width={36}
+                      height={36}
+                    />
                   </div>
 
-                  <h3 className="text-[22px] font-bold mb-[10px] text-[#333] leading-6 italic" id="aria-font">
+                  <h3
+                    className="text-[22px] font-bold mb-[10px] text-[#333] leading-6 italic"
+                    id="aria-font"
+                  >
                     {t.heading}
                   </h3>
-                  <p className="text-[17px] font-medium text-black italic px-0 sm:px-4 md:px-8" id="aria-font">
+                  <p
+                    className="text-[17px] font-medium text-black italic px-0 sm:px-4 md:px-8"
+                    id="aria-font"
+                  >
                     {t.text}
                   </p>
 
                   {t.name && (
-                    <p className="text-[14px] font-medium my-2 text-[#666666]" id="aria-font">
+                    <p
+                      className="text-[14px] font-medium my-2 text-[#666666]"
+                      id="aria-font"
+                    >
                       {t.name}
                     </p>
                   )}
 
                   {t.location && (
-                    <p className="text-[14px] font-medium text-[#2EA3F2]" id="aria-font">
-                      {t.location}
-                    </p>
+                    <a href="https://americanlegionpost64.org/">
+                      <p
+                        className="text-[14px] font-medium text-[#2EA3F2]"
+                        id="aria-font"
+                      >
+                        {t.location}
+                      </p>
+                    </a>
                   )}
 
                   {/* Right Quote */}
                   <div className="absolute right-[10px] md:right-[50px] bottom-0 opacity-20 w-6 md:w-9 h-6 md:h-9">
-                    <Image src={QuoteRight} alt="Closing quote" width={36} height={36} />
+                    <Image
+                      src={QuoteRight}
+                      alt="Closing quote"
+                      width={36}
+                      height={36}
+                    />
                   </div>
                 </div>
               </SwiperSlide>

@@ -40,7 +40,7 @@ const NotFoundSection = () => {
           <ul>
             <li className="mb-[7px]">
               <a
-                href="#"
+                href="https://freeforcharity.org/we-just-updated-for-the-2022-guidestar-platinum-seal/"
                 className="text-[14px] text-[#666] leading-[24px] font-[500] hover:text-[#82c0c7]"
               >
                 We just updated for the 2022 GuideStar Platinum Seal
@@ -48,7 +48,7 @@ const NotFoundSection = () => {
             </li>
             <li className="mb-[7px]">
               <a
-                href="#"
+                href="https://freeforcharity.org/our-organization-earned-a-2021-platinum-seal-of-transparency/"
                 className="text-[14px] text-[#666] leading-[24px] font-[500] hover:text-[#82c0c7]"
               >
                 Our organization earned a 2021 Platinum Seal of Transparency!
@@ -56,7 +56,7 @@ const NotFoundSection = () => {
             </li>
             <li className="mb-[7px]">
               <a
-                href="#"
+                href="https://freeforcharity.org/what-is-the-cost/"
                 className="text-[14px] text-[#666] leading-[24px] font-[500] hover:text-[#82c0c7]"
               >
                 What is the cost?
@@ -64,7 +64,7 @@ const NotFoundSection = () => {
             </li>
             <li className="mb-[7px]">
               <a
-                href="#"
+                href="https://freeforcharity.org/free-for-charity-just-earned-the-platinum-seal-of-transparency/"
                 className="text-[14px] text-[#666] leading-[24px] font-[500] hover:text-[#82c0c7]"
               >
                 Free For Charity Just Earned the Platinum Seal of Transparency
@@ -72,7 +72,7 @@ const NotFoundSection = () => {
             </li>
             <li className="mb-[7px]">
               <a
-                href="#"
+                href="https://freeforcharity.org/using-a-registered-agent-service-northwest-registered-agent/"
                 className="text-[14px] text-[#666] leading-[24px] font-[500] hover:text-[#82c0c7]"
               >
                 Using a Registered Agent Service (Northwest Registered Agent)

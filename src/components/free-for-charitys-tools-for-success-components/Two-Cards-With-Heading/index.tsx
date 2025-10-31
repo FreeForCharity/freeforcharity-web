@@ -32,7 +32,7 @@ const index = () => {
               </>
             }
             buttonText="Available Here"
-            buttonLink="https://lastpass.com"
+            buttonLink="https://www.guidestar.org/"
             imageSrc="/Images/guidestar.webp" // 👈 image passed as prop
           />
           <SlidingCard
@@ -49,7 +49,7 @@ const index = () => {
               </>
             }
             buttonText="Available Here"
-            buttonLink="https://lastpass.com"
+            buttonLink="https://www.techsoup.org/"
             imageSrc="/Images/TechSouplogo.webp" // 👈 image passed as prop
           />
 

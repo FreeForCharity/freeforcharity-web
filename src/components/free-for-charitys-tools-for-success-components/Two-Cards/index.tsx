@@ -23,7 +23,7 @@ const index = () => {
               </>
             }
             buttonText="Available Here"
-            buttonLink="https://lastpass.com"
+            buttonLink="https://nonprofit.linkedin.com/"
             imageSrc="/Images/Linkedin-logo.webp" // 👈 image passed as prop
           />
           <SlidingCard
@@ -35,7 +35,7 @@ const index = () => {
               </>
             }
             buttonText="Available Here"
-            buttonLink="https://lastpass.com"
+            buttonLink="https://www.nuance.com/dragon.html"
             imageSrc="/Images/dragon-logo.webp" // 👈 image passed as prop
           />
         </div>

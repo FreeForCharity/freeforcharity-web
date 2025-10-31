@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function CloudflareSetup() {
   return (
     <div>
-      <StepsCard title="Follow the following steps">
+      <StepsCard title="Follow the following steps" id="orderstep1">
         <ol
           className="list-decimal list-inside text-left text-[20px] leading-[26px] font-[500]"
           id="raleway-font"
@@ -30,7 +30,7 @@ export default function CloudflareSetup() {
             </a>
             For Help (
             <a
-              href="https://support.cloudflare.com/hc/en-us/articles/201720164-Creating-a-Cloudflare-account-and-adding-a-website#:~:text=Add%20a%20domain%20to%20Cloudflare%201%20Log%20in,on%20Cloudflare%2C%20change%20your%20domain%20nameservers%20to%20Cloudflare"
+              href="https://developers.cloudflare.com/fundamentals/account/#:~:text=Add%20a%20domain%20to%20Cloudflare%201%20Log%20in,on%20Cloudflare%2C%20change%20your%20domain%20nameservers%20to%20Cloudflare"
               target="_blank"
               rel="noopener"
               className="text-blue-600 underline hover:text-blue-800 text-[20px]"
@@ -43,7 +43,7 @@ export default function CloudflareSetup() {
         </ol>
       </StepsCard>
 
-      <StepsCard title="Follow the following steps">
+      <StepsCard title="Follow the following steps" id="orderstep3">
         {/* Bullet List */}
         <ul className="list-disc list-inside" id="raleway-font">
           <li>
@@ -61,8 +61,8 @@ export default function CloudflareSetup() {
 
           <li>
             NOTE: You must include payment method as this is a commercial system
-            and even with a $0 invoice it will not run each year if it does
-            not see payment. We recommend Paypal and ACH as these are the most
+            and even with a $0 invoice it will not run each year if it does not
+            see payment. We recommend Paypal and ACH as these are the most
             stable.
           </li>
 
@@ -109,7 +109,7 @@ export default function CloudflareSetup() {
         </div>
       </StepsCard>
 
-      <StepsCard title="Change your DNS to point to Cloudflare">
+      <StepsCard title="Change your DNS to point to Cloudflare" id="orderstep4">
         <div className="mt-10 mb-[34px] -mx-10 md:-mx-15">
           <Image
             src="/Images/Card-section-2.webp" // Change this path

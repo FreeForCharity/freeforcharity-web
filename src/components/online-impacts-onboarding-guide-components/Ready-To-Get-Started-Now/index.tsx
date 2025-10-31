@@ -14,7 +14,7 @@ const index = () => {
           >
             Ready to Get Started Now?
           </h1>
-          <TransparentBtn text="Online Impacts to Free For Charity Onboarding Form" />
+          <TransparentBtn text="Online Impacts to Free For Charity Onboarding Form" href="https://freeforcharity.org/hub/cart.php?a=confproduct&i=3"/>
         </div>
 
         <AccordionItem

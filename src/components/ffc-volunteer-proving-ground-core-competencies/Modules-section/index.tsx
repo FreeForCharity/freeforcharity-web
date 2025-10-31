@@ -46,7 +46,7 @@ const index = () => {
           </li>
           <li>
             <a
-              href="https://support.lastpass.com/help/training-and-resources"
+              href="https://usertraining.lastpass.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline font-medium"
@@ -70,7 +70,7 @@ const index = () => {
         <ul className="list-disc list-inside space-y-2 text-gray-700 mt-4">
           <li>
             <a
-              href="https://support.lastpass.com/help/what-is-the-lastpass-authenticator-app"
+              href="https://support.lastpass.com/s/document-item?language=en_US&bundleId=lastpass&topicId=LastPass%2FLastPass_Authenticator.html&_LANG=enus"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline font-medium"
@@ -90,7 +90,7 @@ const index = () => {
             </a>{" "}
             |{" "}
             <a
-              href="https://apps.apple.com/us/app/lastpass-authenticator/id1072549332"
+              href="https://apps.apple.com/us/app/lastpass-authenticator/id1079110004"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -141,7 +141,7 @@ const index = () => {
         <ul className="list-disc list-inside space-y-2 text-gray-700 font-[500]">
           <li>
             <a
-              href="https://support.microsoft.com/en-us/copilot"
+              href="https://learn.microsoft.com/en-us/copilot/tutorials/learn-microsoft-copilot"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -151,7 +151,7 @@ const index = () => {
           </li>
           <li>
             <a
-              href="https://gemini.google.com"
+              href="https://gemini.google/about/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -171,7 +171,7 @@ const index = () => {
             </a>{" "}
             |{" "}
             <a
-              href="https://play.google.com/store/apps/details?id=com.google.android.apps.gemini"
+              href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -223,7 +223,7 @@ const index = () => {
         <ul className="list-disc list-inside space-y-2 text-gray-700 font-[500]">
           <li>
             <a
-              href="https://learn.microsoft.com/en-us/training/paths/m365-fundamentals/"
+              href="https://learn.microsoft.com/en-us/training/courses/ms-900t01"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -235,7 +235,7 @@ const index = () => {
           </li>
           <li>
             <a
-              href="https://learn.microsoft.com/en-us/certifications/exams/ms-900"
+              href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ms-900"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -301,7 +301,7 @@ const index = () => {
         <ul className="list-disc list-inside space-y-2 text-gray-700 font-[500]">
           <li>
             <a
-              href="https://learn.microsoft.com/en-us/microsoftteams/teams-quick-start"
+              href="https://support.microsoft.com/en-us/office/microsoft-teams-video-training-4f108e54-240b-4351-8084-b1089f0d21d7"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -312,7 +312,7 @@ const index = () => {
           </li>
           <li>
             <a
-              href="https://learn.microsoft.com/en-us/training/paths/manage-teams/"
+              href="https://learn.microsoft.com/en-us/training/paths/get-started-managing-microsoft-teams/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -325,7 +325,7 @@ const index = () => {
           </li>
           <li>
             <a
-              href="https://learn.microsoft.com/en-us/certifications/exams/ms-700"
+              href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ms-700"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -392,7 +392,7 @@ const index = () => {
         <ul className="list-disc list-inside space-y-2 text-gray-700 font-[500]">
           <li>
             <a
-              href="https://support.microsoft.com/en-us/office/onedrive-video-training-1f608184-b7b6-43ca-8753-2ff679203132"
+              href="https://support.microsoft.com/en-us/office/video-onedrive-basics-fe8aab1e-3d1a-4a65-a9b6-77b79b6dbb30"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -403,7 +403,7 @@ const index = () => {
           </li>
           <li>
             <a
-              href="https://support.microsoft.com/en-us/office/onedrive-quick-start-guide-8b3d7a7d-8b3d-7a7d-8b3d-7a7d8b3d7a7d"
+              href="https://adoption.microsoft.com/files/onedrive/Microsoft-OneDrive-quick-start-guide.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -469,7 +469,7 @@ const index = () => {
         <ul className="list-disc list-inside space-y-2 text-gray-700 font-[500]">
           <li>
             <a
-              href="https://support.microsoft.com/en-us/office/microsoft-planner-video-training-4d7135f8-3d2b-4e6a-8d6f-2d8e6b6f6d6f"
+              href="https://support.microsoft.com/en-us/topic/4d7a18b3-3482-4226-bf93-3b3648a230d4"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -481,7 +481,7 @@ const index = () => {
           </li>
           <li>
             <a
-              href="https://support.microsoft.com/en-us/office/use-planner-in-microsoft-teams-62749798-2a0b-42d2-9d29-3b3e7854d5f5"
+              href="https://support.microsoft.com/en-us/topic/62798a9f-e827-49dd-8a27-dea23d32a470"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
@@ -534,7 +534,7 @@ const index = () => {
         <ul className="list-disc list-inside space-y-2 text-gray-700 font-[500]">
           <li>
             <a
-              href="https://support.microsoft.com/en-us/office/microsoft-365-quick-starts-7d8b3c5f-3d8e-4e8c-8d6f-2d8e6b6f6d6f"
+              href="https://support.microsoft.com/en-us#id0ebbh=web"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"

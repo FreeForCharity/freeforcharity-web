@@ -64,7 +64,7 @@ const CharityFAQ: React.FC = () => {
             </strong>{" "}
             Another great charity showing all the big name things you can get
             for free or at heavy discounts is{" "}
-            <Link href="/" className="text-[#2ea3f2]">
+            <Link href="https://www.techsoup.org/" className="text-[#2ea3f2]">
               TechSoup.org
             </Link>
             .{" "}

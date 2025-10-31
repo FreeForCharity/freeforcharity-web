@@ -20,10 +20,7 @@ const index = () => {
           </p>
           <h1 className="pb-[1em] font-[700]">
             Visit{" "}
-            <a
-              href="https://freeforcharity.org/domains"
-              className="text-[#2ea3f2]"
-            >
+            <a href="/domains" className="text-[#2ea3f2]">
               https://freeforcharity.org/domains
             </a>{" "}
             and follow all steps
@@ -34,10 +31,15 @@ const index = () => {
           </p>
           <h1 className="font-[700]">
             As always if you run into problems contact us at anytime{" "}
-            <Link href="clarkemoyer@freeforcharity.org" className="text-[#2ea3f2]">
+            <a
+              href="mailto:clarkemoyer@freeforcharity.org"
+              className="text-[#2ea3f2]"
+            >
               clarkemoyer@freeforcharity.org
-            </Link>{" "}
-            520-222-8104
+            </a>{" "}
+            <a href="tel:5202228104">
+              520-222-8104
+            </a>
           </h1>
         </AccordionItem>
         <AccordionItem number="4" title="InterServer Nonprofit Hosting Request">
@@ -60,7 +62,7 @@ const index = () => {
                 <li>
                   Visit{" "}
                   <a
-                    href="mailto:sales@interserver.net"
+                    href="https://my.interserver.net/login.php"
                     className="text-[#2ea3f2] hover:underline"
                   >
                     sales@interserver.net
@@ -72,7 +74,7 @@ const index = () => {
                 <li>
                   Send an email to{" "}
                   <a
-                    href="https://my.interserver.net"
+                    href="mailto:sales@interserver.net"
                     className="text-[#2ea3f2] hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -169,7 +171,7 @@ const index = () => {
                 <li>
                   Make the text “InterServer” a hyperlink to{" "}
                   <a
-                    href="https://www.interserver.net"
+                    href="https://www.interserver.net/"
                     className="text-[#2ea3f2] hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"

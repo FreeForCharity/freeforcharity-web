@@ -1,7 +1,3 @@
-// FAQs data
-// This file can be managed through Decap CMS at /admin
-// Individual FAQ items can be stored as JSON files in ./faqs/ directory
-
 export type Faq = { question: string; answer: string };
 
 // Import CMS-managed FAQs

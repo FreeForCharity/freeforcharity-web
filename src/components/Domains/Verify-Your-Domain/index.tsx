@@ -124,7 +124,7 @@ const index = () => {
                 the account you created at checkout.
               </p>
               <a
-                href="@"
+                href="https://freeforcharity.org/hub/"
                 id="raleway-font"
                 className="italic text-[23px] font-[500] leading-[46px] break-all"
               >

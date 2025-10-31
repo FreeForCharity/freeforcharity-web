@@ -56,7 +56,7 @@ const Index = () => {
             certificate, you may then apply for one of the specific roles listed
             below.
           </p>
-          <Transparentbtn text="Click Here to Start the Core Competencies Training" />
+          <Transparentbtn text="Click Here to Start the Core Competencies Training"  href="/ffc-volunteer-proving-ground-core-competencies"/>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ const Index = () => {
             id="lato-font"
           >
             In addition to financial support, Free for Charity also needs
-            community support through skilled volunteers and gifts in kind (such
+            community support through <a href="/volunteer" className="text-[#2EA3F4]">skilled volunteers</a> and gifts in kind (such
             as services or products sold by your business). Take a look at the
             volunteer opportunities today.
           </p>
@@ -103,7 +103,7 @@ const Index = () => {
         {/* Right Column - Button */}
         <div>
           <a
-            href="#"
+            href="https://ideali.st/w4tuLV"
             className="inline-block px-6 py-3 text-[16px] font-bold text-white bg-[#007bff] rounded-md text-center no-underline transition-colors duration-300 ease-in-out hover:bg-[#0056B3]"
             id="aria-font"
           >

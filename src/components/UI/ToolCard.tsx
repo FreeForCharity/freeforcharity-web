@@ -7,12 +7,14 @@ type ToolCardProps = {
   logo?: string | StaticImageData;
   title: string;
   description?: string;
+  link: string;
 };
 
 export default function ToolCard({
   logo,
   title,
   description,
+  link,
 }: ToolCardProps) {
   const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -70,7 +72,7 @@ export default function ToolCard({
         )}
         {/* Button */}
         <a
-          href="https://example.com"
+          href={link}
           target="_blank"
           rel="noopener noreferrer"
           className="relative group inline-flex items-center justify-center gap-2 px-[30px] py-[6px] text-white border border-[#f27022] rounded-[10px] text-[18px] bg-[#f27022] transition-all duration-300 ease-in-out shadow-md leading-[31px] font-[600] hover:shadow-[0px_12px_18px_-6px_#f27022]"
