@@ -243,10 +243,9 @@ const index = () => {
                     id="courier-font"
                   >
                     <code>
-                      // ** Fixes admin portal CloudFlare re-direct issue ** //{" "}
-                      <br />
-                      if (strpos($_SERVER[HTTP_X_FORWARDED_PROTO], https) !==
-                      false) <br /> $_SERVER[HTTPS] = on;
+                      {`// ** Fixes admin portal CloudFlare re-direct issue ** //
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
+    $_SERVER['HTTPS'] = 'on';`}
                     </code>
                   </pre>
 
