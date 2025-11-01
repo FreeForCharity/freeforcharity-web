@@ -2,6 +2,7 @@ import React, { CSSProperties, FC, IframeHTMLAttributes } from "react";
 
 interface ExtendedIframeProps extends IframeHTMLAttributes<HTMLIFrameElement> {
   allowpaymentrequest?: string;
+  allowtransparency?: string; // lowercase version for DOM compatibility
 }
 
 const DonationSection: FC = () => {
@@ -30,19 +31,19 @@ const DonationSection: FC = () => {
     style: donationFormStyle,
     src: "https://www.zeffy.com/embed/donation-form/free-for-charity-endowment-fund",
     allowpaymentrequest: "",
-    allowTransparency: true,
+    allowtransparency: "true", // ✅ fixed here
   };
 
   const thermometerProps: ExtendedIframeProps = {
     title: "Donation thermometer powered by Zeffy",
     style: thermometerStyle,
     src: "https://www.zeffy.com/embed/thermometer/free-for-charity-endowment-fund",
-    allowTransparency: true,
+    allowtransparency: "true", // ✅ fixed here
   };
 
   return (
     <div className="bg-[#003566] py-[54px]">
-      <div className="w-[90%] md:w-[80%] mx-auto  py-[27px]">
+      <div className="w-[90%] md:w-[80%] mx-auto py-[27px]">
         <div className="mb-[10px]">
           <h3
             className="text-[32px] font-[500] leading-[42px] pb-[10px] text-white"
@@ -52,7 +53,7 @@ const DonationSection: FC = () => {
           </h3>
         </div>
 
-        <div className="h-full min-h-[1374px] pt-[120px] ">
+        <div className="h-full min-h-[1374px] pt-[120px]">
           {/* Thermometer Embed */}
           <div className="relative w-full h-[120px]">
             <iframe {...thermometerProps}></iframe>

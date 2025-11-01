@@ -10,7 +10,6 @@ import SixGridCards from "@/components/free-for-charitys-tools-for-success-compo
 import ToolsForBusinesses from "@/components/free-for-charitys-tools-for-success-components/Tools-For-Businesses";
 import FiveCardsGridSection from "@/components/free-for-charitys-tools-for-success-components/Five-Cards-Grid-Section";
 
-
 const index = () => {
   return (
     <div>
@@ -20,6 +19,7 @@ const index = () => {
         heroImg="/Images/glass-paper-pen.webp"
         fontSize={28}
         lineHeight={40}
+        imageContainerWidth="w-[55%]"
       />
       <CardSection />
       <RescueTime />

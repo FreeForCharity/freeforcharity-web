@@ -12,6 +12,7 @@ const index = () => {
           heroImg="/Images/about-us.webp"
           fontSize={36}
           lineHeight={50}
+          imageContainerWidth="w-[100%]"
         />
 
         <ContactSection />
