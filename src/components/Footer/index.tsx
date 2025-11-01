@@ -237,7 +237,7 @@ const Footer: React.FC = () => {
           All Rights Are Reserved by Free For Charity a US 501c3 Non Profit |
           Hosting Supported by
           <Link
-            href="#"
+            href="https://www.interserver.net/"
             className="underline text-[#2EA3F2] hover:text-[#2EA3F2] transition-colors"
           >
             {" "}
