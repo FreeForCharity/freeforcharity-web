@@ -21,14 +21,14 @@ export default function StepsCard({
     id={id}>
       {/* Title */}
       <h2
-        className="text-center text-[35px] font-[700] leading-[46px] text-[#0d7ff8] mb-[10px] mt-[3px]"
+        className="text-center text-[30px] md:text-[35px] font-[700] leading-[46px] text-[#0d7ff8] mb-[10px] mt-[3px]"
         id="cantata-font"
       >
         {title}
       </h2>
 
       {/* Dynamic Custom Content */}
-      <div className="w-[85%] mx-auto text-gray-800 text-lg leading-relaxed space-y-4">
+      <div className="w-[85%] mx-auto text-gray-800 text-[18px] md:text-[20px] leading-relaxed space-y-4">
         {children}
       </div>
     </div>

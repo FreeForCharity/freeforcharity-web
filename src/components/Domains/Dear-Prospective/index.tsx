@@ -7,7 +7,7 @@ const FFCOnboardingNotice = () => {
       <div className="py-[20px] w-[90%] md:w-[80%] mx-auto max-w-[1080px] text-center">
         {/* Main Heading */}
         <h2
-          className="font-[700] text-[35px] leading-[45px] mb-[16px] pb-[10px] text-[#0d7ff8]"
+          className="font-[700] text-[30px] md:text-[35px] leading-[45px] mb-[16px] pb-[10px] text-[#0d7ff8]"
           id="cantata-font"
         >
           Dear Prospective FFC Domain Supported Charity
@@ -25,7 +25,7 @@ const FFCOnboardingNotice = () => {
 
         {/* Step 1 */}
         <p
-          className="font-[600] text-[27px] leading-[35px] w-[85%] mx-auto mt-[30px] pb-[1em]"
+          className="font-[600] text-[20px] md:text-[27px] leading-[35px] w-[85%] mx-auto mt-[30px] pb-[1em]"
           id="raleway-font"
         >
           You will have to perform several steps to get full use of your domain
@@ -34,7 +34,7 @@ const FFCOnboardingNotice = () => {
 
         {/* Step 2 */}
         <p
-          className="font-[600] text-[27px] leading-[35px] w-[85%] mx-auto  pb-[1em]"
+          className="font-[600] text-[20px] md:text-[27px] leading-[35px] w-[85%] mx-auto  pb-[1em]"
           id="raleway-font"
         >
           The first step is always to complete the FFC on-boarding

@@ -10,13 +10,13 @@ const index = () => {
       <div className="w-[90%] mx-auto">
         <div className="pt-[24px] pb-[3px] w-[80%] mx-auto">
           <h1
-            className="mt-[2px] mb-[12px] pb-[10px] text-[35px] font-[700] leading-[46px] text-[#0d7ff8] text-center"
+            className="mt-[2px] mb-[12px] pb-[10px] text-[30px] md:text-[35px] font-[700] leading-[46px] text-[#0d7ff8] text-center"
             id="cantata-font"
           >
             HOW TO VERIFY YOUR DOMAIN WITH ICANN
           </h1>
           <p
-            className="mb-[13px] w-[85%] mx-auto font-[500] text-[20px] leading-[30px] text-center"
+            className="mb-[13px] w-full lg:w-[85%] mx-auto font-[500] text-[20px] leading-[30px] text-center"
             id="raleway-font"
           >
             Please note that you will now own this domain but several emails
