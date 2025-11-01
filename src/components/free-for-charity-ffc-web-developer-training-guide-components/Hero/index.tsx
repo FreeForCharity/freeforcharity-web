@@ -20,7 +20,7 @@ const Index = () => {
   return (
     <div className="px-2 md:px-5 w-full pt-[160px] pb-[80px]">
       <div className="w-full max-w-[1000px] mx-auto rounded-[12px] shadow-[0_8px_32px_rgba(0,30,80,0.08)] pt-[58px] p-[1.5rem] md:p-[3rem] border border-[#e1e5eb] bg-[#ffffff]">
-        <h1 className="text-[2rem] md:text-[2.75rem] text-center border-b-2 border-[#e1e5eb] pb-6 mb-8 text-[#005A9C] font-[700] leading-[57px]">
+        <h1 className="text-[30px] md:text-[44px] text-center border-b-2 border-[#e1e5eb] pb-6 mb-8 text-[#005A9C] font-[700] leading-[40px] md:leading-[57px]">
           Free For Charity (FFC) Web Developer Training Guide
         </h1>
 
