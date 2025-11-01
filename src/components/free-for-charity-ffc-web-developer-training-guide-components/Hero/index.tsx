@@ -53,7 +53,7 @@ const Index = () => {
         {/* 1. FFC Hub by WHMCS */}
         <section id="section1" className="mb-6">
           <ol className="list-decimal list-inside">
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               FFC Hub by WHMCS
             </li>
           </ol>
@@ -279,7 +279,7 @@ const Index = () => {
         {/* 2. Cloudflare */}
         <section id="section2" className="mb-6">
           <ol className="list-decimal list-inside" start={2}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px] font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               Cloudflare (DNS Management & Email Connection)
             </li>
           </ol>
@@ -496,7 +496,7 @@ const Index = () => {
         {/* 3. Microsoft 365 */}
         <section id="section3" className="mb-6">
           <ol className="list-decimal list-inside" start={3}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               Microsoft 365 (Email Hosting)
             </li>
           </ol>
@@ -550,7 +550,10 @@ const Index = () => {
           </h4>
           <ul className="p-[0_0_23px_1.5rem] list-disc">
             <li className="hover:underline  pl-[0.5rem] mb-[0.75rem] text-[14px] text-[#0078D4] leading-[26px] ">
-              <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/?view=o365-worldwide" target="_blank">
+              <a
+                href="https://learn.microsoft.com/en-us/microsoft-365/admin/?view=o365-worldwide"
+                target="_blank"
+              >
                 Microsoft 365 Admin Help
               </a>
             </li>
@@ -562,7 +565,10 @@ const Index = () => {
             </li>
 
             <li className="hover:underline  pl-[0.5rem] mb-[0.75rem] text-[14px] text-[#0078D4] leading-[26px] ">
-              <a href="https://www.microsoft.com/en-us/nonprofits/community-resources" target="_blank">
+              <a
+                href="https://www.microsoft.com/en-us/nonprofits/community-resources"
+                target="_blank"
+              >
                 Microsoft Nonprofit Resource Center
               </a>
             </li>
@@ -584,22 +590,34 @@ const Index = () => {
               </a>
             </li>
             <li className="hover:underline  pl-[0.5rem] mb-[0.75rem] text-[14px] text-[#0078D4] leading-[26px] ">
-              <a href="https://www.avepoint.com/blog/office-365/microsoft-365-nonprofits/" target="_blank">
+              <a
+                href="https://www.avepoint.com/blog/office-365/microsoft-365-nonprofits/"
+                target="_blank"
+              >
                 Blog Guide by AvePoint
               </a>
             </li>
             <li className="hover:underline  pl-[0.5rem] mb-[0.75rem] text-[14px] text-[#0078D4] leading-[26px] ">
-              <a href="https://www.infusedinnovations.com/blog/secure-modern-workplace/complete-setup-guide-for-microsoft-365-for-nonprofits" target="_blank">
+              <a
+                href="https://www.infusedinnovations.com/blog/secure-modern-workplace/complete-setup-guide-for-microsoft-365-for-nonprofits"
+                target="_blank"
+              >
                 Step-by-Step Guide on Setup
               </a>
             </li>
             <li className="hover:underline  pl-[0.5rem] mb-[0.75rem] text-[14px] text-[#0078D4] leading-[26px] ">
-              <a href="https://lazyadmin.nl/office-365/add-domain-to-office-365/" target="_blank">
+              <a
+                href="https://lazyadmin.nl/office-365/add-domain-to-office-365/"
+                target="_blank"
+              >
                 Third-Party Tutorial on Adding Domains to M365
               </a>
             </li>
             <li className="hover:underline  pl-[0.5rem] mb-[0.75rem] text-[14px] text-[#0078D4] leading-[26px] ">
-              <a href="https://techcommunity.microsoft.com/t5/nonprofits/ct-p/Nonprofits" target="_blank">
+              <a
+                href="https://techcommunity.microsoft.com/t5/nonprofits/ct-p/Nonprofits"
+                target="_blank"
+              >
                 Community Forum Discussions
               </a>
             </li>
@@ -609,7 +627,7 @@ const Index = () => {
         {/* 4. InterServer */}
         <section id="section4" className="mb-6">
           <ol className="list-decimal list-inside" start={4}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               InterServer Web Hosting (with DirectAdmin)
             </li>
           </ol>
@@ -628,7 +646,10 @@ const Index = () => {
                 Apply for a Hosting Account:
               </span>{" "}
               Directly request hosting services for the charity via InterServer:
-              <a href="https://www.interserver.net/support/" className="text-[#0078D4]">
+              <a
+                href="https://www.interserver.net/support/"
+                className="text-[#0078D4]"
+              >
                 InterServer Support.
               </a>
             </li>
@@ -638,7 +659,10 @@ const Index = () => {
               </span>{" "}
               Use the DirectAdmin panel to set up the website. Detailed guidance
               and documentation can be found on the DirectAdmin Help site:{" "}
-              <a href="https://help.directadmin.com/" className="text-[#0078D4]">
+              <a
+                href="https://help.directadmin.com/"
+                className="text-[#0078D4]"
+              >
                 DirectAdmin Help Site.
               </a>
             </li>
@@ -653,12 +677,18 @@ const Index = () => {
 
           <ul className="pl-[1.5rem] p-[0_0_23px_1em] list-disc">
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://www.interserver.net/tips/" className="text-[#0078D4]">
+              <a
+                href="https://www.interserver.net/tips/"
+                className="text-[#0078D4]"
+              >
                 InterServer Knowledge Base
               </a>
             </li>
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://www.directadmin.com/docs.php" className="text-[#0078D4]">
+              <a
+                href="https://www.directadmin.com/docs.php"
+                className="text-[#0078D4]"
+              >
                 DirectAdmin Documentation
               </a>
             </li>
@@ -669,24 +699,36 @@ const Index = () => {
 
           <ul className="pl-[1.5rem] p-[0_0_23px_1em] list-disc">
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://docs.litespeedtech.com/cloud/images/directadmin/" className="text-[#0078D4]">
+              <a
+                href="https://docs.litespeedtech.com/cloud/images/directadmin/"
+                className="text-[#0078D4]"
+              >
                 Guide on Setting Up DirectAdmin
               </a>
             </li>
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
               YouTube Tutorials on DirectAdmin:
-              <a href="https://www.youtube.com/results?search_query=DirectAdmin+Setup+Tutorial" className="text-[#0078D4]">
+              <a
+                href="https://www.youtube.com/results?search_query=DirectAdmin+Setup+Tutorial"
+                className="text-[#0078D4]"
+              >
                 {" "}
                 (Search for “DirectAdmin Setup Tutorial” on YouTube.)
               </a>
             </li>
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://forum.directadmin.com/" className="text-[#0078D4]">
+              <a
+                href="https://forum.directadmin.com/"
+                className="text-[#0078D4]"
+              >
                 Blog Posts & Forums
               </a>
             </li>
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://www.webhostingtalk.com/showthread.php?t=1801261" className="text-[#0078D4]">
+              <a
+                href="https://www.webhostingtalk.com/showthread.php?t=1801261"
+                className="text-[#0078D4]"
+              >
                 Community Resources on Hosting Setup
               </a>
             </li>
@@ -700,7 +742,7 @@ const Index = () => {
         {/* 5. DIVI */}
         <section id="section5" className="mb-6">
           <ol className="list-decimal list-inside" start={5}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               DIVI (WordPress Theme)
             </li>
           </ol>
@@ -815,7 +857,7 @@ const Index = () => {
         {/* 6. WPMUdev */}
         <section id="section6" className="mb-6">
           <ol className="list-decimal list-inside" start={6}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               WPMUdev (WordPress Plugins)
             </li>
           </ol>
@@ -925,7 +967,7 @@ const Index = () => {
         {/* 7. Microsoft Clarity */}
         <section id="section7" className="mb-6">
           <ol className="list-decimal list-inside" start={7}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               Microsoft Clarity (Analytics)
             </li>
           </ol>
@@ -966,12 +1008,18 @@ const Index = () => {
 
           <ul className="pl-[1.5rem] p-[0_0_23px_1em] list-disc">
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://clarity.microsoft.com/" className="text-[#0078D4]">
+              <a
+                href="https://clarity.microsoft.com/"
+                className="text-[#0078D4]"
+              >
                 Microsoft Clarity Website
               </a>
             </li>
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://learn.microsoft.com/en-us/clarity/" className="text-[#0078D4]">
+              <a
+                href="https://learn.microsoft.com/en-us/clarity/"
+                className="text-[#0078D4]"
+              >
                 Microsoft Clarity Documentation
               </a>
             </li>
@@ -1038,7 +1086,7 @@ const Index = () => {
         {/* 8. Tawk.to */}
         <section id="section8" className="mb-6">
           <ol className="list-decimal list-inside" start={8}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               Tawk.to Live Chat (Support)
             </li>
           </ol>
@@ -1095,7 +1143,7 @@ const Index = () => {
         {/* 9. Azure AI Language */}
         <section id="section9" className="mb-6">
           <ol className="list-decimal list-inside" start={9}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               Azure AI Language (Custom Question Answering)
             </li>
           </ol>
@@ -1113,7 +1161,10 @@ const Index = () => {
           <ul className="pl-[1.5rem] p-[0_0_23px_1em] list-disc">
             <li className="pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
               Navigate to the{" "}
-              <a href="https://language.cognitive.azure.com/" className="text-[#0078D4]">
+              <a
+                href="https://language.cognitive.azure.com/"
+                className="text-[#0078D4]"
+              >
                 Azure Language Studio.
               </a>
             </li>
@@ -1137,19 +1188,28 @@ const Index = () => {
 
           <ul className="pl-[1.5rem] p-[0_0_23px_1em] list-disc">
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/question-answering/overview" className="text-[#0078D4]">
+              <a
+                href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/question-answering/overview"
+                className="text-[#0078D4]"
+              >
                 Custom Question Answering Documentation
               </a>
             </li>
 
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview" className="text-[#0078D4]">
+              <a
+                href="https://learn.microsoft.com/en-us/azure/ai-services/language-service/overview"
+                className="text-[#0078D4]"
+              >
                 Azure AI Language Documentation
               </a>
             </li>
 
             <li className="leading-[26px] pl-[0.5rem] mb-[0.75rem] text-[14px] font-[500] text-[#333d47]">
-              <a href="https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/07-question-answering.html" className="text-[#0078D4]">
+              <a
+                href="https://microsoftlearning.github.io/mslearn-ai-fundamentals/Instructions/Labs/07-question-answering.html"
+                className="text-[#0078D4]"
+              >
                 Microsoft Learn: Create a Question Answering Solution
               </a>
             </li>
@@ -1159,7 +1219,7 @@ const Index = () => {
         {/* 10. Final Notes */}
         <section id="section10" className="mb-6">
           <ol className="list-decimal list-inside" start={10}>
-            <li className="text-[2rem] md:text-[2.25rem]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
+            <li className="text-[30px] md:text-[36px]  font-[700] text-[#005AA0] mt-16 mb-6 pb-3 border-b border-[#e1e5eb]">
               Final Notes
             </li>
           </ol>

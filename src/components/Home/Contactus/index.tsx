@@ -19,7 +19,7 @@ const ContactUsSection: React.FC = () => {
   return (
     <div className="pt-15 pb-20 px-4 bg-[#FCFCFC]">
       <div className="w-full max-w-[1200px] mx-auto text-center">
-        <h2 className="font-[700] text-[#F27022] text-[40px] leading-[44px] mb-7">
+        <h2 className="font-[700] text-[#F27022] text-[30px] md:text-[40px] leading-[44px] mb-7">
           Contact Us
         </h2>
 

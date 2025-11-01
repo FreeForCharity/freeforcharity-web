@@ -8,7 +8,7 @@ const Index = () => {
       <div className="w-full max-w-[90%] md:max-w-[80%] py-4 mx-auto">
         {/* Header Section */}
         <div className="text-center">
-          <h1 className="text-[40px] font-[700] leading-[44px] text-[#f27022] mb-[20px]">
+          <h1 className="text-[30px] md:text-[40px] font-[700] leading-[44px] text-[#f27022] mb-[20px]">
             Free for Charity Volunteer Options
           </h1>
           <p

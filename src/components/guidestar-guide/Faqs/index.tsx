@@ -9,7 +9,7 @@ const index = () => {
       <div className="w-[90%] mx-auto py-[40px] ">
         <div className="pt-[26px] w-full max-w-[90%] sm:max-w-[90%] mx-auto">
           <h1
-            className="text-[30px] font-[500] text-[#333] pb-[1em]"
+            className="text-[25px] md:text-[30px] font-[500] text-[#333] pb-[1em]"
             id="aria-font"
           >
             1. Achieving Gold or Platinum Seal of Transparency
@@ -215,7 +215,7 @@ const index = () => {
 
         <div className="pt-[26px] max-w-[90%] sm:max-w-[90%] mx-auto">
           <h1
-            className="text-[30px] font-[500] text-[#333] pb-[1em]"
+            className="text-[25px] md:text-[30px] font-[500] text-[#333] pb-[1em]"
             id="aria-font"
           >
             2. Preparing to share your profile with Free For Charity
