@@ -24,7 +24,7 @@ export default function CloudflareSetup() {
               href="https://dash.cloudflare.com/sign-up"
               target="_blank"
               rel="noopener"
-              className="text-[#2ea3f2]"
+              className="text-[#2ea3f2] break-all"
             >
               https://dash.cloudflare.com/sign-up
             </a>
