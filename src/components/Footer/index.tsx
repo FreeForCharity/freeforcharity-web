@@ -10,7 +10,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const Footer: React.FC = () => {
   const socialLinks = [
     { icon: FaFacebookF, href: "https://www.facebook.com/freeforcharity" },
-    { icon: FaGooglePlusG, href: "plus.google.com/105559070419304828544" },
+    { icon: FaGooglePlusG, href: "https://www.plus.google.com/105559070419304828544" },
     { icon: FaXTwitter, href: "https://x.com/freeforcharity1" },
     {
       icon: FaLinkedinIn,
