@@ -38,7 +38,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
       >
         {/* Text takes remaining space */}
         <span
-          className={`font-[500] text-[26px] flex-1 pr-3 transition-colors duration-300 ${
+          className={`font-[500] text-[20px] md:text-[26px] flex-1 pr-3 transition-colors duration-300 ${
             isOpen ? "text-[#333]" : "text-[#666]"
           }`}
           id="aria-font"
