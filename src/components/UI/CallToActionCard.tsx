@@ -51,7 +51,7 @@ const IconTextCard: React.FC<IconTextCardProps> = ({
         pb-[50px] 
         shadow-[0_2px_18px_rgba(0,0,0,0.3)]
         flex flex-col items-center space-y-6 
-        w-full max-w-sm mx-auto
+        w-full  mx-auto
         transition-transform duration-200 hover:scale-[1.03]
       "
     >

@@ -6,7 +6,7 @@ import React from "react";
 const NotFoundSection = () => {
   return (
     <div
-      className="lg:min-h-screen w-[80%] max-w-[1080px] mx-auto "
+      className="lg:min-h-screen w-[90%] md:w-[80%] max-w-[1080px] mx-auto "
       id="aria-font"
     >
       <div className="flex flex-col lg:flex-row">

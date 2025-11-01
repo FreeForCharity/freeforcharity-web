@@ -101,8 +101,8 @@ const AccordionLayout = () => {
   };
 
   return (
-    <div className="py-[40px] flex flex-col items-center gap-6 p-6">
-      <div className="w-[90%] ld:w-[80%] mx-auto max-w-[1080px]">
+    <div className="py-[40px] flex flex-col items-center gap-6 px-[0px]">
+      <div className="w-[90%] md:w-[80%] mx-auto max-w-[1080px]">
         <div className="py-[24px]">
           <h1
             className="mt-[2px] mb-[12px] pb-[10px] text-[31px] font-[700] leading-[31px] text-[#0d7ff8] text-center"

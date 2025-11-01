@@ -4,7 +4,7 @@ import Transparentbtn from "@/components/UI/Transparentbtn";
 const FFCOnboardingNotice = () => {
   return (
     <section className="pt-[20px] pb-[40px]  bg-white">
-      <div className="py-[20px] w-[80%] mx-auto max-w-[1080px] text-center">
+      <div className="py-[20px] w-[90%] md:w-[80%] mx-auto max-w-[1080px] text-center">
         {/* Main Heading */}
         <h2
           className="font-[700] text-[35px] leading-[45px] mb-[16px] pb-[10px] text-[#0d7ff8]"
@@ -15,7 +15,7 @@ const FFCOnboardingNotice = () => {
 
         {/* Warning Note */}
         <p
-          className="font-[500] text-[20px] leading-[30px] mb-[16px] w-[65%] mx-auto"
+          className="font-[500] text-[20px] leading-[30px] mb-[16px] md:w-[65%] mx-auto"
           id="raleway-font"
         >
           ** Please read this full page top to bottom before taking any actions

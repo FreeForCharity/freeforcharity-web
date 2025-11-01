@@ -22,35 +22,42 @@ const index = () => {
         </div>
       </div>
 
-      <div className="w-[87%]  grid grid-cols-1 md:grid-cols-3 justify-between py-[27px] mx-auto gap-[35px]">
-        <div
+      <div className="w-[90%] md:w-[87%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between py-[27px] mx-auto gap-[35px]">
+        <a
+          href="mailto:yourname@yourdomain.org"
           className="bg-white rounded-[8px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)] 
-        border-l-[8px] border-[#0d7ff8]
-        p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]"
+    border-l-[8px] border-[#0d7ff8]
+    p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]
+    break-words inline-block"
           id="raleway-font"
         >
           yourname@yourdomain.org
-        </div>
-        <div
+        </a>
+
+        <a
+          href="mailto:contactus@yourdomain.org"
           className="bg-white rounded-[8px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)] 
-        border-l-[8px] border-[#0d7ff8]
-        p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]"
+    border-l-[8px] border-[#0d7ff8]
+    p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]
+    break-words inline-block"
           id="raleway-font"
         >
           contactus@yourdomain.org
-        </div>
-        <div
+        </a>
+
+        <a
+          href="mailto:board@yourdomain.org"
           className="bg-white rounded-[8px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)] 
-        border-l-[8px] border-[#0d7ff8]
-        p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]"
+    border-l-[8px] border-[#0d7ff8]
+    p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]
+    break-words inline-block"
           id="raleway-font"
         >
           board@yourdomain.org
-        </div>
+        </a>
       </div>
 
-      <div className="w-[80%] max-w-[1080px] mx-auto grid grid-cols-2 py-[27] gap-[33px] items-stretch justify-between">
-
+      <div className="w-[90%] md:w-[80%] max-w-[1080px] mx-auto grid grid-cols-1 md:grid-cols-2 py-[27] gap-[33px] items-stretch justify-between">
         <div className="p-[20px] text-center bg-white rounded-[10px] overflow-hidden pt-[30px] pr-[20px] pb-[30px] pl-[20px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)]">
           {/* Circle Image */}
           <div className="mx-auto flex-shrink-0 w-[100px] h-[100px] overflow-hidden mb-[30px]">
@@ -109,7 +116,7 @@ const index = () => {
             className="text-[#333] text-[22px] font-[700] leading-[22px] text-center pb-[10px]"
             id="raleway-font"
           >
-           Set up a Microsoft 365 Business Premium account
+            Set up a Microsoft 365 Business Premium account
           </p>
 
           {/* Text Content */}
@@ -117,11 +124,17 @@ const index = () => {
             className="text-[18px] leading-[32px] font-[500] pb-[1em]"
             id="raleway-font"
           >
-          Follow the following simple steps to set up your Microsoft 365 Business Premium Account
+            Follow the following simple steps to set up your Microsoft 365
+            Business Premium Account
           </p>
-          <a href="domains/#setupstep2" className="text-[25px] leading-[32px] font-[600] text-[#0580f8]" id="raleway-font">Click here</a>
+          <a
+            href="domains/#setupstep2"
+            className="text-[25px] leading-[32px] font-[600] text-[#0580f8]"
+            id="raleway-font"
+          >
+            Click here
+          </a>
         </div>
-
       </div>
     </div>
   );

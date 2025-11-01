@@ -50,7 +50,7 @@ export default function TestimonialSlider() {
 
   return (
     <div className="py-16 bg-white">
-      <div className="w-[85%] max-w-[1300px] mx-auto text-center">
+      <div className="w-[90%] md:w-[85%] max-w-[1300px] mx-auto text-center">
         <h1
           className="mt-[2px] mb-[42px] pb-[10px] text-[31px] font-[700] leading-[31px] text-[#0d7ff8] text-center"
           id="cantata-font"

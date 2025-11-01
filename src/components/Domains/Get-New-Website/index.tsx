@@ -20,7 +20,7 @@ const index = () => {
         </div>
 
         <div className="py-[41px] ">
-          <div className="pt-[24px] pb-[3px] w-[80%] mx-auto max-w-[1080px]">
+          <div className="pt-[24px] pb-[3px] w-[90%] md:w-[80%] mx-auto max-w-[1080px]">
             <h1
               className="mt-[2px] mb-[12px] pb-[10px] text-[35px] font-[700] leading-[46px] text-[#0d7ff8] text-center"
               id="cantata-font"

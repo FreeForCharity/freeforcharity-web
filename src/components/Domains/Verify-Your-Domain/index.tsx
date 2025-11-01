@@ -32,7 +32,7 @@ const index = () => {
         </div>
       </div>
 
-      <div className="w-[80%] max-w-[1080px] mx-auto pt-[22px]">
+      <div className="w-[90%] md:w-[80%] max-w-[1080px] mx-auto pt-[22px]">
         <div className="mb-[13px] w-full md:w-fit max-w-[610px] text-[23px] text-black leading-[1.3em] rounded-[10px] overflow-hidden p-[30px] mx-auto bg-cover bg-center shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)]">
           <div className="flex flex-col md:flex-row items-center md:items-start">
             {/* Image */}
@@ -93,7 +93,7 @@ const index = () => {
         />
       </div>
 
-      <div className="w-[80%] max-w-[1080px] mx-auto pt-[22px]">
+      <div className="w-[90%] md:w-[80%] max-w-[1080px] mx-auto pt-[22px]">
         <div className="mb-[13px] w-full md:w-fit max-w-[610px] text-[23px] text-black leading-[1.3em] rounded-[10px] overflow-hidden p-[30px] mx-auto bg-cover bg-center shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)]">
           <div className="flex flex-col md:flex-row items-center md:items-start">
             {/* Image */}
@@ -135,7 +135,7 @@ const index = () => {
         </div>
       </div>
 
-      <div className="px-[30px] py-[50px] mt-[50px] w-[80%] max-w-[1080px] mx-auto flex flex-col lg:flex-row">
+      <div className="px-[30px] py-[50px] mt-[50px] md:w-[80%] max-w-[1080px] mx-auto flex flex-col lg:flex-row">
         {/* Left Column */}
         <div className="w-full lg:w-[47.25%] md:mr-[46px] mb-8 md:mb-0">
           <div className="mt-[2px] mb-[12px]">
@@ -178,7 +178,7 @@ const index = () => {
             <IoMdMail className="text-[34px] font-[400] leading-[34px] text-[#0580f8]" />
             <a
               href="mailto:clarkemoyer@freeforcharity.org"
-              className="pl-[15px] text-[30px] font-[500] leading-[42px] text-[#2ea3f2]"
+              className="text-center pl-[15px] text-[30px] font-[500] leading-[42px] text-[#2ea3f2] break-all inline-block"
               id="raleway-font"
             >
               clarkemoyer@freeforcharity.org

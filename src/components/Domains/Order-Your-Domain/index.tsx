@@ -59,7 +59,7 @@ const HowToOrderDomain = () => {
             HOW TO ORDER YOUR DOMAIN NAME
           </h2>
           <p
-            className="w-[85%] mx-auto text-center text-[20px] font-medium leading-[30px]"
+            className="md:w-[85%] mx-auto text-center text-[20px] font-medium leading-[30px]"
             style={{ fontFamily: "Raleway, sans-serif" }}
           >
             To order a free domain name with Free For Charity you must sign up

@@ -6,15 +6,15 @@ const Index = () => {
     <div className="relative pb-[74px]">
       {" "}
       {/* 👈 This makes bottom div position correctly */}
-      <div className="w-[80%] max-w-[1080px] mx-auto relative z-[2]">
+      <div className="w-[90%] md:w-[80%] max-w-[1080px] mx-auto relative z-[2]">
         <div className="relative py-[27px] flex flex-col md:flex-row items-start">
           {/* Image Section */}
-          <div className="relative w-full md:w-[48.5%] h-[250px] md:h-[350px] mb-[25px] md:mb-0 md:mr-[32px]">
+          <div className="relative w-full md:w-[48.5%] h-[350px] mb-[25px] md:mb-0 md:mr-[32px]">
             <Image
               src="/Images/domains-black-section.webp"
               alt="domains-blue-section"
               fill
-              className="object-contain rounded-[10px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)]"
+              className="object-contain rounded-[10px]"
             />
           </div>
 

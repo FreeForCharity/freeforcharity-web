@@ -18,7 +18,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   heroImg,
   fontSize,
   lineHeight,
-  imageContainerWidth = "w-[62%]", // 👈 default value
+  imageContainerWidth = "w-[100%] lg:w-[62%]", // 👈 default value
 }) => {
   return (
     <section
@@ -31,7 +31,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       }}
     >
       <div className="w-[90%] max-w-[100%] mx-auto pt-[90px] pb-[90px]">
-        <div className="flex">
+        <div className="flex flex-col lg:flex-row gap-[40px] lg:gap-[0px]">
           {/* Left: Text Content */}
           <div className="w-full lg:w-[40%]">
             <h1 className="text-[#f27022] text-[60px] font-[600] leading-[78px] mb-[3px]">
@@ -50,7 +50,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Right: Image */}
-          <div className="w-full lg:w-[60%] pr-[50px] pl-[80px]">
+          <div className="w-full lg:w-[60%] md:pr-[50px] md:pl-[80px]">
             <div className={`relative ${imageContainerWidth} mx-auto`}>
               <Image
                 src={heroImg}
