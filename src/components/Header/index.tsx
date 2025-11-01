@@ -43,10 +43,14 @@ const Header: React.FC = () => {
         { label: "Help for Charities", path: "/help-for-charities" },
         { label: "501c3 Onboarding Guide", path: "/501c3" },
         { label: "Pre501c3 Onboarding Guide", path: "/pre501c3" },
-        { label: "Online Impacts Onboarding Guide", path: "/online-impacts-onboarding-guide" },
+        {
+          label: "Online Impacts Onboarding Guide",
+          path: "/online-impacts-onboarding-guide",
+        },
         { label: "GuideStar Profile Setup Guide", path: "/guidestar-guide" },
         {
-          label: "Understanding Your Free For Charity WordPress Website Hosting: A Layered Approach",
+          label:
+            "Understanding Your Free For Charity WordPress Website Hosting: A Layered Approach",
           path: "/techstack",
         },
         {
@@ -78,7 +82,10 @@ const Header: React.FC = () => {
       hasDropdown: true,
       dropdownItems: [
         { label: "Donate", path: "/donate" },
-        { label: "Free For Charity Endowment Fund", path: "/free-for-charity-endowment-fund" },
+        {
+          label: "Free For Charity Endowment Fund",
+          path: "/free-for-charity-endowment-fund",
+        },
       ],
     },
     {
@@ -93,8 +100,14 @@ const Header: React.FC = () => {
       hasDropdown: true,
       dropdownItems: [
         { label: "Free For Charity Domains", path: "/domains" },
-        { label: "Free for Charity’s Tools for Success", path: "/free-for-charitys-tools-for-success" },
-        { label: "Free Charity Web Hosting", path: "/free-charity-web-hosting" },
+        {
+          label: "Free for Charity’s Tools for Success",
+          path: "/free-for-charitys-tools-for-success",
+        },
+        {
+          label: "Free Charity Web Hosting",
+          path: "/free-charity-web-hosting",
+        },
       ],
     },
     {
@@ -106,7 +119,10 @@ const Header: React.FC = () => {
           label: "Free For Charity (FFC) Service Delivery Stages",
           path: "/free-for-charity-ffc-service-delivery-stages",
         },
-        { label: "FFC Admin cPanel Backup", path: "/ffcadmin-free-for-charity-cpanel-backup-sop" },
+        {
+          label: "FFC Admin cPanel Backup",
+          path: "/ffcadmin-free-for-charity-cpanel-backup-sop",
+        },
       ],
     },
   ];
@@ -128,12 +144,18 @@ const Header: React.FC = () => {
         <div className="mx-auto max-w-[1080px]">
           <div className="flex items-center px-2 transition-all duration-300">
             {/* Logo */}
-            <div className={`transition-all duration-300 ${isScrolled ? "w-[110px]" : "w-[150px]"}`}>
+            <div
+              className={`transition-all duration-300 ${
+                isScrolled ? "w-[110px]" : "w-[150px]"
+              }`}
+            >
               <Link href="/" onClick={handleLinkClick} className="block">
                 <img
                   src="https://freeforcharity.org/wp-content/uploads/2024/04/Screenshot_145.png"
                   alt="Free For Charity"
-                  className={`transition-all duration-300 ${isScrolled ? "h-7" : "h-11"}`}
+                  className={`transition-all duration-300 ${
+                    isScrolled ? "h-7" : "h-11"
+                  }`}
                 />
               </Link>
             </div>
@@ -167,7 +189,9 @@ const Header: React.FC = () => {
                             }`}
                           >
                             {item.label}
-                            {item.hasDropdown && <FiChevronDown className="ml-1 mt-[3px] h-4 w-4" />}
+                            {item.hasDropdown && (
+                              <FiChevronDown className="ml-1 mt-[3px] h-4 w-4" />
+                            )}
                           </Link>
 
                           {item.hasDropdown && isOpen && (
@@ -177,23 +201,26 @@ const Header: React.FC = () => {
                               } border-t-3 border-[#2EA3F2] px-3 shadow-[0_2px_5px_rgba(0,0,0,0.1)] bg-white min-w-[240px] z-50`}
                             >
                               <div className="px-1 py-[20px]">
-                                {item.dropdownItems?.map((dropItem, dropIndex) => {
-                                  const isDropActive = pathname === dropItem.path;
-                                  return (
-                                    <Link
-                                      key={dropIndex}
-                                      href={dropItem.path}
-                                      onClick={handleLinkClick}
-                                      className={`block px-6 py-2 text-[14px] transition-colors duration-200 leading-[28px] ${
-                                        isDropActive
-                                          ? "text-blue-600 bg-[#F0F7FF]"
-                                          : "text-gray-700 hover:bg-[#F9F9F9] hover:text-gray-500"
-                                      }`}
-                                    >
-                                      {dropItem.label}
-                                    </Link>
-                                  );
-                                })}
+                                {item.dropdownItems?.map(
+                                  (dropItem, dropIndex) => {
+                                    const isDropActive =
+                                      pathname === dropItem.path;
+                                    return (
+                                      <Link
+                                        key={dropIndex}
+                                        href={dropItem.path}
+                                        onClick={handleLinkClick}
+                                        className={`block px-6 py-2 text-[14px] transition-colors duration-200 leading-[28px] ${
+                                          isDropActive
+                                            ? "text-blue-600 bg-[#F0F7FF]"
+                                            : "text-gray-700 hover:bg-[#F9F9F9] hover:text-gray-500"
+                                        }`}
+                                      >
+                                        {dropItem.label}
+                                      </Link>
+                                    );
+                                  }
+                                )}
                               </div>
                             </div>
                           )}
@@ -209,7 +236,7 @@ const Header: React.FC = () => {
                     onClick={handleSearchToggle}
                     className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
                   >
-                    <LiaSearchSolid className="h-5 w-5" />
+                    <LiaSearchSolid className="h-5 w-5 cursor-pointer" />
                   </button>
                 </div>
 
@@ -238,7 +265,7 @@ const Header: React.FC = () => {
                   onClick={handleSearchToggle}
                   className="ml-2 p-2 text-gray-600"
                 >
-                  <RxCross2 className="h-5 w-5" />
+                  <RxCross2 className="cursor-pointer h-5 w-5" />
                 </button>
               </div>
             )}
@@ -314,4 +341,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
