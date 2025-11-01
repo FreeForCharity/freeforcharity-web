@@ -2,18 +2,21 @@
 
 import React from "react";
 import Link from "next/link";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Twitter,
-  Linkedin,
-  MessageSquare,
-  ArrowRight,
-} from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare, ArrowRight } from "lucide-react";
+
+import { FaFacebookF, FaLinkedinIn, FaGooglePlusG } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
+  const socialLinks = [
+    { icon: FaFacebookF, href: "https://www.facebook.com/freeforcharity" },
+    { icon: FaGooglePlusG, href: "plus.google.com/105559070419304828544" },
+    { icon: FaXTwitter, href: "https://x.com/freeforcharity1" },
+    {
+      icon: FaLinkedinIn,
+      href: "https://www.linkedin.com/company/freeforcharity/",
+    },
+  ];
   return (
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-12 px-4 md:px-6 lg:px-8">
@@ -22,10 +25,11 @@ const Footer: React.FC = () => {
           <h3 className="text-[28px] text-white">Endorsements</h3>
 
           <div className="space-y-4">
-            <img src="/Svgs/footerImage.svg" alt="" />
-
+            <a href="https://www.guidestar.org/profile/46-2471893">
+              <img src="/Svgs/footerImage.svg" alt="" />
+            </a>
             <Link
-              href="/your-profile-url"
+              href="https://www.guidestar.org/profile/shared/bbbe173a-87b9-4af9-a8a2-cae255a95742"
               className="group relative my-4 flex w-full max-w-[230px] items-center justify-between
                 border-2 border-[#2ea3f2] bg-black px-5 py-2.5 text-[#2ea3f2]
                 transition-all duration-300 hover:border-transparent"
@@ -184,17 +188,17 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="flex gap-3 pt-4">
-              {[Facebook, Twitter, MessageSquare, Linkedin].map(
-                (Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="bg-orange-500 p-2 rounded-full hover:bg-orange-600 transition-colors"
-                  >
-                    <Icon className="w-6 h-6" />
-                  </a>
-                )
-              )}
+              {socialLinks.map(({ icon: Icon, href }, index) => (
+                <a
+                  key={index}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-orange-500 p-2 rounded-full hover:bg-orange-600 transition-colors"
+                >
+                  <Icon className="w-6 h-6 text-white" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
