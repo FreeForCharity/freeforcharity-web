@@ -8,7 +8,7 @@ const SupportFreeForCharity: React.FC = () => {
     <>
       {/* ---------- TOP BANNER ---------- */}
       <section className="py-[70px] bg-[#FCFCFC]">
-        <div className="container max-w-[1280px] mx-auto px-4 md:px-10 flex flex-col md:flex-row items-start justify-start gap-6">
+        <div className="container max-w-[1280px] mx-auto px-4 md:px-10 flex flex-col md:flex-row items-center md:items-start justify-start gap-6">
           {/* Left – Text */}
           <div className="text-center md:text-left">
             <h1 className="font-[700] text-[40px] leading-[44px] text-[#f27022] mb-4">
