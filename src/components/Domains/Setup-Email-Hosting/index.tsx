@@ -27,7 +27,7 @@ const index = () => {
           href="mailto:yourname@yourdomain.org"
           className="bg-white rounded-[8px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)] 
     border-l-[8px] border-[#0d7ff8]
-    p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]
+    p-[20px] text-center text-[22px] font-[600] leading-[31px] text-[#0d7ff8]
     break-words inline-block"
           id="raleway-font"
         >
@@ -38,7 +38,7 @@ const index = () => {
           href="mailto:contactus@yourdomain.org"
           className="bg-white rounded-[8px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)] 
     border-l-[8px] border-[#0d7ff8]
-    p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]
+    p-[20px] text-center text-[22px] font-[600] leading-[31px] text-[#0d7ff8]
     break-words inline-block"
           id="raleway-font"
         >
@@ -49,7 +49,7 @@ const index = () => {
           href="mailto:board@yourdomain.org"
           className="bg-white rounded-[8px] shadow-[0px_2px_18px_0px_rgba(0,0,0,0.3)] 
     border-l-[8px] border-[#0d7ff8]
-    p-[20px] text-center text-[24px] font-[600] leading-[31px] text-[#0d7ff8]
+    p-[20px] text-center text-[22px] font-[600] leading-[31px] text-[#0d7ff8]
     break-words inline-block"
           id="raleway-font"
         >
