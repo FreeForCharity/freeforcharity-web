@@ -71,7 +71,7 @@ const Index = () => {
               today.
             </p>
 
-            <Transparentbtn text="Donate Today" href="https://www.paypal.com/donate/?hosted_button_id=9ZKQ23YC3G2J2" />
+            <Transparentbtn text="Donate Today" href="https://www.paypal.com/donate/?hosted_button_id=9ZKQ23YC3G2J2" color="#fff"/>
           </div>
         </div>
       </div>

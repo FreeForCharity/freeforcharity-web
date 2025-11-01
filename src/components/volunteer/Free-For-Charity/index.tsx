@@ -56,7 +56,7 @@ const Index = () => {
             certificate, you may then apply for one of the specific roles listed
             below.
           </p>
-          <Transparentbtn text="Click Here to Start the Core Competencies Training"  href="/ffc-volunteer-proving-ground-core-competencies"/>
+          <Transparentbtn text="Click Here to Start the Core Competencies Training"  href="/ffc-volunteer-proving-ground-core-competencies" color="#fff"/>
         </div>
       </div>
 
