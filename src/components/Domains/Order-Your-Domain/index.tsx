@@ -19,7 +19,8 @@ const HowToOrderDomain = () => {
       linkText: "Click here",
       innerbg: "bg-[#4995D2]",
       outerbg: "bg-[#4995D2]",
-      linkUrl: "https://freeforcharity.org/hub/store/ffc-consulting/free-org-domain-name-with-microsoft-email-address-setup",
+      linkUrl:
+        "https://freeforcharity.org/hub/store/ffc-consulting/free-org-domain-name-with-microsoft-email-address-setup",
     },
     {
       number: 3,
@@ -43,7 +44,7 @@ const HowToOrderDomain = () => {
 
   return (
     <section className="py-[40px] bg-[#f2f2f2] relative overflow-hidden">
-      {/* Waves */}
+      {/* Top Wave */}
       <div
         className="absolute top-0 w-full h-[100px] z-[1] scale-y-[-1] bg-no-repeat bg-top"
         style={{
@@ -55,7 +56,10 @@ const HowToOrderDomain = () => {
 
       <div className="relative z-[2]">
         <div className="pb-[3px] w-[80%] max-w-6xl mx-auto mt-[2px] pt-[30px]">
-          <h2 className="text-center mb-[16px] text-[35px] text-[#0d7ff8] font-[700] leading-[46px]" id="cantata-font">
+          <h2
+            className="text-center mb-[16px] text-[35px] text-[#0d7ff8] font-[700] leading-[46px]"
+            id="cantata-font"
+          >
             HOW TO ORDER YOUR DOMAIN NAME
           </h2>
           <p
@@ -77,6 +81,16 @@ const HowToOrderDomain = () => {
           </div>
         </div>
       </div>
+
+      {/* Bottom Wave (fixed perfectly) */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-[100px] z-[1] bg-no-repeat bg-bottom"
+        style={{
+          backgroundImage:
+            "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNGRkZGRkYiPjxwYXRoIGQ9Ik02NDAgMTM5TDAgMHYxNDBoMTI4MFYwTDY0MCAxMzl6IiBmaWxsLW9wYWNpdHk9Ii41Ii8+PHBhdGggZD0iTTY0MCAxMzlMMCA0MnY5OGgxMjgwVjQybC02NDAgOTd6Ii8+PC9nPjwvc3ZnPg==')",
+          backgroundSize: "100% 100px",
+        }}
+      ></div>
     </section>
   );
 };

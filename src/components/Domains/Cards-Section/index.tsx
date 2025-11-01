@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function CloudflareSetup() {
   return (
-    <div>
+    <div className="pt-[20px]">
       <StepsCard title="Follow the following steps" id="orderstep1">
         <ol
           className="list-decimal list-inside text-left text-[20px] leading-[26px] font-[500]"
