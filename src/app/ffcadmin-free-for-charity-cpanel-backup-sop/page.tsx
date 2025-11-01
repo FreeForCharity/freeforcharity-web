@@ -26,12 +26,12 @@ const NotFoundSection = () => {
           <div className="mb-[30px] flex items-center rounded-[3px] overflow-hidden">
             <input
               type="text"
-              className="w-full p-[0.7em] h-[40px] m-0 text-[14px] leading-normal border border-[#ddd] text-[#666]"
+              className="focus:outline-none w-full p-[0.7em] h-[40px] m-0 text-[14px] leading-normal border border-[#ddd] text-[#666]"
             />
             <input
               type="submit"
               value="Search"
-              className="h-[40px] px-2 bg-[#DDDDDD] text-[#666] text-[14px] font-[400] border border-transparent"
+              className="cursor-pointer h-[40px] px-2 bg-[#DDDDDD] text-[#666] text-[14px] font-[400] border border-transparent"
             />
           </div>
           <p className="mb-[10px] text-[18px] leading-[18px] font-[500] text-[#333]">
