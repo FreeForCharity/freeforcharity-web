@@ -43,7 +43,7 @@ const index = () => {
             charities in need. Consider supporting to the largest fundrinaing
             campain in Free For Charity history.
           </p>
-          <Transparentbtn text="Make a Lasting Impact Today!" href="/free-for-charity-endowment-fund" />
+          <Transparentbtn text="Make a Lasting Impact Today!" href="/free-for-charity-endowment-fund"  color="#fff" />
         </div>
       </div>
     </div>
