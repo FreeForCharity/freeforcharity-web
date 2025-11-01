@@ -22,13 +22,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section
-      className="w-full flex items-center overflow-hidden pt-[80px]"
-      style={{
-        backgroundImage: "linear-gradient(320deg, #f58c23 48%, #ffffff 48%)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="w-full flex items-center overflow-hidden pt-[80px]
+             bg-[linear-gradient(320deg,_#2584AD_48%,_#ffffff_48%)]
+             md:bg-[linear-gradient(320deg,_#f58c23_48%,_#ffffff_48%)]"
     >
       <div className="w-[90%] max-w-[100%] mx-auto pt-[90px] pb-[90px]">
         <div className="flex flex-col lg:flex-row gap-[40px] lg:gap-[0px]">
