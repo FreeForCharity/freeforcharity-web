@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="flex flex-col lg:flex-row gap-[40px] lg:gap-[0px]">
           {/* Left: Text Content */}
           <div className="w-full lg:w-[40%]">
-            <h1 className="text-[#f27022] text-[40px] md:text-[60px] font-[600] leading-[78px] mb-[3px]">
+            <h1 className="text-[#f27022] text-[40px] md:text-[60px] font-[600] leading-[60px] md:leading-[78px] mb-[3px]">
               {heading}
             </h1>
             <p
