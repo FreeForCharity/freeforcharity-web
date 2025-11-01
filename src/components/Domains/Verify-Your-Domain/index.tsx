@@ -168,7 +168,7 @@ const index = () => {
             <IoCall className="text-[34px] font-[400] leading-[34px] text-[#0580f8]" />
             <a
               href="tel:520-222-8104"
-              className="pl-[15px] text-[30px] font-[500] leading-[42px] text-[#2ea3f2]"
+              className="pl-[15px] text-[28px] font-[500] leading-[42px] text-[#2ea3f2]"
               id="raleway-font"
             >
               520-222-8104
@@ -178,7 +178,7 @@ const index = () => {
             <IoMdMail className="text-[34px] font-[400] leading-[34px] text-[#0580f8]" />
             <a
               href="mailto:clarkemoyer@freeforcharity.org"
-              className="text-center pl-[15px] text-[30px] font-[500] leading-[42px] text-[#2ea3f2] break-all inline-block"
+              className="text-center pl-[15px] text-[28px] font-[500] leading-[42px] text-[#2ea3f2] break-all  inline-block"
               id="raleway-font"
             >
               clarkemoyer@freeforcharity.org
