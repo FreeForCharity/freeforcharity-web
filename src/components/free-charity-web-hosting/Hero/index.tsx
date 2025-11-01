@@ -12,7 +12,7 @@ const Index = () => {
         {/* Left Section */}
         <div className="w-full md:w-[38.2%] mb-8 md:mb-0 md:mr-[39px]">
           <h1
-            className="md:mt-[60px] mb-[20px] font-[700] text-[50px] leading-[50px] md:leading-[65px] text-[#1a2e35]"
+            className="md:mt-[60px] mb-[20px] font-[700] text-[40px] md:text-[50px] leading-[50px] md:leading-[65px] text-[#1a2e35]"
             id="cantata-font"
           >
             Free For Charity <br />
