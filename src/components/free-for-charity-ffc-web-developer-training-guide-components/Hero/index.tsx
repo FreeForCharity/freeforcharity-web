@@ -40,7 +40,7 @@ const Index = () => {
             {sections.map((item) => (
               <li
                 key={item.id}
-                className="w-full py-3 px-4 rounded-md font-semibold text-[14px] text-[#0078D4] transition-colors duration-200 hover:bg-[#eef6ff] hover:text-[#005AA0]"
+                className="w-full py-3 px-4 rounded-md font-semibold text-[12px] md:text-[14px] text-[#0078D4] transition-colors duration-200 hover:bg-[#eef6ff] hover:text-[#005AA0]"
               >
                 <a href={`#${item.id}`} className="py-3 px-4">
                   {item.label}
