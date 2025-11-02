@@ -127,6 +127,93 @@ const index = () => {
 
         {/* faqs  */}
         <div>
+          <OrangeFaqItem title="Managed WordPress">
+            <ul className="list-disc list-inside">
+              <li className="">
+                For You: Easy-to-use, flexible content management for your
+                website
+              </li>
+              <li className="">
+                For Us: Standardized platform for efficient support and
+                management
+              </li>
+            </ul>
+          </OrangeFaqItem>
+          <OrangeFaqItem title="InterServer US Based Hosting">
+            <ul className="list-disc list-inside">
+              <li className="">
+                For you: No cost, US based, shared hosting in New Jersey with
+                chat suppor
+              </li>
+              <li className="">
+                For Us: Standardized DirectAdmin panel hosting and Softactulous
+                software for WordPress Install
+              </li>
+            </ul>
+          </OrangeFaqItem>
+          <OrangeFaqItem title="WPMU DEV Plugins">
+            <ul className="list-disc list-inside">
+              <li className="">
+                For You: Enterprise-grade security, performance, and management
+                tools
+              </li>
+              <li className="">
+                For Us: Centralized management and monitoring of all partner
+                websites
+              </li>
+            </ul>
+          </OrangeFaqItem>
+          <OrangeFaqItem title="Divi Design Builder">
+            <ul className="list-disc list-inside">
+              <li className="">
+                For You: Leverage Divi's visual drag-and-drop builder, pre-made
+                layouts, and responsive editing tools to create and manage
+                professional websites without needing coding skills.
+              </li>
+              <li className="">
+                For Us: Efficiently support charities with advanced web
+                development tools and train our volunteers on cutting-edge
+                technology, enhancing their technical skills and our service
+                quality.
+              </li>
+            </ul>
+          </OrangeFaqItem>
+        </div>
+
+        <div className="mt-[60px]">
+          <div className="lg:pl-[50px] mb-[40px]  flex items-center gap-[20px]">
+            <div className="w-[100px] flex items-center justify-center p-2 h-[100px] bg-[#2A6682] rounded-full">
+              <div className="relative w-[56px] h-[56px]">
+                <Image
+                  src="/Svgs/FFC-Consulting.svg"
+                  alt="FFC-Domains"
+                  fill
+                ></Image>
+              </div>
+            </div>
+            <h1 className="text-[36px] font-[400]  " id="lato-font">
+              FFC Consulting
+            </h1>
+          </div>
+          <p className="text-[25px] font-[400]  " id="lato-font">
+            Lorem ipsum dolor sit amet. Cum porro quia quo minima beatae rem
+            quia perspiciatis ex velit cupiditate id tempore enim in ipsa
+            mollitia sit veniam consequatur. 
+          </p>
+          <div className="flex items-center justify-center py-[30px]">
+            <a
+              href="#"
+              className="inline-flex items-center justify-center w-[328px] h-[62px] rounded-[27px] gap-[10px] 
+             px-[32px] py-[18px] bg-[#2A6682] text-white opacity-100 text-[25px]  font-[400]"
+              id="lato-font"
+            >
+              Learn More and Apply
+            </a>
+          </div>
+        </div>
+
+        {/* faqs  */}
+        <div>
           <OrangeFaqItem title="Northwest Registered Agent">
             <ul className="list-disc list-inside">
               <li className="">
