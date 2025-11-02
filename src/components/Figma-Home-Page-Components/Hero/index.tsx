@@ -22,12 +22,10 @@ const CharityHeroBackground = () => {
         }}
       />
 
-      {/* div with content of the section  */}
-      {/* div with content of the section  */}
-      <div className="flex items-center justify-between relative z-10 text-white pt-[130px] w-[90%] mx-auto max-w-[1280px] px-[20px]">
-        <div className="w-[565px]">
+      <div className="hero-container flex flex-col lg:flex-row gap-[40px] lg:gap-[0px] items-center justify-between relative z-10 text-white pt-[130px] w-[90%] mx-auto max-w-[1280px] lg:px-[20px]">
+        <div className="w-full lg:w-[565px]">
           <h1
-            className="text-[60px] font-[500] text-[#FFFFFF] leading-[120%]  mb-[20px]"
+            className="text-[50px] lg:text-[60px] font-[500] text-[#FFFFFF] leading-[120%] mb-[20px]"
             id="faustina-font"
           >
             Welcome to <br /> Free For Charity
@@ -41,7 +39,7 @@ const CharityHeroBackground = () => {
           </p>
           <a
             href="#"
-            className="top-[378px]  w-[351px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] mb-[10px]  whitespace-nowrap"
+            className="top-[378px] w-[300px] lg:w-[351px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] mb-[10px] whitespace-nowrap"
             id="lato-font"
           >
             Volunteer
@@ -49,28 +47,30 @@ const CharityHeroBackground = () => {
           <div className="flex gap-[5px]">
             <a
               href="#"
-              className="top-[442px] w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] whitespace-nowrap"
+              className="top-[442px] w-[130px] lg:w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] whitespace-nowrap"
               id="lato-font"
             >
               Donate
             </a>
             <a
               href="#"
-              className="top-[442px]  w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] whitespace-nowrap"
+              className="top-[442px] w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] whitespace-nowrap"
               id="lato-font"
             >
               Our Programs
             </a>
           </div>
         </div>
-        <div className="p-12 w-[445px] h-[445px] bg-[#FFFFFF] rounded-full">
-          <div className="w-full h-full relative">
+
+        {/* Fixed right side image section */}
+        <div className="relative w-full max-w-[445px] aspect-square bg-white rounded-full p-12 flex items-center justify-center">
+          <div className="relative w-full h-full">
             <Image
               src="/Images/figma-hero-img.png"
               alt="Hero image"
               fill
-              className=""
-            ></Image>
+              className="object-contain"
+            />
           </div>
         </div>
       </div>

@@ -151,7 +151,6 @@ body {
   clip-path: polygon(0 80%, 100% 50%, 100% 100%, 0% 100%);
 }
 
-
 .ffc-card {
   @apply bg-paper border-4 rounded-xl shadow;
 }
