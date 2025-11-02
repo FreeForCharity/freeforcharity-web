@@ -6,6 +6,9 @@ import EndowmentFeatures from "@/components/Figma-Home-Page-Components/Endowment
 import OurPrograms from "@/components/Figma-Home-Page-Components/Our-Programs";
 import VolunteerwithUs from "@/components/Figma-Home-Page-Components/Volunteer-with-Us";
 import Results2023 from "@/components/Figma-Home-Page-Components/Results-2023";
+import VoicesofGratitude from "@/components/Figma-Home-Page-Components/VoicesofGratitude";
+import TheFreeForCharityTeam from "@/components/Figma-Home-Page-Components/TheFreeForCharityTeam";
+import FrequentlyAskedQuestions from "@/components/Figma-Home-Page-Components/FrequentlyAskedQuestions";
 
 const index = () => {
   return (
@@ -17,6 +20,9 @@ const index = () => {
       <OurPrograms />
       <VolunteerwithUs />
       <Results2023 />
+      <VoicesofGratitude />
+      <TheFreeForCharityTeam />
+      <FrequentlyAskedQuestions />
     </div>
   );
 };
