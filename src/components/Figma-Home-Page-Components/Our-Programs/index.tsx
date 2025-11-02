@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import OrangeFaqItem from "@/components/UI/OrangeFaqItem";
-import Transparentbtn from "@/components/UI/Transparentbtn";
 
 const index = () => {
   return (
@@ -50,7 +49,7 @@ const index = () => {
           <OrangeFaqItem title=".org Domain Registration">
             <ul className="list-disc list-inside">
               <li className="">
-                For You: Leverage a .org domain name to enhance your charity's
+                For You: Leverage a .org domain name to enhance your charitys
                 credibility, trustworthiness, and online presence, making it
                 easier to attract donors and supporters
               </li>
@@ -70,13 +69,13 @@ const index = () => {
             <ul className="list-disc list-inside">
               <li className="">
                 For You: Using a charity email address (e.g.,
-                yourname@yourcharity.org) enhances your organization's
+                yourname@yourcharity.org) enhances your organizations
                 credibility and professionalism, making it easier to build trust
                 with donors, volunteers, and stakeholders
               </li>
               <li className="">
                 For Us: We benefit by ensuring charities use professional email
-                addresses, which helps maintain our servers' integrity and
+                addresses, which helps maintain our servers integrity and
                 provides a more secure and reliable communication platform for
                 our volunteers
               </li>
@@ -131,7 +130,7 @@ const index = () => {
           <OrangeFaqItem title="Northwest Registered Agent">
             <ul className="list-disc list-inside">
               <li className="">
-                For You: Leverage Northwest Registered Agent's services to
+                For You: Leverage Northwest Registered Agents services to
                 maintain compliance with state requirements, including
                 registered agent services, nonprofit corporation filing, and
                 initial charity IRS application.
