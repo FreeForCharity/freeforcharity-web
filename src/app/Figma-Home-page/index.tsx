@@ -5,6 +5,7 @@ import SupportFreeForCharity from "@/components/Figma-Home-Page-Components/Suppo
 import EndowmentFeatures from "@/components/Figma-Home-Page-Components/Endowment-Features";
 import OurPrograms from "@/components/Figma-Home-Page-Components/Our-Programs";
 import VolunteerwithUs from "@/components/Figma-Home-Page-Components/Volunteer-with-Us";
+import Results2023 from "@/components/Figma-Home-Page-Components/Results-2023";
 
 const index = () => {
   return (
@@ -15,6 +16,7 @@ const index = () => {
       <EndowmentFeatures />
       <OurPrograms />
       <VolunteerwithUs />
+      <Results2023 />
     </div>
   );
 };
