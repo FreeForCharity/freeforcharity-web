@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const CharityHeroBackground = () => {
   return (
-    <div className="relative w-full min-h-screen pb-[100px] overflow-hidden">
+    <div className="relative w-full xl:min-h-screen pb-[100px] overflow-hidden">
       {/* 1. Base Blue Layer */}
       <div className="absolute inset-0 bg-[#2E6F8E]" />
       {/* 2. ULTRA-THIN White Diagonal Strip - HALF HEIGHT */}
