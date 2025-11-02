@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const CharityHeroBackground = () => {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen pb-[100px] overflow-hidden">
       {/* 1. Base Blue Layer */}
       <div className="absolute inset-0 bg-[#2E6F8E]" />
       {/* 2. ULTRA-THIN White Diagonal Strip - HALF HEIGHT */}
@@ -41,7 +41,7 @@ const CharityHeroBackground = () => {
           </p>
           <a
             href="#"
-            className="top-[378px]  w-[351px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] mb-[10px]  "
+            className="top-[378px]  w-[351px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] mb-[10px]  whitespace-nowrap"
             id="lato-font"
           >
             Volunteer
@@ -49,14 +49,14 @@ const CharityHeroBackground = () => {
           <div className="flex gap-[5px]">
             <a
               href="#"
-              className="top-[442px] w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%]"
+              className="top-[442px] w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] whitespace-nowrap"
               id="lato-font"
             >
               Donate
             </a>
             <a
               href="#"
-              className="top-[442px]  w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%]"
+              className="top-[442px]  w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] whitespace-nowrap"
               id="lato-font"
             >
               Our Programs
