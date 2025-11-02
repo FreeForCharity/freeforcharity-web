@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import OrangeFaqItem from "@/components/UI/OrangeFaqItem";
+import Transparentbtn from "@/components/UI/Transparentbtn";
 
 const index = () => {
   return (
@@ -173,6 +174,32 @@ const index = () => {
               </li>
             </ul>
           </OrangeFaqItem>
+        </div>
+
+        <div className="lg:w-[90%] mx-auto text-center pb-[54px] pt-[20px]">
+          <h1
+            className="text-[36px] font-[400] pt-[22px] pb-[30px]"
+            id="lato-font"
+          >
+            Ready to Get Started Now?
+          </h1>
+
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-o sm:gap-6 w-[100%] gap-[20px]">
+            <a
+              href="#"
+              className="rounded-[20px] border-[5px] border-[#2A6682] flex items-center justify-center text-black font-[400] text-[25px] px-[28px] py-[16px]"
+              id="lato-font"
+            >
+              501 (c)3 Charities Click Here To Get Started!
+            </a>
+            <a
+              href="#"
+              className="rounded-[20px] border-[5px] border-[#2A6682] flex items-center justify-center text-black font-[400] text-[25px] px-[28px] py-[16px]"
+              id="lato-font"
+            >
+              Pre-501 (c)3 Charities Click Here To Get Started!
+            </a>
+          </div>
         </div>
       </div>
     </div>
