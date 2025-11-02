@@ -3,9 +3,9 @@ import React from "react";
 const index = () => {
   return (
     <div className="py-[52px]">
-      <div className="w-[90%] mx-auto py-[27px] mb-[60px]">
+      <div className="w-[90%] mx-auto py-[27px] mb-[60px] max-w-[1280px]">
         <h1
-          className="font-[400] text-[40px] lg:text-[48px] leading-[100%] tracking-[0] text-center w-full md:w-[906px] mx-auto mb-[50px]"
+          className="font-[400] text-[40px] lg:text-[48px] leading-[100%] tracking-[0] text-center w-full lg:w-[906px] mx-auto mb-[50px]"
           id="faustina-font"
         >
           Free For Charity has a simple mission with broad implications
@@ -28,7 +28,7 @@ const index = () => {
         </p>
       </div>
 
-      <div className="w-[95%] mx-auto bg-[#2B627B] h-[1px]"></div>
+      <div className="w-[95%] mt-[50px] mx-auto border border-[#2B627B]"></div>
     </div>
   );
 };
