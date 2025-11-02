@@ -166,7 +166,7 @@ const index = () => {
           <OrangeFaqItem title="Divi Design Builder">
             <ul className="list-disc list-inside">
               <li className="">
-                For You: Leverage Divi's visual drag-and-drop builder, pre-made
+                For You: Leverage Divis visual drag-and-drop builder, pre-made
                 layouts, and responsive editing tools to create and manage
                 professional websites without needing coding skills.
               </li>
