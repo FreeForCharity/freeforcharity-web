@@ -59,7 +59,7 @@ const index = () => {
             <p>
               For our training programs we help charities navigate through the
               MS-900 Microsoft training and certification program while pursuing
-              their "Microsoft 365 Grants". We further provide access to the
+              their Microsoft 365 Grants. We further provide access to the
               Divi and WPMUDEV website design and maintenance product that each
               come with their own vendor provided training.
             </p>
