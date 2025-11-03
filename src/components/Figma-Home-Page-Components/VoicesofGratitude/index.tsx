@@ -42,83 +42,91 @@ export default function TestimonialSlider() {
 
   return (
     <>
-      <div className="bg-[#2A6682] py-[30px]">
-        <div className="w-[90%] mx-auto">
-          <div className="w-full mx-auto lg:p-8">
-            <div
-              className="relative overflow-hidden"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              {/* Slider Container */}
+      <div className="py-[30px]">
+        <h1
+          className="font-[400] text-[40px] lg:text-[48px]  tracking-[0] text-center mx-auto mb-[50px]"
+          id="faustina-font"
+        >
+          Voices of Gratitude
+        </h1>
+        <div className="bg-[#2A6682] ">
+          <div className="w-[90%] mx-auto">
+            <div className="w-full mx-auto lg:p-8">
               <div
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                className="relative overflow-hidden"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
               >
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-4">
-                    <div
-                      className={`lg:p-8 text-white transition-all duration-500 ${
-                        index === currentIndex
-                          ? "scale-100 opacity-100"
-                          : "scale-95 opacity-0"
-                      }`}
-                      style={{ minHeight: "200px" }}
-                    >
-                      <p
-                        className="text-center font-[400] text-[28px] mb-3"
-                        id="fauna-font"
+                {/* Slider Container */}
+                <div
+                  className="flex transition-transform duration-700 ease-in-out"
+                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <div key={index} className="w-full flex-shrink-0 px-4">
+                      <div
+                        className={`lg:p-8 text-white transition-all duration-500 ${
+                          index === currentIndex
+                            ? "scale-100 opacity-100"
+                            : "scale-95 opacity-0"
+                        }`}
+                        style={{ minHeight: "200px" }}
                       >
-                        {testimonial.name}
-                      </p>
-                      <div className="flex justify-center mb-3">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Image
-                            key={i}
-                            src="/Svgs/start-icon.svg"
-                            width={29}
-                            height={29}
-                            alt="start icon"
-                            className="mx-[5px]"
-                          ></Image>
-                        ))}
+                        <p
+                          className="text-center font-[400] text-[28px] mb-3"
+                          id="fauna-font"
+                        >
+                          {testimonial.name}
+                        </p>
+                        <div className="flex justify-center mb-3">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Image
+                              key={i}
+                              src="/Svgs/start-icon.svg"
+                              width={29}
+                              height={29}
+                              alt="start icon"
+                              className="mx-[5px]"
+                            ></Image>
+                          ))}
+                        </div>
+
+                        <p
+                          className="text-center text-[21px] font-[400]"
+                          id="fauna-font"
+                        >
+                          {testimonial.text}
+                        </p>
                       </div>
-
-                      <p
-                        className="text-center text-[21px] font-[400]"
-                        id="fauna-font"
-                      >
-                        {testimonial.text}
-                      </p>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              {/* Pagination Dots */}
-              <div className="flex justify-center space-x-2 py-1">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`transition-all duration-300 rounded-full ${
-                      index === currentIndex
-                        ? "w-3 h-3 bg-[#D9D9D9] scale-150"
-                        : "w-3 h-3 bg-white bg-opacity-50 hover:bg-opacity-75"
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
+                {/* Pagination Dots */}
+                <div className="flex justify-center space-x-2 py-1">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`transition-all duration-300 rounded-full ${
+                        index === currentIndex
+                          ? "w-3 h-3 bg-[#D9D9D9] scale-150"
+                          : "w-3 h-3 bg-white bg-opacity-50 hover:bg-opacity-75"
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          <style jsx>{`
-            .scale-0 {
-              transform: scale(0.95);
-              opacity: 0;
-            }
-          `}</style>
+            <style jsx>{`
+              .scale-0 {
+                transform: scale(0.95);
+                opacity: 0;
+              }
+            `}</style>
+          </div>
         </div>
       </div>
     </>

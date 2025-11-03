@@ -4,7 +4,7 @@ import ResultCard from "@/components/UI/ResultCard";
 const index = () => {
   return (
     <div>
-      <div className="w-[90%] mx-auto py-[52px]">
+      <div className="w-[90%] mx-auto py-[52px] lg:px-[20px]">
         <h1
           className="mt-[2px] pb-[10px] text-[30px] md:text-[48px] font-[400] leading-[46px]  text-center mb-[40px]"
           id="faustina-font"
