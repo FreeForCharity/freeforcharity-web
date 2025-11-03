@@ -74,6 +74,7 @@ export default function TestimonialSlider() {
                       <div className="flex justify-center mb-3">
                         {[...Array(testimonial.rating)].map((_, i) => (
                           <Image
+                            key={i}
                             src="/Svgs/start-icon.svg"
                             width={29}
                             height={29}
