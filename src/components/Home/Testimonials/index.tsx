@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -83,12 +83,17 @@ const TestimonialSlider: React.FC = () => {
 
         <div className="relative">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             onSwiper={setSwiperInstance}
             onSlideChange={handleSlideChange}
             spaceBetween={30}
             slidesPerView={1}
-            loop={false}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
           >
             {testimonials.map((t, idx) => (
               <SwiperSlide key={idx}>
