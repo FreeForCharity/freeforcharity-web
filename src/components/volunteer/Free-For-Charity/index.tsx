@@ -103,9 +103,11 @@ const Index = () => {
         {/* Right Column - Button */}
         <div>
           <a
-            href="https://ideali.st/w4tuLV"
+            href="https://www.idealist.org/en/nonprofit/356bfc8e2ae64f83beea4a4e677e99d7-free-for-charity-state-college#opportunities"
             className="inline-block px-6 py-3 text-[16px] font-bold text-white bg-[#007bff] rounded-md text-center no-underline transition-colors duration-300 ease-in-out hover:bg-[#0056B3]"
             id="aria-font"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             View Our Volunteer Opportunities on Idealist
           </a>
