@@ -1,5 +1,3 @@
-// import { Open_Sans, Faustina } from "next/font/google";
-
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./../components/Header";
@@ -8,6 +6,7 @@ import CookieConsent from "./../components/CookieConsent";
 
 // Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.freeforcharity.org"),
@@ -73,20 +72,6 @@ export const metadata: Metadata = {
   },
   manifest: `${basePath}/site.webmanifest`,
 };
-
-// // Configure Open Sans for navbar
-// const openSans = Open_Sans({
-//   weight: ["300", "400", "600", "700"],
-//   subsets: ["latin"],
-//   variable: "--font-open-sans",
-// });
-
-// // Configure Faustina for body
-// const faustina = Faustina({
-//   weight: ["300", "400", "600", "700"],
-//   subsets: ["latin"],
-//   variable: "--font-faustina",
-// });
 export default function RootLayout({
   children,
 }: Readonly<{

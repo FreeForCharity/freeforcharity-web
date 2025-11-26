@@ -33,14 +33,12 @@ const index = () => {
             controls
             playsInline
             preload="metadata"
-            poster={assetPath("/videos/mission-video-poster.jpg")}
+            poster="/videos/mission-video-poster.png"
             aria-label="Free For Charity mission video"
-            title="Learn about Free For Charity's mission to help nonprofits reduce costs"
+            title="Learn about Free For Charity's mission video"
           >
-            <source
-              src={assetPath("/videos/mission-video.mp4")}
-              type="video/mp4"
-            />
+            {/* <source src="/videos/mission-video.mp4" type="video/mp4" /> */}
+            <source src="https://ffcsites.org/videos/mission-video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
