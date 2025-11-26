@@ -32,12 +32,12 @@ const index = () => {
             className="w-full max-w-[800px] rounded-lg shadow-lg"
             controls
             playsInline
-            preload="metadata"
+            preload="auto"
             aria-label="Free For Charity mission video"
             title="Learn about Free For Charity's mission to help nonprofits reduce costs"
           >
             <source
-              src={`${assetPath("/videos/mission-video.mp4")}#t=0.001`}
+              src={assetPath("/videos/mission-video.mp4")}
               type="video/mp4"
             />
             Your browser does not support the video tag.
