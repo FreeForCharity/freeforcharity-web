@@ -57,7 +57,7 @@ test.describe('Results 2023 Animated Numbers', () => {
 
     // Scroll away and back
     await page.locator('h1:has-text("Welcome to")').scrollIntoViewIfNeeded();
-    await page.waitForTimeout(500);
+    await page.waitForLoadState('networkidle');
     await resultsHeading.scrollIntoViewIfNeeded();
 
     // Value should still be the final animated value (not reset to 0)

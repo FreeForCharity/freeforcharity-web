@@ -23,23 +23,27 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   const ref = useRef<HTMLSpanElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [displayValue, setDisplayValue] = useState(
-    prefersReducedMotion ? value : 0
-  );
-
-  const motionValue = useMotionValue(prefersReducedMotion ? value : 0);
+  
+  // Initialize with 0 unconditionally to avoid hydration mismatch
+  const [displayValue, setDisplayValue] = useState(0);
+  const motionValue = useMotionValue(0);
+  
   const springValue = useSpring(motionValue, {
     damping: 50,
     stiffness: 100,
   });
 
+  // Handle reduced motion preference after mount to avoid hydration mismatch
   useEffect(() => {
-    if (isInView) {
-      if (prefersReducedMotion) {
-        setDisplayValue(value);
-      } else {
-        motionValue.set(value);
-      }
+    if (prefersReducedMotion) {
+      setDisplayValue(value);
+      motionValue.set(value);
+    }
+  }, [prefersReducedMotion, value, motionValue]);
+
+  useEffect(() => {
+    if (isInView && !prefersReducedMotion) {
+      motionValue.set(value);
     }
   }, [isInView, value, motionValue, prefersReducedMotion]);
 
