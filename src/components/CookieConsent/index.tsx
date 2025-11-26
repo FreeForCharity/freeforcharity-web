@@ -24,6 +24,7 @@ declare global {
 
 interface CookiePreferences {
   necessary: boolean
+  functional: boolean
   analytics: boolean
   marketing: boolean
 }
@@ -33,6 +34,7 @@ export default function CookieConsent() {
   const [showPreferences, setShowPreferences] = useState(false)
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true, // Always true, cannot be changed
+    functional: true, // Always true, cannot be changed - includes Zeffy donation forms
     analytics: false,
     marketing: false,
   })
@@ -156,6 +158,7 @@ export default function CookieConsent() {
       window.dataLayer = window.dataLayer || []
       window.dataLayer.push({
         event: 'consent_update',
+        functional_consent: prefs.functional ? 'granted' : 'denied',
         analytics_consent: prefs.analytics ? 'granted' : 'denied',
         marketing_consent: prefs.marketing ? 'granted' : 'denied',
       })
@@ -187,7 +190,7 @@ export default function CookieConsent() {
         return
       }
 
-      // Validate the structure
+      // Validate the structure (functional is optional for backward compatibility)
       if (
         typeof savedPreferences === 'object' &&
         savedPreferences !== null &&
@@ -195,9 +198,15 @@ export default function CookieConsent() {
         typeof savedPreferences.analytics === 'boolean' &&
         typeof savedPreferences.marketing === 'boolean'
       ) {
-        setPreferences(savedPreferences)
-        setSavedPreferencesBackup(savedPreferences)
-        applyConsent(savedPreferences)
+        // Ensure functional is always true (for backward compatibility with old saved preferences)
+        // Create a new object to avoid mutation
+        const updatedPreferences: CookiePreferences = {
+          ...savedPreferences,
+          functional: true
+        }
+        setPreferences(updatedPreferences)
+        setSavedPreferencesBackup(updatedPreferences)
+        applyConsent(updatedPreferences)
       } else {
         // Invalid data, show banner again
         if (showBannerIfMissing) setShowBanner(true)
@@ -266,6 +275,7 @@ export default function CookieConsent() {
   const handleAcceptAll = () => {
     const allAccepted: CookiePreferences = {
       necessary: true,
+      functional: true,
       analytics: true,
       marketing: true,
     }
@@ -284,6 +294,7 @@ export default function CookieConsent() {
   const handleDeclineAll = () => {
     const onlyNecessary: CookiePreferences = {
       necessary: true,
+      functional: true, // Functional cookies (Zeffy) are always enabled for donations
       analytics: false,
       marketing: false,
     }
@@ -372,6 +383,28 @@ export default function CookieConsent() {
                 features like page navigation and access to secure areas. The website cannot
                 function properly without these cookies.
               </p>
+            </div>
+
+            {/* Functional Cookies */}
+            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-semibold text-gray-900">Functional Cookies</h3>
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={preferences.functional}
+                    disabled
+                    className="w-5 h-5 text-blue-600 bg-gray-300 rounded cursor-not-allowed"
+                  />
+                  <span className="ml-2 text-sm text-gray-500">Always Active</span>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600 mb-2">
+                These cookies enable enhanced functionality and features that are essential for our
+                core services. This includes our donation processing system which requires cookies
+                to function properly.
+              </p>
+              <p className="text-xs text-gray-500">Services: Zeffy (Donation Processing)</p>
             </div>
 
             {/* Analytics Cookies */}
