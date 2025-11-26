@@ -32,7 +32,8 @@ const index = () => {
             className="w-full max-w-[800px] rounded-lg shadow-lg"
             controls
             playsInline
-            preload="auto"
+            preload="metadata"
+            poster={assetPath("/videos/mission-video-poster.jpg")}
             aria-label="Free For Charity mission video"
             title="Learn about Free For Charity's mission to help nonprofits reduce costs"
           >
