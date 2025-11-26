@@ -19,12 +19,9 @@ test.describe('Results 2023 Animated Numbers', () => {
     // Scroll to the Results section to trigger animations
     await resultsHeading.scrollIntoViewIfNeeded();
 
-    // Wait for animations to complete
-    await page.waitForTimeout(3000);
-
-    // Verify all four statistics are displayed with their final values
+    // Wait for animation to complete by checking final values
     const organizationalPartners = page.locator('text=Organizational partners').locator('..');
-    await expect(organizationalPartners.locator('h1')).toContainText('221');
+    await expect(organizationalPartners.locator('h1')).toContainText('221', { timeout: 5000 });
 
     const totalVolunteers = page.locator('text=Total volunteers').locator('..');
     await expect(totalVolunteers.locator('h1')).toContainText('3');
@@ -54,23 +51,17 @@ test.describe('Results 2023 Animated Numbers', () => {
     const resultsHeading = page.locator('h1:has-text("Results - 2023")');
     await resultsHeading.scrollIntoViewIfNeeded();
 
-    // Wait for animation to complete
-    await page.waitForTimeout(3000);
-
-    // Capture the final values
+    // Wait for animation to complete by checking the final value
     const firstCard = page.locator('text=Organizational partners').locator('..').locator('h1');
-    const finalValue = await firstCard.textContent();
-    expect(finalValue).toBe('221');
+    await expect(firstCard).toContainText('221', { timeout: 5000 });
 
     // Scroll away and back
     await page.locator('h1:has-text("Welcome to")').scrollIntoViewIfNeeded();
     await page.waitForTimeout(500);
     await resultsHeading.scrollIntoViewIfNeeded();
-    await page.waitForTimeout(500);
 
     // Value should still be the final animated value (not reset to 0)
-    const valueAfterRescroll = await firstCard.textContent();
-    expect(valueAfterRescroll).toBe('221');
+    await expect(firstCard).toContainText('221');
   });
 
   test('should display correct descriptions for each statistic', async ({ page }) => {

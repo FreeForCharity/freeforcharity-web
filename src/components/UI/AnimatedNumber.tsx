@@ -21,8 +21,8 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   id,
 }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const prefersReducedMotion = useReducedMotion();
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [displayValue, setDisplayValue] = useState(
     prefersReducedMotion ? value : 0
   );
@@ -53,7 +53,7 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
     return () => unsubscribe();
   }, [springValue, prefersReducedMotion]);
 
-  // When reduced motion is preferred, show the value immediately without animation
+  // When reduced motion is preferred, render a plain span without animation
   if (prefersReducedMotion) {
     return (
       <span ref={ref} className={className} id={id}>
