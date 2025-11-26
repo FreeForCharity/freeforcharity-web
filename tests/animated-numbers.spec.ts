@@ -19,18 +19,19 @@ test.describe('Results 2023 Animated Numbers', () => {
     // Scroll to the Results section to trigger animations
     await resultsHeading.scrollIntoViewIfNeeded();
 
-    // Wait for animation to complete by checking final values using more stable selectors
-    const organizationalPartners = page.locator('div:has-text("Organizational partners")').first();
-    await expect(organizationalPartners.locator('h1')).toContainText('221', { timeout: 5000 });
+    // Wait for animation to complete by checking final values
+    // Use locators that find the parent card div containing the description paragraph
+    const organizationalPartnersCard = page.locator('div.border-\\[\\#F58629\\]:has(p:text-is("Organizational partners"))');
+    await expect(organizationalPartnersCard.locator('h1')).toContainText('221', { timeout: 5000 });
 
-    const totalVolunteers = page.locator('div:has-text("Total volunteers")').first();
-    await expect(totalVolunteers.locator('h1')).toContainText('3');
+    const totalVolunteersCard = page.locator('div.border-\\[\\#F58629\\]:has(p:text-is("Total volunteers"))');
+    await expect(totalVolunteersCard.locator('h1')).toContainText('3');
 
-    const technicalAssistance = page.locator('div:has-text("Organizations accessing technical assistance offerings")').first();
-    await expect(technicalAssistance.locator('h1')).toContainText('221');
+    const technicalAssistanceCard = page.locator('div.border-\\[\\#F58629\\]:has(p:text-is("Organizations accessing technical assistance offerings"))');
+    await expect(technicalAssistanceCard.locator('h1')).toContainText('221');
 
-    const volunteerHours = page.locator('div:has-text("Volunteer hours contributed to the organization")').first();
-    await expect(volunteerHours.locator('h1')).toContainText('25');
+    const volunteerHoursCard = page.locator('div.border-\\[\\#F58629\\]:has(p:text-is("Volunteer hours contributed to the organization"))');
+    await expect(volunteerHoursCard.locator('h1')).toContainText('25');
   });
 
   test('should start with numbers at 0 before scrolling into view', async ({ page }) => {
@@ -38,7 +39,8 @@ test.describe('Results 2023 Animated Numbers', () => {
     await page.goto('/');
 
     // Verify the numbers start at 0 before scrolling into view
-    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
+    // Use a more specific selector to find the card with the description
+    const firstCard = page.locator('div.border-\\[\\#F58629\\]:has(p:text-is("Organizational partners"))').locator('h1');
     await expect(firstCard).toContainText('0');
 
     const resultsSection = page.locator('h1:has-text("Results - 2023")');
@@ -54,7 +56,7 @@ test.describe('Results 2023 Animated Numbers', () => {
     await resultsHeading.scrollIntoViewIfNeeded();
 
     // Wait for animation to complete by checking the final value
-    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
+    const firstCard = page.locator('div.border-\\[\\#F58629\\]:has(p:text-is("Organizational partners"))').locator('h1');
     await expect(firstCard).toContainText('221', { timeout: 5000 });
 
     // Scroll away and back
@@ -85,11 +87,13 @@ test.describe('Results 2023 Animated Numbers', () => {
     
     await page.goto('/');
     const resultsHeading = page.locator('h1:has-text("Results - 2023")');
+    // Wait for the element to be visible before scrolling
+    await expect(resultsHeading).toBeVisible({ timeout: 5000 });
     await resultsHeading.scrollIntoViewIfNeeded();
     
     // With reduced motion, numbers should appear instantly at final value
-    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
-    await expect(firstCard).toContainText('221', { timeout: 100 });
+    const firstCard = page.locator('div.border-\\[\\#F58629\\]:has(p:text-is("Organizational partners"))').locator('h1');
+    await expect(firstCard).toContainText('221', { timeout: 1000 });
     
     await context.close();
   });
