@@ -1,45 +1,66 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+} from "framer-motion";
 
 interface AnimatedNumberProps {
   value: number;
-  duration?: number;
   className?: string;
   id?: string;
 }
 
 const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   value,
-  duration = 2,
   className = "",
   id,
 }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [displayValue, setDisplayValue] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
+  const [displayValue, setDisplayValue] = useState(
+    prefersReducedMotion ? value : 0
+  );
 
-  const motionValue = useMotionValue(0);
+  const motionValue = useMotionValue(prefersReducedMotion ? value : 0);
   const springValue = useSpring(motionValue, {
     damping: 50,
     stiffness: 100,
-    duration: duration * 1000,
   });
 
   useEffect(() => {
     if (isInView) {
-      motionValue.set(value);
+      if (prefersReducedMotion) {
+        setDisplayValue(value);
+      } else {
+        motionValue.set(value);
+      }
     }
-  }, [isInView, value, motionValue]);
+  }, [isInView, value, motionValue, prefersReducedMotion]);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const unsubscribe = springValue.on("change", (latest) => {
       setDisplayValue(Math.round(latest));
     });
 
     return () => unsubscribe();
-  }, [springValue]);
+  }, [springValue, prefersReducedMotion]);
+
+  // When reduced motion is preferred, show the value immediately without animation
+  if (prefersReducedMotion) {
+    return (
+      <span ref={ref} className={className} id={id}>
+        {value}
+      </span>
+    );
+  }
 
   return (
     <motion.span
