@@ -12,7 +12,7 @@ import { test, expect } from '@playwright/test';
  * - Hero image: Local image /Images/figma-hero-img.png with alt="Hero image"
  */
 
-test.describe('Logo Visibility', () => {
+test.describe('Logo and Image Visibility', () => {
   test('should display logo in header', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/');
