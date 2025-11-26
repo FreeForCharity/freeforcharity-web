@@ -1,10 +1,15 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: FreeForCharity/freeforcharity-web
   branch: main
+  # base_url must point to your OAuth provider
+  # For production, set this to your deployed OAuth provider URL
+  # See DECAP.md for setup instructions
+  base_url: https://decap-oauth.freeforcharity.org
 
 # Use local backend for local development
 # Run: npx decap-server to start the local backend server
-# Uncomment the following lines for local development:
+# Uncomment the following line for local development:
 # local_backend: true
 
 # Publish mode (optional) - enable editorial workflow with drafts/review
