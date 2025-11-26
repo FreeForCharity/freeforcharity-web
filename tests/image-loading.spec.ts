@@ -1,18 +1,17 @@
 import { test, expect } from '@playwright/test';
 
 /**
- * GitHub Pages Deployment Tests
+ * Image Loading Tests
  * 
  * These tests verify that images load correctly when the site is built.
  * The tests check that images in the header and hero section are visible
- * and load properly.
+ * and load properly with successful HTTP responses.
  * 
- * Note: The current implementation uses:
- * - Header logo: External image from freeforcharity.org
- * - Hero image: Local image /Images/figma-hero-img.png
+ * Note: The hero image is a local asset (/Images/figma-hero-img.png) that
+ * should load correctly in all deployment scenarios including GitHub Pages.
  */
 
-test.describe('GitHub Pages Image Loading', () => {
+test.describe('Image Loading', () => {
   test('images should load correctly and be visible', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/');

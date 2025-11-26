@@ -1,12 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 /**
- * Logo Visibility Tests
+ * Logo and Image Visibility Tests
  * 
- * These tests verify that the Free For Charity logo is present and visible
- * in critical locations on the homepage:
- * 1. Top left corner (Header)
- * 2. Hero section
+ * These tests verify that critical images are present and visible on the homepage:
+ * 1. Header logo (top left corner) - validates the Free For Charity branding
+ * 2. Hero section image - validates the decorative hero image is displayed
  * 
  * Note: The current implementation uses:
  * - Header logo: External image from freeforcharity.org with alt="Free For Charity"
@@ -29,7 +28,7 @@ test.describe('Logo Visibility', () => {
     await expect(headerLogo).toHaveAttribute('alt', 'Free For Charity');
   });
 
-  test('should display hero image', async ({ page }) => {
+  test('should display hero section image', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/');
 
