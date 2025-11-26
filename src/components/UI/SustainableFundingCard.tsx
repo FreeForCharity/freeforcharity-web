@@ -13,10 +13,10 @@ export const SustainableFundingCard: React.FC<SustainableFundingCardProps> = ({
   text,
 }) => {
   return (
-    <div className="py-[50px] px-[8px] xl:w-[570px] h-[470px] rounded-[16px] overflow-hidden border-[5px] border-[#2A6682]">
+    <div className="py-[30px] px-[16px] xl:w-[570px] rounded-[16px] overflow-hidden border-[3px] border-[#2A6682]">
       {/* Image/Icon Section */}
       <div className="flex justify-center">
-        <div className="relative w-[88px] h-[90px]">
+        <div className="relative w-[60px] h-[60px]">
           <Image
             src={imageUrl}
             alt={title}
@@ -27,15 +27,15 @@ export const SustainableFundingCard: React.FC<SustainableFundingCardProps> = ({
       </div>
 
       {/* Content Section */}
-      <div className="p-6 text-center">
+      <div className="p-4 text-center">
         <h3
-          className="text-[30px] lg:text-[36px] font-[400] text-[#000000] leading-[100%] mb-4"
+          className="text-[24px] lg:text-[28px] font-[400] text-[#000000] leading-[100%] mb-3"
           id="lato-font"
         >
           {title}
         </h3>
         <p
-          className="text-[22px] sm:text-[25px] font-[400] text-[#000000] leading-[120%]"
+          className="text-[16px] sm:text-[18px] font-[400] text-[#000000] leading-[140%]"
           id="lato-font"
         >
           {text}

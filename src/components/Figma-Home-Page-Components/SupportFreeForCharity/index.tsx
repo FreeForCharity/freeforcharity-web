@@ -46,14 +46,14 @@ const Index = () => {
               By donating you help drive our mission and allow us to support more
               charities with our Domain, Website, and other services.
             </p>
-            {/* Pointing hands image - now positioned to point toward the form on the right */}
+            {/* Pointing hands image - flipped horizontally to point toward the form on the right */}
             <div className="w-full flex justify-center lg:justify-end">
               <div className="relative w-full max-w-[400px] aspect-[578/386]">
                 <Image
                   src="/Images/support-free-for-charity.png"
                   alt="support free for charity image"
                   fill
-                  className="object-contain"
+                  className="object-contain scale-x-[-1]"
                 />
               </div>
             </div>
