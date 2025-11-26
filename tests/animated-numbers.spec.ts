@@ -8,6 +8,11 @@ import { test, expect } from '@playwright/test';
  */
 
 test.describe('Results 2023 Animated Numbers', () => {
+  // Helper selector for ResultCard components - uses the distinctive border class
+  // to identify the card containing a specific description
+  const getResultCard = (page: import('@playwright/test').Page, description: string) => 
+    page.locator(`div.border-\\[\\#F58629\\]:has(p:text-is("${description}"))`);
+
   test('should display the Results-2023 section with all four statistics', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/');
@@ -19,18 +24,11 @@ test.describe('Results 2023 Animated Numbers', () => {
     // Scroll to the Results section to trigger animations
     await resultsHeading.scrollIntoViewIfNeeded();
 
-    // Wait for animation to complete by checking final values using more stable selectors
-    const organizationalPartners = page.locator('div:has-text("Organizational partners")').first();
-    await expect(organizationalPartners.locator('h1')).toContainText('221', { timeout: 5000 });
-
-    const totalVolunteers = page.locator('div:has-text("Total volunteers")').first();
-    await expect(totalVolunteers.locator('h1')).toContainText('3');
-
-    const technicalAssistance = page.locator('div:has-text("Organizations accessing technical assistance offerings")').first();
-    await expect(technicalAssistance.locator('h1')).toContainText('221');
-
-    const volunteerHours = page.locator('div:has-text("Volunteer hours contributed to the organization")').first();
-    await expect(volunteerHours.locator('h1')).toContainText('25');
+    // Wait for animation to complete by checking final values
+    await expect(getResultCard(page, 'Organizational partners').locator('h1')).toContainText('221', { timeout: 5000 });
+    await expect(getResultCard(page, 'Total volunteers').locator('h1')).toContainText('3');
+    await expect(getResultCard(page, 'Organizations accessing technical assistance offerings').locator('h1')).toContainText('221');
+    await expect(getResultCard(page, 'Volunteer hours contributed to the organization').locator('h1')).toContainText('25');
   });
 
   test('should start with numbers at 0 before scrolling into view', async ({ page }) => {
@@ -38,8 +36,8 @@ test.describe('Results 2023 Animated Numbers', () => {
     await page.goto('/');
 
     // Verify the numbers start at 0 before scrolling into view
-    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
-    await expect(firstCard).toContainText('0');
+    const firstCardNumber = getResultCard(page, 'Organizational partners').locator('h1');
+    await expect(firstCardNumber).toContainText('0');
 
     const resultsSection = page.locator('h1:has-text("Results - 2023")');
     await expect(resultsSection).toBeAttached();
@@ -54,15 +52,15 @@ test.describe('Results 2023 Animated Numbers', () => {
     await resultsHeading.scrollIntoViewIfNeeded();
 
     // Wait for animation to complete by checking the final value
-    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
-    await expect(firstCard).toContainText('221', { timeout: 5000 });
+    const firstCardNumber = getResultCard(page, 'Organizational partners').locator('h1');
+    await expect(firstCardNumber).toContainText('221', { timeout: 5000 });
 
     // Scroll away and back
     await page.locator('h1:has-text("Welcome to")').scrollIntoViewIfNeeded();
     await resultsHeading.scrollIntoViewIfNeeded();
 
     // Value should still be the final animated value (not reset to 0)
-    await expect(firstCard).toContainText('221');
+    await expect(firstCardNumber).toContainText('221');
   });
 
   test('should display correct descriptions for each statistic', async ({ page }) => {
@@ -85,11 +83,13 @@ test.describe('Results 2023 Animated Numbers', () => {
     
     await page.goto('/');
     const resultsHeading = page.locator('h1:has-text("Results - 2023")');
+    // Wait for the element to be visible before scrolling
+    await expect(resultsHeading).toBeVisible({ timeout: 5000 });
     await resultsHeading.scrollIntoViewIfNeeded();
     
     // With reduced motion, numbers should appear instantly at final value
-    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
-    await expect(firstCard).toContainText('221', { timeout: 100 });
+    const firstCardNumber = getResultCard(page, 'Organizational partners').locator('h1');
+    await expect(firstCardNumber).toContainText('221', { timeout: 1000 });
     
     await context.close();
   });
