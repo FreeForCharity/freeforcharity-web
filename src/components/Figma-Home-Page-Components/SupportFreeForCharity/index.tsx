@@ -1,7 +1,31 @@
-import React from "react";
+import React, { CSSProperties, IframeHTMLAttributes } from "react";
 import Image from "next/image";
 
+interface ExtendedIframeProps extends IframeHTMLAttributes<HTMLIFrameElement> {
+  allowpaymentrequest?: string;
+  allowtransparency?: string;
+}
+
 const Index = () => {
+  const donationFormStyle: CSSProperties = {
+    position: "absolute",
+    border: "0",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    width: "100%",
+    height: "100%",
+  };
+
+  const donationFormProps: ExtendedIframeProps = {
+    title: "Donation form powered by Zeffy",
+    style: donationFormStyle,
+    src: "https://www.zeffy.com/embed/donation-form/free-for-charity-endowment-fund",
+    allowpaymentrequest: "",
+    allowtransparency: "true",
+  };
+
   return (
     <div>
       <div className="w-[90%] mx-auto py-[27px] mb-[60px] px-[20px] max-w-[1280px]">
@@ -13,6 +37,7 @@ const Index = () => {
         </h1>
 
         <div className="flex items-center flex-col lg:flex-row gap-[40px] lg:gap-[20px]">
+          {/* Left side: Description and pointing hands image */}
           <div className="flex flex-col w-full lg:w-[50%]">
             <p
               className="mb-[20px] font-[400] text-[25px] leading-[150%] tracking-[0] text-center lg:text-left"
@@ -21,24 +46,27 @@ const Index = () => {
               By donating you help drive our mission and allow us to support more
               charities with our Domain, Website, and other services.
             </p>
-            <a
-              href="#"
-              className="bg-[#2A6682] w-[317px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] text-[20px] font-[400] text-[#FFFFFF] mx-auto"
-              id="lato-font"
-            >
-              Donate to Free For Charity
-            </a>
+            {/* Pointing hands image - now positioned to point toward the form on the right */}
+            <div className="w-full flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[400px] aspect-[578/386]">
+                <Image
+                  src="/Images/support-free-for-charity.png"
+                  alt="support free for charity image"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
           </div>
 
+          {/* Right side: Zeffy Donation Form */}
           <div className="w-full lg:w-[50%] flex justify-center">
-            {/* Maintain aspect ratio */}
-            <div className="relative w-full max-w-[578px] aspect-[578/386]">
-              <Image
-                src="/Images/support-free-for-charity.png"
-                alt="support free for charity image"
-                fill
-                className="object-contain"
-              />
+            <div
+              className="relative w-full max-w-[500px] h-[600px] bg-white rounded-lg shadow-lg overflow-hidden"
+              role="region"
+              aria-label="Donation form"
+            >
+              <iframe {...donationFormProps}></iframe>
             </div>
           </div>
         </div>
