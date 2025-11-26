@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
-import { FaFacebookF, FaLinkedinIn, FaGooglePlusG } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaGooglePlusG, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
@@ -15,6 +15,10 @@ const Footer: React.FC = () => {
     {
       icon: FaLinkedinIn,
       href: "https://www.linkedin.com/company/freeforcharity/",
+    },
+    {
+      icon: FaGithub,
+      href: "https://github.com/FreeForCharity/freeforcharity-web",
     },
   ];
   return (
