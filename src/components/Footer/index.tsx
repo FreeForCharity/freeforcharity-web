@@ -182,7 +182,7 @@ const Footer: React.FC = () => {
             </a>
 
             <a
-              href="https://www.google.com/maps/search/?api=1&query=301+Science+Park+Road+Suite+119+State+College+PA+16803"
+              href="https://www.google.com/maps/place/Free+For+Charity/@40.7768455,-77.8963305,17z/data=!3m1!4b1!4m6!3m5!1s0x89cea944b44a2e01:0x6fc2d6bf09e00a0f!8m2!3d40.7768415!4d-77.8937556!16s%2Fg%2F11vzvbl2d7?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open PA office address in Google Maps"
