@@ -1,4 +1,5 @@
 import React from "react";
+import { assetPath } from "@/lib/assetPath";
 
 const index = () => {
   return (
@@ -26,6 +27,21 @@ const index = () => {
           free or at cost work from our campus, on site projects, or
           partnerships with other entities.
         </p>
+        <div className="mt-[50px] flex justify-center">
+          <video
+            className="w-full max-w-[800px] rounded-lg shadow-lg"
+            controls
+            preload="metadata"
+            aria-label="Free For Charity mission video"
+            title="Learn about Free For Charity's mission to help nonprofits reduce costs"
+          >
+            <source
+              src={assetPath("/videos/mission-video.mp4")}
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
 
       <div className="w-[95%] mt-[50px] mx-auto border border-[#2B627B]"></div>
