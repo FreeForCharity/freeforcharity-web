@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Mail, Phone, MapPin, MessageSquare, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 import { FaFacebookF, FaLinkedinIn, FaGooglePlusG } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -203,29 +203,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Column 4: Q&A Bot */}
-        <div className="space-y-6 px-4 sm:px-0">
-          <h3 className="text-[28px] text-white">Free For Charity Q&A Bot</h3>
-
-          <div className="bg-white text-black rounded-lg p-4 space-y-3">
-            <p className="text-xs font-medium">
-              Welcome to the QnA Maker sample! Ask me a question and I will try
-              to answer it.
-            </p>
-            <p className="text-xs text-gray-500">38 minutes ago</p>
-
-            <div className="mt-4 pt-3 border-t border-gray-300">
-              <div className="flex items-center gap-2 text-xs">
-                <MessageSquare className="w-10 h-10 text-gray-500" />
-                <input
-                  type="text"
-                  placeholder="Type your message"
-                  className="flex-1 outline-none text-xs placeholder-gray-500"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Bottom Bar */}
@@ -234,14 +211,13 @@ const Footer: React.FC = () => {
         id="aria-font"
       >
         <p>
-          All Rights Are Reserved by Free For Charity a US 501c3 Non Profit |
-          Hosting Supported by
+          All Rights Are Reserved by Free For Charity a US 501c3 Non Profit | A
+          project of{" "}
           <Link
-            href="https://www.interserver.net/"
+            href="https://freeforcharity.org"
             className="underline text-[#2EA3F2] hover:text-[#2EA3F2] transition-colors"
           >
-            {" "}
-            interserver.net
+            https://freeforcharity.org
           </Link>
         </p>
       </div>
