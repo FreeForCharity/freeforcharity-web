@@ -223,7 +223,7 @@ const Footer: React.FC = () => {
         id="aria-font"
       >
         <p>
-          All Rights Are Reserved by Free For Charity a US 501c3 Non Profit | A
+          © {new Date().getFullYear()} All Rights Are Reserved by Free For Charity a US 501c3 Non Profit | A
           project of{" "}
           <Link
             href="https://freeforcharity.org"
