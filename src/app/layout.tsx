@@ -5,6 +5,9 @@ import "./globals.css";
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
 
+// Get basePath for GitHub Pages deployment
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.freeforcharity.org"),
   title: {
@@ -60,6 +63,14 @@ export const metadata: Metadata = {
       "Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.",
     images: ["/web-app-manifest-512x512.png"],
   },
+  icons: {
+    icon: [
+      { url: `${basePath}/favicon.ico`, sizes: "32x32" },
+      { url: `${basePath}/icon.png`, type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: `${basePath}/apple-icon.png`, sizes: "180x180", type: "image/png" }],
+  },
+  manifest: `${basePath}/site.webmanifest`,
 };
 
 // // Configure Open Sans for navbar
