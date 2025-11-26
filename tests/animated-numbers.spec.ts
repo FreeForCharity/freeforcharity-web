@@ -19,17 +19,17 @@ test.describe('Results 2023 Animated Numbers', () => {
     // Scroll to the Results section to trigger animations
     await resultsHeading.scrollIntoViewIfNeeded();
 
-    // Wait for animation to complete by checking final values
-    const organizationalPartners = page.locator('text=Organizational partners').locator('..');
+    // Wait for animation to complete by checking final values using more stable selectors
+    const organizationalPartners = page.locator('div:has-text("Organizational partners")').first();
     await expect(organizationalPartners.locator('h1')).toContainText('221', { timeout: 5000 });
 
-    const totalVolunteers = page.locator('text=Total volunteers').locator('..');
+    const totalVolunteers = page.locator('div:has-text("Total volunteers")').first();
     await expect(totalVolunteers.locator('h1')).toContainText('3');
 
-    const technicalAssistance = page.locator('text=Organizations accessing technical assistance offerings').locator('..');
+    const technicalAssistance = page.locator('div:has-text("Organizations accessing technical assistance offerings")').first();
     await expect(technicalAssistance.locator('h1')).toContainText('221');
 
-    const volunteerHours = page.locator('text=Volunteer hours contributed to the organization').locator('..');
+    const volunteerHours = page.locator('div:has-text("Volunteer hours contributed to the organization")').first();
     await expect(volunteerHours.locator('h1')).toContainText('25');
   });
 
@@ -37,8 +37,10 @@ test.describe('Results 2023 Animated Numbers', () => {
     // Navigate to the homepage without scrolling
     await page.goto('/');
 
-    // The numbers should initially be 0 (before animation triggers)
-    // We check if the animated number elements exist
+    // Verify the numbers start at 0 before scrolling into view
+    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
+    await expect(firstCard).toContainText('0');
+
     const resultsSection = page.locator('h1:has-text("Results - 2023")');
     await expect(resultsSection).toBeAttached();
   });
@@ -52,12 +54,11 @@ test.describe('Results 2023 Animated Numbers', () => {
     await resultsHeading.scrollIntoViewIfNeeded();
 
     // Wait for animation to complete by checking the final value
-    const firstCard = page.locator('text=Organizational partners').locator('..').locator('h1');
+    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
     await expect(firstCard).toContainText('221', { timeout: 5000 });
 
     // Scroll away and back
     await page.locator('h1:has-text("Welcome to")').scrollIntoViewIfNeeded();
-    await page.waitForLoadState('networkidle');
     await resultsHeading.scrollIntoViewIfNeeded();
 
     // Value should still be the final animated value (not reset to 0)
@@ -73,5 +74,23 @@ test.describe('Results 2023 Animated Numbers', () => {
     await expect(page.locator('text=Total volunteers')).toBeVisible();
     await expect(page.locator('text=Organizations accessing technical assistance offerings')).toBeVisible();
     await expect(page.locator('text=Volunteer hours contributed to the organization')).toBeVisible();
+  });
+
+  test('should respect prefers-reduced-motion preference', async ({ browser }) => {
+    // Create a context with reduced motion preference
+    const context = await browser.newContext({
+      reducedMotion: 'reduce'
+    });
+    const page = await context.newPage();
+    
+    await page.goto('/');
+    const resultsHeading = page.locator('h1:has-text("Results - 2023")');
+    await resultsHeading.scrollIntoViewIfNeeded();
+    
+    // With reduced motion, numbers should appear instantly at final value
+    const firstCard = page.locator('div:has-text("Organizational partners")').first().locator('h1');
+    await expect(firstCard).toContainText('221', { timeout: 100 });
+    
+    await context.close();
   });
 });

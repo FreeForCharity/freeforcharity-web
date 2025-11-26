@@ -9,12 +9,32 @@ import {
   useReducedMotion,
 } from "framer-motion";
 
+/**
+ * Props for the AnimatedNumber component.
+ *
+ * @property value - The target number to animate to.
+ * @property className - Optional CSS classes to apply.
+ * @property id - Optional element ID.
+ */
 interface AnimatedNumberProps {
   value: number;
   className?: string;
   id?: string;
 }
 
+/**
+ * AnimatedNumber component displays a number that counts up from 0 to the target value
+ * when scrolled into view. If the user prefers reduced motion, it displays the value
+ * statically without animation. The component uses Framer Motion for animation and
+ * respects accessibility preferences for reduced motion.
+ *
+ * Accessibility:
+ * - Respects user's prefers-reduced-motion setting.
+ * - Renders a plain span when reduced motion is preferred.
+ *
+ * @param {AnimatedNumberProps} props - The props for the component.
+ * @returns {JSX.Element} The animated or static number element.
+ */
 const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   value,
   className = "",
@@ -39,13 +59,15 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
       setDisplayValue(value);
       motionValue.set(value);
     }
-  }, [prefersReducedMotion, value, motionValue]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [prefersReducedMotion, value]);
 
   useEffect(() => {
     if (isInView && !prefersReducedMotion) {
       motionValue.set(value);
     }
-  }, [isInView, value, motionValue, prefersReducedMotion]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isInView, value, prefersReducedMotion]);
 
   useEffect(() => {
     if (prefersReducedMotion) return;
