@@ -10,10 +10,11 @@ Free For Charity connects students, professionals, and businesses with nonprofit
 
 ## Main Calls-to-Action
 
-The site features two primary CTAs accessible throughout the experience via global popups:
+The site features multiple CTAs accessible throughout the experience:
 
 - **Donate**: Support our mission with financial contributions
 - **Volunteer**: Join our team of skilled volunteers helping nonprofits
+- **Help for Charities**: Learn about our services and onboarding programs
 
 ## Deployment
 
@@ -24,37 +25,45 @@ The site features two primary CTAs accessible throughout the experience via glob
 
 ## Development Status
 
-**Current Status: In Development**
+**Current Status: Active Development**
 
 The site is actively being developed with the following status:
 
 ✅ **Functional:**
-- Core navigation and layout
-- Global Donate and Volunteer popups
-- Responsive design (mobile and desktop)
+- Multi-page site with comprehensive navigation
+- Responsive design (mobile and desktop) with animated mobile menu
 - SEO optimization (metadata, sitemap, robots.txt)
 - Static site generation and deployment pipeline
-- **Decap CMS integration for content management**
+- Cookie consent banner with customizable preferences
+- Mission video player
+- Animated statistics section (Results 2023)
+- Team member profiles
+- Testimonials carousel
+- FAQ accordion
+- Multiple informational pages (Help for Charities, Volunteer, Donate, About Us, etc.)
+- Policy pages (Privacy Policy, Cookie Policy, Terms of Service, etc.)
+- **Decap CMS integration for content management** (FAQs, Team, Testimonials)
 
 ⚠️ **In Progress:**
-- Many footer links are placeholder (#) and need proper destinations
-- Program application CTAs link to placeholders
-- Social media links need proper URLs
-- Policy pages (Privacy, Terms, etc.) need to be created
-- Form submissions are simulated (backend integration pending)
+- Search functionality (UI present but not fully implemented)
+- Some external integrations
 
-The site is deployed to its live domain (freeforcharity.org) but some functionality is still being completed.
+The site is deployed to its live domain (freeforcharity.org) and is fully functional.
 
 ## Overview
 
-This site showcases programs, enables donations, and lets visitors volunteer via global popups.
+This site showcases Free For Charity's programs, services, and mission. It enables donations, volunteer signups, and provides comprehensive resources for charities seeking assistance.
 
 ## Tech Stack
 
-- Next.js (App Router, TypeScript)
-- Tailwind-style utility classes for styling
-- next/font for Google fonts (Faustina, Fauna One, Lato, Inter)
+- Next.js 15.5.2 (App Router, TypeScript)
+- React 19.1.0
+- Tailwind CSS for styling
+- Framer Motion for animations
+- Lucide React & React Icons for iconography
+- Swiper for carousels
 - **Decap CMS** for content management (FAQs, Team, Testimonials)
+- Playwright for automated testing
 
 ## Content Management
 
@@ -83,7 +92,7 @@ Visit http://localhost:3000
 
 ## Testing
 
-This project includes automated tests to ensure quality and consistency.
+This project includes automated tests using Playwright to ensure quality and consistency.
 
 ### Running Tests
 
@@ -104,15 +113,41 @@ npm run test:ui       # Interactive UI mode
 
 #### End-to-End Tests (Playwright)
 
-**Logo Visibility Tests** (`tests/logo.spec.ts`)
-- ✅ **NavBar Logo Visibility**: Verifies logo appears in top left corner with correct src and alt text
-- ✅ **Hero Section Logo Visibility**: Verifies logo appears in hero section with correct src and alt text  
-- ✅ **Logo Consistency**: Confirms both logos are present simultaneously and use the same image source
+The test suite includes 6 test files with comprehensive coverage:
 
-**GitHub Pages Deployment Tests** (`tests/github-pages.spec.ts`)
-- ✅ **Image Path Compatibility**: Validates logo image paths work for both custom domain and GitHub Pages basePath
-- ✅ **Image HTTP Status**: Verifies logo images return 200 OK status codes
-- ⏭️ **Image Natural Dimensions** (skipped): Checks image dimensions after load (disabled in CI due to timing issues)
+**Logo and Image Tests** (`tests/logo.spec.ts`)
+- ✅ Header logo visibility verification
+- ✅ Hero section image visibility
+- ✅ Both images present on the same page
+
+**Image Loading Tests** (`tests/image-loading.spec.ts`)
+- ✅ Images load correctly and are visible
+- ✅ Hero image loads from local assets with HTTP 200 status
+- ⏭️ Natural dimensions check (skipped in CI due to timing issues)
+
+**Cookie Consent Tests** (`tests/cookie-consent.spec.ts`)
+- ✅ Banner display on first visit
+- ✅ Accept All and Decline All functionality
+- ✅ Preference persistence across page reloads
+- ✅ Customize preferences modal
+- ✅ Toggle analytics and marketing cookies
+- ✅ Save custom preferences
+- ✅ Accessibility (ARIA attributes, keyboard navigation)
+
+**Animated Numbers Tests** (`tests/animated-numbers.spec.ts`)
+- ✅ Results-2023 section displays with all four statistics
+- ✅ Numbers start at 0 before scrolling into view
+- ✅ Numbers animate only once when scrolled into view
+- ✅ Correct descriptions for each statistic
+- ✅ Respects prefers-reduced-motion preference
+
+**Copyright Notice Tests** (`tests/copyright.spec.ts`)
+- ✅ Footer displays copyright with current year
+- ✅ Link to freeforcharity.org present
+
+**Mission Video Tests** (`tests/mission-video.spec.ts`)
+- ✅ Video displays in mission section with accessibility attributes
+- ✅ Video source configured correctly
 
 **Test Configuration** (`playwright.config.ts`)
 - Uses system Chromium browser to avoid network download issues
@@ -127,17 +162,11 @@ Tests run automatically on every push to main via GitHub Actions before deployme
 **ESLint** (`eslint.config.mjs`)
 - ✅ Next.js core-web-vitals and TypeScript rules enabled
 - ✅ Runs automatically during build process
-- ⚠️ Currently reports 2 expected warnings about `<img>` tags (acceptable for static export)
+- ⚠️ Some warnings about `<img>` tags (acceptable for static export)
 
 **TypeScript** (`tsconfig.json`)
 - ✅ Strict mode enabled
 - ✅ Type checking runs during build
-
-### Security Analysis
-
-**npm audit**
-- ⚠️ 6 high severity vulnerabilities in decap-cms-app dependencies (trim package)
-- These are transitive dependencies that don't affect the built static site
 
 ### CI/CD Integration
 
@@ -153,53 +182,33 @@ Current CI/CD pipeline includes:
 7. ✅ Static site artifact upload
 8. ✅ Deployment to GitHub Pages
 
-### Recommended Testing Enhancements
-
-The following enhancements could improve the test suite and CI/CD process:
-
-#### Dynamic Analysis Opportunities
-- **Accessibility Testing**: Add @axe-core/playwright for WCAG compliance checks
-- **Performance Testing**: Add Lighthouse CI for Core Web Vitals monitoring
-- **Visual Regression Testing**: Add Percy or Playwright screenshots for UI change detection
-- **Mobile Testing**: Extend Playwright config to test multiple viewports and devices
-- **Cross-Browser Testing**: Add Firefox and WebKit browser testing
-
-#### Static Analysis Enhancements
-- **TypeScript Strict Mode**: Enable additional strict flags (strictNullChecks, noImplicitAny)
-- **ESLint Extensions**: Add accessibility plugin (eslint-plugin-jsx-a11y)
-- **Code Formatting**: Add Prettier for consistent code style
-- **Import Organization**: Add eslint-plugin-import for import sorting
-
-#### Security Testing
-- **Dependabot**: Enable GitHub Dependabot for automated dependency updates
-- **CodeQL**: Add GitHub CodeQL for security vulnerability scanning
-- **npm audit**: Add automated npm audit checks to CI with failure threshold
-
-#### Build Quality Gates
-- **Bundle Size Analysis**: Add next-bundle-analyzer to track bundle size
-- **Test Coverage Reports**: Add coverage collection and reporting
-- **Performance Budgets**: Set and enforce performance budgets in CI
-
-#### GitHub Actions Enhancements
-- **Branch Protection**: Require status checks to pass before merging
-- **Automated PR Comments**: Post test results and coverage to PRs
-- **Deployment Preview**: Add preview deployments for PRs
-- **Cache Optimization**: Improve caching strategy for faster builds
-- **Parallel Testing**: Run test suites in parallel for faster feedback
-
 **Full Testing Guide:** See [TESTING.md](./TESTING.md) for complete documentation.
 
 ## Key Features
 
-- Global popups for Donate and Volunteer
-  - Context provider: `src/app/components/PopupProvider.tsx`
-  - Mounted via: `src/app/components/PopupsRootClient.tsx`
-  - Open from anywhere using `usePopups()` or shared buttons:
-    - `DonateButton.tsx`, `VolunteerButton.tsx`
+- Multi-page application with comprehensive navigation
+  - Desktop navigation with dropdown menus
+  - Mobile slide-out navigation with hamburger menu
+  - Navigation component: `src/components/Header/index.tsx`
 
-- Mobile slide-out navigation
-  - `src/app/components/NavBar.tsx`
-  - Hamburger opens a right-side panel with overlay; actions wired to popups
+- Homepage sections (Figma-based design)
+  - Hero section with video/image
+  - Mission section with embedded video
+  - Support Free For Charity
+  - Endowment Features
+  - Our Programs
+  - Volunteer with Us
+  - Results 2023 (animated statistics)
+  - Testimonials carousel
+  - Team member profiles
+  - FAQs accordion
+  - Homepage: `src/app/Figma-Home-page/index.tsx`
+
+- Cookie Consent System
+  - GDPR-compliant cookie banner
+  - Customizable cookie preferences (necessary, analytics, marketing)
+  - Preferences persist across visits
+  - Component: `src/components/CookieConsent/`
 
 - SEO
   - Global metadata in `src/app/layout.tsx` (title template, description, OG/Twitter, robots)
@@ -207,16 +216,27 @@ The following enhancements could improve the test suite and CI/CD process:
 
 ## Project Structure
 
-- `src/app/page.tsx` – Home page
-- `src/app/components/*` – UI components and popups
-- `src/app/data/*` – Static content (FAQs, team, testimonials)
-- `public/*` – Static assets (icons, images)
+- `src/app/page.tsx` – Entry point routing to Figma homepage
+- `src/app/Figma-Home-page/` – Main homepage implementation
+- `src/app/[various-pages]/` – Individual page routes (about-us, donate, volunteer, etc.)
+- `src/components/` – UI components organized by feature/page
+  - `Header/` – Navigation header with dropdown menus
+  - `Footer/` – Site footer with links and contact info
+  - `CookieConsent/` – Cookie consent banner and preferences modal
+  - `Figma-Home-Page-Components/` – Homepage section components
+  - `UI/` – Reusable UI components
+- `src/data/` – Content data (FAQs, team, testimonials)
+- `src/lib/` – Utility functions (assetPath for GitHub Pages)
+- `public/` – Static assets (images, icons, admin files)
+- `tests/` – Playwright test files
 
 ## Common Tasks
 
-- Update homepage content: edit `src/app/page.tsx`
-- Change CTA copy: update text in components under `src/app/components`
+- Update homepage content: edit components in `src/components/Figma-Home-Page-Components/`
+- Add new pages: create folders in `src/app/`
+- Update navigation: edit `src/components/Header/index.tsx`
 - Adjust SEO: edit `metadata` in `src/app/layout.tsx`
+- Manage team/FAQs/testimonials: use Decap CMS or edit files in `src/data/`
 
 ## Deployment Details
 
@@ -239,5 +259,7 @@ npm run preview  # Preview at http://localhost:3000
 
 ## Notes
 
-- Popups are globally available modals; avoid fixed floating buttons. Use `DonateButton`/`VolunteerButton` or `usePopups()` to open.
-- If you add new routes, consider updating `sitemap.ts` accordingly.
+- The site uses multiple pages rather than global popup modals for donations and volunteering
+- If you add new routes, consider updating `sitemap.ts` accordingly
+- Cookie consent preferences are stored in localStorage
+- For GitHub Pages deployment, use the `assetPath()` helper from `src/lib/assetPath.ts` for image paths
