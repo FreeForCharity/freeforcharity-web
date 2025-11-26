@@ -81,10 +81,6 @@ test.describe('Results 2023 Animated Numbers', () => {
     });
     const page = await context.newPage();
     
-    // Helper selector for ResultCard components - uses the distinctive border class
-    const getResultCard = (description: string) => 
-      page.locator(`div.border-\\[\\#F58629\\]:has(p:text-is("${description}"))`);
-    
     await page.goto('/');
     const resultsHeading = page.locator('h1:has-text("Results - 2023")');
     // Wait for the element to be visible before scrolling
@@ -92,7 +88,7 @@ test.describe('Results 2023 Animated Numbers', () => {
     await resultsHeading.scrollIntoViewIfNeeded();
     
     // With reduced motion, numbers should appear instantly at final value
-    const firstCardNumber = getResultCard('Organizational partners').locator('h1');
+    const firstCardNumber = getResultCard(page, 'Organizational partners').locator('h1');
     await expect(firstCardNumber).toContainText('221', { timeout: 1000 });
     
     await context.close();
