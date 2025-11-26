@@ -199,10 +199,14 @@ export default function CookieConsent() {
         typeof savedPreferences.marketing === 'boolean'
       ) {
         // Ensure functional is always true (for backward compatibility with old saved preferences)
-        savedPreferences.functional = true
-        setPreferences(savedPreferences)
-        setSavedPreferencesBackup(savedPreferences)
-        applyConsent(savedPreferences)
+        // Create a new object to avoid mutation
+        const updatedPreferences: CookiePreferences = {
+          ...savedPreferences,
+          functional: true
+        }
+        setPreferences(updatedPreferences)
+        setSavedPreferencesBackup(updatedPreferences)
+        applyConsent(updatedPreferences)
       } else {
         // Invalid data, show banner again
         if (showBannerIfMissing) setShowBanner(true)

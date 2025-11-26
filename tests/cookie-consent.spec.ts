@@ -191,17 +191,23 @@ test.describe('Cookie Preferences Modal', () => {
     const modal = page.locator('[role="dialog"][aria-modal="true"]');
     await expect(modal).toBeVisible();
 
-    // Find all disabled checkboxes (necessary and functional cookies)
+    // Find disabled checkboxes by their section heading (more specific selector)
+    // The disabled checkboxes are within the section that has both h3 heading and the checkbox
+    const necessaryHeading = modal.getByRole('heading', { name: 'Necessary Cookies' });
+    await expect(necessaryHeading).toBeVisible();
+    
+    const functionalHeading = modal.getByRole('heading', { name: 'Functional Cookies' });
+    await expect(functionalHeading).toBeVisible();
+    
+    // All disabled checkboxes in the modal should be checked (necessary and functional)
     const disabledCheckboxes = modal.locator('input[type="checkbox"][disabled]');
     await expect(disabledCheckboxes).toHaveCount(2);
     
-    // Both should be checked
-    const firstCheckbox = disabledCheckboxes.first();
-    const secondCheckbox = disabledCheckboxes.nth(1);
-    await expect(firstCheckbox).toBeChecked();
-    await expect(firstCheckbox).toBeDisabled();
-    await expect(secondCheckbox).toBeChecked();
-    await expect(secondCheckbox).toBeDisabled();
+    // Use first() and nth(1) to check each checkbox
+    await expect(disabledCheckboxes.first()).toBeChecked();
+    await expect(disabledCheckboxes.first()).toBeDisabled();
+    await expect(disabledCheckboxes.nth(1)).toBeChecked();
+    await expect(disabledCheckboxes.nth(1)).toBeDisabled();
     
     // Verify "Always Active" text is shown (twice - for necessary and functional)
     const alwaysActiveTexts = modal.getByText('Always Active');
