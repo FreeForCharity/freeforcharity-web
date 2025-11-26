@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
   ];
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-12 px-4 md:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-12 px-4 md:px-6 lg:px-8">
         {/* Column 1: Endorsements */}
         <div className="space-y-6 px-4 sm:px-0">
           <h3 className="text-[28px] text-white">Endorsements</h3>
@@ -161,7 +161,13 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-start gap-3">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=4030+Wake+Forrest+Road+Suite+349+Raleigh+NC+27609"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open main address in Google Maps"
+              className="flex items-start gap-3 hover:opacity-80 transition-opacity"
+            >
               <MapPin className="w-10 h-10 text-orange-500 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-[500] text-[22px]">Main Address</p>
@@ -173,9 +179,15 @@ const Footer: React.FC = () => {
                   Carolina 27609
                 </p>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-start gap-3">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=301+Science+Park+Road+Suite+119+State+College+PA+16803"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open PA office address in Google Maps"
+              className="flex items-start gap-3 hover:opacity-80 transition-opacity"
+            >
               <MapPin className="w-10 h-10 text-orange-500 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-[500] text-[22px]">PA Office Address</p>
@@ -185,7 +197,7 @@ const Footer: React.FC = () => {
                   119 State College PA 16803
                 </p>
               </div>
-            </div>
+            </a>
 
             <div className="flex gap-3 pt-4">
               {socialLinks.map(({ icon: Icon, href }, index) => (
