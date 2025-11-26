@@ -115,7 +115,7 @@ For local testing without authentication:
 5. Click "Save"
 6. Click "Publish" to commit the changes
 
-This creates a new JSON file in `src/app/data/faqs/` and automatically includes it in the FAQ list.
+This creates a new JSON file in `src/data/faqs/` and automatically includes it in the FAQ list.
 
 ### Adding a Team Member
 
@@ -149,7 +149,7 @@ This creates a new JSON file in `src/app/data/faqs/` and automatically includes 
 ### File Organization
 
 ```
-src/app/data/
+src/data/
 ├── faqs/
 │   ├── what-is-the-organization-aiming-to-accomplish.json
 │   ├── are-you-really-a-charity.json
@@ -169,7 +169,7 @@ src/app/data/
 
 ### JSON Format Examples
 
-**FAQ** (`src/app/data/faqs/example.json`):
+**FAQ** (`src/data/faqs/example.json`):
 ```json
 {
   "question": "What is Free For Charity?",
@@ -177,7 +177,7 @@ src/app/data/
 }
 ```
 
-**Team Member** (`src/app/data/team/example.json`):
+**Team Member** (`src/data/team/example.json`):
 ```json
 {
   "name": "John Doe",
@@ -185,7 +185,7 @@ src/app/data/
 }
 ```
 
-**Testimonial** (`src/app/data/testimonials/example.json`):
+**Testimonial** (`src/data/testimonials/example.json`):
 ```json
 {
   "author": "Jane Smith",
@@ -210,7 +210,7 @@ You can also manage content without the CMS interface:
 
 ### Direct File Editing
 
-1. Edit JSON files directly in `src/app/data/[collection]/`
+1. Edit JSON files directly in `src/data/[collection]/`
 2. Ensure JSON format is valid
 3. Commit and push changes
 4. The site will rebuild automatically via GitHub Actions
@@ -349,5 +349,5 @@ For issues or questions about the CMS integration:
 
 ---
 
-**Last Updated**: October 2025  
+**Last Updated**: November 2025  
 **Decap CMS Version**: 3.x

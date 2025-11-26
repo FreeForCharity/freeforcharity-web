@@ -6,78 +6,122 @@ This directory contains automated end-to-end tests for the Free For Charity web 
 
 ### `logo.spec.ts`
 
-Tests logo visibility and consistency across the application.
+Tests logo and image visibility across the application.
 
-**Test Suite**: `Logo Visibility` (3 tests)
+**Test Suite**: `Logo and Image Visibility` (3 tests)
 
 **Tests:**
 
-1. **`should display logo in top left corner (NavBar)`**
+1. **`should display logo in header`**
    - **Purpose**: Verifies logo appears correctly in the navigation header
    - **Verifications**:
      - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity logo"
-   - **Selector**: `header a[aria-label="Free For Charity home"] img[alt="Free For Charity logo"]`
+     - Alt text equals "Free For Charity"
+   - **Selector**: `header a[href="/"] img[alt="Free For Charity"]`
 
-2. **`should display logo in hero section`**
-   - **Purpose**: Verifies logo appears correctly in the hero/landing section
+2. **`should display hero section image`**
+   - **Purpose**: Verifies hero image appears correctly
    - **Verifications**:
-     - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity mark"
-   - **Selector**: `section#home img[alt="Free For Charity mark"]`
+     - Image element is visible on page
+     - Alt text equals "Hero image"
+   - **Selector**: `img[alt="Hero image"]`
 
-3. **`both logos should be present on the same page`**
-   - **Purpose**: Verifies consistency between NavBar and Hero logos
+3. **`both header logo and hero image should be present on the same page`**
+   - **Purpose**: Verifies both images exist simultaneously
    - **Verifications**:
-     - NavBar logo is visible
-     - Hero logo is visible
-     - Both logos use identical image source paths
-     - Image path matches expected pattern
+     - Header logo is visible
+     - Hero image is visible
 
-### `github-pages.spec.ts`
+### `image-loading.spec.ts`
 
-Tests deployment compatibility for both custom domain and GitHub Pages with basePath.
+Tests that images load correctly when the site is built.
 
-**Test Suite**: `GitHub Pages Image Loading` (3 tests)
+**Test Suite**: `Image Loading` (3 tests)
 
 **Tests:**
 
-4. **`images should load correctly with proper paths`**
-   - **Purpose**: Validates image paths work in both deployment scenarios
+1. **`images should load correctly and be visible`**
+   - **Purpose**: Validates images are visible and have src attributes
    - **Verifications**:
-     - NavBar logo is visible (loaded successfully)
-     - Hero logo is visible (loaded successfully)
-     - Both image src attributes end with `/web-app-manifest-512x512.png`
-     - Both logos use identical path
-   - **Deployment Scenarios**:
-     - ✅ Custom domain: `/web-app-manifest-512x512.png`
-     - ✅ GitHub Pages: `/FreeForCharity-web/web-app-manifest-512x512.png`
+     - Header logo is visible
+     - Hero image is visible
+     - Both have truthy src attributes
 
-5. **`images should return 200 status code`**
-   - **Purpose**: Verifies images load successfully via HTTP requests
-   - **Method**: Monitors network responses using Playwright's response listener
+2. **`hero image should load from local assets`**
+   - **Purpose**: Verifies hero image loads with HTTP 200 status
+   - **Method**: Monitors network responses for `figma-hero-img.png`
    - **Verifications**:
-     - Captures HTTP responses for logo image requests
      - At least one image request is made
-     - All image requests return status code 200 OK
+     - All requests return status code 200 OK
 
-6. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
-   - **Purpose**: Verifies image has loaded by checking natural pixel dimensions
-   - **Status**: Temporarily disabled
-   - **Reason**: `naturalWidth`/`naturalHeight` return 0 in CI environment despite image being visible
-   - **Expected**: Should verify 512x512 pixel dimensions
-   - **Notes**: 
-     - ✅ Passes locally
-     - ❌ Fails in GitHub Actions
-     - Needs investigation of CI timing or rendering differences
+3. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
+   - **Purpose**: Verifies image has loaded by checking natural dimensions
+   - **Status**: Temporarily disabled in CI
+   - **Reason**: `naturalWidth`/`naturalHeight` return 0 in CI environment
+
+### `cookie-consent.spec.ts`
+
+Comprehensive tests for cookie consent functionality.
+
+**Test Suite**: `Cookie Consent Banner` (5 tests)
+
+1. **`should display cookie consent banner on first visit`**
+2. **`should hide banner after clicking Accept All`**
+3. **`should hide banner after clicking Decline All`**
+4. **`should persist Accept All choice and not show banner on subsequent visits`**
+5. **`should persist Decline All choice and not show banner on subsequent visits`**
+
+**Test Suite**: `Cookie Preferences Modal` (7 tests)
+
+6. **`should open preferences modal when clicking Customize`**
+7. **`should close modal when clicking Cancel`**
+8. **`should close modal when pressing Escape key`**
+9. **`should close modal when clicking outside (overlay)`**
+10. **`should have necessary cookies always checked and disabled`**
+11. **`should allow toggling analytics and marketing cookies`**
+12. **`should save custom preferences correctly`**
+
+**Test Suite**: `Cookie Consent Accessibility` (2 tests)
+
+13. **`modal should have proper ARIA attributes`**
+14. **`banner should have proper ARIA attributes`**
+
+### `animated-numbers.spec.ts`
+
+Tests for the Results-2023 section animated statistics.
+
+**Test Suite**: `Results 2023 Animated Numbers` (5 tests)
+
+1. **`should display the Results-2023 section with all four statistics`**
+2. **`should start with numbers at 0 before scrolling into view`**
+3. **`should animate numbers only once when scrolled into view`**
+4. **`should display correct descriptions for each statistic`**
+5. **`should respect prefers-reduced-motion preference`**
+
+### `copyright.spec.ts`
+
+Tests for the footer copyright notice.
+
+**Test Suite**: `Footer Copyright Notice` (2 tests)
+
+1. **`should display copyright notice with current year`**
+2. **`should display link to freeforcharity.org in copyright notice`**
+
+### `mission-video.spec.ts`
+
+Tests for the mission video player.
+
+**Test Suite**: `Mission Video` (2 tests)
+
+1. **`should display video in mission section`**
+2. **`should have video source configured correctly`**
 
 ## Test Statistics
 
-- **Total Test Suites**: 2
-- **Total Test Cases**: 6
-- **Active Tests**: 5 passing ✅
+- **Total Test Files**: 6
+- **Total Test Suites**: 9
+- **Total Test Cases**: 28
+- **Active Tests**: 27 passing ✅
 - **Skipped Tests**: 1 ⏭️
 - **Status**: All active tests passing
 
@@ -114,11 +158,14 @@ npm run test:ui
 # Run only logo tests
 npx playwright test logo.spec.ts
 
-# Run only GitHub Pages tests
-npx playwright test github-pages.spec.ts
+# Run only cookie consent tests
+npx playwright test cookie-consent.spec.ts
+
+# Run only animated numbers tests
+npx playwright test animated-numbers.spec.ts
 
 # Run a specific test by name
-npx playwright test -g "should display logo in top left corner"
+npx playwright test -g "should display logo in header"
 
 # Run in debug mode
 npx playwright test --debug
@@ -340,6 +387,6 @@ When tests fail in CI:
 
 ---
 
-**Test Suite Status**: ✅ 5 passing, 1 skipped  
-**Last Updated**: October 2025  
+**Test Suite Status**: ✅ All tests passing (1 skipped in CI)  
+**Last Updated**: November 2025  
 **Framework**: Playwright v1.56.0

@@ -8,7 +8,10 @@ This guide helps you test the Free For Charity web application, including conten
 ```bash
 # Check that decap-cms-app is installed
 npm list decap-cms-app
-# Should show: decap-cms-app@3.8.4
+# Should show: decap-cms-app@3.x.x
+
+# Install dependencies if needed
+npm install
 ```
 
 ### 2. Check Admin Files
@@ -21,9 +24,9 @@ ls -la public/admin/
 ### 3. Check Content Structure
 ```bash
 # Verify JSON content files
-ls -la src/app/data/faqs/
-ls -la src/app/data/team/
-ls -la src/app/data/testimonials/
+ls -la src/data/faqs/
+ls -la src/data/team/
+ls -la src/data/testimonials/
 ```
 
 ### 4. Test Development Server
@@ -58,11 +61,6 @@ npx playwright install chromium
 npm test
 ```
 
-Tests verify:
-- Logo presence in top left corner (NavBar)
-- Logo presence in hero section
-- Both logos use the same image source
-
 ## Automated Test Suite
 
 ### Overview
@@ -71,71 +69,193 @@ The project uses **Playwright** for end-to-end testing. All tests run automatica
 
 **Test Framework**: Playwright v1.56.0  
 **Browser**: Chromium (uses system browser to avoid network restrictions)  
-**Test Files**: 2 test suites, 6 test cases (5 active, 1 skipped)
+**Test Files**: 6 test files with comprehensive coverage
 
 ### Test Files and Coverage
 
-#### 1. Logo Visibility Tests (`tests/logo.spec.ts`)
+#### 1. Logo and Image Visibility Tests (`tests/logo.spec.ts`)
 
-Tests that verify the Free For Charity logo displays correctly across the site.
+Tests that verify critical images are present and visible on the homepage.
 
 **Test Cases:**
 
-1. **`should display logo in top left corner (NavBar)`**
+1. **`should display logo in header`**
    - **Purpose**: Verifies logo appears in navigation header
    - **Checks**:
      - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity logo"
-   - **Selector**: `header a[aria-label="Free For Charity home"] img[alt="Free For Charity logo"]`
+     - Alt text equals "Free For Charity"
+   - **Selector**: `header a[href="/"] img[alt="Free For Charity"]`
 
-2. **`should display logo in hero section`**
-   - **Purpose**: Verifies logo appears in the main hero/landing section
+2. **`should display hero section image`**
+   - **Purpose**: Verifies hero image appears correctly
    - **Checks**:
-     - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity mark"
-   - **Selector**: `section#home img[alt="Free For Charity mark"]`
+     - Image element is visible on page
+     - Alt text equals "Hero image"
+   - **Selector**: `img[alt="Hero image"]`
 
-3. **`both logos should be present on the same page`**
-   - **Purpose**: Verifies both logos exist simultaneously and are consistent
+3. **`both header logo and hero image should be present on the same page`**
+   - **Purpose**: Verifies both images exist simultaneously
    - **Checks**:
-     - NavBar logo is visible
-     - Hero logo is visible
-     - Both logos use identical image source paths
-     - Image path pattern matches expected format
+     - Header logo is visible
+     - Hero image is visible
 
-#### 2. GitHub Pages Deployment Tests (`tests/github-pages.spec.ts`)
+#### 2. Image Loading Tests (`tests/image-loading.spec.ts`)
 
-Tests that verify image loading works correctly for both custom domain and GitHub Pages deployments.
+Tests that verify images load correctly when the site is built.
 
 **Test Cases:**
 
-4. **`images should load correctly with proper paths`**
-   - **Purpose**: Validates image paths work in both deployment scenarios
+1. **`images should load correctly and be visible`**
+   - **Purpose**: Validates images are visible and have src attributes
    - **Checks**:
-     - NavBar logo is visible (image loaded successfully)
-     - Hero logo is visible (image loaded successfully)
-     - Both image src attributes end with `/web-app-manifest-512x512.png`
-     - Both logos use identical path
-   - **Deployment Compatibility**:
-     - Custom domain: `/web-app-manifest-512x512.png`
-   - GitHub Pages: `/freeforcharity-web/web-app-manifest-512x512.png`
+     - Header logo is visible
+     - Hero image is visible
+     - Both have truthy src attributes
 
-5. **`images should return 200 status code`**
-   - **Purpose**: Verifies images load successfully via HTTP
+2. **`hero image should load from local assets`**
+   - **Purpose**: Verifies hero image loads with HTTP 200 status
+   - **Method**: Monitors network responses for `figma-hero-img.png`
    - **Checks**:
-     - Captures HTTP responses for logo image
      - At least one image request is made
-     - All image requests return status code 200 OK
-   - **Method**: Monitors network responses using Playwright's response listener
+     - All requests return status code 200 OK
 
-6. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
+3. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
    - **Purpose**: Verifies image has loaded by checking natural dimensions
    - **Status**: Temporarily disabled
-   - **Reason**: naturalWidth/naturalHeight return 0 in CI despite image being visible
-   - **Expected Behavior**: Should verify 512x512 pixel dimensions
-   - **Notes**: Works locally, fails in GitHub Actions. Needs investigation.
+   - **Reason**: `naturalWidth`/`naturalHeight` return 0 in CI environment
+
+#### 3. Cookie Consent Tests (`tests/cookie-consent.spec.ts`)
+
+Comprehensive tests for the cookie consent functionality.
+
+**Cookie Consent Banner Tests:**
+
+1. **`should display cookie consent banner on first visit`**
+   - Verifies banner appears with correct heading and buttons
+   - Checks for Decline All, Customize, and Accept All buttons
+   - Verifies Privacy Policy and Cookie Policy links
+
+2. **`should hide banner after clicking Accept All`**
+   - Clicks Accept All button
+   - Verifies banner disappears
+
+3. **`should hide banner after clicking Decline All`**
+   - Clicks Decline All button
+   - Verifies banner disappears
+
+4. **`should persist Accept All choice and not show banner on subsequent visits`**
+   - Accepts cookies, reloads page
+   - Verifies banner doesn't appear
+   - Checks localStorage for correct preferences
+
+5. **`should persist Decline All choice and not show banner on subsequent visits`**
+   - Declines cookies, reloads page
+   - Verifies banner doesn't appear
+   - Checks localStorage for correct preferences
+
+**Cookie Preferences Modal Tests:**
+
+6. **`should open preferences modal when clicking Customize`**
+   - Verifies modal appears with correct structure
+   - Checks for cookie category sections
+   - Verifies action buttons present
+
+7. **`should close modal when clicking Cancel`**
+   - Opens modal, clicks Cancel
+   - Verifies modal closes, banner remains
+
+8. **`should close modal when pressing Escape key`**
+   - Opens modal, presses Escape
+   - Verifies modal closes
+
+9. **`should close modal when clicking outside (overlay)`**
+   - Opens modal, clicks overlay
+   - Verifies modal closes
+
+10. **`should have necessary cookies always checked and disabled`**
+    - Verifies necessary cookies checkbox is checked and disabled
+    - Checks for "Always Active" text
+
+11. **`should allow toggling analytics and marketing cookies`**
+    - Verifies toggles start unchecked
+    - Toggles both on
+    - Verifies toggles are now checked
+
+12. **`should save custom preferences correctly`**
+    - Enables only analytics (not marketing)
+    - Saves preferences
+    - Verifies localStorage has correct values
+    - Reloads and verifies banner doesn't appear
+
+**Accessibility Tests:**
+
+13. **`modal should have proper ARIA attributes`**
+    - Checks `aria-modal="true"`
+    - Checks `aria-labelledby="cookie-preferences-title"`
+
+14. **`banner should have proper ARIA attributes`**
+    - Checks `aria-label="Cookie consent notice"`
+
+#### 4. Animated Numbers Tests (`tests/animated-numbers.spec.ts`)
+
+Tests for the Results-2023 section animated statistics.
+
+**Test Cases:**
+
+1. **`should display the Results-2023 section with all four statistics`**
+   - Scrolls to Results section
+   - Waits for animations to complete
+   - Verifies all four values are correct (221, 3, 221, 25)
+
+2. **`should start with numbers at 0 before scrolling into view`**
+   - Verifies numbers start at 0
+   - Confirms Results section exists
+
+3. **`should animate numbers only once when scrolled into view`**
+   - Scrolls to section, waits for animation
+   - Scrolls away and back
+   - Verifies value stays at final animated value
+
+4. **`should display correct descriptions for each statistic`**
+   - Verifies all four descriptions are visible:
+     - Organizational partners
+     - Total volunteers
+     - Organizations accessing technical assistance offerings
+     - Volunteer hours contributed to the organization
+
+5. **`should respect prefers-reduced-motion preference`**
+   - Creates context with reduced motion preference
+   - Verifies numbers appear instantly at final value
+
+#### 5. Copyright Notice Tests (`tests/copyright.spec.ts`)
+
+Tests for the footer copyright notice.
+
+**Test Cases:**
+
+1. **`should display copyright notice with current year`**
+   - Verifies copyright text is visible
+   - Checks for copyright symbol and current year
+   - Verifies complete copyright text
+
+2. **`should display link to freeforcharity.org in copyright notice`**
+   - Verifies link is visible
+   - Checks link href and text
+
+#### 6. Mission Video Tests (`tests/mission-video.spec.ts`)
+
+Tests for the mission video player.
+
+**Test Cases:**
+
+1. **`should display video in mission section`**
+   - Verifies video element is visible
+   - Checks accessibility attributes (aria-label, title)
+   - Verifies controls are enabled
+
+2. **`should have video source configured correctly`**
+   - Verifies source element exists
+   - Checks video type is `video/mp4`
 
 ### Running Tests
 
@@ -154,15 +274,37 @@ npm run test:headed   # With browser visible
 npm run test:ui       # Interactive Playwright UI
 ```
 
+#### Running Individual Tests
+
+```bash
+# Run only logo tests
+npx playwright test logo.spec.ts
+
+# Run only cookie consent tests
+npx playwright test cookie-consent.spec.ts
+
+# Run a specific test by name
+npx playwright test -g "should display logo in header"
+
+# Run in debug mode
+npx playwright test --debug
+```
+
 #### CI/CD Environment
 
-Tests run automatically in GitHub Actions with the following configuration:
-- **Trigger**: Every push to main branch
-- **Environment**: Ubuntu latest with Node.js 20
-- **Browser Setup**: `npx playwright install --with-deps chromium`
-- **Build**: Built with `NEXT_PUBLIC_BASE_PATH=/freeforcharity-web`
-- **Retry Logic**: Failed tests retry 2 times
-- **Failure Handling**: Deployment blocked if tests fail
+Tests run automatically in GitHub Actions on every push to the main branch.
+
+**Workflow**: `.github/workflows/nextjs.yml`
+
+**CI Pipeline Steps**:
+1. ✅ Checkout repository
+2. ✅ Setup Node.js 20
+3. ✅ Install dependencies (`npm ci`)
+4. ✅ Install Playwright browsers with system deps
+5. ✅ Build Next.js with GitHub Pages basePath
+6. ✅ Run test suite
+7. ✅ Upload test artifacts on failure
+8. ✅ Deploy only if tests pass
 
 ### Test Configuration
 
@@ -183,13 +325,6 @@ Key settings:
 - Works in restricted network environments
 - Prevents accidental `test.only` in CI
 
-### CI/CD Integration
-
-Tests run automatically in GitHub Actions:
-- On every push to main branch
-- Before deployment to GitHub Pages
-- If tests fail, deployment is blocked
-
 ## Static Analysis
 
 ### ESLint
@@ -201,9 +336,7 @@ Tests run automatically in GitHub Actions:
 - **Integration**: Runs automatically during `npm run build`
 
 **Current Warnings**:
-- 2 warnings about using `<img>` instead of `<Image />` (expected and acceptable)
-  - `src/app/components/NavBar.tsx:17:11`
-  - `src/app/page.tsx:82:17`
+- Warnings about using `<img>` instead of `<Image />` (expected and acceptable)
 - These warnings are intentional for static export with GitHub Pages basePath support
 
 ### TypeScript
@@ -225,31 +358,25 @@ npm run lint
 npm run build
 ```
 
-## Security Testing
-
-### npm audit
-
-Current security status:
-```bash
-npm audit
-```
-
-**Known Issues**:
-- 6 high severity vulnerabilities in transitive dependencies (decap-cms-app → trim package)
-- Impact: **None** - vulnerabilities are in CMS dependencies that don't affect the built static site
-- Resolution: Waiting for upstream dependency updates
-
 ## What to Verify
 
 ### Visual Elements
-- [ ] Logo displays in top left corner (NavBar)
-- [ ] Logo displays in hero section
-- [ ] Both logos are the same image
+- [ ] Logo displays in header navigation
+- [ ] Hero image displays correctly
+- [ ] Mission video plays correctly
 
 ### Homepage Content
 - [ ] Team members display correctly (5 members)
-- [ ] Testimonials display correctly (3 unique testimonials)
-- [ ] FAQs display correctly (all questions visible)
+- [ ] Testimonials carousel works
+- [ ] FAQs accordion expands/collapses
+- [ ] Results 2023 numbers animate on scroll
+
+### Cookie Consent
+- [ ] Banner appears on first visit
+- [ ] Accept All hides banner
+- [ ] Decline All hides banner
+- [ ] Customize opens preferences modal
+- [ ] Preferences persist across page reloads
 
 ### CMS Admin Interface
 - [ ] Admin page loads at /admin/index.html
@@ -286,10 +413,6 @@ npm audit
 **Cause**: External CDN (unpkg.com) blocked or inaccessible  
 **Solution**: This is expected in restricted environments. Will work in production.
 
-### Issue: Build fails
-**Cause**: Google Fonts network access (per project instructions)  
-**Solution**: Temporarily comment out font imports in layout.tsx
-
 ### Issue: Content not showing
 **Cause**: JSON import error  
 **Solution**: Check TypeScript compilation and JSON validity
@@ -307,8 +430,12 @@ npm audit
 ```
 freeforcharity-web/
 ├── tests/                          # Test suite
-│   ├── logo.spec.ts               # Logo visibility tests (3 tests)
-│   ├── github-pages.spec.ts       # Deployment compatibility tests (3 tests)
+│   ├── logo.spec.ts               # Logo visibility tests
+│   ├── image-loading.spec.ts      # Image loading tests
+│   ├── cookie-consent.spec.ts     # Cookie consent tests
+│   ├── animated-numbers.spec.ts   # Animated numbers tests
+│   ├── copyright.spec.ts          # Copyright notice tests
+│   ├── mission-video.spec.ts      # Mission video tests
 │   └── README.md                  # Test documentation
 ├── playwright.config.ts            # Playwright configuration
 ├── .github/workflows/
@@ -317,7 +444,7 @@ freeforcharity-web/
 │   └── admin/
 │       ├── index.html             # CMS admin interface
 │       └── config.yml             # CMS configuration
-├── src/app/data/
+├── src/data/
 │   ├── faqs/
 │   │   ├── what-is-the-organization-aiming-to-accomplish.json
 │   │   └── are-you-really-a-charity.json
@@ -339,106 +466,58 @@ freeforcharity-web/
 └── README.md                      # Project overview with testing summary
 ```
 
-## Recommended Testing Enhancements
+## Test Debugging
 
-### High Priority
+### Local Debugging
 
-1. **Accessibility Testing**
-   - Tool: @axe-core/playwright
-   - Purpose: Automated WCAG 2.1 compliance checks
-   - Benefit: Ensure site is accessible to all users
+```bash
+# Run tests in headed mode to see browser
+npm run test:headed
 
-2. **Mobile Responsive Testing**
-   - Tool: Playwright viewport configuration
-   - Purpose: Test multiple device sizes and orientations
-   - Benefit: Validate responsive design works correctly
+# Run in debug mode with Playwright Inspector
+npx playwright test --debug
 
-3. **Cross-Browser Testing**
-   - Browsers: Firefox, WebKit (Safari)
-   - Purpose: Ensure consistent behavior across browsers
-   - Benefit: Catch browser-specific issues
+# Run with trace collection
+npx playwright test --trace on
 
-### Medium Priority
+# View trace file
+npx playwright show-trace trace.zip
+```
 
-4. **Performance Testing**
-   - Tool: Lighthouse CI
-   - Purpose: Monitor Core Web Vitals, SEO, Best Practices
-   - Benefit: Track performance regression over time
+### CI Debugging
 
-5. **Visual Regression Testing**
-   - Tool: Percy.io or Playwright screenshots
-   - Purpose: Detect unintended UI changes
-   - Benefit: Prevent visual bugs from reaching production
+When tests fail in CI:
+1. Check the GitHub Actions workflow run logs
+2. Download test artifacts (screenshots, traces)
+3. View HTML report: `npx playwright show-report`
+4. Compare local vs CI results
 
-6. **Link Validation**
-   - Tool: Custom Playwright tests or broken-link-checker
-   - Purpose: Verify all internal and external links work
-   - Benefit: Prevent 404 errors and broken navigation
+## Writing New Tests
 
-### Lower Priority
+### Basic Test Structure
 
-7. **Test Coverage Reporting**
-   - Tool: Istanbul/NYC with Playwright
-   - Purpose: Track test coverage percentage
-   - Benefit: Identify untested code paths
+```typescript
+import { test, expect } from '@playwright/test';
 
-8. **Bundle Size Monitoring**
-   - Tool: next-bundle-analyzer
-   - Purpose: Track bundle size over time
-   - Benefit: Prevent performance degradation from large bundles
+test.describe('My Feature', () => {
+  test('should do something', async ({ page }) => {
+    await page.goto('/');
+    
+    // Your test code here
+    const element = page.locator('selector');
+    await expect(element).toBeVisible();
+  });
+});
+```
 
-9. **Dependency Vulnerability Scanning**
-   - Tool: GitHub Dependabot + CodeQL
-   - Purpose: Automated security vulnerability detection
-   - Benefit: Early warning of security issues
+### Best Practices
 
-### GitHub Actions Enhancements
-
-10. **Branch Protection Rules**
-    - Require status checks to pass before merge
-    - Require code review approval
-    - Prevent direct pushes to main
-
-11. **Automated PR Comments**
-    - Post test results to PR comments
-    - Include test coverage reports
-    - Show performance comparison
-
-12. **Preview Deployments**
-    - Deploy PR preview to GitHub Pages subdomain
-    - Allow testing changes before merge
-    - Include preview URL in PR comment
-
-13. **Caching Optimization**
-    - Cache npm dependencies between runs
-    - Cache Playwright browsers
-    - Cache Next.js build cache
-
-14. **Parallel Test Execution**
-    - Split test suite into parallel jobs
-    - Reduce total CI runtime
-    - Faster feedback on failures
-
-## Next Steps for Production
-
-1. **Setup Authentication**
-   - Configure Git Gateway or GitHub OAuth
-   - See DECAP.md for detailed instructions
-
-2. **Test CMS Editing**
-   - Add/edit content through admin interface
-   - Verify changes commit to repository
-   - Check site rebuilds with new content
-
-3. **Customize Collections**
-   - Add more collections as needed
-   - Configure additional fields
-   - Add image upload capability
-
-4. **Implement Priority Test Enhancements**
-   - Start with accessibility testing
-   - Add mobile responsive tests
-   - Enable cross-browser testing
+- **Use descriptive test names**: Clearly state what is being tested
+- **Group related tests**: Use `test.describe()` blocks
+- **Use specific selectors**: Prefer data-testid, role, or aria-label attributes
+- **Wait for elements**: Always use Playwright's auto-waiting or explicit waits
+- **Test user behavior**: Focus on what users see and do, not implementation details
+- **Keep tests independent**: Each test should run in isolation
 
 ## Documentation
 
@@ -450,6 +529,6 @@ freeforcharity-web/
 
 ---
 
-**Test Suite Status**: ✅ 5 passing, 1 skipped  
+**Test Suite Status**: ✅ All tests passing (1 skipped in CI)  
 **Integration Status**: ✅ Complete  
-**Last Tested**: October 2025
+**Last Updated**: November 2025
