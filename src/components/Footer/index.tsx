@@ -4,17 +4,23 @@ import React from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
-import { FaFacebookF, FaLinkedinIn, FaGooglePlusG } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaGooglePlusG, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: FaFacebookF, href: "https://www.facebook.com/freeforcharity" },
-    { icon: FaGooglePlusG, href: "https://www.plus.google.com/105559070419304828544" },
-    { icon: FaXTwitter, href: "https://x.com/freeforcharity1" },
+    { icon: FaFacebookF, href: "https://www.facebook.com/freeforcharity", label: "Facebook" },
+    { icon: FaGooglePlusG, href: "https://www.plus.google.com/105559070419304828544", label: "Google Plus" },
+    { icon: FaXTwitter, href: "https://x.com/freeforcharity1", label: "X (Twitter)" },
     {
       icon: FaLinkedinIn,
       href: "https://www.linkedin.com/company/freeforcharity/",
+      label: "LinkedIn",
+    },
+    {
+      icon: FaGithub,
+      href: "https://github.com/FreeForCharity/freeforcharity-web",
+      label: "GitHub",
     },
   ];
   return (
@@ -200,12 +206,13 @@ const Footer: React.FC = () => {
             </a>
 
             <div className="flex gap-3 pt-4">
-              {socialLinks.map(({ icon: Icon, href }, index) => (
+              {socialLinks.map(({ icon: Icon, href, label }, index) => (
                 <a
                   key={index}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={label}
                   className="bg-orange-500 p-2 rounded-full hover:bg-orange-600 transition-colors"
                 >
                   <Icon className="w-6 h-6 text-white" />
