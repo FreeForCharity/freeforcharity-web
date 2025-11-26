@@ -120,7 +120,7 @@ Tests that verify image loading works correctly for both custom domain and GitHu
      - Both logos use identical path
    - **Deployment Compatibility**:
      - Custom domain: `/web-app-manifest-512x512.png`
-     - GitHub Pages: `/FreeForCharity-web/web-app-manifest-512x512.png`
+   - GitHub Pages: `/freeforcharity-web/web-app-manifest-512x512.png`
 
 5. **`images should return 200 status code`**
    - **Purpose**: Verifies images load successfully via HTTP
@@ -160,7 +160,7 @@ Tests run automatically in GitHub Actions with the following configuration:
 - **Trigger**: Every push to main branch
 - **Environment**: Ubuntu latest with Node.js 20
 - **Browser Setup**: `npx playwright install --with-deps chromium`
-- **Build**: Built with `NEXT_PUBLIC_BASE_PATH=/FreeForCharity-web`
+- **Build**: Built with `NEXT_PUBLIC_BASE_PATH=/freeforcharity-web`
 - **Retry Logic**: Failed tests retry 2 times
 - **Failure Handling**: Deployment blocked if tests fail
 
@@ -305,7 +305,7 @@ npm audit
 ## File Structure Reference
 
 ```
-FreeForCharity-web/
+freeforcharity-web/
 ├── tests/                          # Test suite
 │   ├── logo.spec.ts               # Logo visibility tests (3 tests)
 │   ├── github-pages.spec.ts       # Deployment compatibility tests (3 tests)

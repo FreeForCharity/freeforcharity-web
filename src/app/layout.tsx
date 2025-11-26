@@ -1,4 +1,4 @@
-import { Open_Sans, Faustina } from "next/font/google";
+// import { Open_Sans, Faustina } from "next/font/google";
 
 import type { Metadata } from "next";
 import "./globals.css";
@@ -62,30 +62,27 @@ export const metadata: Metadata = {
   },
 };
 
-// Configure Open Sans for navbar
-const openSans = Open_Sans({
-  weight: ["300", "400", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-open-sans",
-});
+// // Configure Open Sans for navbar
+// const openSans = Open_Sans({
+//   weight: ["300", "400", "600", "700"],
+//   subsets: ["latin"],
+//   variable: "--font-open-sans",
+// });
 
-// Configure Faustina for body
-const faustina = Faustina({
-  weight: ["300", "400", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-faustina",
-});
+// // Configure Faustina for body
+// const faustina = Faustina({
+//   weight: ["300", "400", "600", "700"],
+//   subsets: ["latin"],
+//   variable: "--font-faustina",
+// });
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${openSans.variable} ${faustina.variable}`}>
-      <body
-        className={`${faustina.className} antialiased`}
-        suppressHydrationWarning={true}
-      >
+    <html lang="en">
+      <body className={`antialiased`} suppressHydrationWarning={true}>
         {/* <PopupProvider> */}
         <Header />
         {children}

@@ -18,7 +18,7 @@ The site features two primary CTAs accessible throughout the experience via glob
 ## Deployment
 
 - **Live Site**: [https://www.freeforcharity.org](https://www.freeforcharity.org)
-- **GitHub Pages**: [https://freeforcharity.github.io/FreeForCharity-web/](https://freeforcharity.github.io/FreeForCharity-web/)
+- **GitHub Pages**: [https://freeforcharity.github.io/freeforcharity-web/](https://freeforcharity.github.io/freeforcharity-web/)
 - **Hosting**: GitHub Pages
 - **Deployment**: Automated via GitHub Actions on push to `main` branch
 
@@ -224,7 +224,7 @@ The site is configured for static export and deployed to GitHub Pages:
 
 **Production:**
 - Live at: [https://www.freeforcharity.org](https://www.freeforcharity.org)
-- GitHub Pages URL: [https://freeforcharity.github.io/FreeForCharity-web/](https://freeforcharity.github.io/FreeForCharity-web/)
+- GitHub Pages URL: [https://freeforcharity.github.io/freeforcharity-web/](https://freeforcharity.github.io/freeforcharity-web/)
 - Deployment: Automatic via GitHub Actions (`.github/workflows/nextjs.yml`)
 - Trigger: Push to `main` branch
 - Build output: Static files in `./out` directory

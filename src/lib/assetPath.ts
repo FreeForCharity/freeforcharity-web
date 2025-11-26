@@ -1,7 +1,7 @@
 /**
  * Helper function to construct asset paths that work with GitHub Pages basePath
  * 
- * When deployed to GitHub Pages at freeforcharity.github.io/FreeForCharity-web/,
+ * When deployed to GitHub Pages at freeforcharity.github.io/freeforcharity-web/, 
  * all assets need to be prefixed with the repository name.
  * 
  * For the custom domain (freeforcharity.org), no basePath is needed.

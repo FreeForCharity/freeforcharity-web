@@ -5,10 +5,10 @@ import { test, expect } from '@playwright/test';
  * 
  * These tests verify that image paths work correctly when the site is built
  * with a basePath for GitHub Pages deployment at:
- * https://freeforcharity.github.io/FreeForCharity-web/
+ * https://freeforcharity.github.io/freeforcharity-web/
  * 
  * To run these tests with basePath:
- * 1. Build with basePath: NEXT_PUBLIC_BASE_PATH=/FreeForCharity-web npm run build
+ * 1. Build with basePath: NEXT_PUBLIC_BASE_PATH=/freeforcharity-web npm run build
  * 2. Run tests: npm test
  * 
  * Note: These tests use pattern matching to work with both deployment scenarios
@@ -34,7 +34,7 @@ test.describe('GitHub Pages Image Loading', () => {
     // Verify the paths end with the correct filename
     // This works for both:
     // - /web-app-manifest-512x512.png (custom domain)
-    // - /FreeForCharity-web/web-app-manifest-512x512.png (GitHub Pages)
+    // - /freeforcharity-web/web-app-manifest-512x512.png (GitHub Pages)
     expect(navBarSrc).toMatch(/\/web-app-manifest-512x512\.png$/);
     expect(heroSrc).toMatch(/\/web-app-manifest-512x512\.png$/);
 

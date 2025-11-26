@@ -10,7 +10,7 @@ import { test, expect } from '@playwright/test';
  * 
  * The tests handle both deployment scenarios:
  * - Custom domain (freeforcharity.org): images at /web-app-manifest-512x512.png
- * - GitHub Pages (freeforcharity.github.io/FreeForCharity-web/): images at /FreeForCharity-web/web-app-manifest-512x512.png
+ * - GitHub Pages (freeforcharity.github.io/freeforcharity-web/): images at /freeforcharity-web/web-app-manifest-512x512.png
  */
 
 test.describe('Logo Visibility', () => {

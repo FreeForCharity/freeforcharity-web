@@ -75,7 +75,7 @@ Git Gateway is a service that allows Decap CMS to authenticate with GitHub witho
    ```yaml
    backend:
      name: github
-     repo: FreeForCharity/FreeForCharity-web
+   repo: FreeForCharity/freeforcharity-web
      branch: main
    ```
 3. Deploy an authentication server (see [Decap CMS OAuth docs](https://decapcms.org/docs/authentication-backends/))
