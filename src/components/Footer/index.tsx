@@ -8,6 +8,7 @@ import { FaFacebookF, FaLinkedinIn, FaGooglePlusG } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
+  const currentYear = React.useMemo(() => new Date().getFullYear(), []);
   const socialLinks = [
     { icon: FaFacebookF, href: "https://www.facebook.com/freeforcharity" },
     { icon: FaGooglePlusG, href: "https://www.plus.google.com/105559070419304828544" },
@@ -223,7 +224,7 @@ const Footer: React.FC = () => {
         id="aria-font"
       >
         <p>
-          © {new Date().getFullYear()} All Rights Are Reserved by Free For Charity a US 501c3 Non Profit | A
+          © {currentYear} All Rights Are Reserved by Free For Charity a US 501c3 Non Profit | A
           project of{" "}
           <Link
             href="https://freeforcharity.org"
