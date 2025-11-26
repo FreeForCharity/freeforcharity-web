@@ -109,9 +109,8 @@ const index = () => {
             </h1>
           </div>
           <p className="text-[25px] font-[400]  " id="lato-font">
-            Free shared hosting for nonprofit organizations, along with
-            WordPress installation and management, and access to our premium
-            plugins and themes from:
+            Free static site hosting for nonprofit organizations using Microsoft
+            GitHub Pages, with websites built using GitHub Copilot AI:
           </p>
           <div className="flex items-center justify-center py-[30px]">
             <a
@@ -127,54 +126,51 @@ const index = () => {
 
         {/* faqs  */}
         <div>
-          <OrangeFaqItem title="Managed WordPress">
+          <OrangeFaqItem title="GitHub Pages Hosting">
             <ul className="list-disc list-inside">
               <li className="">
-                For You: Easy-to-use, flexible content management for your
-                website
+                For You: Free, reliable static site hosting with automatic HTTPS
+                and custom domain support
               </li>
               <li className="">
-                For Us: Standardized platform for efficient support and
-                management
+                For Us: Simplified deployment and maintenance with
+                version-controlled websites
               </li>
             </ul>
           </OrangeFaqItem>
-          <OrangeFaqItem title="InterServer US Based Hosting">
+          <OrangeFaqItem title="GitHub Copilot AI Development">
             <ul className="list-disc list-inside">
               <li className="">
-                For you: No cost, US based, shared hosting in New Jersey with
-                chat suppor
+                For You: Professional, modern websites built using AI-assisted
+                development for faster delivery
               </li>
               <li className="">
-                For Us: Standardized DirectAdmin panel hosting and Softactulous
-                software for WordPress Install
+                For Us: Efficient website creation and consistent code quality
+                across all charity projects
               </li>
             </ul>
           </OrangeFaqItem>
-          <OrangeFaqItem title="WPMU DEV Plugins">
+          <OrangeFaqItem title="Static Site Architecture">
             <ul className="list-disc list-inside">
               <li className="">
-                For You: Enterprise-grade security, performance, and management
-                tools
+                For You: Fast-loading, secure websites with no server
+                maintenance required
               </li>
               <li className="">
-                For Us: Centralized management and monitoring of all partner
-                websites
+                For Us: Zero hosting costs and reduced security vulnerabilities
+                for partner organizations
               </li>
             </ul>
           </OrangeFaqItem>
-          <OrangeFaqItem title="Divi Design Builder">
+          <OrangeFaqItem title="Modern Web Technologies">
             <ul className="list-disc list-inside">
               <li className="">
-                For You: Leverage Divis visual drag-and-drop builder, pre-made
-                layouts, and responsive editing tools to create and manage
-                professional websites without needing coding skills.
+                For You: Beautiful, responsive websites built with React,
+                Next.js, and Tailwind CSS
               </li>
               <li className="">
-                For Us: Efficiently support charities with advanced web
-                development tools and train our volunteers on cutting-edge
-                technology, enhancing their technical skills and our service
-                quality.
+                For Us: Standardized tech stack enabling efficient support and
+                training for our volunteers
               </li>
             </ul>
           </OrangeFaqItem>
