@@ -196,9 +196,12 @@ const index = () => {
             </h1>
           </div>
           <p className="text-[25px] font-[400]  " id="lato-font">
-            Lorem ipsum dolor sit amet. Cum porro quia quo minima beatae rem
-            quia perspiciatis ex velit cupiditate id tempore enim in ipsa
-            mollitia sit veniam consequatur. 
+            FFC Consulting is about helping charities get the most out of their
+            digital infrastructure including from other charities for charities
+            like ours or from partners. We introduce charities to each major
+            service that supports the charity mission of our sponsored
+            organizations. We benefit when you use these services as well as
+            your organization benefiting.
           </p>
           <div className="flex items-center justify-center py-[30px]">
             <a
@@ -229,7 +232,7 @@ const index = () => {
               </li>
             </ul>
           </OrangeFaqItem>
-          <OrangeFaqItem title="VolunteerMatch">
+          <OrangeFaqItem title="Idealist.org / VolunteerMatch.org">
             <ul className="list-disc list-inside">
               <li className="">
                 For You: Access to a large pool of potential volunteers
@@ -239,7 +242,7 @@ const index = () => {
               </li>
             </ul>
           </OrangeFaqItem>
-          <OrangeFaqItem title="TechSoup">
+          <OrangeFaqItem title="TechSoup.org">
             <ul className="list-disc list-inside">
               <li className="">
                 For You: Access to discounted software and technology resources
@@ -249,7 +252,7 @@ const index = () => {
               </li>
             </ul>
           </OrangeFaqItem>
-          <OrangeFaqItem title="PayPal">
+          <OrangeFaqItem title="PayPal / Zeffy">
             <ul className="list-disc list-inside">
               <li className="">
                 For You: Easy, secure online donation processing
