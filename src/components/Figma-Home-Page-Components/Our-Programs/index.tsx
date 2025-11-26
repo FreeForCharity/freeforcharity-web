@@ -32,16 +32,6 @@ const index = () => {
             Provides free .org domain names, Microsoft 365 with Outlook email, &
             Microsoft Teams to 501c3 charities.
           </p>
-          <div className="flex items-center justify-center py-[30px]">
-            <a
-              href="#"
-              className="inline-flex items-center justify-center w-[328px] h-[62px] rounded-[27px] gap-[10px] 
-             px-[32px] py-[18px] bg-[#2A6682] text-white opacity-100 text-[25px]  font-[400]"
-              id="lato-font"
-            >
-              Learn More and Apply
-            </a>
-          </div>
         </div>
 
         {/* faqs  */}
@@ -113,16 +103,6 @@ const index = () => {
             WordPress installation and management, and access to our premium
             plugins and themes from:
           </p>
-          <div className="flex items-center justify-center py-[30px]">
-            <a
-              href="#"
-              className="inline-flex items-center justify-center w-[328px] h-[62px] rounded-[27px] gap-[10px] 
-             px-[32px] py-[18px] bg-[#2A6682] text-white opacity-100 text-[25px]  font-[400]"
-              id="lato-font"
-            >
-              Learn More and Apply
-            </a>
-          </div>
         </div>
 
         {/* faqs  */}
@@ -203,16 +183,6 @@ const index = () => {
             organizations. We benefit when you use these services as well as
             your organization benefiting.
           </p>
-          <div className="flex items-center justify-center py-[30px]">
-            <a
-              href="#"
-              className="inline-flex items-center justify-center w-[328px] h-[62px] rounded-[27px] gap-[10px] 
-             px-[32px] py-[18px] bg-[#2A6682] text-white opacity-100 text-[25px]  font-[400]"
-              id="lato-font"
-            >
-              Learn More and Apply
-            </a>
-          </div>
         </div>
 
         {/* faqs  */}
