@@ -54,53 +54,107 @@ CMS Edit → JSON File → TypeScript Import → Next.js Build → Static Site
    https://www.freeforcharity.org/admin/index.html
    ```
 
-2. Authentication is handled via Git Gateway (requires setup - see Authentication section below)
+2. Authentication is handled via GitHub OAuth (see Authentication section below)
 
 ## Authentication Setup
 
-To use Decap CMS with GitHub authentication, you need to set up **Git Gateway** or **GitHub OAuth**:
+This project uses **GitHub OAuth** as the authentication method for Decap CMS. This approach is template-friendly and doesn't require third-party services like Netlify Identity.
 
-### Option 1: Git Gateway (Recommended for GitHub Pages)
+### GitHub OAuth Architecture
 
-Git Gateway is a service that allows Decap CMS to authenticate with GitHub without exposing credentials.
+```
+User → Decap CMS → OAuth Provider → GitHub API → Repository
+```
 
-1. Sign up for [Netlify Identity](https://docs.netlify.com/visitor-access/identity/)
-2. Enable Git Gateway in your Netlify site settings
-3. Configure the backend in `public/admin/config.yml` (already set to `git-gateway`)
+The authentication flow:
+1. User clicks "Login with GitHub" in the CMS
+2. Decap CMS redirects to the OAuth provider
+3. OAuth provider redirects to GitHub for authentication
+4. GitHub authorizes and returns to OAuth provider
+5. OAuth provider sends credentials back to Decap CMS
+6. User can now edit content
 
-### Option 2: GitHub OAuth App
+### Setting Up GitHub OAuth (For New Repositories Using This Template)
 
-1. Create a GitHub OAuth App in your repository settings
-2. Update `config.yml` to use the GitHub backend:
-   ```yaml
-   backend:
-     name: github
-   repo: FreeForCharity/freeforcharity-web
-     branch: main
-   ```
-3. Deploy an authentication server (see [Decap CMS OAuth docs](https://decapcms.org/docs/authentication-backends/))
+To use this repository as a template, you'll need to set up your own GitHub OAuth provider:
 
-### Option 3: Local Development Mode
+#### Step 1: Create a GitHub OAuth App
+
+1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
+2. Click **OAuth Apps** → **New OAuth App**
+3. Fill in the details:
+   - **Application name**: `Your Project CMS`
+   - **Homepage URL**: `https://your-domain.com`
+   - **Authorization callback URL**: `https://your-oauth-provider.com/callback`
+4. Click **Register application**
+5. Note your **Client ID** and generate a **Client Secret**
+
+#### Step 2: Deploy an OAuth Provider
+
+You need a small server to handle the OAuth flow. Choose one of these options:
+
+**Option A: Cloudflare Workers (Recommended - Free)**
+
+Deploy the [Decap CMS OAuth Provider for Cloudflare Workers](https://github.com/saroj-shr/decap-cms-oauth):
+
+```bash
+# Clone the OAuth provider
+git clone https://github.com/saroj-shr/decap-cms-oauth
+cd decap-cms-oauth
+
+# Configure with your GitHub OAuth credentials
+wrangler secret put OAUTH_CLIENT_ID
+wrangler secret put OAUTH_CLIENT_SECRET
+
+# Deploy
+wrangler deploy
+```
+
+**Option B: Other Providers**
+
+See [Decap CMS External OAuth Clients](https://decapcms.org/docs/external-oauth-clients/) for alternatives:
+- AWS Lambda
+- Node.js Express
+- Vercel Functions
+- Netlify Functions
+
+#### Step 3: Update the CMS Configuration
+
+Update `public/admin/config.yml` with your settings:
+
+```yaml
+backend:
+  name: github
+  repo: your-org/your-repo  # Your GitHub repository
+  branch: main
+  base_url: https://your-oauth-provider.com  # Your OAuth provider URL
+```
+
+### Current Production Configuration
+
+For the Free For Charity website, the OAuth provider is deployed at:
+- **OAuth Provider URL**: `https://decap-oauth.freeforcharity.org`
+- **Repository**: `FreeForCharity/freeforcharity-web`
+
+### Local Development Mode
 
 For local testing without authentication:
 
-1. Install the Decap server:
+1. Uncomment the `local_backend: true` line in `public/admin/config.yml`
+
+2. Start the Decap server in one terminal:
    ```bash
    npx decap-server
    ```
 
-2. Uncomment the `local_backend: true` line in `public/admin/config.yml`
-
-3. Start both the Decap server and your dev server:
+3. Start the development server in another terminal:
    ```bash
-   # Terminal 1
-   npx decap-server
-   
-   # Terminal 2
    npm run dev
    ```
 
 4. Access the CMS at `http://localhost:3000/admin/index.html`
+
+**Note**: Remember to comment out `local_backend: true` before committing!
 
 ## Managing Content
 
@@ -256,9 +310,11 @@ The build process handles both JSON imports and static file copying:
 
 **Issue**: Can't log in to CMS  
 **Solution**:
-- Verify Git Gateway is configured (production)
+- Verify the OAuth provider is running and accessible
+- Check that `base_url` in `config.yml` points to your OAuth provider
+- Verify the GitHub OAuth App credentials are correct
+- Ensure you have write access to the repository
 - For local dev, use `local_backend: true` and run `npx decap-server`
-- Check GitHub OAuth credentials if using GitHub backend
 
 ### Content Not Appearing
 
@@ -335,9 +391,10 @@ Potential improvements to the CMS integration:
 ## Resources
 
 - [Decap CMS Documentation](https://decapcms.org/docs/intro/)
+- [GitHub Backend Setup](https://decapcms.org/docs/github-backend/)
+- [External OAuth Clients](https://decapcms.org/docs/external-oauth-clients/)
 - [Configuration Options](https://decapcms.org/docs/configuration-options/)
 - [Widget Reference](https://decapcms.org/docs/widgets/)
-- [Backend Authentication](https://decapcms.org/docs/authentication-backends/)
 
 ## Support
 
@@ -349,5 +406,5 @@ For issues or questions about the CMS integration:
 
 ---
 
-**Last Updated**: October 2025  
+**Last Updated**: November 2025  
 **Decap CMS Version**: 3.x
