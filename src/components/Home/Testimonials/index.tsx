@@ -88,7 +88,7 @@ const TestimonialSlider: React.FC = () => {
             onSlideChange={handleSlideChange}
             spaceBetween={30}
             slidesPerView={1}
-            loop={false}
+            loop={true}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
