@@ -26,6 +26,19 @@ const index = () => {
           free or at cost work from our campus, on site projects, or
           partnerships with other entities.
         </p>
+        <div className="mt-[50px] flex justify-center">
+          <video
+            className="w-full max-w-[800px] rounded-lg shadow-lg"
+            controls
+            preload="metadata"
+          >
+            <source
+              src="https://github.com/user-attachments/assets/45cc8641-1be2-42ae-893b-e83f7d65ee43"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
 
       <div className="w-[95%] mt-[50px] mx-auto border border-[#2B627B]"></div>
