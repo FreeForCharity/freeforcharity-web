@@ -61,7 +61,11 @@ const Index = () => {
 
           {/* Right side: Zeffy Donation Form */}
           <div className="w-full lg:w-[50%] flex justify-center">
-            <div className="relative w-full max-w-[500px] h-[600px] bg-white rounded-lg shadow-lg overflow-hidden">
+            <div
+              className="relative w-full max-w-[500px] h-[600px] bg-white rounded-lg shadow-lg overflow-hidden"
+              role="region"
+              aria-label="Donation form"
+            >
               <iframe {...donationFormProps}></iframe>
             </div>
           </div>
