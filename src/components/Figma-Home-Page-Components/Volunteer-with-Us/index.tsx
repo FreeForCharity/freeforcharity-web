@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const index = () => {
   return (
-    <div className="bg-[#2A6682] py-[40px]">
+    <div id="volunteer" className="bg-[#2A6682] py-[40px]">
       <div className="w-[90%] mx-auto lg:px-[20px]">
         <h1
           className="mt-[2px] mb-[42px] pb-[10px] text-[30px] md:text-[48px] font-[400] leading-[46px] text-center text-white"

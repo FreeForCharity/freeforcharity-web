@@ -38,7 +38,7 @@ const CharityHeroBackground = () => {
             Need
           </p>
           <a
-            href="#"
+            href="#volunteer"
             className="top-[378px] w-[300px] lg:w-[351px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] mb-[10px] whitespace-nowrap"
             id="lato-font"
           >
@@ -46,14 +46,14 @@ const CharityHeroBackground = () => {
           </a>
           <div className="flex gap-[5px]">
             <a
-              href="#"
+              href="#donate"
               className="top-[442px] w-[130px] lg:w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] whitespace-nowrap"
               id="lato-font"
             >
               Donate
             </a>
             <a
-              href="#"
+              href="#programs"
               className="top-[442px] w-[173px] h-[54px] opacity-100 rounded-[27px] px-[32px] py-[18px] flex items-center justify-center gap-[10px] bg-[#FFFFFF] text-[#113563] text-[20px] font-[400] leading-[100%] whitespace-nowrap"
               id="lato-font"
             >

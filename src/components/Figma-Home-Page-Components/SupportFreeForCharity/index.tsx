@@ -27,7 +27,7 @@ const Index = () => {
   };
 
   return (
-    <div>
+    <div id="donate">
       <div className="w-[90%] mx-auto py-[27px] mb-[60px] px-[20px] max-w-[1280px]">
         <h1
           className="font-[400] text-[40px] lg:text-[48px] leading-[100%] tracking-[0] text-center mx-auto mb-[60px]"
