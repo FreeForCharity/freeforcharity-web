@@ -4,7 +4,7 @@ import OrangeFaqItem from "@/components/UI/OrangeFaqItem";
 
 const index = () => {
   return (
-    <div className="py-[52px]">
+    <div id="programs" className="py-[52px]">
       <div className="w-[90%] lg:px-[20px] mx-auto">
         <h1
           className="font-[400] text-[40px] lg:text-[48px]  tracking-[0] text-center mx-auto mb-[50px]"
