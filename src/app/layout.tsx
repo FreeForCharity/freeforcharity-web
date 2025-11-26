@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./../components/Header";
 import Footer from "./../components/Footer";
+import CookieConsent from "./../components/CookieConsent";
 
 // Get basePath for GitHub Pages deployment
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -98,6 +99,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <CookieConsent />
         {/* <PopupsRootClient /> */}
         {/* </PopupProvider> */}
       </body>

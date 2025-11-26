@@ -105,8 +105,12 @@ const Footer: React.FC = () => {
                   href: "/free-for-charity-donation-policy",
                 },
                 {
-                  name: "Free For Chairty Privacy Policy",
+                  name: "Free For Charity Privacy Policy",
                   href: "/privacy-policy",
+                },
+                {
+                  name: "Free For Charity Cookie Policy",
+                  href: "/cookie-policy",
                 },
                 {
                   name: "Free For Charity Terms of Service",
