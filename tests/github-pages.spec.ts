@@ -3,51 +3,43 @@ import { test, expect } from '@playwright/test';
 /**
  * GitHub Pages Deployment Tests
  * 
- * These tests verify that image paths work correctly when the site is built
- * with a basePath for GitHub Pages deployment at:
- * https://freeforcharity.github.io/freeforcharity-web/
+ * These tests verify that images load correctly when the site is built.
+ * The tests check that images in the header and hero section are visible
+ * and load properly.
  * 
- * To run these tests with basePath:
- * 1. Build with basePath: NEXT_PUBLIC_BASE_PATH=/freeforcharity-web npm run build
- * 2. Run tests: npm test
- * 
- * Note: These tests use pattern matching to work with both deployment scenarios
+ * Note: The current implementation uses:
+ * - Header logo: External image from freeforcharity.org
+ * - Hero image: Local image /Images/figma-hero-img.png
  */
 
 test.describe('GitHub Pages Image Loading', () => {
-  test('images should load correctly with proper paths', async ({ page }) => {
+  test('images should load correctly and be visible', async ({ page }) => {
     // Navigate to the homepage
     await page.goto('/');
 
     // Find the logo images
-    const navBarLogo = page.locator('header a[aria-label="Free For Charity home"] img[alt="Free For Charity logo"]');
-    const heroLogo = page.locator('section#home img[alt="Free For Charity mark"]');
+    const headerLogo = page.locator('header a[href="/"] img[alt="Free For Charity"]');
+    const heroImage = page.locator('img[alt="Hero image"]');
 
-    // Verify both logos are visible (meaning they loaded successfully)
-    await expect(navBarLogo).toBeVisible();
-    await expect(heroLogo).toBeVisible();
+    // Verify both images are visible (meaning they loaded successfully)
+    await expect(headerLogo).toBeVisible();
+    await expect(heroImage).toBeVisible();
 
-    // Get the src attributes
-    const navBarSrc = await navBarLogo.getAttribute('src');
-    const heroSrc = await heroLogo.getAttribute('src');
+    // Verify the header logo has a src attribute
+    const headerSrc = await headerLogo.getAttribute('src');
+    expect(headerSrc).toBeTruthy();
 
-    // Verify the paths end with the correct filename
-    // This works for both:
-    // - /web-app-manifest-512x512.png (custom domain)
-    // - /freeforcharity-web/web-app-manifest-512x512.png (GitHub Pages)
-    expect(navBarSrc).toMatch(/\/web-app-manifest-512x512\.png$/);
-    expect(heroSrc).toMatch(/\/web-app-manifest-512x512\.png$/);
-
-    // Verify both use the same path
-    expect(navBarSrc).toBe(heroSrc);
+    // Verify the hero image has a src attribute
+    const heroSrc = await heroImage.getAttribute('src');
+    expect(heroSrc).toBeTruthy();
   });
 
-  test('images should return 200 status code', async ({ page }) => {
+  test('hero image should load from local assets', async ({ page }) => {
     // Listen for image requests
     const imageRequests: Array<{ url: string; status: number }> = [];
     
     page.on('response', response => {
-      if (response.url().includes('web-app-manifest-512x512.png')) {
+      if (response.url().includes('figma-hero-img.png')) {
         imageRequests.push({
           url: response.url(),
           status: response.status()
@@ -58,11 +50,11 @@ test.describe('GitHub Pages Image Loading', () => {
     // Navigate to the homepage
     await page.goto('/');
 
-    // Wait for images to be visible
-    const navBarLogo = page.locator('header a[aria-label="Free For Charity home"] img[alt="Free For Charity logo"]');
-    await expect(navBarLogo).toBeVisible();
+    // Wait for hero image to be visible
+    const heroImage = page.locator('img[alt="Hero image"]');
+    await expect(heroImage).toBeVisible();
 
-    // Verify at least one image request was made
+    // Verify at least one image request was made for the hero image
     expect(imageRequests.length).toBeGreaterThan(0);
 
     // Verify all image requests returned 200 OK
@@ -78,23 +70,18 @@ test.describe('GitHub Pages Image Loading', () => {
     // Navigate to the homepage
     await page.goto('/');
 
-    // Find the logo in the NavBar
-    const navBarLogo = page.locator('header a[aria-label="Free For Charity home"] img[alt="Free For Charity logo"]');
+    // Find the hero image
+    const heroImage = page.locator('img[alt="Hero image"]');
     
     // Wait for the image to be visible
-    await expect(navBarLogo).toBeVisible();
+    await expect(heroImage).toBeVisible();
 
     // Verify the image has loaded by checking it has natural dimensions
-    const naturalWidth = await navBarLogo.evaluate((img: HTMLImageElement) => img.naturalWidth);
-    const naturalHeight = await navBarLogo.evaluate((img: HTMLImageElement) => img.naturalHeight);
+    const naturalWidth = await heroImage.evaluate((img: HTMLImageElement) => img.naturalWidth);
+    const naturalHeight = await heroImage.evaluate((img: HTMLImageElement) => img.naturalHeight);
 
-    // The web-app-manifest-512x512.png image is 512x512
+    // The image should have dimensions greater than 0 if loaded correctly
     expect(naturalWidth).toBeGreaterThan(0);
     expect(naturalHeight).toBeGreaterThan(0);
-    
-    // If the image loaded correctly, it should have its natural dimensions
-    // (512x512 for web-app-manifest-512x512.png)
-    expect(naturalWidth).toBe(512);
-    expect(naturalHeight).toBe(512);
   });
 });
