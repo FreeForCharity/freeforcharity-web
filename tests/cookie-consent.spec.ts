@@ -77,6 +77,7 @@ test.describe('Cookie Consent Banner', () => {
     expect(consent).toBeTruthy();
     const preferences = JSON.parse(consent!);
     expect(preferences.necessary).toBe(true);
+    expect(preferences.functional).toBe(true);
     expect(preferences.analytics).toBe(true);
     expect(preferences.marketing).toBe(true);
   });
@@ -97,6 +98,7 @@ test.describe('Cookie Consent Banner', () => {
     expect(consent).toBeTruthy();
     const preferences = JSON.parse(consent!);
     expect(preferences.necessary).toBe(true);
+    expect(preferences.functional).toBe(true); // Functional is always true even when declining
     expect(preferences.analytics).toBe(false);
     expect(preferences.marketing).toBe(false);
   });
@@ -125,6 +127,7 @@ test.describe('Cookie Preferences Modal', () => {
 
     // Verify cookie category sections are present
     await expect(modal.getByText('Necessary Cookies')).toBeVisible();
+    await expect(modal.getByText('Functional Cookies')).toBeVisible();
     await expect(modal.getByText('Analytics Cookies')).toBeVisible();
     await expect(modal.getByText('Marketing Cookies')).toBeVisible();
 
@@ -181,20 +184,28 @@ test.describe('Cookie Preferences Modal', () => {
     await expect(banner).toBeVisible();
   });
 
-  test('should have necessary cookies always checked and disabled', async ({ page }) => {
+  test('should have necessary and functional cookies always checked and disabled', async ({ page }) => {
     // Open the preferences modal
     await page.getByRole('button', { name: 'Customize' }).click();
     
     const modal = page.locator('[role="dialog"][aria-modal="true"]');
     await expect(modal).toBeVisible();
 
-    // Find the necessary cookies checkbox (it's a regular checkbox, not a switch)
-    const necessaryCheckbox = modal.locator('input[type="checkbox"][disabled]');
-    await expect(necessaryCheckbox).toBeChecked();
-    await expect(necessaryCheckbox).toBeDisabled();
+    // Find all disabled checkboxes (necessary and functional cookies)
+    const disabledCheckboxes = modal.locator('input[type="checkbox"][disabled]');
+    await expect(disabledCheckboxes).toHaveCount(2);
     
-    // Verify "Always Active" text is shown
-    await expect(modal.getByText('Always Active')).toBeVisible();
+    // Both should be checked
+    const firstCheckbox = disabledCheckboxes.first();
+    const secondCheckbox = disabledCheckboxes.nth(1);
+    await expect(firstCheckbox).toBeChecked();
+    await expect(firstCheckbox).toBeDisabled();
+    await expect(secondCheckbox).toBeChecked();
+    await expect(secondCheckbox).toBeDisabled();
+    
+    // Verify "Always Active" text is shown (twice - for necessary and functional)
+    const alwaysActiveTexts = modal.getByText('Always Active');
+    await expect(alwaysActiveTexts).toHaveCount(2);
   });
 
   test('should allow toggling analytics and marketing cookies', async ({ page }) => {
@@ -246,6 +257,7 @@ test.describe('Cookie Preferences Modal', () => {
     expect(consent).toBeTruthy();
     const preferences = JSON.parse(consent!);
     expect(preferences.necessary).toBe(true);
+    expect(preferences.functional).toBe(true);
     expect(preferences.analytics).toBe(true);
     expect(preferences.marketing).toBe(false);
 
