@@ -1,4 +1,5 @@
 import React from "react";
+import { assetPath } from "@/lib/assetPath";
 
 const index = () => {
   return (
@@ -32,9 +33,10 @@ const index = () => {
             controls
             preload="metadata"
             aria-label="Free For Charity mission video"
+            title="Learn about Free For Charity's mission to help nonprofits reduce costs"
           >
             <source
-              src="https://github.com/user-attachments/assets/45cc8641-1be2-42ae-893b-e83f7d65ee43"
+              src={assetPath("/videos/mission-video.mp4")}
               type="video/mp4"
             />
             Your browser does not support the video tag.
