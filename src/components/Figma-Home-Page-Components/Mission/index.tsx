@@ -31,6 +31,7 @@ const index = () => {
             className="w-full max-w-[800px] rounded-lg shadow-lg"
             controls
             preload="metadata"
+            aria-label="Free For Charity mission video"
           >
             <source
               src="https://github.com/user-attachments/assets/45cc8641-1be2-42ae-893b-e83f7d65ee43"
