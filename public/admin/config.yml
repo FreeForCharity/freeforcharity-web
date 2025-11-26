@@ -1,9 +1,9 @@
 backend:
   name: github
+  # TEMPLATE USERS: Update 'repo' to your GitHub organization/repository
   repo: FreeForCharity/freeforcharity-web
   branch: main
-  # base_url must point to your OAuth provider
-  # For production, set this to your deployed OAuth provider URL
+  # TEMPLATE USERS: Update 'base_url' to your deployed OAuth provider URL
   # See DECAP.md for setup instructions
   base_url: https://decap-oauth.freeforcharity.org
 
