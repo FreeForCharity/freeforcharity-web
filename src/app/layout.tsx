@@ -60,6 +60,14 @@ export const metadata: Metadata = {
       "Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.",
     images: ["/web-app-manifest-512x512.png"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/site.webmanifest",
 };
 
 // // Configure Open Sans for navbar
