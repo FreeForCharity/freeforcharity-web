@@ -34,7 +34,6 @@ The site is actively being developed with the following status:
 - Responsive design (mobile and desktop)
 - SEO optimization (metadata, sitemap, robots.txt)
 - Static site generation and deployment pipeline
-- **Decap CMS integration for content management**
 
 ⚠️ **In Progress:**
 - Many footer links are placeholder (#) and need proper destinations
@@ -54,18 +53,10 @@ This site showcases programs, enables donations, and lets visitors volunteer via
 - Next.js (App Router, TypeScript)
 - Tailwind-style utility classes for styling
 - next/font for Google fonts (Faustina, Fauna One, Lato, Inter)
-- **Decap CMS** for content management (FAQs, Team, Testimonials)
 
 ## Content Management
 
-This site uses **Decap CMS** (formerly Netlify CMS) for easy content editing without code changes.
-
-**Quick Start:**
-- Access the CMS at `/admin/index.html` (local: `http://localhost:3000/admin/index.html`)
-- Manage FAQs, Team Members, and Testimonials through a user-friendly interface
-- Content is stored as JSON files and automatically integrated into the site
-
-**Full Documentation:** See [DECAP.md](./DECAP.md) for complete setup, usage, and troubleshooting guide.
+Content such as FAQs, Team Members, and Testimonials is stored as JSON files in the `src/data/` directory. To edit content, simply modify the JSON files directly.
 
 ## Local Development
 
@@ -136,8 +127,7 @@ Tests run automatically on every push to main via GitHub Actions before deployme
 ### Security Analysis
 
 **npm audit**
-- ⚠️ 6 high severity vulnerabilities in decap-cms-app dependencies (trim package)
-- These are transitive dependencies that don't affect the built static site
+- All dependencies are checked for security vulnerabilities
 
 ### CI/CD Integration
 
