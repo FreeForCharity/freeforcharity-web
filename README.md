@@ -242,7 +242,11 @@ freeforcharity-web/
 │       └── assetPath.ts        # Helper for GitHub Pages asset paths
 ├── tests/                       # Playwright tests
 │   ├── logo.spec.ts            # Logo visibility tests
-│   ├── github-pages.spec.ts    # Deployment tests
+│   ├── image-loading.spec.ts   # Image loading tests
+│   ├── animated-numbers.spec.ts # Results 2023 animated statistics tests
+│   ├── mission-video.spec.ts   # Video element tests
+│   ├── cookie-consent.spec.ts  # Cookie consent banner tests
+│   ├── copyright.spec.ts       # Footer copyright tests
 │   └── README.md               # Test documentation
 ├── eslint.config.mjs           # ESLint configuration
 ├── next.config.ts              # Next.js configuration
@@ -417,7 +421,8 @@ This automatically handles the basePath for both deployment scenarios.
 
 - **Directory**: `./out`
 - **Files**: Static HTML, CSS, JS, and assets
-- **Size**: ~34 routes, ~180 kB First Load JS (homepage)
+- **Routes**: 29 page routes + 3 system routes (`/_not-found`, `/robots.txt`, `/sitemap.xml`) = 32 total
+- **Size**: ~180 kB First Load JS (homepage)
 - **Build Time**: ~15-20 seconds
 
 ## Site Map

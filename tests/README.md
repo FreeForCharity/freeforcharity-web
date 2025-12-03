@@ -61,7 +61,7 @@ Tests the Results 2023 section with animated statistics.
 
 1. **`should display the Results-2023 section with all four statistics`**
    - Verifies all four statistics cards display
-   - Checks for organizational partners, operating budget, beneficiaries, volunteers
+   - Checks for: Organizational partners, Total volunteers, Organizations accessing technical assistance offerings, and Volunteer hours contributed to the organization
 
 2. **`should start with numbers at 0 before scrolling into view`**
    - Ensures numbers are not pre-animated
