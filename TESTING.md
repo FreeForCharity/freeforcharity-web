@@ -178,7 +178,7 @@ Tests run automatically in GitHub Actions:
 
 This section details all 6 test suites and their 29 test cases.
 
-#### 1. Logo and Image Visibility (`tests/logo.spec.ts`) - 4 tests
+#### 1. Logo and Image Visibility (`tests/logo.spec.ts`) - 3 tests
 
 Tests that verify the Free For Charity logo and images display correctly.
 
@@ -188,17 +188,13 @@ Tests that verify the Free For Charity logo and images display correctly.
    - **Purpose**: Verifies logo appears in site header
    - **Checks**: Logo visibility, src attribute, alt text
    
-2. **`should load all images correctly`**
-   - **Purpose**: Validates all images on homepage load successfully
-   - **Checks**: Image elements present and visible
+2. **`should display hero section image`**
+   - **Purpose**: Validates hero section image displays correctly
+   - **Checks**: Hero image element present and visible
 
-3. **`should have proper alt text on images`**
-   - **Purpose**: Ensures accessibility through alt text
-   - **Checks**: Alt attributes exist and are descriptive
-
-4. **`images should be optimized`** ⏭️ **SKIPPED**
-   - **Status**: Skipped in CI
-   - **Reason**: Image dimension checks unreliable in CI environment
+3. **`both header logo and hero image should be present on the same page`**
+   - **Purpose**: Ensures both logo and hero image are visible simultaneously
+   - **Checks**: Both images present, consistent display
 
 #### 2. Image Loading (`tests/image-loading.spec.ts`) - 3 tests
 
@@ -210,15 +206,16 @@ Tests that verify image loading performance and visibility.
    - **Purpose**: Confirms images load without errors
    - **Checks**: Image visibility, no broken images
 
-2. **`images should have correct paths`**
-   - **Purpose**: Validates image path configuration
-   - **Checks**: Src attributes match expected patterns
+2. **`hero image should load from local assets`**
+   - **Purpose**: Verifies hero image loads from correct local asset path
+   - **Checks**: Hero image src attribute, visibility, not broken
 
-3. **`images should be accessible`**
-   - **Purpose**: Ensures images meet accessibility standards
-   - **Checks**: Alt text presence and quality
+3. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
+   - **Purpose**: Checks images have natural (non-zero) dimensions after loading
+   - **Checks**: naturalWidth and naturalHeight properties are greater than zero
+   - **Status**: Skipped due to timing/rendering differences in CI
 
-#### 3. Animated Numbers (`tests/animated-numbers.spec.ts`) - 6 tests
+#### 3. Animated Numbers (`tests/animated-numbers.spec.ts`) - 5 tests
 
 Tests the Results 2023 section with animated statistics.
 
@@ -228,27 +225,23 @@ Tests the Results 2023 section with animated statistics.
    - **Purpose**: Verifies all statistics cards are present
    - **Checks**: Four result cards display correctly
 
-2. **`should animate numbers from 0 to target values`**
-   - **Purpose**: Tests animation functionality
-   - **Checks**: Numbers increment smoothly
+2. **`should start with numbers at 0 before scrolling into view`**
+   - **Purpose**: Ensures numbers are not pre-animated
+   - **Checks**: All statistics display 0 before scrolling into view
 
-3. **`should reach final values correctly`**
-   - **Purpose**: Validates animation completion
-   - **Checks**: Final values match expected numbers
+3. **`should animate numbers only once when scrolled into view`**
+   - **Purpose**: Verifies animation triggers on scroll and does not repeat
+   - **Checks**: Numbers animate from 0 to target values only once per page load
 
-4. **`should respect prefers-reduced-motion preference`**
+4. **`should display correct descriptions for each statistic`**
+   - **Purpose**: Ensures each statistic card has the correct label/description
+   - **Checks**: Descriptions match expected text for each statistic
+
+5. **`should respect prefers-reduced-motion preference`**
    - **Purpose**: Accessibility for users with motion sensitivity
-   - **Checks**: Animation disabled when prefers-reduced-motion is set
+   - **Checks**: Animation is disabled when prefers-reduced-motion is set
 
-5. **`should trigger animation on scroll into view`**
-   - **Purpose**: Performance optimization
-   - **Checks**: Animation starts when section becomes visible
-
-6. **`should not animate multiple times`**
-   - **Purpose**: Prevents animation re-triggering
-   - **Checks**: Animation runs once per page load
-
-#### 4. Mission Video (`tests/mission-video.spec.ts`) - 4 tests
+#### 4. Mission Video (`tests/mission-video.spec.ts`) - 2 tests
 
 Tests the video element in the mission section.
 
@@ -258,77 +251,89 @@ Tests the video element in the mission section.
    - **Purpose**: Verifies video element exists
    - **Checks**: Video element present and visible
 
-2. **`should have correct video attributes`**
-   - **Purpose**: Validates video configuration
-   - **Checks**: Autoplay, muted, loop attributes set correctly
+2. **`should have video source configured correctly`**
+   - **Purpose**: Validates video source configuration
+   - **Checks**: Video src attribute is set correctly
 
-3. **`should load video source`**
-   - **Purpose**: Confirms video file loads
-   - **Checks**: Video src attribute valid, no load errors
+#### 5. Cookie Consent Banner (`tests/cookie-consent.spec.ts`) - 14 tests
 
-4. **`should be playable`**
-   - **Purpose**: Tests video functionality
-   - **Checks**: Video can play without errors
+Tests the cookie consent banner functionality across 3 test suites.
 
-#### 5. Cookie Consent Banner (`tests/cookie-consent.spec.ts`) - 6 tests
-
-Tests the cookie consent banner functionality.
-
-**Test Cases:**
+**Test Suite 1: Cookie Consent Banner** (5 tests)
 
 1. **`should display cookie consent banner on first visit`**
    - **Purpose**: Verifies banner appears for new users
    - **Checks**: Banner visible on initial page load
 
-2. **`should hide banner after accepting cookies`**
-   - **Purpose**: Tests accept button functionality
-   - **Checks**: Banner disappears after clicking accept
+2. **`should hide banner after clicking Accept All`**
+   - **Purpose**: Tests accept all button functionality
+   - **Checks**: Banner disappears after clicking Accept All
 
-3. **`should remember cookie preference`**
-   - **Purpose**: Validates preference persistence
+3. **`should hide banner after clicking Decline All`**
+   - **Purpose**: Tests decline all button functionality
+   - **Checks**: Banner disappears after clicking Decline All
+
+4. **`should persist Accept All choice and not show banner on subsequent visits`**
+   - **Purpose**: Validates accept preference persistence
    - **Checks**: Banner doesn't reappear after acceptance
 
-4. **`should hide banner after declining cookies`**
-   - **Purpose**: Tests decline button functionality
-   - **Checks**: Banner disappears after clicking decline
+5. **`should persist Decline All choice and not show banner on subsequent visits`**
+   - **Purpose**: Validates decline preference persistence
+   - **Checks**: Banner doesn't reappear after declining
 
-5. **`should allow changing preferences later`**
-   - **Purpose**: Tests preference management
-   - **Checks**: Users can update their choice
+**Test Suite 2: Cookie Preferences Modal** (7 tests)
 
-6. **`should have proper ARIA labels`**
-   - **Purpose**: Ensures accessibility
-   - **Checks**: Banner has proper accessibility attributes
+6. **`should open preferences modal when clicking Customize`**
+   - **Purpose**: Tests customize button opens modal
+   - **Checks**: Modal becomes visible
 
-#### 6. Footer Copyright (`tests/copyright.spec.ts`) - 6 tests
+7. **`should close modal when clicking Cancel`**
+   - **Purpose**: Tests cancel button closes modal
+   - **Checks**: Modal disappears without saving
+
+8. **`should close modal when pressing Escape key`**
+   - **Purpose**: Tests keyboard accessibility
+   - **Checks**: Escape key closes modal
+
+9. **`should close modal when clicking outside (overlay)`**
+   - **Purpose**: Tests clicking overlay closes modal
+   - **Checks**: Modal closes on overlay click
+
+10. **`should have necessary and functional cookies always checked and disabled`**
+    - **Purpose**: Ensures essential cookies cannot be disabled
+    - **Checks**: Essential cookies checkbox is checked and disabled
+
+11. **`should allow toggling analytics and marketing cookies`**
+    - **Purpose**: Tests cookie preference toggles
+    - **Checks**: Analytics and marketing checkboxes can be toggled
+
+12. **`should save custom preferences correctly`**
+    - **Purpose**: Validates saving custom cookie preferences
+    - **Checks**: Selected preferences are saved and persisted
+
+**Test Suite 3: Cookie Consent Accessibility** (2 tests)
+
+13. **`modal should have proper ARIA attributes`**
+    - **Purpose**: Ensures modal accessibility
+    - **Checks**: Modal has proper ARIA attributes
+
+14. **`banner should have proper ARIA attributes`**
+    - **Purpose**: Ensures banner accessibility
+    - **Checks**: Banner has proper ARIA attributes
+
+#### 6. Footer Copyright (`tests/copyright.spec.ts`) - 2 tests
 
 Tests the footer copyright notice.
 
 **Test Cases:**
 
 1. **`should display copyright notice with current year`**
-   - **Purpose**: Verifies copyright text is current
-   - **Checks**: Current year appears in copyright
+   - **Purpose**: Verifies copyright text includes current year
+   - **Checks**: Current year appears in copyright notice
 
-2. **`should display organization name`**
-   - **Purpose**: Validates organization identification
-   - **Checks**: "Free For Charity" appears in footer
-
-3. **`should link to organization website`**
-   - **Purpose**: Tests external link
-   - **Checks**: Link href points to correct URL
-
-4. **`should have EIN information`**
-   - **Purpose**: Verifies nonprofit status display
-   - **Checks**: EIN 46-2471893 is visible
-
-5. **`should be visible on all pages`**
-   - **Purpose**: Ensures consistent footer
-   - **Checks**: Copyright appears across the site
-
-6. **`should have proper semantic HTML`**
-   - **Purpose**: Validates HTML structure
-   - **Checks**: Uses appropriate footer element
+2. **`should display link to freeforcharity.org in copyright notice`**
+   - **Purpose**: Ensures footer contains link to organization's website
+   - **Checks**: Link to https://freeforcharity.org is present in copyright notice
 
 ### Test Configuration
 

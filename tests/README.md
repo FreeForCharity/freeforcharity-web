@@ -11,9 +11,7 @@ This directory contains automated end-to-end tests for the Free For Charity web 
 
 ## Test Files
 
-## Test Files
-
-### `logo.spec.ts` - Logo and Image Visibility (4 tests)
+### `logo.spec.ts` - Logo and Image Visibility (3 tests)
 
 Tests logo visibility and image loading across the application.
 
@@ -25,17 +23,13 @@ Tests logo visibility and image loading across the application.
    - Verifies logo appears in site header
    - Checks logo visibility, src attribute, and alt text
 
-2. **`should load all images correctly`**
-   - Validates all images on homepage load successfully
-   - Checks image elements are present and visible
+2. **`should display hero section image`**
+   - Validates hero section image displays correctly
+   - Checks hero image element is present and visible
 
-3. **`should have proper alt text on images`**
-   - Ensures accessibility through descriptive alt text
-   - Validates alt attributes exist on all images
-
-4. **`images should be optimized`** ⏭️ **SKIPPED**
-   - Checks image dimensions after load
-   - Skipped in CI due to timing/rendering differences
+3. **`both header logo and hero image should be present on the same page`**
+   - Ensures both logo and hero image are visible simultaneously
+   - Validates both images present with consistent display
 
 ### `image-loading.spec.ts` - Image Loading (3 tests)
 
@@ -49,15 +43,15 @@ Tests image loading performance and visibility.
    - Confirms images load without errors
    - Checks image visibility across the site
 
-2. **`images should have correct paths`**
-   - Validates image path configuration
-   - Ensures paths work for both custom domain and GitHub Pages
+2. **`hero image should load from local assets`**
+   - Verifies that the hero image loads correctly from local assets
+   - Ensures the hero image is present and visible on the homepage
 
-3. **`images should be accessible`**
-   - Ensures images meet accessibility standards
-   - Validates alt text presence and quality
+3. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
+   - Checks that images have non-zero natural width and height after loading
+   - Skipped due to timing or rendering differences in CI environments
 
-### `animated-numbers.spec.ts` - Animated Statistics (6 tests)
+### `animated-numbers.spec.ts` - Animated Statistics (5 tests)
 
 Tests the Results 2023 section with animated statistics.
 
@@ -69,27 +63,23 @@ Tests the Results 2023 section with animated statistics.
    - Verifies all four statistics cards display
    - Checks for organizational partners, operating budget, beneficiaries, volunteers
 
-2. **`should animate numbers from 0 to target values`**
-   - Tests animation functionality
-   - Verifies smooth number increments
+2. **`should start with numbers at 0 before scrolling into view`**
+   - Ensures numbers are not pre-animated
+   - Verifies all statistics display 0 before scrolling into view
 
-3. **`should reach final values correctly`**
-   - Validates animation completion
-   - Confirms final values match expected numbers
+3. **`should animate numbers only once when scrolled into view`**
+   - Verifies animation triggers on scroll and does not repeat
+   - Confirms numbers animate from 0 to target values only once per page load
 
-4. **`should respect prefers-reduced-motion preference`**
+4. **`should display correct descriptions for each statistic`**
+   - Ensures each statistic card has the correct label/description
+   - Validates descriptions match expected text for each statistic
+
+5. **`should respect prefers-reduced-motion preference`**
    - Accessibility for users with motion sensitivity
    - Animation disabled when prefers-reduced-motion is set
 
-5. **`should trigger animation on scroll into view`**
-   - Performance optimization
-   - Animation starts when section becomes visible
-
-6. **`should not animate multiple times`**
-   - Prevents animation re-triggering
-   - Animation runs once per page load
-
-### `mission-video.spec.ts` - Video Functionality (4 tests)
+### `mission-video.spec.ts` - Video Functionality (2 tests)
 
 Tests the video element in the mission section.
 
@@ -101,51 +91,77 @@ Tests the video element in the mission section.
    - Verifies video element exists
    - Checks video visibility on page
 
-2. **`should have correct video attributes`**
-   - Validates video configuration
-   - Checks autoplay, muted, loop attributes
+2. **`should have video source configured correctly`**
+   - Validates video source configuration
+   - Ensures video src attribute is set correctly
 
-3. **`should load video source`**
-   - Confirms video file loads properly
-   - Validates src attribute and checks for load errors
+### `cookie-consent.spec.ts` - Cookie Consent (14 tests)
 
-4. **`should be playable`**
-   - Tests video functionality
-   - Ensures video can play without errors
+Tests the cookie consent banner functionality and GDPR compliance across 3 test suites.
 
-### `cookie-consent.spec.ts` - Cookie Consent (6 tests)
-
-Tests the cookie consent banner functionality and GDPR compliance.
-
-**Test Suite**: `Cookie Consent Banner`
-
-**Tests:**
+**Test Suite 1**: `Cookie Consent Banner` (5 tests)
 
 1. **`should display cookie consent banner on first visit`**
    - Verifies banner appears for new users
    - Checks banner visibility on initial page load
 
-2. **`should hide banner after accepting cookies`**
-   - Tests accept button functionality
+2. **`should hide banner after clicking Accept All`**
+   - Tests Accept All button functionality
    - Confirms banner disappears after acceptance
 
-3. **`should remember cookie preference`**
-   - Validates preference persistence
-   - Ensures banner doesn't reappear after acceptance
-
-4. **`should hide banner after declining cookies`**
-   - Tests decline button functionality
+3. **`should hide banner after clicking Decline All`**
+   - Tests Decline All button functionality
    - Verifies banner disappears after declining
 
-5. **`should allow changing preferences later`**
-   - Tests preference management
-   - Users can update their choice
+4. **`should persist Accept All choice and not show banner on subsequent visits`**
+   - Validates accept preference persistence
+   - Ensures banner doesn't reappear after acceptance
 
-6. **`should have proper ARIA labels`**
-   - Ensures accessibility compliance
-   - Validates proper accessibility attributes
+5. **`should persist Decline All choice and not show banner on subsequent visits`**
+   - Validates decline preference persistence
+   - Ensures banner doesn't reappear after declining
 
-### `copyright.spec.ts` - Footer Copyright (6 tests)
+**Test Suite 2**: `Cookie Preferences Modal` (7 tests)
+
+6. **`should open preferences modal when clicking Customize`**
+   - Tests Customize button opens modal
+   - Verifies modal becomes visible
+
+7. **`should close modal when clicking Cancel`**
+   - Tests Cancel button closes modal
+   - Modal disappears without saving changes
+
+8. **`should close modal when pressing Escape key`**
+   - Tests keyboard accessibility
+   - Escape key closes modal
+
+9. **`should close modal when clicking outside (overlay)`**
+   - Tests clicking overlay closes modal
+   - Modal closes when clicking outside
+
+10. **`should have necessary and functional cookies always checked and disabled`**
+    - Ensures essential cookies cannot be disabled
+    - Essential cookies checkbox is checked and disabled
+
+11. **`should allow toggling analytics and marketing cookies`**
+    - Tests cookie preference toggles
+    - Analytics and marketing checkboxes can be toggled
+
+12. **`should save custom preferences correctly`**
+    - Validates saving custom cookie preferences
+    - Selected preferences are saved and persisted
+
+**Test Suite 3**: `Cookie Consent Accessibility` (2 tests)
+
+13. **`modal should have proper ARIA attributes`**
+    - Ensures modal accessibility
+    - Validates proper ARIA attributes on modal
+
+14. **`banner should have proper ARIA attributes`**
+    - Ensures banner accessibility
+    - Validates proper ARIA attributes on banner
+
+### `copyright.spec.ts` - Footer Copyright (2 tests)
 
 Tests the footer copyright notice and organizational information.
 
@@ -157,34 +173,9 @@ Tests the footer copyright notice and organizational information.
    - Verifies copyright text includes current year
    - Validates copyright symbol and text
 
-2. **`should display organization name`**
-   - Checks "Free For Charity" appears in footer
-   - Validates organization identification
-
-3. **`should link to organization website`**
-   - Tests external website link
-   - Verifies href points to correct URL
-
-4. **`should have EIN information`**
-   - Displays nonprofit status
-   - Checks EIN 46-2471893 is visible
-
-5. **`should be visible on all pages`**
-   - Ensures consistent footer across site
-   - Checks copyright on multiple pages
-
-6. **`should have proper semantic HTML`**
-   - Validates HTML structure
-   - Uses appropriate `<footer>` element
-
-## Test Statistics
-
-- **Total Test Suites**: 6
-- **Total Test Cases**: 29
-- **Active Tests**: 28 passing ✅
-- **Skipped Tests**: 1 ⏭️
-- **Execution Time**: ~25-30 seconds
-- **Status**: All active tests passing
+2. **`should display link to freeforcharity.org in copyright notice`**
+   - Checks that the footer contains a link to https://freeforcharity.org
+   - Verifies the link is present and correctly formatted
 
 ## Running Tests
 

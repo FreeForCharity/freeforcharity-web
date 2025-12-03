@@ -111,31 +111,34 @@ npm run test:ui       # Interactive UI mode
 
 The test suite includes:
 
-1. **Logo and Image Visibility** (`tests/logo.spec.ts`) - 4 tests
-   - Header logo visibility and attributes
-   - Logo image loading and accessibility
+1. **Logo and Image Visibility** (`tests/logo.spec.ts`) - 3 tests
+   - Header logo display
+   - Hero section image display
+   - Logo consistency verification
 
 2. **Image Loading** (`tests/image-loading.spec.ts`) - 3 tests
-   - Image visibility across the site
-   - Image loading performance
+   - Image visibility and loading
+   - Hero image from local assets
+   - Image dimensions check (skipped)
 
-3. **Animated Numbers** (`tests/animated-numbers.spec.ts`) - 6 tests
-   - Results 2023 statistics display
-   - Animation functionality
-   - Reduced motion preference support
+3. **Animated Numbers** (`tests/animated-numbers.spec.ts`) - 5 tests
+   - Results 2023 section statistics
+   - Animation from 0 on scroll
+   - Animation triggers once
+   - Reduced motion support
 
-4. **Mission Video** (`tests/mission-video.spec.ts`) - 4 tests
-   - Video element presence and attributes
-   - Video loading and playability
+4. **Mission Video** (`tests/mission-video.spec.ts`) - 2 tests
+   - Video element presence
+   - Video source configuration
 
-5. **Cookie Consent Banner** (`tests/cookie-consent.spec.ts`) - 6 tests
-   - Banner visibility and functionality
-   - Accept/Decline actions
-   - Preference persistence
+5. **Cookie Consent Banner** (`tests/cookie-consent.spec.ts`) - 14 tests
+   - Banner display and interactions (5 tests)
+   - Preferences modal functionality (7 tests)
+   - Accessibility attributes (2 tests)
 
-6. **Footer Copyright** (`tests/copyright.spec.ts`) - 6 tests
-   - Copyright notice display
-   - Current year verification
+6. **Footer Copyright** (`tests/copyright.spec.ts`) - 2 tests
+   - Copyright notice with current year
+   - Link to freeforcharity.org
 
 **Test Configuration** (`playwright.config.ts`)
 - Uses system Chromium to avoid network restrictions
@@ -419,7 +422,7 @@ This automatically handles the basePath for both deployment scenarios.
 
 ## Site Map
 
-The website consists of 29 pages organized as follows:
+The website consists of 29 page routes organized as follows:
 
 ### Main Pages
 - `/` - Homepage (Free For Charity overview)
@@ -457,9 +460,12 @@ The website consists of 29 pages organized as follows:
 - `/privacy-policy` - Privacy policy
 - `/terms-of-service` - Terms of service
 - `/cookie-policy` - Cookie policy
-- `/donation-policy` - Donation policy (duplicate: `/free-for-charity-donation-policy`)
+- `/donation-policy` - Donation policy
+- `/free-for-charity-donation-policy` - Donation policy (alternate URL)
 - `/vulnerability-disclosure-policy` - Security vulnerability disclosure
 - `/security-acknowledgements` - Security acknowledgements
+
+**Note**: `/donation-policy` and `/free-for-charity-donation-policy` are separate routes that may serve similar or related content.
 
 ## Troubleshooting
 
