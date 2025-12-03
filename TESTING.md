@@ -69,7 +69,9 @@ The project uses **Playwright** for end-to-end testing. All tests run automatica
 
 **Test Framework**: Playwright v1.56.0  
 **Browser**: Chromium (uses system browser to avoid network restrictions)  
-**Test Files**: 6 test files with comprehensive coverage
+**Test Files**: 6  
+**Test Suites**: 8  
+**Total Tests**: 29 (28 active, 1 skipped)
 
 ### Test Files and Coverage
 

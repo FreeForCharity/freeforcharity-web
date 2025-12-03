@@ -119,9 +119,9 @@ Tests for the mission video player.
 ## Test Statistics
 
 - **Total Test Files**: 6
-- **Total Test Suites**: 9
-- **Total Test Cases**: 28
-- **Active Tests**: 27 passing ✅
+- **Total Test Suites**: 8
+- **Total Test Cases**: 29
+- **Active Tests**: 28 passing ✅
 - **Skipped Tests**: 1 ⏭️
 - **Status**: All active tests passing
 
