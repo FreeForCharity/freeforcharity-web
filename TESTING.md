@@ -290,10 +290,7 @@ freeforcharity-web/
 ├── playwright.config.ts            # Playwright configuration
 ├── .github/workflows/
 │   └── nextjs.yml                 # CI/CD pipeline with automated tests
-├── public/
-│   └── admin/
-│       ├── index.html             # CMS admin interface
-│       └── config.yml             # CMS configuration
+├── public/                         # Static assets
 ├── src/data/
 │   ├── faqs/
 │   │   ├── what-is-the-organization-aiming-to-accomplish.json
