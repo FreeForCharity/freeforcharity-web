@@ -1,4 +1,6 @@
-Free For Charity website built with Next.js App Router.
+# Free For Charity
+
+Free For Charity website built with Next.js 15.5.2 (App Router).
 
 ## Organization
 
@@ -8,226 +10,531 @@ Free For Charity website built with Next.js App Router.
 
 Free For Charity connects students, professionals, and businesses with nonprofits to reduce operating costs and increase impact. By providing free web hosting, domain names, Microsoft 365 grants assistance, and consulting services, we help nonprofits put more resources back into their charitable missions.
 
-## Main Calls-to-Action
+## Site Structure
 
-The site features two primary CTAs accessible throughout the experience via global popups:
+The website consists of **29 pages** covering:
+- **Main pages**: Home, About Us, Contact Us
+- **Program pages**: 501c3, Pre-501c3, Help for Charities, Domains, Free Charity Web Hosting, Endowment Fund
+- **Resource pages**: Tools for Success, GuideStar Guide, Validation Guide, Onboarding Guide
+- **Training pages**: Volunteer Proving Ground, Web Developer Training, Service Delivery Stages, Tech Stack
+- **Policy pages**: Privacy Policy, Terms of Service, Cookie Policy, Donation Policy, Vulnerability Disclosure, Security Acknowledgements
+- **Action pages**: Donate, Volunteer
+- **Admin pages**: FFC Admin, cPanel Backup SOP
 
-- **Donate**: Support our mission with financial contributions
-- **Volunteer**: Join our team of skilled volunteers helping nonprofits
+For a complete list, see the [Site Map](#site-map) section below.
 
 ## Deployment
 
-- **Live Site**: [https://www.freeforcharity.org](https://www.freeforcharity.org)
+- **Primary Site**: [https://www.freeforcharity.org](https://www.freeforcharity.org) (custom domain with CNAME)
 - **GitHub Pages**: [https://freeforcharity.github.io/freeforcharity-web/](https://freeforcharity.github.io/freeforcharity-web/)
 - **Hosting**: GitHub Pages
 - **Deployment**: Automated via GitHub Actions on push to `main` branch
-
-## Development Status
-
-**Current Status: In Development**
-
-The site is actively being developed with the following status:
-
-✅ **Functional:**
-- Core navigation and layout
-- Global Donate and Volunteer popups
-- Responsive design (mobile and desktop)
-- SEO optimization (metadata, sitemap, robots.txt)
-- Static site generation and deployment pipeline
-
-⚠️ **In Progress:**
-- Many footer links are placeholder (#) and need proper destinations
-- Program application CTAs link to placeholders
-- Social media links need proper URLs
-- Policy pages (Privacy, Terms, etc.) need to be created
-- Form submissions are simulated (backend integration pending)
-
-The site is deployed to its live domain (freeforcharity.org) but some functionality is still being completed.
-
-## Overview
-
-This site showcases programs, enables donations, and lets visitors volunteer via global popups.
+- **Build Configuration**: Dual deployment support (custom domain and GitHub Pages basePath)
 
 ## Tech Stack
 
-- Next.js (App Router, TypeScript)
-- Tailwind-style utility classes for styling
-- next/font for Google fonts (Faustina, Fauna One, Lato, Inter)
-
-## Content Management
-
-Content such as FAQs, Team Members, and Testimonials is stored as JSON files in the `src/data/` directory. To edit content, simply modify the JSON files directly.
+- **Framework**: Next.js 15.5.2 (App Router with TypeScript)
+- **React**: 19.1.0
+- **Styling**: Tailwind CSS 4.1.12
+- **UI Components**: 
+  - Framer Motion 12.23.24 (animations)
+  - Lucide React 0.469.0 (icons)
+  - React Icons 5.5.0 (additional icons)
+  - Swiper 12.0.3 (carousels)
+- **Testing**: Playwright 1.56.0
+- **Linting**: ESLint 9 with Next.js config
+- **Build**: Static export for GitHub Pages deployment
 
 ## Local Development
 
-1) Install dependencies
+### Prerequisites
+- Node.js 20.x (tested with v20.19.6)
+- npm (comes with Node.js)
+
+### Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/FreeForCharity/freeforcharity-web.git
+cd freeforcharity-web
+```
+
+2. **Install dependencies**
 ```bash
 npm install
 ```
+_Takes approximately 10-15 seconds_
 
-2) Run the dev server
+3. **Start development server**
 ```bash
 npm run dev
 ```
+_Server starts in ~1 second with Turbopack. Visit http://localhost:3000_
 
-Visit http://localhost:3000
+### Available Commands
+
+```bash
+npm run dev          # Start development server (with Turbopack)
+npm run build        # Build for production (~15-20 seconds)
+npm run preview      # Preview production build (requires build first)
+npm run lint         # Run ESLint (expect 11 warnings)
+npm test             # Run Playwright tests (requires build first)
+npm run test:headed  # Run tests with visible browser
+npm run test:ui      # Run tests in interactive UI mode
+```
 
 ## Testing
 
-This project includes automated tests to ensure quality and consistency.
+This project uses Playwright for end-to-end testing to ensure quality and consistency.
 
-### Running Tests
+### Quick Start
 
 ```bash
-# Build the site first
+# 1. Build the site
 npm run build
 
-# Install Playwright browsers (first time only)
+# 2. Install Playwright browsers (first time only)
 npx playwright install chromium
 
-# Run tests
+# 3. Run tests
 npm test              # Headless mode
 npm run test:headed   # With browser visible
 npm run test:ui       # Interactive UI mode
 ```
 
-### Current Test Coverage
+### Test Coverage
 
-#### End-to-End Tests (Playwright)
+**Test Statistics**: 29 tests across 6 test suites
+- ✅ 28 passing tests  
+- ⏭️ 1 skipped test (image dimensions - unreliable in CI)
+- 📊 Execution time: ~25-30 seconds
 
-**Logo Visibility Tests** (`tests/logo.spec.ts`)
-- ✅ **NavBar Logo Visibility**: Verifies logo appears in top left corner with correct src and alt text
-- ✅ **Hero Section Logo Visibility**: Verifies logo appears in hero section with correct src and alt text  
-- ✅ **Logo Consistency**: Confirms both logos are present simultaneously and use the same image source
+The test suite includes:
 
-**GitHub Pages Deployment Tests** (`tests/github-pages.spec.ts`)
-- ✅ **Image Path Compatibility**: Validates logo image paths work for both custom domain and GitHub Pages basePath
-- ✅ **Image HTTP Status**: Verifies logo images return 200 OK status codes
-- ⏭️ **Image Natural Dimensions** (skipped): Checks image dimensions after load (disabled in CI due to timing issues)
+1. **Logo and Image Visibility** (`tests/logo.spec.ts`) - 3 tests
+   - Header logo display
+   - Hero section image display
+   - Logo consistency verification
+
+2. **Image Loading** (`tests/image-loading.spec.ts`) - 3 tests
+   - Image visibility and loading
+   - Hero image from local assets
+   - Image dimensions check (skipped)
+
+3. **Animated Numbers** (`tests/animated-numbers.spec.ts`) - 5 tests
+   - Results 2023 section statistics
+   - Animation from 0 on scroll
+   - Animation triggers once
+   - Reduced motion support
+
+4. **Mission Video** (`tests/mission-video.spec.ts`) - 2 tests
+   - Video element presence
+   - Video source configuration
+
+5. **Cookie Consent Banner** (`tests/cookie-consent.spec.ts`) - 14 tests
+   - Banner display and interactions (5 tests)
+   - Preferences modal functionality (7 tests)
+   - Accessibility attributes (2 tests)
+
+6. **Footer Copyright** (`tests/copyright.spec.ts`) - 2 tests
+   - Copyright notice with current year
+   - Link to freeforcharity.org
 
 **Test Configuration** (`playwright.config.ts`)
-- Uses system Chromium browser to avoid network download issues
-- Runs against built static site (`npm run preview`)
+- Uses system Chromium to avoid network restrictions
+- Runs against production build (`npm run preview`)
 - Retries failed tests 2x in CI, 0x locally
 - Collects traces on first retry for debugging
 
 Tests run automatically on every push to main via GitHub Actions before deployment.
 
-### Static Code Analysis
+**Full Testing Documentation**: See [TESTING.md](./TESTING.md) for complete details.
 
-**ESLint** (`eslint.config.mjs`)
-- ✅ Next.js core-web-vitals and TypeScript rules enabled
-- ✅ Runs automatically during build process
-- ⚠️ Currently reports 2 expected warnings about `<img>` tags (acceptable for static export)
+### Code Quality
 
-**TypeScript** (`tsconfig.json`)
-- ✅ Strict mode enabled
-- ✅ Type checking runs during build
+**ESLint**
+```bash
+npm run lint
+```
+Currently reports **11 warnings** (expected):
+- 6 warnings about using `<img>` instead of Next.js `<Image>` component (acceptable for static export)
+- 3 warnings about unused imports
+- 2 warnings about React hooks dependencies
 
-### Security Analysis
-
-**npm audit**
-- All dependencies are checked for security vulnerabilities
-
-### CI/CD Integration
-
-**GitHub Actions Workflow** (`.github/workflows/nextjs.yml`)
-
-Current CI/CD pipeline includes:
-1. ✅ Node.js 20 setup
-2. ✅ Dependency installation (`npm ci`)
-3. ✅ Next.js build with GitHub Pages basePath
-4. ✅ Playwright browser installation
-5. ✅ Automated test execution
-6. ✅ Test failure blocks deployment
-7. ✅ Static site artifact upload
-8. ✅ Deployment to GitHub Pages
-
-### Recommended Testing Enhancements
-
-The following enhancements could improve the test suite and CI/CD process:
-
-#### Dynamic Analysis Opportunities
-- **Accessibility Testing**: Add @axe-core/playwright for WCAG compliance checks
-- **Performance Testing**: Add Lighthouse CI for Core Web Vitals monitoring
-- **Visual Regression Testing**: Add Percy or Playwright screenshots for UI change detection
-- **Mobile Testing**: Extend Playwright config to test multiple viewports and devices
-- **Cross-Browser Testing**: Add Firefox and WebKit browser testing
-
-#### Static Analysis Enhancements
-- **TypeScript Strict Mode**: Enable additional strict flags (strictNullChecks, noImplicitAny)
-- **ESLint Extensions**: Add accessibility plugin (eslint-plugin-jsx-a11y)
-- **Code Formatting**: Add Prettier for consistent code style
-- **Import Organization**: Add eslint-plugin-import for import sorting
-
-#### Security Testing
-- **Dependabot**: Enable GitHub Dependabot for automated dependency updates
-- **CodeQL**: Add GitHub CodeQL for security vulnerability scanning
-- **npm audit**: Add automated npm audit checks to CI with failure threshold
-
-#### Build Quality Gates
-- **Bundle Size Analysis**: Add next-bundle-analyzer to track bundle size
-- **Test Coverage Reports**: Add coverage collection and reporting
-- **Performance Budgets**: Set and enforce performance budgets in CI
-
-#### GitHub Actions Enhancements
-- **Branch Protection**: Require status checks to pass before merging
-- **Automated PR Comments**: Post test results and coverage to PRs
-- **Deployment Preview**: Add preview deployments for PRs
-- **Cache Optimization**: Improve caching strategy for faster builds
-- **Parallel Testing**: Run test suites in parallel for faster feedback
-
-**Full Testing Guide:** See [TESTING.md](./TESTING.md) for complete documentation.
+**TypeScript**
+- Strict mode enabled
+- Type checking runs during build
+- No type errors in codebase
 
 ## Key Features
 
-- Global popups for Donate and Volunteer
-  - Context provider: `src/app/components/PopupProvider.tsx`
-  - Mounted via: `src/app/components/PopupsRootClient.tsx`
-  - Open from anywhere using `usePopups()` or shared buttons:
-    - `DonateButton.tsx`, `VolunteerButton.tsx`
+### Global Header and Footer
+- **Header** (`src/components/Header/index.tsx`): 
+  - Responsive navigation with mobile menu
+  - Logo and primary navigation links
+  - Donate and Volunteer buttons
+  - Sticky header with scroll effects
+- **Footer** (`src/components/Footer/index.tsx`):
+  - GuideStar endorsement badges
+  - Social media links
+  - Quick links to key pages
+  - Newsletter subscription
+  - Cookie consent integration
 
-- Mobile slide-out navigation
-  - `src/app/components/NavBar.tsx`
-  - Hamburger opens a right-side panel with overlay; actions wired to popups
+### Content Management
+Content is stored as JSON files in `src/data/` for easy editing:
+- **FAQs** (`src/data/faqs/`): 2 FAQ entries from JSON files, additional FAQs inline
+- **Team Members** (`src/data/team/`): 5 board member profiles
+- **Testimonials** (`src/data/testimonials/`): 3 testimonial entries
 
-- SEO
-  - Global metadata in `src/app/layout.tsx` (title template, description, OG/Twitter, robots)
-  - `src/app/sitemap.ts` and `src/app/robots.ts`
+To update content, simply edit the JSON files directly.
+
+### UI Components Library
+Reusable components in `src/components/UI/`:
+- `HeroSection.tsx` - Page hero sections
+- `CallToActionCard.tsx` - CTA cards with animations
+- `General-Donation-Card.tsx` - Donation cards
+- `trainingcard.tsx` - Training program cards
+
+### SEO Optimization
+- **Global metadata** in `src/app/layout.tsx`: title templates, descriptions, Open Graph, Twitter cards
+- **Sitemap** (`src/app/sitemap.ts`): Currently configured for homepage
+- **Robots.txt** (`src/app/robots.ts`): Search engine indexing rules
+- **Structured metadata** per page for optimal search visibility
 
 ## Project Structure
 
-- `src/app/page.tsx` – Home page
-- `src/app/components/*` – UI components and popups
-- `src/app/data/*` – Static content (FAQs, team, testimonials)
-- `public/*` – Static assets (icons, images)
+```
+freeforcharity-web/
+├── .github/
+│   ├── workflows/
+│   │   └── nextjs.yml          # CI/CD pipeline for GitHub Pages
+│   └── copilot-instructions.md # Instructions for GitHub Copilot agents
+├── public/                      # Static assets
+│   ├── Images/                  # Image files
+│   ├── Svgs/                    # SVG files
+│   └── *.png                    # Icons and favicons
+├── src/
+│   ├── app/                     # Next.js App Router pages
+│   │   ├── page.tsx            # Homepage (routes to Figma-Home-page)
+│   │   ├── layout.tsx          # Root layout with metadata
+│   │   ├── globals.css         # Global styles
+│   │   ├── sitemap.ts          # Sitemap generation
+│   │   ├── robots.ts           # Robots.txt generation
+│   │   ├── [29 page routes]/  # All site pages
+│   │   └── Figma-Home-page/    # Main homepage component
+│   ├── components/              # React components
+│   │   ├── Header/             # Site header
+│   │   ├── Footer/             # Site footer
+│   │   ├── UI/                 # Reusable UI components
+│   │   ├── Home/               # Original home page components
+│   │   ├── Figma-Home-Page-Components/  # Current home page
+│   │   ├── [program-components]/  # Components for specific pages
+│   │   └── CookieConsent/      # Cookie consent banner
+│   ├── data/                    # JSON data files
+│   │   ├── faqs/               # FAQ JSON files
+│   │   ├── team/               # Team member profiles
+│   │   ├── testimonials/       # Testimonial data
+│   │   ├── faqs.ts            # FAQ data loader
+│   │   ├── team.ts            # Team data loader
+│   │   └── testimonials.ts     # Testimonial data loader
+│   └── lib/
+│       └── assetPath.ts        # Helper for GitHub Pages asset paths
+├── tests/                       # Playwright tests
+│   ├── logo.spec.ts            # Logo visibility tests
+│   ├── image-loading.spec.ts   # Image loading tests
+│   ├── animated-numbers.spec.ts # Results 2023 animated statistics tests
+│   ├── mission-video.spec.ts   # Video element tests
+│   ├── cookie-consent.spec.ts  # Cookie consent banner tests
+│   ├── copyright.spec.ts       # Footer copyright tests
+│   └── README.md               # Test documentation
+├── eslint.config.mjs           # ESLint configuration
+├── next.config.ts              # Next.js configuration
+├── playwright.config.ts        # Playwright test configuration
+├── postcss.config.mjs          # PostCSS configuration
+├── tsconfig.json               # TypeScript configuration
+├── package.json                # Dependencies and scripts
+├── README.md                   # This file
+└── TESTING.md                  # Testing documentation
+```
 
 ## Common Tasks
 
-- Update homepage content: edit `src/app/page.tsx`
-- Change CTA copy: update text in components under `src/app/components`
-- Adjust SEO: edit `metadata` in `src/app/layout.tsx`
+### Content Updates
+
+**Edit Homepage**
+- Main homepage: `src/app/Figma-Home-page/index.tsx`
+- Original alternative: `src/app/Home/page.tsx`
+
+**Update Team Members**
+```bash
+# Edit existing team member
+vi src/data/team/clarke-moyer.json
+
+# Available team members:
+# - clarke-moyer.json (Founder/President)
+# - chris-rae.json (Vice President)
+# - tyler-carlotto.json (Secretary)
+# - brennan-darling.json (Treasurer)
+# - rebecca-cook.json (Member at Large)
+```
+
+**Update FAQs**
+```bash
+# Edit FAQ JSON files
+vi src/data/faqs/what-is-the-organization-aiming-to-accomplish.json
+vi src/data/faqs/are-you-really-a-charity.json
+
+# Additional FAQs defined inline in:
+vi src/data/faqs.ts
+```
+
+**Update Testimonials**
+```bash
+vi src/data/testimonials/testimonial-1.json
+vi src/data/testimonials/testimonial-2.json
+vi src/data/testimonials/testimonial-3.json
+```
+
+### Component Development
+
+**Add a New Page**
+```bash
+# Create new page directory
+mkdir -p src/app/my-new-page
+
+# Create page component
+touch src/app/my-new-page/page.tsx
+
+# Update sitemap (if needed)
+vi src/app/sitemap.ts
+```
+
+**Create Reusable Component**
+```bash
+# Add to UI components
+touch src/components/UI/MyComponent.tsx
+```
+
+### Styling
+
+**Global Styles**
+```bash
+vi src/app/globals.css
+```
+
+**Component Styles**
+- Use Tailwind CSS utility classes directly in components
+- Tailwind config: `postcss.config.mjs`
+
+### SEO and Metadata
+
+**Update Site Metadata**
+```bash
+vi src/app/layout.tsx
+# Edit the metadata object
+```
+
+**Add Pages to Sitemap**
+```bash
+vi src/app/sitemap.ts
+# Add new routes to the returned array
+```
+
+**Configure Robots**
+```bash
+vi src/app/robots.ts
+```
 
 ## Deployment Details
 
-The site is configured for static export and deployed to GitHub Pages:
+### Production Deployment
 
-**Production:**
-- Live at: [https://www.freeforcharity.org](https://www.freeforcharity.org)
-- GitHub Pages URL: [https://freeforcharity.github.io/freeforcharity-web/](https://freeforcharity.github.io/freeforcharity-web/)
-- Deployment: Automatic via GitHub Actions (`.github/workflows/nextjs.yml`)
-- Trigger: Push to `main` branch
-- Build output: Static files in `./out` directory
+The site uses **dual deployment** strategy:
 
-**Local preview of production build:**
+1. **Custom Domain**: [https://www.freeforcharity.org](https://www.freeforcharity.org)
+   - Primary production site
+   - CNAME configured in DNS
+   - No basePath required
+   - Assets served from root path
+
+2. **GitHub Pages**: [https://freeforcharity.github.io/freeforcharity-web/](https://freeforcharity.github.io/freeforcharity-web/)
+   - Backup/alternative URL
+   - Requires basePath: `/freeforcharity-web`
+   - Assets served from subpath
+
+### CI/CD Pipeline
+
+**Workflow**: `.github/workflows/nextjs.yml`
+
+**Trigger**: Push to `main` branch
+
+**Pipeline Steps**:
+1. Checkout repository
+2. Setup Node.js 20
+3. Install dependencies with `npm ci`
+4. Install Playwright browsers
+5. Build with `NEXT_PUBLIC_BASE_PATH=/freeforcharity-web`
+6. Run Playwright tests
+7. Upload build artifacts (./out directory)
+8. Deploy to GitHub Pages (only if tests pass)
+
+**Environment Variables**:
+- `NEXT_PUBLIC_BASE_PATH`: Set to `/freeforcharity-web` for GitHub Pages deployment
+- Not set (empty) for custom domain deployment
+
+### Local Production Build
+
+**Build for custom domain** (default):
 ```bash
-npm run build    # Build static site
-npm run preview  # Preview at http://localhost:3000
+npm run build
+npm run preview
+# Visit http://localhost:3000
 ```
 
-**Note:** The build process uses `output: "export"` in `next.config.ts` for static site generation compatible with GitHub Pages.
+**Build for GitHub Pages** (with basePath):
+```bash
+NEXT_PUBLIC_BASE_PATH=/freeforcharity-web npm run build
+npm run preview
+# Visit http://localhost:3000
+```
 
-## Notes
+### Build Configuration
 
-- Popups are globally available modals; avoid fixed floating buttons. Use `DonateButton`/`VolunteerButton` or `usePopups()` to open.
-- If you add new routes, consider updating `sitemap.ts` accordingly.
+**next.config.ts**:
+- `output: "export"` - Enables static site generation
+- `images.unoptimized: true` - Allows static image export
+- `basePath: process.env.NEXT_PUBLIC_BASE_PATH || ""` - Dynamic basePath
+- `assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || ""` - Asset path prefix
+
+**Asset Path Helper**:
+When adding images that need to work on both deployments, use the `assetPath()` helper:
+```typescript
+import { assetPath } from "@/lib/assetPath";
+
+<img src={assetPath("/Images/my-image.png")} alt="Description" />
+```
+
+This automatically handles the basePath for both deployment scenarios.
+
+### Build Output
+
+- **Directory**: `./out`
+- **Files**: Static HTML, CSS, JS, and assets
+- **Routes**: 29 page routes + 3 system routes (`/_not-found`, `/robots.txt`, `/sitemap.xml`) = 32 total
+- **Size**: ~180 kB First Load JS (homepage)
+- **Build Time**: ~15-20 seconds
+
+## Site Map
+
+The website consists of 29 page routes organized as follows:
+
+### Main Pages
+- `/` - Homepage (Free For Charity overview)
+- `/Home` - Alternative homepage layout
+- `/about-us` - About Free For Charity organization
+- `/contact-us` - Contact form and information
+
+### Action Pages
+- `/donate` - Donation page
+- `/volunteer` - Volunteer sign-up
+
+### Program Pages
+- `/501c3` - Services for established 501(c)(3) nonprofits
+- `/pre501c3` - Services for organizations seeking 501(c)(3) status
+- `/help-for-charities` - Overview of charity assistance programs
+- `/domains` - Domain name services
+- `/free-charity-web-hosting` - Web hosting program details
+- `/free-for-charity-endowment-fund` - Endowment fund information
+
+### Resource & Training Pages
+- `/free-for-charitys-tools-for-success` - Tools and resources
+- `/guidestar-guide` - GuideStar profile guide
+- `/charity-validation-guide-ensuring-mutual-benefit-through-comprehensive-validation-processes` - Validation guide
+- `/online-impacts-onboarding-guide` - Onboarding process guide
+- `/ffc-volunteer-proving-ground-core-competencies` - Volunteer competencies
+- `/free-for-charity-ffc-web-developer-training-guide` - Developer training
+- `/free-for-charity-ffc-service-delivery-stages` - Service delivery process
+- `/techstack` - Technology stack information
+
+### Admin Pages
+- `/ffcadmin` - Admin dashboard
+- `/ffcadmin-free-for-charity-cpanel-backup-sop` - cPanel backup procedures
+
+### Policy Pages
+- `/privacy-policy` - Privacy policy
+- `/terms-of-service` - Terms of service
+- `/cookie-policy` - Cookie policy
+- `/donation-policy` - Donation policy
+- `/free-for-charity-donation-policy` - Donation policy (alternate URL)
+- `/vulnerability-disclosure-policy` - Security vulnerability disclosure
+- `/security-acknowledgements` - Security acknowledgements
+
+**Note**: `/donation-policy` and `/free-for-charity-donation-policy` are separate routes that may serve similar or related content.
+
+## Troubleshooting
+
+### Common Issues
+
+**Issue: Port 3000 already in use**
+```bash
+# Kill process on port 3000
+npx kill-port 3000
+# Or use a different port
+npm run dev -- -p 3001
+```
+
+**Issue: Build cache issues**
+```bash
+# Clear Next.js cache
+rm -rf .next
+npm run build
+```
+
+**Issue: Dependencies out of sync**
+```bash
+# Clean install
+rm -rf node_modules package-lock.json
+npm install
+```
+
+**Issue: Playwright browsers not found**
+```bash
+# Install Playwright browsers
+npx playwright install chromium --with-deps
+```
+
+**Issue: Tests fail in CI but pass locally**
+- Check GitHub Actions logs for specific errors
+- Review test artifacts (screenshots, traces)
+- Ensure build was successful before tests run
+- Check for timing/race conditions
+
+## Contributing
+
+Contributions are welcome! Please follow these guidelines:
+
+1. **Fork the repository** and create a feature branch
+2. **Follow the code style**: Run `npm run lint` before committing
+3. **Test your changes**: Run `npm test` to ensure tests pass
+4. **Write descriptive commit messages**
+5. **Submit a pull request** with a clear description
+
+For major changes, please open an issue first to discuss the proposed changes.
+
+## License
+
+This project is maintained by Free For Charity, a 501(c)(3) nonprofit organization.
+
+## Contact
+
+- **Website**: [https://www.freeforcharity.org](https://www.freeforcharity.org)
+- **Organization**: Free For Charity
+- **EIN**: 46-2471893
+- **Contact**: Use the contact form at [/contact-us](https://www.freeforcharity.org/contact-us)
+
+---
+
+**Documentation Status**: ✅ Updated December 2025  
+**Next.js Version**: 15.5.2  
+**Node.js Version**: 20.x required

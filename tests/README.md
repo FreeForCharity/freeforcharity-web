@@ -2,84 +2,180 @@
 
 This directory contains automated end-to-end tests for the Free For Charity web application using Playwright.
 
-## Test Files
-
-### `logo.spec.ts`
-
-Tests logo visibility and consistency across the application.
-
-**Test Suite**: `Logo Visibility` (3 tests)
-
-**Tests:**
-
-1. **`should display logo in top left corner (NavBar)`**
-   - **Purpose**: Verifies logo appears correctly in the navigation header
-   - **Verifications**:
-     - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity logo"
-   - **Selector**: `header a[aria-label="Free For Charity home"] img[alt="Free For Charity logo"]`
-
-2. **`should display logo in hero section`**
-   - **Purpose**: Verifies logo appears correctly in the hero/landing section
-   - **Verifications**:
-     - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity mark"
-   - **Selector**: `section#home img[alt="Free For Charity mark"]`
-
-3. **`both logos should be present on the same page`**
-   - **Purpose**: Verifies consistency between NavBar and Hero logos
-   - **Verifications**:
-     - NavBar logo is visible
-     - Hero logo is visible
-     - Both logos use identical image source paths
-     - Image path matches expected pattern
-
-### `github-pages.spec.ts`
-
-Tests deployment compatibility for both custom domain and GitHub Pages with basePath.
-
-**Test Suite**: `GitHub Pages Image Loading` (3 tests)
-
-**Tests:**
-
-4. **`images should load correctly with proper paths`**
-   - **Purpose**: Validates image paths work in both deployment scenarios
-   - **Verifications**:
-     - NavBar logo is visible (loaded successfully)
-     - Hero logo is visible (loaded successfully)
-     - Both image src attributes end with `/web-app-manifest-512x512.png`
-     - Both logos use identical path
-   - **Deployment Scenarios**:
-     - ✅ Custom domain: `/web-app-manifest-512x512.png`
-     - ✅ GitHub Pages: `/FreeForCharity-web/web-app-manifest-512x512.png`
-
-5. **`images should return 200 status code`**
-   - **Purpose**: Verifies images load successfully via HTTP requests
-   - **Method**: Monitors network responses using Playwright's response listener
-   - **Verifications**:
-     - Captures HTTP responses for logo image requests
-     - At least one image request is made
-     - All image requests return status code 200 OK
-
-6. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
-   - **Purpose**: Verifies image has loaded by checking natural pixel dimensions
-   - **Status**: Temporarily disabled
-   - **Reason**: `naturalWidth`/`naturalHeight` return 0 in CI environment despite image being visible
-   - **Expected**: Should verify 512x512 pixel dimensions
-   - **Notes**: 
-     - ✅ Passes locally
-     - ❌ Fails in GitHub Actions
-     - Needs investigation of CI timing or rendering differences
-
 ## Test Statistics
 
-- **Total Test Suites**: 2
-- **Total Test Cases**: 6
-- **Active Tests**: 5 passing ✅
-- **Skipped Tests**: 1 ⏭️
-- **Status**: All active tests passing
+- **Total Tests**: 29 tests across 6 test suites
+- **Status**: ✅ 28 passing, ⏭️ 1 skipped
+- **Execution Time**: ~25-30 seconds
+- **Framework**: Playwright v1.56.0
+
+## Test Files
+
+### `logo.spec.ts` - Logo and Image Visibility (3 tests)
+
+Tests logo visibility and image loading across the application.
+
+**Test Suite**: `Logo and Image Visibility`
+
+**Tests:**
+
+1. **`should display logo in header`**
+   - Verifies logo appears in site header
+   - Checks logo visibility, src attribute, and alt text
+
+2. **`should display hero section image`**
+   - Validates hero section image displays correctly
+   - Checks hero image element is present and visible
+
+3. **`both header logo and hero image should be present on the same page`**
+   - Ensures both logo and hero image are visible simultaneously
+   - Validates both images present with consistent display
+
+### `image-loading.spec.ts` - Image Loading (3 tests)
+
+Tests image loading performance and visibility.
+
+**Test Suite**: `Image Loading`
+
+**Tests:**
+
+1. **`images should load correctly and be visible`**
+   - Confirms images load without errors
+   - Checks image visibility across the site
+
+2. **`hero image should load from local assets`**
+   - Verifies that the hero image loads correctly from local assets
+   - Ensures the hero image is present and visible on the homepage
+
+3. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
+   - Checks that images have non-zero natural width and height after loading
+   - Skipped due to timing or rendering differences in CI environments
+
+### `animated-numbers.spec.ts` - Animated Statistics (5 tests)
+
+Tests the Results 2023 section with animated statistics.
+
+**Test Suite**: `Results 2023 Animated Numbers`
+
+**Tests:**
+
+1. **`should display the Results-2023 section with all four statistics`**
+   - Verifies all four statistics cards display
+   - Checks for: Organizational partners, Total volunteers, Organizations accessing technical assistance offerings, and Volunteer hours contributed to the organization
+
+2. **`should start with numbers at 0 before scrolling into view`**
+   - Ensures numbers are not pre-animated
+   - Verifies all statistics display 0 before scrolling into view
+
+3. **`should animate numbers only once when scrolled into view`**
+   - Verifies animation triggers on scroll and does not repeat
+   - Confirms numbers animate from 0 to target values only once per page load
+
+4. **`should display correct descriptions for each statistic`**
+   - Ensures each statistic card has the correct label/description
+   - Validates descriptions match expected text for each statistic
+
+5. **`should respect prefers-reduced-motion preference`**
+   - Accessibility for users with motion sensitivity
+   - Animation disabled when prefers-reduced-motion is set
+
+### `mission-video.spec.ts` - Video Functionality (2 tests)
+
+Tests the video element in the mission section.
+
+**Test Suite**: `Mission Video`
+
+**Tests:**
+
+1. **`should display video in mission section`**
+   - Verifies video element exists
+   - Checks video visibility on page
+
+2. **`should have video source configured correctly`**
+   - Validates video source configuration
+   - Ensures video src attribute is set correctly
+
+### `cookie-consent.spec.ts` - Cookie Consent (14 tests)
+
+Tests the cookie consent banner functionality and GDPR compliance across 3 test suites.
+
+**Test Suite 1**: `Cookie Consent Banner` (5 tests)
+
+1. **`should display cookie consent banner on first visit`**
+   - Verifies banner appears for new users
+   - Checks banner visibility on initial page load
+
+2. **`should hide banner after clicking Accept All`**
+   - Tests Accept All button functionality
+   - Confirms banner disappears after acceptance
+
+3. **`should hide banner after clicking Decline All`**
+   - Tests Decline All button functionality
+   - Verifies banner disappears after declining
+
+4. **`should persist Accept All choice and not show banner on subsequent visits`**
+   - Validates accept preference persistence
+   - Ensures banner doesn't reappear after acceptance
+
+5. **`should persist Decline All choice and not show banner on subsequent visits`**
+   - Validates decline preference persistence
+   - Ensures banner doesn't reappear after declining
+
+**Test Suite 2**: `Cookie Preferences Modal` (7 tests)
+
+6. **`should open preferences modal when clicking Customize`**
+   - Tests Customize button opens modal
+   - Verifies modal becomes visible
+
+7. **`should close modal when clicking Cancel`**
+   - Tests Cancel button closes modal
+   - Modal disappears without saving changes
+
+8. **`should close modal when pressing Escape key`**
+   - Tests keyboard accessibility
+   - Escape key closes modal
+
+9. **`should close modal when clicking outside (overlay)`**
+   - Tests clicking overlay closes modal
+   - Modal closes when clicking outside
+
+10. **`should have necessary and functional cookies always checked and disabled`**
+    - Ensures essential cookies cannot be disabled
+    - Essential cookies checkbox is checked and disabled
+
+11. **`should allow toggling analytics and marketing cookies`**
+    - Tests cookie preference toggles
+    - Analytics and marketing checkboxes can be toggled
+
+12. **`should save custom preferences correctly`**
+    - Validates saving custom cookie preferences
+    - Selected preferences are saved and persisted
+
+**Test Suite 3**: `Cookie Consent Accessibility` (2 tests)
+
+13. **`modal should have proper ARIA attributes`**
+    - Ensures modal accessibility
+    - Validates proper ARIA attributes on modal
+
+14. **`banner should have proper ARIA attributes`**
+    - Ensures banner accessibility
+    - Validates proper ARIA attributes on banner
+
+### `copyright.spec.ts` - Footer Copyright (2 tests)
+
+Tests the footer copyright notice and organizational information.
+
+**Test Suite**: `Footer Copyright Notice`
+
+**Tests:**
+
+1. **`should display copyright notice with current year`**
+   - Verifies copyright text includes current year
+   - Validates copyright symbol and text
+
+2. **`should display link to freeforcharity.org in copyright notice`**
+   - Checks that the footer contains a link to https://freeforcharity.org
+   - Verifies the link is present and correctly formatted
 
 ## Running Tests
 

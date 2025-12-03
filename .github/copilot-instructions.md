@@ -11,35 +11,31 @@ Free For Charity is a Next.js 15.5.2 static website that connects students, prof
 - **Package Manager**: Uses npm with package-lock.json
 
 ### Bootstrap and Build Process
-**CRITICAL: Google Fonts Network Limitation**
-- `npm run build` -- **FAILS** due to network restrictions accessing fonts.googleapis.com
-- **Workaround**: Comment out Google Font imports in `src/app/layout.tsx` before building:
-  ```typescript
-  // import { Faustina, Fauna_One, Lato, Inter } from "next/font/google";
-  // Comment out font variable declarations and body className usage
-  ```
-- Build takes ~20 seconds when fonts are disabled. NEVER CANCEL. Set timeout to 180+ seconds (includes retry time for font failures).
+**Build Status: ✅ WORKING**
+- `npm run build` works without modifications (Google Fonts have been removed)
+- Build takes ~15-20 seconds. NEVER CANCEL. Set timeout to 60+ seconds.
+- No workarounds needed - build process is fully functional
 
 ### Core Commands and Timings
-1. `npm install` -- takes ~17 seconds. NEVER CANCEL. Set timeout to 60+ seconds.
-2. `npm run lint` -- takes ~2 seconds. Produces warnings about img tags (expected). Set timeout to 30+ seconds.
-3. `npm run build` -- **FAILS with Google Fonts**. Takes ~20 seconds when fonts disabled. NEVER CANCEL. Set timeout to 180+ seconds.
+1. `npm install` -- takes ~10-15 seconds. NEVER CANCEL. Set timeout to 60+ seconds.
+2. `npm run lint` -- takes ~2 seconds. Produces 11 warnings (expected). Set timeout to 30+ seconds.
+3. `npm run build` -- takes ~15-20 seconds. NEVER CANCEL. Set timeout to 60+ seconds.
 4. `npm run dev` -- starts in ~1 second with turbopack. NEVER CANCEL. Set timeout to 30+ seconds.
 5. `npm run preview` -- serves built static files. NEVER CANCEL. Set timeout to 30+ seconds.
 
 ### Development Workflow
 ```bash
-# Install dependencies (17 seconds)
+# Install dependencies (10-15 seconds)
 npm install
 
 # Start development server (1 second startup)
 npm run dev
 # Visit http://localhost:3000
 
-# Lint code (2 seconds, warnings expected)
+# Lint code (2 seconds, 11 warnings expected)
 npm run lint
 
-# Build for production (REQUIRES font workaround)
+# Build for production (15-20 seconds)
 npm run build
 
 # Preview built site
@@ -53,11 +49,11 @@ npm run preview
 **ALWAYS test application functionality after making changes:**
 
 1. **Homepage Load Test**: Navigate to http://localhost:3000 and verify page loads completely
-2. **Navigation Test**: Test mobile hamburger menu and desktop navigation
-3. **Popup System Test**: Click "Donate" and "Volunteer" buttons to test global popup functionality
+2. **Navigation Test**: Test Header navigation and mobile responsive behavior
+3. **Page Accessibility**: Verify all 29 pages are accessible and load correctly
 4. **Responsive Design Test**: Verify mobile and desktop layouts work correctly
-5. **Static Content Test**: Verify all sections load (Programs, Impact, Team, FAQ)
-6. **Logo Rendering Test**: Verify logos display correctly in NavBar (top left) and hero section
+5. **Static Content Test**: Verify content loads (Team, Testimonials, FAQs)
+6. **Image Rendering Test**: Verify images display correctly across all pages
 
 ### Automated Testing
 **Playwright tests are available to validate critical functionality:**
@@ -87,7 +83,7 @@ npm run test:ui
 To test the GitHub Pages deployment locally with basePath:
 ```bash
 # Build with basePath for GitHub Pages
-NEXT_PUBLIC_BASE_PATH=/FreeForCharity-web npm run build
+NEXT_PUBLIC_BASE_PATH=/freeforcharity-web npm run build
 
 # Preview the site
 npm run preview
@@ -99,41 +95,56 @@ npm test
 ### Pre-Commit Validation
 **ALWAYS run before committing changes:**
 ```bash
-npm run lint  # Fix any errors, warnings about img tags are expected
+npm run lint  # Fix any errors, 11 warnings are expected
 npm test     # Run automated tests (requires build first)
 ```
+
+### Expected Lint Warnings
+The linter reports **11 warnings** which are expected:
+- 6 warnings about `<img>` vs `<Image>` (acceptable for static export)
+- 3 warnings about unused imports (can be cleaned up)
+- 2 warnings about React hooks (review if causing issues)
 
 ## Application Architecture
 
 ### Key Features
-- **Global Popup System**: Centralized Donate/Volunteer modals accessible from any component
-  - Provider: `src/app/components/PopupProvider.tsx`
-  - Mount: `src/app/components/PopupsRootClient.tsx`
-  - Buttons: `DonateButton.tsx`, `VolunteerButton.tsx`
-- **Mobile Navigation**: Slide-out panel with overlay in `NavBar.tsx`
+- **29 Pages**: Complete website with program pages, resources, policies, and actions
+- **Global Header/Footer**: Consistent navigation and footer across all pages
+  - Header: `src/components/Header/index.tsx`
+  - Footer: `src/components/Footer/index.tsx`
 - **Static Export**: Configured for GitHub Pages deployment via `next.config.ts`
 - **SEO Optimized**: Comprehensive metadata in `layout.tsx`, sitemap, and robots.txt
-- **GitHub Pages Image Support**: Assets use `assetPath()` helper to handle basePath for GitHub Pages deployment
+- **Dual Deployment**: Works on both custom domain and GitHub Pages with basePath support
+- **Content Management**: JSON-based content for FAQs, team members, and testimonials
 
 ### Project Structure
 ```
-src/app/
-├── page.tsx              # Homepage content
-├── layout.tsx            # Root layout with fonts (problematic), metadata, providers
-├── globals.css           # Global styles
-├── lib/                  # Utility functions
-│   └── assetPath.ts     # Helper for GitHub Pages basePath support
-├── components/           # All UI components
-│   ├── PopupProvider.tsx # Global popup state management
-│   ├── NavBar.tsx       # Navigation with mobile menu
-│   ├── DonateButton.tsx # Donation popup trigger
-│   ├── VolunteerButton.tsx # Volunteer popup trigger
-│   └── [other components]
-├── data/                 # Static content
-│   ├── faqs.ts          # FAQ data
-│   ├── team.ts          # Team member data
-│   └── testimonials.ts  # Testimonial data
-└── sitemap.ts           # SEO sitemap generation
+src/
+├── app/                     # Next.js App Router (29 pages)
+│   ├── page.tsx            # Homepage (routes to Figma-Home-page)
+│   ├── layout.tsx          # Root layout with metadata and providers
+│   ├── globals.css         # Global styles
+│   ├── Figma-Home-page/    # Main homepage component
+│   ├── [28 other pages]/   # All site pages
+│   ├── sitemap.ts          # SEO sitemap generation
+│   └── robots.ts           # Robots.txt configuration
+├── components/              # React components
+│   ├── Header/             # Site header with navigation
+│   ├── Footer/             # Site footer
+│   ├── UI/                 # Reusable UI components
+│   ├── Home/               # Original home page components
+│   ├── Figma-Home-Page-Components/  # Current home page
+│   ├── [program-components]/  # Page-specific components
+│   └── CookieConsent/      # Cookie consent banner
+├── data/                    # JSON data files
+│   ├── faqs/               # FAQ JSON files (2 files)
+│   ├── team/               # Team member profiles (5 files)
+│   ├── testimonials/       # Testimonial data (3 files)
+│   ├── faqs.ts            # FAQ data loader
+│   ├── team.ts            # Team data loader
+│   └── testimonials.ts     # Testimonial data loader
+└── lib/
+    └── assetPath.ts        # Helper for GitHub Pages basePath support
 ```
 
 ### Configuration Files
@@ -159,83 +170,88 @@ src/app/
 
 ### Styling and UI
 - **Global styles**: Edit `src/app/globals.css`
-- **Component styles**: Use Tailwind classes directly in components
-- **Font issues**: Remember to handle Google Fonts limitation when building
+- **Component styles**: Use Tailwind CSS 4.1.12 utility classes directly in components
+- **PostCSS config**: `postcss.config.mjs`
 
 ### Adding Images and Assets
 When adding images or other static assets that need to work on both custom domain and GitHub Pages:
 
-**ALWAYS use the `assetPath()` helper for images:**
+**Use the `assetPath()` helper for images:**
 ```typescript
-import { assetPath } from "../lib/assetPath";
+import { assetPath } from "@/lib/assetPath";
 
 // In your component:
-<img src={assetPath("/my-image.png")} alt="Description" />
+<img src={assetPath("/Images/my-image.png")} alt="Description" />
 ```
 
 **Why this is needed:**
-- Custom domain (freeforcharity.org): images at `/my-image.png`
-- GitHub Pages: images at `/FreeForCharity-web/my-image.png`
+- Custom domain (freeforcharity.org): images at `/Images/my-image.png`
+- GitHub Pages: images at `/freeforcharity-web/Images/my-image.png`
 - The helper automatically handles both scenarios based on the `NEXT_PUBLIC_BASE_PATH` environment variable
 
-**Files using assetPath:**
-- `src/app/components/NavBar.tsx` - Logo in navigation
-- `src/app/page.tsx` - Logo in hero section
+**Current Usage:**
+- `assetPath()` is imported in `src/components/Figma-Home-Page-Components/Mission/index.tsx` but not actively used
+- Header logo uses external URL: `https://freeforcharity.org/wp-content/uploads/2024/04/Screenshot_145.png`
+- Footer uses local SVG: `/Svgs/footerImage.svg`
 
 ### Deployment Process
 The site auto-deploys to GitHub Pages via `.github/workflows/nextjs.yml` when pushed to main branch:
 1. Node.js 20 setup
 2. `npm ci` for clean install
-3. `NEXT_PUBLIC_BASE_PATH=/FreeForCharity-web` is set for GitHub Pages deployment
-4. `next build` builds the site with proper basePath
+3. `NEXT_PUBLIC_BASE_PATH=/freeforcharity-web` is set for GitHub Pages deployment
+4. `next build` builds the site with proper basePath (~15-20 seconds)
 5. Playwright tests run to validate the build
 6. Static files deployed from `./out` directory
 
 **Dual Deployment:**
 - **Custom domain**: https://www.freeforcharity.org (CNAME configured, no basePath needed)
-- **GitHub Pages**: https://freeforcharity.github.io/FreeForCharity-web/ (basePath required)
+- **GitHub Pages**: https://freeforcharity.github.io/freeforcharity-web/ (basePath required)
 
 ## Known Issues and Limitations
 
-### Google Fonts Build Failure
-- **Issue**: `npm run build` fails with "ENOTFOUND fonts.googleapis.com"
-- **Cause**: Network restrictions prevent Google Fonts access
-- **Workaround**: Temporarily comment out font imports in `src/app/layout.tsx`
-- **Files affected**: Lines 2, 9-12, 73 in `src/app/layout.tsx`
-
 ### ESLint Warnings
-- **Expected warnings**: `@next/next/no-img-element` in `NavBar.tsx` and `page.tsx`
-- **Cause**: Using `<img>` instead of Next.js `<Image>` component
-- **Status**: Acceptable for static export configuration. We use `assetPath()` helper to ensure images work on GitHub Pages.
+- **Current warnings**: 11 warnings (expected and documented)
+  - 6 warnings: `@next/next/no-img-element` - Using `<img>` instead of Next.js `<Image>` component
+  - 3 warnings: Unused imports (`Link`, `assetPath`, `Image`)
+  - 2 warnings: React hooks dependencies
+- **Status**: Acceptable for static export configuration. The `<img>` warnings are expected for static export with unoptimized images.
+- **Action**: Can clean up unused imports, but `<img>` warnings should remain as-is for static export.
+
+### Asset Path Helper Usage
+- **Issue**: `assetPath()` helper exists but is not consistently used across the codebase
+- **Current State**: Header logo uses external WordPress URL, Footer uses local SVG without helper
+- **Recommendation**: For new images, use `assetPath()` to ensure GitHub Pages compatibility
 
 ## Quick Reference Commands
 
 ```bash
 # Repository setup
 node --version        # Verify Node.js 20.x
-npm install          # 17 seconds
+npm install          # 10-15 seconds
 
 # Development
 npm run dev          # http://localhost:3000 (1 second startup)
-npm run lint         # 2 seconds, warnings expected
+npm run lint         # 2 seconds, 11 warnings expected
 
 # Testing
-npm run build        # Build first (required for tests)
+npm run build        # Build first (15-20 seconds, required for tests)
 npm test             # Run Playwright tests
 npm run test:headed  # Run tests in headed mode
 npm run test:ui      # Run tests with Playwright UI
 
-# Production (requires font workaround)
-npm run build        # 20 seconds when fonts disabled
+# Production
+npm run build        # 15-20 seconds
 npm run preview      # http://localhost:3000
 
 # Test GitHub Pages deployment locally
-NEXT_PUBLIC_BASE_PATH=/FreeForCharity-web npm run build
+NEXT_PUBLIC_BASE_PATH=/freeforcharity-web npm run build
 npm run preview      # Test with basePath
 
 # File structure overview
-ls -la src/app/      # Main application code
-ls -la public/       # Static assets (icons, images)
+ls -la src/app/      # Main application code (29 pages)
+ls -la src/components/  # React components
+ls -la src/data/     # JSON content files
+ls -la public/       # Static assets (icons, images, SVGs)
 ls -la tests/        # Playwright test files
 ls -la .github/      # GitHub workflows and configs
 ```
@@ -243,13 +259,17 @@ ls -la .github/      # GitHub workflows and configs
 ## Troubleshooting
 
 ### Build Failures
-1. **Google Fonts error**: Apply font workaround in `layout.tsx`
+1. **Build cache warning**: Normal on first build, subsequent builds will be faster
 2. **TypeScript errors**: Run `npm run lint` to identify issues
-3. **Network timeouts**: Increase timeout values as specified above
+3. **Dependency issues**: Run `npm install` to ensure all dependencies are installed
 
 ### Development Server Issues
-1. **Port conflicts**: Stop existing servers or use different port
-2. **Cache issues**: Delete `.next` directory and rebuild
-3. **Font rendering**: Expected to fail without workaround applied
+1. **Port conflicts**: Stop existing servers or use different port: `npm run dev -- -p 3001`
+2. **Cache issues**: Delete `.next` directory and restart: `rm -rf .next && npm run dev`
 
-Remember: **NEVER CANCEL** long-running commands. **ALWAYS** test manually after changes. **ALWAYS** apply Google Fonts workaround before building.
+### Test Issues
+1. **Playwright browsers not found**: Run `npx playwright install chromium --with-deps`
+2. **Tests timeout**: Ensure build completed successfully, web server timeout is 120s
+3. **Tests fail in CI but pass locally**: Check GitHub Actions logs, review test artifacts
+
+Remember: **NEVER CANCEL** long-running commands. **ALWAYS** test after changes. Build process is fully functional without workarounds.
