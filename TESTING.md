@@ -1,51 +1,122 @@
 # Testing Guide
 
-This guide helps you test the Free For Charity web application, including content management and automated UI tests.
+This guide provides comprehensive documentation for testing the Free For Charity web application.
 
-## Quick Test Checklist
+## Quick Start
 
-### 1. Check Content Structure
+### Prerequisites
+- Node.js 20.x installed
+- Dependencies installed (`npm install`)
+- Built application (`npm run build`)
+
+### Run Tests
 ```bash
-# Verify JSON content files
-ls -la src/data/faqs/
-ls -la src/data/team/
-ls -la src/data/testimonials/
-```
-
-### 2. Test Development Server
-```bash
-npm run dev
-```
-Then visit http://localhost:3000
-
-### 3. Test Build
-```bash
-npm run build
-```
-Should complete successfully
-
-### 4. Test Preview
-```bash
-npm run preview
-```
-Visit http://localhost:3000 to see the built site
-
-### 5. Run Automated Tests
-```bash
-# First, ensure the site is built
+# Build the application
 npm run build
 
 # Install Playwright browsers (first time only)
 npx playwright install chromium
 
 # Run tests
-npm test
+npm test              # Headless mode (default)
+npm run test:headed   # With visible browser
+npm run test:ui       # Interactive Playwright UI
 ```
 
-Tests verify:
-- Logo presence in top left corner (NavBar)
-- Logo presence in hero section
-- Both logos use the same image source
+## Quick Test Checklist
+
+### 1. Verify Dependencies
+```bash
+node --version        # Should be v20.x
+npm --version         # Should be 10.x
+```
+
+### 2. Install Dependencies
+```bash
+npm install           # Takes ~10-15 seconds
+```
+
+### 3. Run Linter
+```bash
+npm run lint          # Expect 11 warnings (see below)
+```
+
+### 4. Build Application
+```bash
+npm run build         # Takes ~15-20 seconds
+```
+
+### 5. Preview Build
+```bash
+npm run preview       # Visit http://localhost:3000
+```
+
+### 6. Run Automated Tests
+```bash
+npm test              # Requires build first
+```
+
+## Code Quality & Linting
+
+### ESLint
+
+**Configuration**: `eslint.config.mjs`
+
+```bash
+npm run lint
+```
+
+**Current Output**: 11 warnings (expected)
+
+**Warning Breakdown**:
+
+1. **Image Optimization Warnings** (6 warnings)
+   - Files: `Footer/index.tsx`, `Header/index.tsx`, `General-Donation-Card.tsx`, `trainingcard.tsx`, `About-FFC-Hosting/index.tsx`, `Hero/index.tsx` (endowment fund)
+   - Issue: Using `<img>` instead of Next.js `<Image />` component
+   - Status: ✅ **Acceptable** - Required for static export with unoptimized images
+   - Recommendation: No action needed for static export
+
+2. **Unused Import Warnings** (3 warnings)
+   - `Link` in `501c3-components/Ready-to-get-started-and-faqs/index.tsx`
+   - `assetPath` in `Figma-Home-Page-Components/Mission/index.tsx`
+   - `Image` in `free-charity-web-hosting/About-FFC-Hosting/index.tsx`
+   - Status: ⚠️ **Can be cleaned up**
+   - Recommendation: Remove unused imports
+
+3. **React Hooks Warnings** (2 warnings)
+   - `useEffect` missing dependency in `ClientTestimonials/index.tsx`
+   - `ref` cleanup function warning in `CallToActionCard.tsx`
+   - Status: ⚠️ **Review recommended**
+   - Recommendation: Review and fix if causing issues
+
+**Rules Enabled**:
+- Next.js core-web-vitals
+- TypeScript recommended rules
+- React hooks rules
+
+**Ignored Paths**:
+- `node_modules/`
+- `.next/`
+- `out/`
+- `build/`
+- `test-results/`
+- `playwright-report/`
+
+### TypeScript
+
+**Configuration**: `tsconfig.json`
+
+- **Strict Mode**: Enabled
+- **Type Checking**: Runs during build
+- **Target**: ES2017+ with Next.js optimizations
+- **Path Aliases**: `@/*` maps to `src/*`
+
+**Check Types**:
+```bash
+npm run build  # Type checking is part of build process
+```
+
+**Current Status**: ✅ No type errors
 
 ## Automated Test Suite
 
@@ -56,6 +127,47 @@ The project uses **Playwright** for end-to-end testing. All tests run automatica
 **Test Framework**: Playwright v1.56.0  
 **Browser**: Chromium (uses system browser to avoid network restrictions)  
 **Test Files**: 2 test suites, 6 test cases (5 active, 1 skipped)
+
+### Running Tests
+
+#### Local Development
+
+```bash
+# Build the site first (required)
+npm run build
+
+# Install Playwright browsers (first time only)
+npx playwright install chromium
+
+# Run tests in different modes
+npm test              # Headless mode (default)
+npm run test:headed   # With browser visible
+npm run test:ui       # Interactive Playwright UI
+```
+
+#### Individual Test Execution
+
+```bash
+# Run specific test file
+npx playwright test logo.spec.ts
+npx playwright test github-pages.spec.ts
+
+# Run specific test by name
+npx playwright test -g "should display logo"
+
+# Debug mode
+npx playwright test --debug
+```
+
+#### CI/CD Environment
+
+Tests run automatically in GitHub Actions:
+- **Trigger**: Every push to main branch
+- **Environment**: Ubuntu latest with Node.js 20
+- **Browser Setup**: `npx playwright install --with-deps chromium`
+- **Build**: Built with `NEXT_PUBLIC_BASE_PATH=/freeforcharity-web`
+- **Retry Logic**: Failed tests retry 2 times
+- **Failure Handling**: Deployment blocked if tests fail
 
 ### Test Files and Coverage
 
@@ -121,33 +233,6 @@ Tests that verify image loading works correctly for both custom domain and GitHu
    - **Expected Behavior**: Should verify 512x512 pixel dimensions
    - **Notes**: Works locally, fails in GitHub Actions. Needs investigation.
 
-### Running Tests
-
-#### Local Development
-
-```bash
-# Build the site first
-npm run build
-
-# Install Playwright browsers (first time only)
-npx playwright install chromium
-
-# Run tests in different modes
-npm test              # Headless mode (default)
-npm run test:headed   # With browser visible
-npm run test:ui       # Interactive Playwright UI
-```
-
-#### CI/CD Environment
-
-Tests run automatically in GitHub Actions with the following configuration:
-- **Trigger**: Every push to main branch
-- **Environment**: Ubuntu latest with Node.js 20
-- **Browser Setup**: `npx playwright install --with-deps chromium`
-- **Build**: Built with `NEXT_PUBLIC_BASE_PATH=/freeforcharity-web`
-- **Retry Logic**: Failed tests retry 2 times
-- **Failure Handling**: Deployment blocked if tests fail
-
 ### Test Configuration
 
 **Playwright Config** (`playwright.config.ts`)
@@ -155,40 +240,44 @@ Tests run automatically in GitHub Actions with the following configuration:
 Key settings:
 - **Test Directory**: `./tests`
 - **Base URL**: `http://localhost:3000`
-- **Parallel Execution**: Enabled (disabled in CI for stability)
+- **Parallel Execution**: Enabled locally, disabled in CI for stability
 - **Retries**: 2 in CI, 0 locally
-- **Web Server**: Auto-starts `npm run preview` before tests
+- **Web Server**: Auto-starts `npm run preview` before tests (120s timeout)
 - **Browser**: System Chromium (fallback to Playwright's if unavailable)
 - **Trace Collection**: On first retry for debugging
-- **Reporter**: HTML report
+- **Reporter**: HTML report (view with `npx playwright show-report`)
 
 **Special Features**:
 - Automatically detects and uses system Chromium browser
-- Works in restricted network environments
-- Prevents accidental `test.only` in CI
+- Works in restricted network environments (no external downloads)
+- Prevents accidental `test.only` in CI (`forbidOnly: true`)
+- Smart web server management (auto-start/stop)
 
-### CI/CD Integration
+## CI/CD Integration
 
-Tests run automatically in GitHub Actions:
-- On every push to main branch
-- Before deployment to GitHub Pages
-- If tests fail, deployment is blocked
+### GitHub Actions Workflow
 
-## Static Analysis
+**File**: `.github/workflows/nextjs.yml`
 
-### ESLint
+**Pipeline Steps**:
+1. ✅ Checkout repository
+2. ✅ Setup Node.js 20 with caching
+3. ✅ Install dependencies (`npm ci`)
+4. ✅ Restore Next.js build cache
+5. ✅ Install Playwright browsers with system dependencies
+6. ✅ Build with `NEXT_PUBLIC_BASE_PATH=/freeforcharity-web`
+7. ✅ Run Playwright test suite (with `CI=true`)
+8. ✅ Upload build artifacts (`./out` directory)
+9. ✅ Deploy to GitHub Pages (only if tests pass)
 
-**Configuration**: `eslint.config.mjs`
+**Triggers**:
+- Push to `main` branch
+- Manual workflow dispatch
 
-- **Rules**: Next.js core-web-vitals + TypeScript
-- **Ignored Paths**: node_modules, .next, out, build, test-results, playwright-report
-- **Integration**: Runs automatically during `npm run build`
-
-**Current Warnings**:
-- 2 warnings about using `<img>` instead of `<Image />` (expected and acceptable)
-  - `src/app/components/NavBar.tsx:17:11`
-  - `src/app/page.tsx:82:17`
-- These warnings are intentional for static export with GitHub Pages basePath support
+**Failure Handling**:
+- Tests must pass before deployment
+- Build artifacts uploaded even on test failure
+- Traces and screenshots available for debugging
 
 ### TypeScript
 
@@ -199,85 +288,154 @@ Tests run automatically in GitHub Actions:
 - **Path Aliases**: Configured for clean imports
 - **Target**: ES2017+ with Next.js optimizations
 
-### Code Quality
-
-```bash
-# Run linter
-npm run lint
-
-# Type checking (part of build)
-npm run build
-```
-
 ## Security Testing
 
 ### npm audit
 
-Current security status:
+Check for security vulnerabilities in dependencies:
+
 ```bash
 npm audit
 ```
 
-**Known Issues**:
-- Check for any security vulnerabilities and address them promptly
+**Current Status**: ✅ 0 vulnerabilities (as of build)
 
-## What to Verify
+**Best Practices**:
+- Run `npm audit` regularly
+- Update dependencies promptly when vulnerabilities are discovered
+- Enable Dependabot for automated security updates
+- Review and test updates before deploying
+
+### Recommended Security Enhancements
+
+1. **GitHub Dependabot**: Enable automated dependency updates
+2. **CodeQL**: Add GitHub CodeQL for code security scanning
+3. **npm audit CI**: Add automated audit checks to CI pipeline
+4. **SAST Tools**: Consider static application security testing tools
+
+## Manual Testing Checklist
 
 ### Visual Elements
-- [ ] Logo displays in top left corner (NavBar)
-- [ ] Logo displays in hero section
-- [ ] Both logos are the same image
+- [ ] Logo displays in Header (top navigation)
+- [ ] Logo renders correctly on all pages
+- [ ] Images load on both custom domain and GitHub Pages
+- [ ] Responsive design works on mobile, tablet, desktop
+- [ ] Mobile navigation menu functions correctly
+- [ ] All animations work smoothly
 
-### Homepage Content
-- [ ] Team members display correctly (5 members)
-- [ ] Testimonials display correctly (3 unique testimonials)
-- [ ] FAQs display correctly (all questions visible)
+### Content Verification
+- [ ] Homepage loads completely
+- [ ] All 29 pages are accessible
+- [ ] Team members display correctly (5 board members)
+- [ ] Testimonials render properly (3 testimonials)
+- [ ] FAQs are visible and formatted correctly
+- [ ] Footer links work correctly
+- [ ] Header navigation links work
 
-### JSON Data Integration
-- [ ] Team data imported from JSON files
-- [ ] Testimonial data imported from JSON files
-- [ ] FAQ data imported from JSON files (2 from JSON, rest inline)
+### Forms and Interactions
+- [ ] Contact form submission works
+- [ ] Donate page loads correctly
+- [ ] Volunteer page loads correctly
+- [ ] Cookie consent banner appears
+- [ ] External links open correctly
 
-## Expected Behavior
+### Cross-Browser Testing
+- [ ] Chrome/Chromium
+- [ ] Firefox
+- [ ] Safari
+- [ ] Edge
+- [ ] Mobile browsers
 
-### Team Members (from JSON)
-1. Clarke Moyer - Founder/President
-2. Chris Rae - Vice President
-3. Tyler Carlotto - Secretary
-4. Brennan Darling - Treasurer
-5. Rebecca Cook - Member at Large
+## Expected Content
 
-### Testimonials (from JSON)
+### Team Members (src/data/team/)
+1. **Clarke Moyer** - Founder/President
+2. **Chris Rae** - Vice President
+3. **Tyler Carlotto** - Secretary
+4. **Brennan Darling** - Treasurer
+5. **Rebecca Cook** - Member at Large
+
+### Testimonials (src/data/testimonials/)
 1. Professional online presence testimonial
 2. Free domain and email testimonial
 3. Core mission focus testimonial
 
-### FAQs (2 from JSON, rest inline)
-1. What is the organization aiming to accomplish? (JSON)
-2. Are you really a Charity? (JSON)
-3. Additional FAQs (inline in faqs.ts)
+### FAQs (src/data/faqs/)
+1. **What is the organization aiming to accomplish?** (JSON file)
+2. **Are you really a Charity?** (JSON file)
+3. Additional FAQs defined inline in `src/data/faqs.ts`
 
-## Common Issues
+## Common Issues & Troubleshooting
 
-### Issue: Admin page blank
-**Cause**: External CDN (unpkg.com) blocked or inaccessible  
-**Solution**: This is expected in restricted environments. Will work in production.
+### Build Issues
 
-### Issue: Build fails
-**Cause**: Google Fonts network access (per project instructions)  
-**Solution**: Temporarily comment out font imports in layout.tsx
+**Issue: Build fails with network errors**
+- **Status**: ✅ **RESOLVED** - Google Fonts have been removed
+- **Current**: Build works without modifications
+- **Build time**: ~15-20 seconds
 
-### Issue: Content not showing
-**Cause**: JSON import error  
-**Solution**: Check TypeScript compilation and JSON validity
+**Issue: Build cache not found warning**
+- **Cause**: First build or cache was cleared
+- **Solution**: Normal behavior, subsequent builds will be faster
+- **Impact**: None - just informational
 
-### Issue: Playwright browser download fails
-**Cause**: Network restrictions blocking cdn.playwright.dev  
-**Solution**: Uses system Chromium automatically via playwright.config.ts
+### Development Server Issues
 
-### Issue: Test times out
-**Cause**: Web server didn't start in time  
-**Solution**: Increase timeout in playwright.config.ts (currently 120s)
+**Issue: Port 3000 already in use**
+```bash
+# Kill process on port 3000
+npx kill-port 3000
+# Or specify different port
+npm run dev -- -p 3001
+```
+
+**Issue: Changes not reflecting**
+```bash
+# Clear Next.js cache
+rm -rf .next
+npm run dev
+```
+
+### Test Issues
+
+**Issue: Playwright browsers not found**
+```bash
+# Install browsers with system dependencies
+npx playwright install chromium --with-deps
+```
+
+**Issue: Tests timeout**
+- **Cause**: Web server didn't start in time
+- **Solution**: Timeout is set to 120s in `playwright.config.ts`
+- **Check**: Ensure build completed successfully
+- **Verify**: Run `npm run preview` manually to test
+
+**Issue: Tests pass locally but fail in CI**
+- **Check**: GitHub Actions logs for specific errors
+- **Review**: Test artifacts (screenshots, traces) in Actions
+- **Compare**: Local vs CI environment differences
+- **Consider**: Timing/race conditions in tests
+
+**Issue: Image dimension test skipped**
+- **Status**: Expected behavior
+- **Reason**: `naturalWidth`/`naturalHeight` unreliable in CI
+- **Impact**: None - other tests cover image loading
+
+### Content Issues
+
+**Issue: Content not showing**
+```bash
+# Check JSON file validity
+cat src/data/team/clarke-moyer.json | jq .
+
+# Verify imports in data loader files
+cat src/data/team.ts
+```
+
+**Issue: Images not loading**
+- **Custom domain**: Images should load from root path
+- **GitHub Pages**: Images need basePath prefix
+- **Solution**: Use `assetPath()` helper from `src/lib/assetPath.ts`
 
 ## File Structure Reference
 
