@@ -36,7 +36,7 @@ const Header: React.FC = () => {
   const menuItems: MenuItem[] = [
     { label: "Home", path: "/", hasDropdown: false },
     {
-      label: "Our Programs",
+      label: "Help for Charities",
       path: "/help-for-charities",
       hasDropdown: true,
       dropdownItems: [
