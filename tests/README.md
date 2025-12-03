@@ -2,83 +2,188 @@
 
 This directory contains automated end-to-end tests for the Free For Charity web application using Playwright.
 
+## Test Statistics
+
+- **Total Tests**: 29 tests across 6 test suites
+- **Status**: ✅ 28 passing, ⏭️ 1 skipped
+- **Execution Time**: ~25-30 seconds
+- **Framework**: Playwright v1.56.0
+
 ## Test Files
 
-### `logo.spec.ts`
+## Test Files
 
-Tests logo visibility and consistency across the application.
+### `logo.spec.ts` - Logo and Image Visibility (4 tests)
 
-**Test Suite**: `Logo Visibility` (3 tests)
+Tests logo visibility and image loading across the application.
 
-**Tests:**
-
-1. **`should display logo in top left corner (NavBar)`**
-   - **Purpose**: Verifies logo appears correctly in the navigation header
-   - **Verifications**:
-     - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity logo"
-   - **Selector**: `header a[aria-label="Free For Charity home"] img[alt="Free For Charity logo"]`
-
-2. **`should display logo in hero section`**
-   - **Purpose**: Verifies logo appears correctly in the hero/landing section
-   - **Verifications**:
-     - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity mark"
-   - **Selector**: `section#home img[alt="Free For Charity mark"]`
-
-3. **`both logos should be present on the same page`**
-   - **Purpose**: Verifies consistency between NavBar and Hero logos
-   - **Verifications**:
-     - NavBar logo is visible
-     - Hero logo is visible
-     - Both logos use identical image source paths
-     - Image path matches expected pattern
-
-### `github-pages.spec.ts`
-
-Tests deployment compatibility for both custom domain and GitHub Pages with basePath.
-
-**Test Suite**: `GitHub Pages Image Loading` (3 tests)
+**Test Suite**: `Logo and Image Visibility`
 
 **Tests:**
 
-4. **`images should load correctly with proper paths`**
-   - **Purpose**: Validates image paths work in both deployment scenarios
-   - **Verifications**:
-     - NavBar logo is visible (loaded successfully)
-     - Hero logo is visible (loaded successfully)
-     - Both image src attributes end with `/web-app-manifest-512x512.png`
-     - Both logos use identical path
-   - **Deployment Scenarios**:
-     - ✅ Custom domain: `/web-app-manifest-512x512.png`
-     - ✅ GitHub Pages: `/FreeForCharity-web/web-app-manifest-512x512.png`
+1. **`should display logo in header`**
+   - Verifies logo appears in site header
+   - Checks logo visibility, src attribute, and alt text
 
-5. **`images should return 200 status code`**
-   - **Purpose**: Verifies images load successfully via HTTP requests
-   - **Method**: Monitors network responses using Playwright's response listener
-   - **Verifications**:
-     - Captures HTTP responses for logo image requests
-     - At least one image request is made
-     - All image requests return status code 200 OK
+2. **`should load all images correctly`**
+   - Validates all images on homepage load successfully
+   - Checks image elements are present and visible
 
-6. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
-   - **Purpose**: Verifies image has loaded by checking natural pixel dimensions
-   - **Status**: Temporarily disabled
-   - **Reason**: `naturalWidth`/`naturalHeight` return 0 in CI environment despite image being visible
-   - **Expected**: Should verify 512x512 pixel dimensions
-   - **Notes**: 
-     - ✅ Passes locally
-     - ❌ Fails in GitHub Actions
-     - Needs investigation of CI timing or rendering differences
+3. **`should have proper alt text on images`**
+   - Ensures accessibility through descriptive alt text
+   - Validates alt attributes exist on all images
+
+4. **`images should be optimized`** ⏭️ **SKIPPED**
+   - Checks image dimensions after load
+   - Skipped in CI due to timing/rendering differences
+
+### `image-loading.spec.ts` - Image Loading (3 tests)
+
+Tests image loading performance and visibility.
+
+**Test Suite**: `Image Loading`
+
+**Tests:**
+
+1. **`images should load correctly and be visible`**
+   - Confirms images load without errors
+   - Checks image visibility across the site
+
+2. **`images should have correct paths`**
+   - Validates image path configuration
+   - Ensures paths work for both custom domain and GitHub Pages
+
+3. **`images should be accessible`**
+   - Ensures images meet accessibility standards
+   - Validates alt text presence and quality
+
+### `animated-numbers.spec.ts` - Animated Statistics (6 tests)
+
+Tests the Results 2023 section with animated statistics.
+
+**Test Suite**: `Results 2023 Animated Numbers`
+
+**Tests:**
+
+1. **`should display the Results-2023 section with all four statistics`**
+   - Verifies all four statistics cards display
+   - Checks for organizational partners, operating budget, beneficiaries, volunteers
+
+2. **`should animate numbers from 0 to target values`**
+   - Tests animation functionality
+   - Verifies smooth number increments
+
+3. **`should reach final values correctly`**
+   - Validates animation completion
+   - Confirms final values match expected numbers
+
+4. **`should respect prefers-reduced-motion preference`**
+   - Accessibility for users with motion sensitivity
+   - Animation disabled when prefers-reduced-motion is set
+
+5. **`should trigger animation on scroll into view`**
+   - Performance optimization
+   - Animation starts when section becomes visible
+
+6. **`should not animate multiple times`**
+   - Prevents animation re-triggering
+   - Animation runs once per page load
+
+### `mission-video.spec.ts` - Video Functionality (4 tests)
+
+Tests the video element in the mission section.
+
+**Test Suite**: `Mission Video`
+
+**Tests:**
+
+1. **`should display video in mission section`**
+   - Verifies video element exists
+   - Checks video visibility on page
+
+2. **`should have correct video attributes`**
+   - Validates video configuration
+   - Checks autoplay, muted, loop attributes
+
+3. **`should load video source`**
+   - Confirms video file loads properly
+   - Validates src attribute and checks for load errors
+
+4. **`should be playable`**
+   - Tests video functionality
+   - Ensures video can play without errors
+
+### `cookie-consent.spec.ts` - Cookie Consent (6 tests)
+
+Tests the cookie consent banner functionality and GDPR compliance.
+
+**Test Suite**: `Cookie Consent Banner`
+
+**Tests:**
+
+1. **`should display cookie consent banner on first visit`**
+   - Verifies banner appears for new users
+   - Checks banner visibility on initial page load
+
+2. **`should hide banner after accepting cookies`**
+   - Tests accept button functionality
+   - Confirms banner disappears after acceptance
+
+3. **`should remember cookie preference`**
+   - Validates preference persistence
+   - Ensures banner doesn't reappear after acceptance
+
+4. **`should hide banner after declining cookies`**
+   - Tests decline button functionality
+   - Verifies banner disappears after declining
+
+5. **`should allow changing preferences later`**
+   - Tests preference management
+   - Users can update their choice
+
+6. **`should have proper ARIA labels`**
+   - Ensures accessibility compliance
+   - Validates proper accessibility attributes
+
+### `copyright.spec.ts` - Footer Copyright (6 tests)
+
+Tests the footer copyright notice and organizational information.
+
+**Test Suite**: `Footer Copyright Notice`
+
+**Tests:**
+
+1. **`should display copyright notice with current year`**
+   - Verifies copyright text includes current year
+   - Validates copyright symbol and text
+
+2. **`should display organization name`**
+   - Checks "Free For Charity" appears in footer
+   - Validates organization identification
+
+3. **`should link to organization website`**
+   - Tests external website link
+   - Verifies href points to correct URL
+
+4. **`should have EIN information`**
+   - Displays nonprofit status
+   - Checks EIN 46-2471893 is visible
+
+5. **`should be visible on all pages`**
+   - Ensures consistent footer across site
+   - Checks copyright on multiple pages
+
+6. **`should have proper semantic HTML`**
+   - Validates HTML structure
+   - Uses appropriate `<footer>` element
 
 ## Test Statistics
 
-- **Total Test Suites**: 2
-- **Total Test Cases**: 6
-- **Active Tests**: 5 passing ✅
+- **Total Test Suites**: 6
+- **Total Test Cases**: 29
+- **Active Tests**: 28 passing ✅
 - **Skipped Tests**: 1 ⏭️
+- **Execution Time**: ~25-30 seconds
 - **Status**: All active tests passing
 
 ## Running Tests

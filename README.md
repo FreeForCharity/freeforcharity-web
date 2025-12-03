@@ -104,17 +104,38 @@ npm run test:ui       # Interactive UI mode
 
 ### Test Coverage
 
+**Test Statistics**: 29 tests across 6 test suites
+- ✅ 28 passing tests  
+- ⏭️ 1 skipped test (image dimensions - unreliable in CI)
+- 📊 Execution time: ~25-30 seconds
+
 The test suite includes:
 
-**Logo Visibility Tests** (`tests/logo.spec.ts`)
-- ✅ NavBar logo visibility and attributes
-- ✅ Hero section logo visibility and attributes  
-- ✅ Logo consistency across page
+1. **Logo and Image Visibility** (`tests/logo.spec.ts`) - 4 tests
+   - Header logo visibility and attributes
+   - Logo image loading and accessibility
 
-**GitHub Pages Deployment Tests** (`tests/github-pages.spec.ts`)
-- ✅ Image path compatibility for custom domain and GitHub Pages
-- ✅ Image HTTP status verification (200 OK)
-- ⏭️ Image dimensions check (skipped in CI)
+2. **Image Loading** (`tests/image-loading.spec.ts`) - 3 tests
+   - Image visibility across the site
+   - Image loading performance
+
+3. **Animated Numbers** (`tests/animated-numbers.spec.ts`) - 6 tests
+   - Results 2023 statistics display
+   - Animation functionality
+   - Reduced motion preference support
+
+4. **Mission Video** (`tests/mission-video.spec.ts`) - 4 tests
+   - Video element presence and attributes
+   - Video loading and playability
+
+5. **Cookie Consent Banner** (`tests/cookie-consent.spec.ts`) - 6 tests
+   - Banner visibility and functionality
+   - Accept/Decline actions
+   - Preference persistence
+
+6. **Footer Copyright** (`tests/copyright.spec.ts`) - 6 tests
+   - Copyright notice display
+   - Current year verification
 
 **Test Configuration** (`playwright.config.ts`)
 - Uses system Chromium to avoid network restrictions
@@ -134,9 +155,8 @@ npm run lint
 ```
 Currently reports **11 warnings** (expected):
 - 6 warnings about using `<img>` instead of Next.js `<Image>` component (acceptable for static export)
-- 2 warnings about unused imports
+- 3 warnings about unused imports
 - 2 warnings about React hooks dependencies
-- 1 warning about ref usage
 
 **TypeScript**
 - Strict mode enabled

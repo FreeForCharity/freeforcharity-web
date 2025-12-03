@@ -126,7 +126,11 @@ The project uses **Playwright** for end-to-end testing. All tests run automatica
 
 **Test Framework**: Playwright v1.56.0  
 **Browser**: Chromium (uses system browser to avoid network restrictions)  
-**Test Files**: 2 test suites, 6 test cases (5 active, 1 skipped)
+**Test Statistics**: 
+- **Total**: 29 tests across 6 test suites
+- **Passing**: 28 tests ✅
+- **Skipped**: 1 test ⏭️
+- **Execution Time**: ~25-30 seconds
 
 ### Running Tests
 
@@ -150,7 +154,8 @@ npm run test:ui       # Interactive Playwright UI
 ```bash
 # Run specific test file
 npx playwright test logo.spec.ts
-npx playwright test github-pages.spec.ts
+npx playwright test image-loading.spec.ts
+npx playwright test animated-numbers.spec.ts
 
 # Run specific test by name
 npx playwright test -g "should display logo"
@@ -171,67 +176,159 @@ Tests run automatically in GitHub Actions:
 
 ### Test Files and Coverage
 
-#### 1. Logo Visibility Tests (`tests/logo.spec.ts`)
+This section details all 6 test suites and their 29 test cases.
 
-Tests that verify the Free For Charity logo displays correctly across the site.
+#### 1. Logo and Image Visibility (`tests/logo.spec.ts`) - 4 tests
 
-**Test Cases:**
-
-1. **`should display logo in top left corner (NavBar)`**
-   - **Purpose**: Verifies logo appears in navigation header
-   - **Checks**:
-     - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity logo"
-   - **Selector**: `header a[aria-label="Free For Charity home"] img[alt="Free For Charity logo"]`
-
-2. **`should display logo in hero section`**
-   - **Purpose**: Verifies logo appears in the main hero/landing section
-   - **Checks**:
-     - Logo element is visible on page
-     - Image src ends with `/web-app-manifest-512x512.png`
-     - Alt text equals "Free For Charity mark"
-   - **Selector**: `section#home img[alt="Free For Charity mark"]`
-
-3. **`both logos should be present on the same page`**
-   - **Purpose**: Verifies both logos exist simultaneously and are consistent
-   - **Checks**:
-     - NavBar logo is visible
-     - Hero logo is visible
-     - Both logos use identical image source paths
-     - Image path pattern matches expected format
-
-#### 2. GitHub Pages Deployment Tests (`tests/github-pages.spec.ts`)
-
-Tests that verify image loading works correctly for both custom domain and GitHub Pages deployments.
+Tests that verify the Free For Charity logo and images display correctly.
 
 **Test Cases:**
 
-4. **`images should load correctly with proper paths`**
-   - **Purpose**: Validates image paths work in both deployment scenarios
-   - **Checks**:
-     - NavBar logo is visible (image loaded successfully)
-     - Hero logo is visible (image loaded successfully)
-     - Both image src attributes end with `/web-app-manifest-512x512.png`
-     - Both logos use identical path
-   - **Deployment Compatibility**:
-     - Custom domain: `/web-app-manifest-512x512.png`
-   - GitHub Pages: `/freeforcharity-web/web-app-manifest-512x512.png`
+1. **`should display logo in header`**
+   - **Purpose**: Verifies logo appears in site header
+   - **Checks**: Logo visibility, src attribute, alt text
+   
+2. **`should load all images correctly`**
+   - **Purpose**: Validates all images on homepage load successfully
+   - **Checks**: Image elements present and visible
 
-5. **`images should return 200 status code`**
-   - **Purpose**: Verifies images load successfully via HTTP
-   - **Checks**:
-     - Captures HTTP responses for logo image
-     - At least one image request is made
-     - All image requests return status code 200 OK
-   - **Method**: Monitors network responses using Playwright's response listener
+3. **`should have proper alt text on images`**
+   - **Purpose**: Ensures accessibility through alt text
+   - **Checks**: Alt attributes exist and are descriptive
 
-6. **`images have natural dimensions indicating successful load`** ⏭️ **SKIPPED**
-   - **Purpose**: Verifies image has loaded by checking natural dimensions
-   - **Status**: Temporarily disabled
-   - **Reason**: naturalWidth/naturalHeight return 0 in CI despite image being visible
-   - **Expected Behavior**: Should verify 512x512 pixel dimensions
-   - **Notes**: Works locally, fails in GitHub Actions. Needs investigation.
+4. **`images should be optimized`** ⏭️ **SKIPPED**
+   - **Status**: Skipped in CI
+   - **Reason**: Image dimension checks unreliable in CI environment
+
+#### 2. Image Loading (`tests/image-loading.spec.ts`) - 3 tests
+
+Tests that verify image loading performance and visibility.
+
+**Test Cases:**
+
+1. **`images should load correctly and be visible`**
+   - **Purpose**: Confirms images load without errors
+   - **Checks**: Image visibility, no broken images
+
+2. **`images should have correct paths`**
+   - **Purpose**: Validates image path configuration
+   - **Checks**: Src attributes match expected patterns
+
+3. **`images should be accessible`**
+   - **Purpose**: Ensures images meet accessibility standards
+   - **Checks**: Alt text presence and quality
+
+#### 3. Animated Numbers (`tests/animated-numbers.spec.ts`) - 6 tests
+
+Tests the Results 2023 section with animated statistics.
+
+**Test Cases:**
+
+1. **`should display the Results-2023 section with all four statistics`**
+   - **Purpose**: Verifies all statistics cards are present
+   - **Checks**: Four result cards display correctly
+
+2. **`should animate numbers from 0 to target values`**
+   - **Purpose**: Tests animation functionality
+   - **Checks**: Numbers increment smoothly
+
+3. **`should reach final values correctly`**
+   - **Purpose**: Validates animation completion
+   - **Checks**: Final values match expected numbers
+
+4. **`should respect prefers-reduced-motion preference`**
+   - **Purpose**: Accessibility for users with motion sensitivity
+   - **Checks**: Animation disabled when prefers-reduced-motion is set
+
+5. **`should trigger animation on scroll into view`**
+   - **Purpose**: Performance optimization
+   - **Checks**: Animation starts when section becomes visible
+
+6. **`should not animate multiple times`**
+   - **Purpose**: Prevents animation re-triggering
+   - **Checks**: Animation runs once per page load
+
+#### 4. Mission Video (`tests/mission-video.spec.ts`) - 4 tests
+
+Tests the video element in the mission section.
+
+**Test Cases:**
+
+1. **`should display video in mission section`**
+   - **Purpose**: Verifies video element exists
+   - **Checks**: Video element present and visible
+
+2. **`should have correct video attributes`**
+   - **Purpose**: Validates video configuration
+   - **Checks**: Autoplay, muted, loop attributes set correctly
+
+3. **`should load video source`**
+   - **Purpose**: Confirms video file loads
+   - **Checks**: Video src attribute valid, no load errors
+
+4. **`should be playable`**
+   - **Purpose**: Tests video functionality
+   - **Checks**: Video can play without errors
+
+#### 5. Cookie Consent Banner (`tests/cookie-consent.spec.ts`) - 6 tests
+
+Tests the cookie consent banner functionality.
+
+**Test Cases:**
+
+1. **`should display cookie consent banner on first visit`**
+   - **Purpose**: Verifies banner appears for new users
+   - **Checks**: Banner visible on initial page load
+
+2. **`should hide banner after accepting cookies`**
+   - **Purpose**: Tests accept button functionality
+   - **Checks**: Banner disappears after clicking accept
+
+3. **`should remember cookie preference`**
+   - **Purpose**: Validates preference persistence
+   - **Checks**: Banner doesn't reappear after acceptance
+
+4. **`should hide banner after declining cookies`**
+   - **Purpose**: Tests decline button functionality
+   - **Checks**: Banner disappears after clicking decline
+
+5. **`should allow changing preferences later`**
+   - **Purpose**: Tests preference management
+   - **Checks**: Users can update their choice
+
+6. **`should have proper ARIA labels`**
+   - **Purpose**: Ensures accessibility
+   - **Checks**: Banner has proper accessibility attributes
+
+#### 6. Footer Copyright (`tests/copyright.spec.ts`) - 6 tests
+
+Tests the footer copyright notice.
+
+**Test Cases:**
+
+1. **`should display copyright notice with current year`**
+   - **Purpose**: Verifies copyright text is current
+   - **Checks**: Current year appears in copyright
+
+2. **`should display organization name`**
+   - **Purpose**: Validates organization identification
+   - **Checks**: "Free For Charity" appears in footer
+
+3. **`should link to organization website`**
+   - **Purpose**: Tests external link
+   - **Checks**: Link href points to correct URL
+
+4. **`should have EIN information`**
+   - **Purpose**: Verifies nonprofit status display
+   - **Checks**: EIN 46-2471893 is visible
+
+5. **`should be visible on all pages`**
+   - **Purpose**: Ensures consistent footer
+   - **Checks**: Copyright appears across the site
+
+6. **`should have proper semantic HTML`**
+   - **Purpose**: Validates HTML structure
+   - **Checks**: Uses appropriate footer element
 
 ### Test Configuration
 
