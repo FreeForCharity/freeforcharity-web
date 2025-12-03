@@ -1,9 +1,6 @@
 // Testimonials data
-// This file is auto-generated from JSON files in ./testimonials/ directory
-// To edit testimonials, either:
-// 1. Use the Decap CMS admin interface at /admin
-// 2. Edit JSON files directly in src/app/data/testimonials/
-// 3. Run `npm run sync-cms` to regenerate this file from JSON
+// This file imports testimonial data from JSON files in ./testimonials/ directory
+// To edit testimonials, edit the JSON files directly in src/data/testimonials/
 
 import testimonial1 from "./testimonials/testimonial-1.json";
 import testimonial2 from "./testimonials/testimonial-2.json";

@@ -4,49 +4,33 @@ This guide helps you test the Free For Charity web application, including conten
 
 ## Quick Test Checklist
 
-### 1. Verify Installation
-```bash
-# Check that decap-cms-app is installed
-npm list decap-cms-app
-# Should show: decap-cms-app@3.8.4
-```
-
-### 2. Check Admin Files
-```bash
-# Verify admin files exist
-ls -la public/admin/
-# Should see: config.yml, index.html
-```
-
-### 3. Check Content Structure
+### 1. Check Content Structure
 ```bash
 # Verify JSON content files
-ls -la src/app/data/faqs/
-ls -la src/app/data/team/
-ls -la src/app/data/testimonials/
+ls -la src/data/faqs/
+ls -la src/data/team/
+ls -la src/data/testimonials/
 ```
 
-### 4. Test Development Server
+### 2. Test Development Server
 ```bash
 npm run dev
 ```
-Then visit:
-- Main site: http://localhost:3000
-- CMS Admin: http://localhost:3000/admin/index.html
+Then visit http://localhost:3000
 
-### 5. Test Build
+### 3. Test Build
 ```bash
 npm run build
 ```
-Should complete successfully with admin files in `./out/admin/`
+Should complete successfully
 
-### 6. Test Preview
+### 4. Test Preview
 ```bash
 npm run preview
 ```
 Visit http://localhost:3000 to see the built site
 
-### 7. Run Automated Tests
+### 5. Run Automated Tests
 ```bash
 # First, ensure the site is built
 npm run build
@@ -235,9 +219,7 @@ npm audit
 ```
 
 **Known Issues**:
-- 6 high severity vulnerabilities in transitive dependencies (decap-cms-app → trim package)
-- Impact: **None** - vulnerabilities are in CMS dependencies that don't affect the built static site
-- Resolution: Waiting for upstream dependency updates
+- Check for any security vulnerabilities and address them promptly
 
 ## What to Verify
 
@@ -250,11 +232,6 @@ npm audit
 - [ ] Team members display correctly (5 members)
 - [ ] Testimonials display correctly (3 unique testimonials)
 - [ ] FAQs display correctly (all questions visible)
-
-### CMS Admin Interface
-- [ ] Admin page loads at /admin/index.html
-- [ ] Three collections visible: FAQs, Team Members, Testimonials
-- [ ] Can browse existing content items
 
 ### JSON Data Integration
 - [ ] Team data imported from JSON files
@@ -317,7 +294,7 @@ freeforcharity-web/
 │   └── admin/
 │       ├── index.html             # CMS admin interface
 │       └── config.yml             # CMS configuration
-├── src/app/data/
+├── src/data/
 │   ├── faqs/
 │   │   ├── what-is-the-organization-aiming-to-accomplish.json
 │   │   └── are-you-really-a-charity.json
@@ -334,7 +311,6 @@ freeforcharity-web/
 │   ├── faqs.ts                    # Imports FAQ JSON files
 │   ├── team.ts                    # Imports team JSON files
 │   └── testimonials.ts            # Imports testimonial JSON files
-├── DECAP.md                       # Complete CMS documentation
 ├── TESTING.md                     # This file
 └── README.md                      # Project overview with testing summary
 ```
@@ -421,31 +397,15 @@ freeforcharity-web/
 
 ## Next Steps for Production
 
-1. **Setup Authentication**
-   - Configure Git Gateway or GitHub OAuth
-   - See DECAP.md for detailed instructions
-
-2. **Test CMS Editing**
-   - Add/edit content through admin interface
-   - Verify changes commit to repository
-   - Check site rebuilds with new content
-
-3. **Customize Collections**
-   - Add more collections as needed
-   - Configure additional fields
-   - Add image upload capability
-
-4. **Implement Priority Test Enhancements**
+1. **Implement Priority Test Enhancements**
    - Start with accessibility testing
    - Add mobile responsive tests
    - Enable cross-browser testing
 
 ## Documentation
 
-- Full guide: [DECAP.md](./DECAP.md)
 - Quick start: [README.md](./README.md#content-management)
 - Test suite: [tests/README.md](./tests/README.md)
-- Decap CMS docs: https://decapcms.org/docs/
 - Playwright docs: https://playwright.dev/docs/intro
 
 ---
